@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2664B2161AE2B1CA00FA8054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2151AE2B1CA00FA8054 /* main.m */; };
+		2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2181AE2B1CA00FA8054 /* AppDelegate.m */; };
+		2664B21F1AE2B1CA00FA8054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2664B21D1AE2B1CA00FA8054 /* Main.storyboard */; };
+		2664B2211AE2B1CA00FA8054 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2664B2201AE2B1CA00FA8054 /* Images.xcassets */; };
+		2664B2241AE2B1CA00FA8054 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2664B2221AE2B1CA00FA8054 /* LaunchScreen.xib */; };
+		2664B2301AE2B1CA00FA8054 /* iBankTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B22F1AE2B1CA00FA8054 /* iBankTests.m */; };
+		2664B23E1AE2B33500FA8054 /* webService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B23D1AE2B33500FA8054 /* webService.m */; };
+		2664B2411AE2B65E00FA8054 /* wbConn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2401AE2B65E00FA8054 /* wbConn.m */; };
+		2664B2441AE2FFD000FA8054 /* loginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2431AE2FFD000FA8054 /* loginVC.m */; };
+		2664B2471AE300FA00FA8054 /* verifyImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2461AE300FA00FA8054 /* verifyImageService.m */; };
+		2664B24B1AE3263100FA8054 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B24A1AE3263100FA8054 /* Utility.m */; };
+		2664B24E1AE32D4800FA8054 /* mainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B24D1AE32D4800FA8054 /* mainVC.m */; };
+		2664B2511AE32FEA00FA8054 /* homeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2501AE32FEA00FA8054 /* homeVC.m */; };
+		2664B2541AE3301600FA8054 /* companyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2531AE3301600FA8054 /* companyVC.m */; };
+		2664B2571AE3302D00FA8054 /* bankVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2561AE3302D00FA8054 /* bankVC.m */; };
+		2664B25A1AE3304400FA8054 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2591AE3304400FA8054 /* settingVC.m */; };
+		26E440031AE4AF0300CDE8A7 /* loginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E440021AE4AF0300CDE8A7 /* loginService.m */; };
+		26E440061AE4AF9E00CDE8A7 /* dataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E440051AE4AF9E00CDE8A7 /* dataHelper.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2664B22A1AE2B1CA00FA8054 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2664B2081AE2B1CA00FA8054 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2664B20F1AE2B1CA00FA8054;
+			remoteInfo = iBank;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2664B2101AE2B1CA00FA8054 /* iBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2664B2141AE2B1CA00FA8054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2664B2151AE2B1CA00FA8054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2664B2171AE2B1CA00FA8054 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2664B2181AE2B1CA00FA8054 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2664B21E1AE2B1CA00FA8054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2664B2201AE2B1CA00FA8054 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2664B2231AE2B1CA00FA8054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2664B2291AE2B1CA00FA8054 /* iBankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2664B22E1AE2B1CA00FA8054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2664B22F1AE2B1CA00FA8054 /* iBankTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBankTests.m; sourceTree = "<group>"; };
+		2664B23C1AE2B33500FA8054 /* webService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webService.h; sourceTree = "<group>"; };
+		2664B23D1AE2B33500FA8054 /* webService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = webService.m; sourceTree = "<group>"; };
+		2664B23F1AE2B65E00FA8054 /* wbConn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wbConn.h; sourceTree = "<group>"; };
+		2664B2401AE2B65E00FA8054 /* wbConn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wbConn.m; sourceTree = "<group>"; };
+		2664B2421AE2FFD000FA8054 /* loginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginVC.h; sourceTree = "<group>"; };
+		2664B2431AE2FFD000FA8054 /* loginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginVC.m; sourceTree = "<group>"; };
+		2664B2451AE300FA00FA8054 /* verifyImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = verifyImageService.h; sourceTree = "<group>"; };
+		2664B2461AE300FA00FA8054 /* verifyImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = verifyImageService.m; sourceTree = "<group>"; };
+		2664B2491AE3263100FA8054 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		2664B24A1AE3263100FA8054 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		2664B24C1AE32D4800FA8054 /* mainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainVC.h; sourceTree = "<group>"; };
+		2664B24D1AE32D4800FA8054 /* mainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainVC.m; sourceTree = "<group>"; };
+		2664B24F1AE32FEA00FA8054 /* homeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeVC.h; sourceTree = "<group>"; };
+		2664B2501AE32FEA00FA8054 /* homeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeVC.m; sourceTree = "<group>"; };
+		2664B2521AE3301600FA8054 /* companyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = companyVC.h; sourceTree = "<group>"; };
+		2664B2531AE3301600FA8054 /* companyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = companyVC.m; sourceTree = "<group>"; };
+		2664B2551AE3302D00FA8054 /* bankVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bankVC.h; sourceTree = "<group>"; };
+		2664B2561AE3302D00FA8054 /* bankVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bankVC.m; sourceTree = "<group>"; };
+		2664B2581AE3304400FA8054 /* settingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingVC.h; sourceTree = "<group>"; };
+		2664B2591AE3304400FA8054 /* settingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingVC.m; sourceTree = "<group>"; };
+		26E440011AE4AF0300CDE8A7 /* loginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginService.h; sourceTree = "<group>"; };
+		26E440021AE4AF0300CDE8A7 /* loginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginService.m; sourceTree = "<group>"; };
+		26E440041AE4AF9E00CDE8A7 /* dataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataHelper.h; sourceTree = "<group>"; };
+		26E440051AE4AF9E00CDE8A7 /* dataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataHelper.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2664B20D1AE2B1CA00FA8054 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2664B2261AE2B1CA00FA8054 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2664B2071AE2B1CA00FA8054 = {
+			isa = PBXGroup;
+			children = (
+				2664B2121AE2B1CA00FA8054 /* iBank */,
+				2664B22C1AE2B1CA00FA8054 /* iBankTests */,
+				2664B2111AE2B1CA00FA8054 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2664B2111AE2B1CA00FA8054 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2664B2101AE2B1CA00FA8054 /* iBank.app */,
+				2664B2291AE2B1CA00FA8054 /* iBankTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2664B2121AE2B1CA00FA8054 /* iBank */ = {
+			isa = PBXGroup;
+			children = (
+				2664B2481AE31A6800FA8054 /* utilities */,
+				2664B2391AE2B2C200FA8054 /* image */,
+				2664B23A1AE2B2C200FA8054 /* model */,
+				2664B23B1AE2B2C200FA8054 /* view */,
+				2664B2171AE2B1CA00FA8054 /* AppDelegate.h */,
+				2664B2181AE2B1CA00FA8054 /* AppDelegate.m */,
+				2664B21D1AE2B1CA00FA8054 /* Main.storyboard */,
+				2664B2201AE2B1CA00FA8054 /* Images.xcassets */,
+				2664B2221AE2B1CA00FA8054 /* LaunchScreen.xib */,
+				2664B2131AE2B1CA00FA8054 /* Supporting Files */,
+			);
+			path = iBank;
+			sourceTree = "<group>";
+		};
+		2664B2131AE2B1CA00FA8054 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2664B2141AE2B1CA00FA8054 /* Info.plist */,
+				2664B2151AE2B1CA00FA8054 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2664B22C1AE2B1CA00FA8054 /* iBankTests */ = {
+			isa = PBXGroup;
+			children = (
+				2664B22F1AE2B1CA00FA8054 /* iBankTests.m */,
+				2664B22D1AE2B1CA00FA8054 /* Supporting Files */,
+			);
+			path = iBankTests;
+			sourceTree = "<group>";
+		};
+		2664B22D1AE2B1CA00FA8054 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2664B22E1AE2B1CA00FA8054 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2664B2391AE2B2C200FA8054 /* image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		2664B23A1AE2B2C200FA8054 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				2664B23C1AE2B33500FA8054 /* webService.h */,
+				2664B23D1AE2B33500FA8054 /* webService.m */,
+				2664B23F1AE2B65E00FA8054 /* wbConn.h */,
+				2664B2401AE2B65E00FA8054 /* wbConn.m */,
+				2664B2451AE300FA00FA8054 /* verifyImageService.h */,
+				2664B2461AE300FA00FA8054 /* verifyImageService.m */,
+				26E440011AE4AF0300CDE8A7 /* loginService.h */,
+				26E440021AE4AF0300CDE8A7 /* loginService.m */,
+				26E440041AE4AF9E00CDE8A7 /* dataHelper.h */,
+				26E440051AE4AF9E00CDE8A7 /* dataHelper.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		2664B23B1AE2B2C200FA8054 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				2664B2421AE2FFD000FA8054 /* loginVC.h */,
+				2664B2431AE2FFD000FA8054 /* loginVC.m */,
+				2664B24C1AE32D4800FA8054 /* mainVC.h */,
+				2664B24D1AE32D4800FA8054 /* mainVC.m */,
+				2664B24F1AE32FEA00FA8054 /* homeVC.h */,
+				2664B2501AE32FEA00FA8054 /* homeVC.m */,
+				2664B2521AE3301600FA8054 /* companyVC.h */,
+				2664B2531AE3301600FA8054 /* companyVC.m */,
+				2664B2551AE3302D00FA8054 /* bankVC.h */,
+				2664B2561AE3302D00FA8054 /* bankVC.m */,
+				2664B2581AE3304400FA8054 /* settingVC.h */,
+				2664B2591AE3304400FA8054 /* settingVC.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		2664B2481AE31A6800FA8054 /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2664B2491AE3263100FA8054 /* Utility.h */,
+				2664B24A1AE3263100FA8054 /* Utility.m */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2664B20F1AE2B1CA00FA8054 /* iBank */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2664B2331AE2B1CA00FA8054 /* Build configuration list for PBXNativeTarget "iBank" */;
+			buildPhases = (
+				2664B20C1AE2B1CA00FA8054 /* Sources */,
+				2664B20D1AE2B1CA00FA8054 /* Frameworks */,
+				2664B20E1AE2B1CA00FA8054 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iBank;
+			productName = iBank;
+			productReference = 2664B2101AE2B1CA00FA8054 /* iBank.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2664B2281AE2B1CA00FA8054 /* iBankTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2664B2361AE2B1CA00FA8054 /* Build configuration list for PBXNativeTarget "iBankTests" */;
+			buildPhases = (
+				2664B2251AE2B1CA00FA8054 /* Sources */,
+				2664B2261AE2B1CA00FA8054 /* Frameworks */,
+				2664B2271AE2B1CA00FA8054 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2664B22B1AE2B1CA00FA8054 /* PBXTargetDependency */,
+			);
+			name = iBankTests;
+			productName = iBankTests;
+			productReference = 2664B2291AE2B1CA00FA8054 /* iBankTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2664B2081AE2B1CA00FA8054 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = McKee;
+				TargetAttributes = {
+					2664B20F1AE2B1CA00FA8054 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					2664B2281AE2B1CA00FA8054 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 2664B20F1AE2B1CA00FA8054;
+					};
+				};
+			};
+			buildConfigurationList = 2664B20B1AE2B1CA00FA8054 /* Build configuration list for PBXProject "iBank" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2664B2071AE2B1CA00FA8054;
+			productRefGroup = 2664B2111AE2B1CA00FA8054 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2664B20F1AE2B1CA00FA8054 /* iBank */,
+				2664B2281AE2B1CA00FA8054 /* iBankTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2664B20E1AE2B1CA00FA8054 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2664B21F1AE2B1CA00FA8054 /* Main.storyboard in Resources */,
+				2664B2241AE2B1CA00FA8054 /* LaunchScreen.xib in Resources */,
+				2664B2211AE2B1CA00FA8054 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2664B2271AE2B1CA00FA8054 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2664B20C1AE2B1CA00FA8054 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2664B24B1AE3263100FA8054 /* Utility.m in Sources */,
+				2664B2411AE2B65E00FA8054 /* wbConn.m in Sources */,
+				2664B25A1AE3304400FA8054 /* settingVC.m in Sources */,
+				2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */,
+				26E440031AE4AF0300CDE8A7 /* loginService.m in Sources */,
+				2664B23E1AE2B33500FA8054 /* webService.m in Sources */,
+				2664B24E1AE32D4800FA8054 /* mainVC.m in Sources */,
+				2664B2441AE2FFD000FA8054 /* loginVC.m in Sources */,
+				2664B2511AE32FEA00FA8054 /* homeVC.m in Sources */,
+				26E440061AE4AF9E00CDE8A7 /* dataHelper.m in Sources */,
+				2664B2571AE3302D00FA8054 /* bankVC.m in Sources */,
+				2664B2161AE2B1CA00FA8054 /* main.m in Sources */,
+				2664B2541AE3301600FA8054 /* companyVC.m in Sources */,
+				2664B2471AE300FA00FA8054 /* verifyImageService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2664B2251AE2B1CA00FA8054 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2664B2301AE2B1CA00FA8054 /* iBankTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2664B22B1AE2B1CA00FA8054 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2664B20F1AE2B1CA00FA8054 /* iBank */;
+			targetProxy = 2664B22A1AE2B1CA00FA8054 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2664B21D1AE2B1CA00FA8054 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2664B21E1AE2B1CA00FA8054 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2664B2221AE2B1CA00FA8054 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2664B2231AE2B1CA00FA8054 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2664B2311AE2B1CA00FA8054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		2664B2321AE2B1CA00FA8054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2664B2341AE2B1CA00FA8054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = iBank/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2664B2351AE2B1CA00FA8054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = iBank/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2664B2371AE2B1CA00FA8054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = iBankTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iBank.app/iBank";
+			};
+			name = Debug;
+		};
+		2664B2381AE2B1CA00FA8054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = iBankTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iBank.app/iBank";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2664B20B1AE2B1CA00FA8054 /* Build configuration list for PBXProject "iBank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2664B2311AE2B1CA00FA8054 /* Debug */,
+				2664B2321AE2B1CA00FA8054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2664B2331AE2B1CA00FA8054 /* Build configuration list for PBXNativeTarget "iBank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2664B2341AE2B1CA00FA8054 /* Debug */,
+				2664B2351AE2B1CA00FA8054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2664B2361AE2B1CA00FA8054 /* Build configuration list for PBXNativeTarget "iBankTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2664B2371AE2B1CA00FA8054 /* Debug */,
+				2664B2381AE2B1CA00FA8054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2664B2081AE2B1CA00FA8054 /* Project object */;
+}
