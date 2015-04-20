@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0866E5981AE47E5300F17A31 /* logoutService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5971AE47E5300F17A31 /* logoutService.m */; };
 		2664B2161AE2B1CA00FA8054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2151AE2B1CA00FA8054 /* main.m */; };
 		2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2181AE2B1CA00FA8054 /* AppDelegate.m */; };
 		2664B21F1AE2B1CA00FA8054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2664B21D1AE2B1CA00FA8054 /* Main.storyboard */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0866E5961AE47E5300F17A31 /* logoutService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logoutService.h; sourceTree = "<group>"; };
+		0866E5971AE47E5300F17A31 /* logoutService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logoutService.m; sourceTree = "<group>"; };
 		2664B2101AE2B1CA00FA8054 /* iBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2664B2141AE2B1CA00FA8054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2664B2151AE2B1CA00FA8054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 				26E440021AE4AF0300CDE8A7 /* loginService.m */,
 				26E440041AE4AF9E00CDE8A7 /* dataHelper.h */,
 				26E440051AE4AF9E00CDE8A7 /* dataHelper.m */,
+				0866E5961AE47E5300F17A31 /* logoutService.h */,
+				0866E5971AE47E5300F17A31 /* logoutService.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				2664B23E1AE2B33500FA8054 /* webService.m in Sources */,
 				2664B24E1AE32D4800FA8054 /* mainVC.m in Sources */,
 				2664B2441AE2FFD000FA8054 /* loginVC.m in Sources */,
+				0866E5981AE47E5300F17A31 /* logoutService.m in Sources */,
 				2664B2511AE32FEA00FA8054 /* homeVC.m in Sources */,
 				26E440061AE4AF9E00CDE8A7 /* dataHelper.m in Sources */,
 				2664B2571AE3302D00FA8054 /* bankVC.m in Sources */,

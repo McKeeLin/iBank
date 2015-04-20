@@ -14,6 +14,11 @@
 
 @property NSString *sessionid;
 
+@property NSString *dev;
+
+@property NSString *ip;
+
+
 + (instancetype)helper;
 
 @end

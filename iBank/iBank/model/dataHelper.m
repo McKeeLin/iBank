@@ -25,6 +25,8 @@
     self = [super init];
     if( self ){
         self.host = @"http://222.49.117.9";
+        self.dev = @"mypad";
+        self.ip = @"192.168.10.1";
     }
     return self;
 }

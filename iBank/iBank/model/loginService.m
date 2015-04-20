@@ -19,9 +19,7 @@
         self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
         self.soapAction = @"urn:AuthControllerwsdl/SignIn";
         self.ctp = @"2";
-        self.dev = @"myiPad";
         self.os = @"iOS";
-        self.ip = @"192.168.10.1";
     }
     return self;
 }
@@ -36,8 +34,8 @@
     [soapBody appendFormat:@"<vcode xsi:type=\"xsd:string\">%@</vcode>", self.vcode];
     [soapBody appendFormat:@"<ctp xsi:type=\"xsd:integer\">%@</ctp>", self.ctp];
     [soapBody appendFormat:@"<os xsi:type=\"xsd:string\">%@</os>", self.os];
-    [soapBody appendFormat:@"<dev xsi:type=\"xsd:string\">%@</dev>", self.dev];
-    [soapBody appendFormat:@"<ip xsi:type=\"xsd:string\">%@</ip>", self.ip];
+    [soapBody appendFormat:@"<dev xsi:type=\"xsd:string\">%@</dev>", [dataHelper helper].dev];
+    [soapBody appendFormat:@"<ip xsi:type=\"xsd:string\">%@</ip>", [dataHelper helper].ip];
     [soapBody appendString:@"</SignIn>"];
     self.soapBody = soapBody;
     [super request];
@@ -45,12 +43,24 @@
 
 - (void)parseResult:(NSString *)result
 {
-    ;
+    NSString *code;
+    NSString *data;
+    if( result ){
+        NSDictionary *dict = [Utility dictionaryWithJsonString:result];
+        code = [dict objectForKey:@"result"];
+        data = [dict objectForKey:@"data"];
+    }
+    if( self.loginBlock ){
+        self.loginBlock( code, data );
+    }
 }
 
 - (void)onError:(NSString *)error
 {
-    ;
+    if( self.loginBlock )
+    {
+        self.loginBlock( 0, error );
+    }
 }
 
 @end

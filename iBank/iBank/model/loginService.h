@@ -24,9 +24,6 @@ typedef void (^LOGIN_BLOCK) (NSString *code, NSString *data);
 
 @property NSString *os;
 
-@property NSString *dev;
-
-@property NSString *ip;
 
 @property (strong) LOGIN_BLOCK loginBlock;
 

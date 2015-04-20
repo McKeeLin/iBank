@@ -9,6 +9,7 @@
 #import "loginVC.h"
 #import "verifyImageService.h"
 #import "loginService.h"
+#import "dataHelper.h"
 
 
 @interface loginVC ()
@@ -74,6 +75,11 @@
     service.pcode = _passwordTextField.text;
     service.vcode = _codeTextField.text;
     service.qid = _imageSN;
+    service.loginBlock = ^(NSString *code, NSString *data){
+        if( [code isEqualToString:@"1"] ){
+            [dataHelper helper].sessionid = data;
+        }
+    };
     [service request];
 }
 
