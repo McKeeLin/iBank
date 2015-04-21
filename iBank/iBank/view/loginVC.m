@@ -10,6 +10,9 @@
 #import "verifyImageService.h"
 #import "loginService.h"
 #import "dataHelper.h"
+#import "logoutService.h"
+#import "keepAliveService.h"
+#import "newMsgService.h"
 
 
 @interface loginVC ()
@@ -53,6 +56,7 @@
         if( code == 1 ){
             [dataHelper helper].sessionid = data;
         }
+        [dataHelper helper].sessionid = @"3c5d37d-e59b-4dba-804d-3126d6d844ac";
     };
 }
 
@@ -83,6 +87,24 @@
     _loginSrv.vcode = _codeTextField.text;
     _loginSrv.qid = _imageSN;
     [_loginSrv request];
+}
+
+- (IBAction)onTouchLogout:(id)sender
+{
+    logoutService *logoutSrv = [[logoutService alloc] init];
+    [logoutSrv request];
+}
+
+- (IBAction)onTouchKeepAlive:(id)sender
+{
+    keepAliveService *keepAliveSrv = [[keepAliveService alloc] init];
+    [keepAliveSrv request];
+}
+
+- (IBAction)onTouchNewMsg:(id)sender
+{
+    newMsgService *newMsgSrv = [[newMsgService alloc] init];
+    [newMsgSrv request];
 }
 
 @end
