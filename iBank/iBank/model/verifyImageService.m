@@ -8,6 +8,7 @@
 
 #import "verifyImageService.h"
 #import "Utility.h"
+#import "dataHelper.h"
 
 @implementation verifyImageService
 
@@ -15,7 +16,7 @@
 {
     self = [super init];
     if( self ){
-        self.url = @"http://222.49.117.9/ibankbizdev/index.php/ibankbiz/auth/api?ws=1";
+        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
         self.soapAction = @"urn:AuthControllerwsdl/reqVerifyMsg";
         self.soapBody = @"<reqVerifyMsg xmlns=\"urn:AuthControllerwsdl\"></reqVerifyMsg>";
     }

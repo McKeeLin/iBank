@@ -71,7 +71,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     [_datas setLength:0];
-    NSLog(@"%s", __func__);
+    NSLog(@"%s,url:\n%@", __func__, self.url);
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data

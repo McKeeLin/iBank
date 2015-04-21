@@ -8,7 +8,7 @@
 
 #import "wbConn.h"
 
-typedef void (^LOGIN_BLOCK) (NSString *code, NSString *data);
+typedef void (^LOGIN_BLOCK) (NSInteger code, NSString *data);
 
 @interface loginService : wbConn
 

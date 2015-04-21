@@ -15,6 +15,7 @@
 @interface loginVC ()
 {
     verifyImageService *_vImgSrv;
+    loginService *_loginSrv;
     IBOutlet UIImageView *_codeImageView;
     IBOutlet UITextField *_accountTextField;
     IBOutlet UITextField *_passwordTextField;
@@ -46,6 +47,13 @@
         weakImageView.image = image;
         weakSelf.imageSN = code;
     };
+    
+    _loginSrv = [[loginService alloc] init];
+    _loginSrv.loginBlock = ^(NSInteger code, NSString *data){
+        if( code == 1 ){
+            [dataHelper helper].sessionid = data;
+        }
+    };
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,17 +78,11 @@
 
 - (IBAction)onTouchLogin:(id)sender
 {
-    loginService *service = [[loginService alloc] init];
-    service.uid = _accountTextField.text;
-    service.pcode = _passwordTextField.text;
-    service.vcode = _codeTextField.text;
-    service.qid = _imageSN;
-    service.loginBlock = ^(NSString *code, NSString *data){
-        if( [code isEqualToString:@"1"] ){
-            [dataHelper helper].sessionid = data;
-        }
-    };
-    [service request];
+    _loginSrv.uid = _accountTextField.text;
+    _loginSrv.pcode = _passwordTextField.text;
+    _loginSrv.vcode = _codeTextField.text;
+    _loginSrv.qid = _imageSN;
+    [_loginSrv request];
 }
 
 @end
