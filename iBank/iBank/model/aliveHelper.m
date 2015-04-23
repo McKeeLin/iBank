@@ -17,6 +17,8 @@
     keepAliveService *_keepAliveSrv;
 }
 
+@property BOOL returned;
+
 @end
 
 @implementation aliveHelper
@@ -35,9 +37,22 @@
 {
     self = [super init];
     if( self ){
+        _returned = YES;
+        __weak aliveHelper *weakSelf = self;
         _keepAliveSrv = [[keepAliveService alloc] init];
         _keepAliveSrv.keepAliveBlock = ^(NSInteger code, NSString *data){
-            ;
+            if( code == 0 ){
+                // 成功
+                ;
+            }
+            else{
+                // -1:未知类型错误
+                // -1001:参数无效
+                // -1201:用户会话不存在
+                // -1202:用户会话过期
+                ;
+            }
+            weakSelf.returned = YES;
         };
     }
     return self;
@@ -59,7 +74,9 @@
 
 - (void)onTimer:(NSTimer*)timer
 {
-    ;
+    NSLog(@"%s", __func__);
+    if( !_returned ) return;
+    [_keepAliveSrv request];
 }
 
 
