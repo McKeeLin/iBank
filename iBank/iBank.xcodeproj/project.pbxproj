@@ -10,6 +10,7 @@
 		0866E0D61AE5C9F200435CD5 /* keepAliveService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0866E0D51AE5C9F200435CD5 /* keepAliveService.m */; };
 		0866E0D91AE5CD3100435CD5 /* newMsgService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0866E0D81AE5CD3100435CD5 /* newMsgService.m */; };
 		0866E5981AE47E5300F17A31 /* logoutService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5971AE47E5300F17A31 /* logoutService.m */; };
+		2648CA861AE7587400B06DBA /* aliveHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648CA851AE7587400B06DBA /* aliveHelper.m */; };
 		2664B2161AE2B1CA00FA8054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2151AE2B1CA00FA8054 /* main.m */; };
 		2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2181AE2B1CA00FA8054 /* AppDelegate.m */; };
 		2664B21F1AE2B1CA00FA8054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2664B21D1AE2B1CA00FA8054 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		2664B2541AE3301600FA8054 /* companyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2531AE3301600FA8054 /* companyVC.m */; };
 		2664B2571AE3302D00FA8054 /* bankVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2561AE3302D00FA8054 /* bankVC.m */; };
 		2664B25A1AE3304400FA8054 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2591AE3304400FA8054 /* settingVC.m */; };
+		26D53EA81AE8A19500A1A33D /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D53EA71AE8A19500A1A33D /* UICKeyChainStore.m */; };
 		26E440031AE4AF0300CDE8A7 /* loginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E440021AE4AF0300CDE8A7 /* loginService.m */; };
 		26E440061AE4AF9E00CDE8A7 /* dataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E440051AE4AF9E00CDE8A7 /* dataHelper.m */; };
 /* End PBXBuildFile section */
@@ -47,6 +49,8 @@
 		0866E0D81AE5CD3100435CD5 /* newMsgService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newMsgService.m; sourceTree = "<group>"; };
 		0866E5961AE47E5300F17A31 /* logoutService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logoutService.h; sourceTree = "<group>"; };
 		0866E5971AE47E5300F17A31 /* logoutService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logoutService.m; sourceTree = "<group>"; };
+		2648CA841AE7587400B06DBA /* aliveHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aliveHelper.h; sourceTree = "<group>"; };
+		2648CA851AE7587400B06DBA /* aliveHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aliveHelper.m; sourceTree = "<group>"; };
 		2664B2101AE2B1CA00FA8054 /* iBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2664B2141AE2B1CA00FA8054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2664B2151AE2B1CA00FA8054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 		2664B2561AE3302D00FA8054 /* bankVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bankVC.m; sourceTree = "<group>"; };
 		2664B2581AE3304400FA8054 /* settingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingVC.h; sourceTree = "<group>"; };
 		2664B2591AE3304400FA8054 /* settingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingVC.m; sourceTree = "<group>"; };
+		26D53EA61AE8A19500A1A33D /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
+		26D53EA71AE8A19500A1A33D /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		26E440011AE4AF0300CDE8A7 /* loginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginService.h; sourceTree = "<group>"; };
 		26E440021AE4AF0300CDE8A7 /* loginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginService.m; sourceTree = "<group>"; };
 		26E440041AE4AF9E00CDE8A7 /* dataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataHelper.h; sourceTree = "<group>"; };
@@ -189,6 +195,8 @@
 				0866E0D51AE5C9F200435CD5 /* keepAliveService.m */,
 				0866E0D71AE5CD3100435CD5 /* newMsgService.h */,
 				0866E0D81AE5CD3100435CD5 /* newMsgService.m */,
+				2648CA841AE7587400B06DBA /* aliveHelper.h */,
+				2648CA851AE7587400B06DBA /* aliveHelper.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -215,6 +223,8 @@
 		2664B2481AE31A6800FA8054 /* utilities */ = {
 			isa = PBXGroup;
 			children = (
+				26D53EA61AE8A19500A1A33D /* UICKeyChainStore.h */,
+				26D53EA71AE8A19500A1A33D /* UICKeyChainStore.m */,
 				2664B2491AE3263100FA8054 /* Utility.h */,
 				2664B24A1AE3263100FA8054 /* Utility.m */,
 			);
@@ -323,6 +333,7 @@
 			files = (
 				2664B24B1AE3263100FA8054 /* Utility.m in Sources */,
 				2664B2411AE2B65E00FA8054 /* wbConn.m in Sources */,
+				26D53EA81AE8A19500A1A33D /* UICKeyChainStore.m in Sources */,
 				2664B25A1AE3304400FA8054 /* settingVC.m in Sources */,
 				2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */,
 				0866E0D61AE5C9F200435CD5 /* keepAliveService.m in Sources */,
@@ -332,6 +343,7 @@
 				0866E0D91AE5CD3100435CD5 /* newMsgService.m in Sources */,
 				2664B2441AE2FFD000FA8054 /* loginVC.m in Sources */,
 				0866E5981AE47E5300F17A31 /* logoutService.m in Sources */,
+				2648CA861AE7587400B06DBA /* aliveHelper.m in Sources */,
 				2664B2511AE32FEA00FA8054 /* homeVC.m in Sources */,
 				26E440061AE4AF9E00CDE8A7 /* dataHelper.m in Sources */,
 				2664B2571AE3302D00FA8054 /* bankVC.m in Sources */,

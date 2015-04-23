@@ -7,6 +7,10 @@
 
 #import "wbConn.h"
 
+typedef void(^KEEP_ALIVE_BLOCK) (NSInteger code, NSString *data);
+
 @interface keepAliveService : wbConn
+
+@property (strong) KEEP_ALIVE_BLOCK keepAliveBlock;
 
 @end

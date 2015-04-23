@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface dataHelper : NSObject
 
@@ -18,7 +19,15 @@
 
 @property NSString *ip;
 
+@property NSString *os;
+
+@property NSString *savedAccount;
+
+@property NSString *savedPassword;
+
 
 + (instancetype)helper;
+
+- (void)clearSavedAccount;
 
 @end

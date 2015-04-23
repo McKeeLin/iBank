@@ -7,6 +7,7 @@
 //
 
 #import "dataHelper.h"
+#import "UICKeyChainStore.h"
 
 @implementation dataHelper
 
@@ -25,10 +26,37 @@
     self = [super init];
     if( self ){
         self.host = @"http://222.49.117.9";
-        self.dev = @"mypad";
-        self.ip = @"192.168.10.1";
+        self.dev = [UIDevice currentDevice].name;
+        self.os = [NSString stringWithFormat:@"%@%@", [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
+        self.ip = @"192.168.10.100";
     }
     return self;
+}
+
+- (NSString*)savedAccount
+{
+    return [UICKeyChainStore stringForKey:@"IBANK_SAVED_ACCOUNT" service:@"IBANK"];
+}
+
+- (void)setSavedAccount:(NSString *)savedAccount
+{
+    [UICKeyChainStore setString:savedAccount forKey:@"IBANK_SAVED_ACCOUNT" service:@"IBANK"];
+}
+
+- (NSString*)savedPassword
+{
+    return [UICKeyChainStore stringForKey:@"IBANK_SAVED_PASSWORD" service:@"IBANK"];
+}
+
+- (void)setSavedPassword:(NSString *)savedPassword
+{
+    [UICKeyChainStore setString:savedPassword forKey:@"IBANK_SAVED_PASSWORD" service:@"IBANK"];
+}
+
+- (void)clearSavedAccount
+{
+    [UICKeyChainStore removeItemForKey:@"IBANK_SAVED_ACCOUNT" service:@"IBANK"];
+    [UICKeyChainStore removeItemForKey:@"IBANK_SAVED_PASSWORD" service:@"IBANK"];
 }
 
 @end
