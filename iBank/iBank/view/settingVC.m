@@ -14,6 +14,13 @@
 
 @implementation settingVC
 
++ (instancetype)viewController
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    settingVC * vc = [storyBoard  instantiateViewControllerWithIdentifier:@"settingVC"];
+    return vc;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

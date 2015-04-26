@@ -42,7 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.navigationController.navigationBarHidden = YES;
     __weak UIImageView *weakImageView = _codeImageView;
     __weak loginVC *weakSelf = self;
     _vImgSrv = [[verifyImageService alloc] init];

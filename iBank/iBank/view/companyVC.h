@@ -10,4 +10,6 @@
 
 @interface companyVC : UIViewController
 
++ (instancetype)viewController;
+
 @end

@@ -14,6 +14,15 @@
 
 @implementation bankVC
 
+
++ (instancetype)viewController
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    bankVC * vc = [storyBoard  instantiateViewControllerWithIdentifier:@"bankVC"];
+    return vc;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

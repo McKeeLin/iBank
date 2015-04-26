@@ -10,4 +10,6 @@
 
 @interface bankVC : UIViewController
 
++ (instancetype)viewController;
+
 @end

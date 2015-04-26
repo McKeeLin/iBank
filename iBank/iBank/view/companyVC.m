@@ -14,6 +14,15 @@
 
 @implementation companyVC
 
+
++ (instancetype)viewController
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    companyVC * vc = [storyBoard  instantiateViewControllerWithIdentifier:@"companyVC"];
+    return vc;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

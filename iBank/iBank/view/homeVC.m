@@ -14,6 +14,13 @@
 
 @implementation homeVC
 
++ (instancetype)viewController
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    homeVC * vc = [storyBoard  instantiateViewControllerWithIdentifier:@"homeVC"];
+    return vc;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

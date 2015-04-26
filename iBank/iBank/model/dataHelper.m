@@ -29,6 +29,7 @@
         self.dev = [UIDevice currentDevice].name;
         self.os = [NSString stringWithFormat:@"%@%@", [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
         self.ip = @"192.168.10.100";
+        self.sn = @"S/N: 23135-2135-292198-0283";
     }
     return self;
 }

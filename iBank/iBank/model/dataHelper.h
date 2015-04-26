@@ -25,6 +25,8 @@
 
 @property NSString *savedPassword;
 
+@property NSString *sn;
+
 
 + (instancetype)helper;
 

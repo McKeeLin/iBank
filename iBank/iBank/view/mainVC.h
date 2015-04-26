@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "THSegmentedPager.h"
 
-@interface mainVC : UIViewController
+@interface mainVC : THSegmentedPager
 
 @end

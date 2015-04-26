@@ -10,4 +10,6 @@
 
 @interface homeVC : UIViewController
 
++ (instancetype)viewController;
+
 @end

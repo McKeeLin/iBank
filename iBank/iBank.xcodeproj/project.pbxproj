@@ -27,7 +27,60 @@
 		2664B2541AE3301600FA8054 /* companyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2531AE3301600FA8054 /* companyVC.m */; };
 		2664B2571AE3302D00FA8054 /* bankVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2561AE3302D00FA8054 /* bankVC.m */; };
 		2664B25A1AE3304400FA8054 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2591AE3304400FA8054 /* settingVC.m */; };
+		2678F2451AED393D001A0596 /* aboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678F2441AED393D001A0596 /* aboutVC.m */; };
+		2678F2471AED4EB3001A0596 /* szLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2678F2461AED4EB3001A0596 /* szLogo.png */; };
+		2678F24A1AED50E1001A0596 /* msyh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2678F2491AED50E1001A0596 /* msyh.ttf */; };
 		26D53EA81AE8A19500A1A33D /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D53EA71AE8A19500A1A33D /* UICKeyChainStore.m */; };
+		26D53EE21AEB491A00A1A33D /* 刷新认证码-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAA1AEB491A00A1A33D /* 刷新认证码-标准状态.png */; };
+		26D53EE31AEB491A00A1A33D /* 刷新认证码-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAB1AEB491A00A1A33D /* 刷新认证码-选中状态.png */; };
+		26D53EE41AEB491A00A1A33D /* 帮助按钮-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAC1AEB491A00A1A33D /* 帮助按钮-标准状态.png */; };
+		26D53EE51AEB491A00A1A33D /* 帮助按钮-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAD1AEB491A00A1A33D /* 帮助按钮-选中状态.png */; };
+		26D53EE61AEB491A00A1A33D /* 登录按钮-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAE1AEB491A00A1A33D /* 登录按钮-标准状态.png */; };
+		26D53EE71AEB491A00A1A33D /* 登录按钮-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAF1AEB491A00A1A33D /* 登录按钮-选中状态.png */; };
+		26D53EE81AEB491A00A1A33D /* 登录框.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB01AEB491A00A1A33D /* 登录框.png */; };
+		26D53EE91AEB491A00A1A33D /* 登录背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB11AEB491A00A1A33D /* 登录背景.png */; };
+		26D53EEA1AEB491A00A1A33D /* 认证码背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB21AEB491A00A1A33D /* 认证码背景.png */; };
+		26D53EEB1AEB491A00A1A33D /* 设置-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB31AEB491A00A1A33D /* 设置-标准状态.png */; };
+		26D53EEC1AEB491A00A1A33D /* 设置-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB41AEB491A00A1A33D /* 设置-选中状态.png */; };
+		26D53EED1AEB491A00A1A33D /* 输入框01.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB51AEB491A00A1A33D /* 输入框01.png */; };
+		26D53EEE1AEB491A00A1A33D /* 输入框02.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB61AEB491A00A1A33D /* 输入框02.png */; };
+		26D53EEF1AEB491A00A1A33D /* 公司-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB81AEB491A00A1A33D /* 公司-标准状态.png */; };
+		26D53EF01AEB491A00A1A33D /* 公司-经过，选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB91AEB491A00A1A33D /* 公司-经过，选中状态.png */; };
+		26D53EF11AEB491A00A1A33D /* 关于-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EBA1AEB491A00A1A33D /* 关于-标准状态.png */; };
+		26D53EF21AEB491A00A1A33D /* 关于-经过，选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EBB1AEB491A00A1A33D /* 关于-经过，选中状态.png */; };
+		26D53EF31AEB491A00A1A33D /* 动态-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EBC1AEB491A00A1A33D /* 动态-标准状态.png */; };
+		26D53EF41AEB491A00A1A33D /* 动态-经过，选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EBD1AEB491A00A1A33D /* 动态-经过，选中状态.png */; };
+		26D53EF51AEB491A00A1A33D /* 背景01.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EBE1AEB491A00A1A33D /* 背景01.png */; };
+		26D53EF61AEB491A00A1A33D /* 背景02.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EBF1AEB491A00A1A33D /* 背景02.png */; };
+		26D53EF71AEB491A00A1A33D /* 背景03.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EC01AEB491A00A1A33D /* 背景03.png */; };
+		26D53EF81AEB491A00A1A33D /* 设置-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EC11AEB491A00A1A33D /* 设置-标准状态.png */; };
+		26D53EF91AEB491A00A1A33D /* 设置-经过，选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EC21AEB491A00A1A33D /* 设置-经过，选中状态.png */; };
+		26D53EFA1AEB491A00A1A33D /* 银行-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EC31AEB491A00A1A33D /* 银行-标准状态.png */; };
+		26D53EFB1AEB491A00A1A33D /* 银行-经过，选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EC41AEB491A00A1A33D /* 银行-经过，选中状态.png */; };
+		26D53EFC1AEB491A00A1A33D /* 表格背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EC61AEB491A00A1A33D /* 表格背景.png */; };
+		26D53EFD1AEB491A00A1A33D /* LOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EC81AEB491A00A1A33D /* LOGO.png */; };
+		26D53EFE1AEB491A00A1A33D /* 背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EC91AEB491A00A1A33D /* 背景.png */; };
+		26D53EFF1AEB491A00A1A33D /* 按钮-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ECB1AEB491A00A1A33D /* 按钮-标准状态.png */; };
+		26D53F001AEB491A00A1A33D /* 按钮-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ECC1AEB491A00A1A33D /* 按钮-选中状态.png */; };
+		26D53F011AEB491A00A1A33D /* 未选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ECD1AEB491A00A1A33D /* 未选中.png */; };
+		26D53F021AEB491A00A1A33D /* 标题栏.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ECE1AEB491A00A1A33D /* 标题栏.png */; };
+		26D53F031AEB491A00A1A33D /* 灰色-没选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ECF1AEB491A00A1A33D /* 灰色-没选中.png */; };
+		26D53F041AEB491A00A1A33D /* 灰色-选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ED01AEB491A00A1A33D /* 灰色-选中.png */; };
+		26D53F051AEB491A00A1A33D /* 设置背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ED11AEB491A00A1A33D /* 设置背景.png */; };
+		26D53F061AEB491A00A1A33D /* 输入框.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ED21AEB491A00A1A33D /* 输入框.png */; };
+		26D53F071AEB491A00A1A33D /* 输入框小.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ED31AEB491A00A1A33D /* 输入框小.png */; };
+		26D53F081AEB491A00A1A33D /* 选中.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ED41AEB491A00A1A33D /* 选中.png */; };
+		26D53F091AEB491A00A1A33D /* 银行-表格背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ED61AEB491A00A1A33D /* 银行-表格背景.png */; };
+		26D53F0A1AEB491A00A1A33D /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ED81AEB491A00A1A33D /* 01.png */; };
+		26D53F0B1AEB491A00A1A33D /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53ED91AEB491A00A1A33D /* 02.png */; };
+		26D53F0C1AEB491A00A1A33D /* 取消赞.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EDA1AEB491A00A1A33D /* 取消赞.png */; };
+		26D53F0D1AEB491A00A1A33D /* 明细背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EDB1AEB491A00A1A33D /* 明细背景.png */; };
+		26D53F0E1AEB491A00A1A33D /* 赞.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EDC1AEB491A00A1A33D /* 赞.png */; };
+		26D53F0F1AEB491A00A1A33D /* 顶部-背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EDD1AEB491A00A1A33D /* 顶部-背景.png */; };
+		26D53F101AEB491A00A1A33D /* loading-背景_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EE01AEB491A00A1A33D /* loading-背景_01.png */; };
+		26D53F111AEB491A00A1A33D /* loading-背景_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EE11AEB491A00A1A33D /* loading-背景_02.png */; };
+		26D53F1B1AEB5A6600A1A33D /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D53F171AEB5A6600A1A33D /* HMSegmentedControl.m */; };
+		26D53F1C1AEB5A6600A1A33D /* THSegmentedPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D53F191AEB5A6600A1A33D /* THSegmentedPager.m */; };
 		26E440031AE4AF0300CDE8A7 /* loginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E440021AE4AF0300CDE8A7 /* loginService.m */; };
 		26E440061AE4AF9E00CDE8A7 /* dataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E440051AE4AF9E00CDE8A7 /* dataHelper.m */; };
 /* End PBXBuildFile section */
@@ -82,8 +135,65 @@
 		2664B2561AE3302D00FA8054 /* bankVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bankVC.m; sourceTree = "<group>"; };
 		2664B2581AE3304400FA8054 /* settingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingVC.h; sourceTree = "<group>"; };
 		2664B2591AE3304400FA8054 /* settingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingVC.m; sourceTree = "<group>"; };
+		2678F2431AED393D001A0596 /* aboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutVC.h; sourceTree = "<group>"; };
+		2678F2441AED393D001A0596 /* aboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutVC.m; sourceTree = "<group>"; };
+		2678F2461AED4EB3001A0596 /* szLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = szLogo.png; sourceTree = "<group>"; };
+		2678F2491AED50E1001A0596 /* msyh.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = msyh.ttf; sourceTree = "<group>"; };
 		26D53EA61AE8A19500A1A33D /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		26D53EA71AE8A19500A1A33D /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
+		26D53EAA1AEB491A00A1A33D /* 刷新认证码-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "刷新认证码-标准状态.png"; sourceTree = "<group>"; };
+		26D53EAB1AEB491A00A1A33D /* 刷新认证码-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "刷新认证码-选中状态.png"; sourceTree = "<group>"; };
+		26D53EAC1AEB491A00A1A33D /* 帮助按钮-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "帮助按钮-标准状态.png"; sourceTree = "<group>"; };
+		26D53EAD1AEB491A00A1A33D /* 帮助按钮-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "帮助按钮-选中状态.png"; sourceTree = "<group>"; };
+		26D53EAE1AEB491A00A1A33D /* 登录按钮-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录按钮-标准状态.png"; sourceTree = "<group>"; };
+		26D53EAF1AEB491A00A1A33D /* 登录按钮-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录按钮-选中状态.png"; sourceTree = "<group>"; };
+		26D53EB01AEB491A00A1A33D /* 登录框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录框.png"; sourceTree = "<group>"; };
+		26D53EB11AEB491A00A1A33D /* 登录背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录背景.png"; sourceTree = "<group>"; };
+		26D53EB21AEB491A00A1A33D /* 认证码背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "认证码背景.png"; sourceTree = "<group>"; };
+		26D53EB31AEB491A00A1A33D /* 设置-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置-标准状态.png"; sourceTree = "<group>"; };
+		26D53EB41AEB491A00A1A33D /* 设置-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置-选中状态.png"; sourceTree = "<group>"; };
+		26D53EB51AEB491A00A1A33D /* 输入框01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框01.png"; sourceTree = "<group>"; };
+		26D53EB61AEB491A00A1A33D /* 输入框02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框02.png"; sourceTree = "<group>"; };
+		26D53EB81AEB491A00A1A33D /* 公司-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "公司-标准状态.png"; sourceTree = "<group>"; };
+		26D53EB91AEB491A00A1A33D /* 公司-经过，选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "公司-经过，选中状态.png"; sourceTree = "<group>"; };
+		26D53EBA1AEB491A00A1A33D /* 关于-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关于-标准状态.png"; sourceTree = "<group>"; };
+		26D53EBB1AEB491A00A1A33D /* 关于-经过，选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关于-经过，选中状态.png"; sourceTree = "<group>"; };
+		26D53EBC1AEB491A00A1A33D /* 动态-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "动态-标准状态.png"; sourceTree = "<group>"; };
+		26D53EBD1AEB491A00A1A33D /* 动态-经过，选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "动态-经过，选中状态.png"; sourceTree = "<group>"; };
+		26D53EBE1AEB491A00A1A33D /* 背景01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背景01.png"; sourceTree = "<group>"; };
+		26D53EBF1AEB491A00A1A33D /* 背景02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背景02.png"; sourceTree = "<group>"; };
+		26D53EC01AEB491A00A1A33D /* 背景03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背景03.png"; sourceTree = "<group>"; };
+		26D53EC11AEB491A00A1A33D /* 设置-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置-标准状态.png"; sourceTree = "<group>"; };
+		26D53EC21AEB491A00A1A33D /* 设置-经过，选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置-经过，选中状态.png"; sourceTree = "<group>"; };
+		26D53EC31AEB491A00A1A33D /* 银行-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "银行-标准状态.png"; sourceTree = "<group>"; };
+		26D53EC41AEB491A00A1A33D /* 银行-经过，选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "银行-经过，选中状态.png"; sourceTree = "<group>"; };
+		26D53EC61AEB491A00A1A33D /* 表格背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "表格背景.png"; sourceTree = "<group>"; };
+		26D53EC81AEB491A00A1A33D /* LOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOGO.png; sourceTree = "<group>"; };
+		26D53EC91AEB491A00A1A33D /* 背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背景.png"; sourceTree = "<group>"; };
+		26D53ECB1AEB491A00A1A33D /* 按钮-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按钮-标准状态.png"; sourceTree = "<group>"; };
+		26D53ECC1AEB491A00A1A33D /* 按钮-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按钮-选中状态.png"; sourceTree = "<group>"; };
+		26D53ECD1AEB491A00A1A33D /* 未选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "未选中.png"; sourceTree = "<group>"; };
+		26D53ECE1AEB491A00A1A33D /* 标题栏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "标题栏.png"; sourceTree = "<group>"; };
+		26D53ECF1AEB491A00A1A33D /* 灰色-没选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "灰色-没选中.png"; sourceTree = "<group>"; };
+		26D53ED01AEB491A00A1A33D /* 灰色-选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "灰色-选中.png"; sourceTree = "<group>"; };
+		26D53ED11AEB491A00A1A33D /* 设置背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置背景.png"; sourceTree = "<group>"; };
+		26D53ED21AEB491A00A1A33D /* 输入框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框.png"; sourceTree = "<group>"; };
+		26D53ED31AEB491A00A1A33D /* 输入框小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框小.png"; sourceTree = "<group>"; };
+		26D53ED41AEB491A00A1A33D /* 选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选中.png"; sourceTree = "<group>"; };
+		26D53ED61AEB491A00A1A33D /* 银行-表格背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "银行-表格背景.png"; sourceTree = "<group>"; };
+		26D53ED81AEB491A00A1A33D /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
+		26D53ED91AEB491A00A1A33D /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
+		26D53EDA1AEB491A00A1A33D /* 取消赞.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "取消赞.png"; sourceTree = "<group>"; };
+		26D53EDB1AEB491A00A1A33D /* 明细背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "明细背景.png"; sourceTree = "<group>"; };
+		26D53EDC1AEB491A00A1A33D /* 赞.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "赞.png"; sourceTree = "<group>"; };
+		26D53EDD1AEB491A00A1A33D /* 顶部-背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "顶部-背景.png"; sourceTree = "<group>"; };
+		26D53EE01AEB491A00A1A33D /* loading-背景_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading-背景_01.png"; sourceTree = "<group>"; };
+		26D53EE11AEB491A00A1A33D /* loading-背景_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading-背景_02.png"; sourceTree = "<group>"; };
+		26D53F161AEB5A6600A1A33D /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		26D53F171AEB5A6600A1A33D /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		26D53F181AEB5A6600A1A33D /* THSegmentedPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSegmentedPager.h; sourceTree = "<group>"; };
+		26D53F191AEB5A6600A1A33D /* THSegmentedPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSegmentedPager.m; sourceTree = "<group>"; };
+		26D53F1A1AEB5A6600A1A33D /* THSegmentedPageViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSegmentedPageViewControllerDelegate.h; sourceTree = "<group>"; };
 		26E440011AE4AF0300CDE8A7 /* loginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginService.h; sourceTree = "<group>"; };
 		26E440021AE4AF0300CDE8A7 /* loginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginService.m; sourceTree = "<group>"; };
 		26E440041AE4AF9E00CDE8A7 /* dataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataHelper.h; sourceTree = "<group>"; };
@@ -129,6 +239,7 @@
 		2664B2121AE2B1CA00FA8054 /* iBank */ = {
 			isa = PBXGroup;
 			children = (
+				2678F2481AED50E1001A0596 /* font */,
 				2664B2481AE31A6800FA8054 /* utilities */,
 				2664B2391AE2B2C200FA8054 /* image */,
 				2664B23A1AE2B2C200FA8054 /* model */,
@@ -172,6 +283,14 @@
 		2664B2391AE2B2C200FA8054 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				26D53EA91AEB491A00A1A33D /* 登录 */,
+				26D53EB71AEB491A00A1A33D /* 动态 */,
+				26D53EC51AEB491A00A1A33D /* 公司 */,
+				26D53EC71AEB491A00A1A33D /* 关于 */,
+				26D53ECA1AEB491A00A1A33D /* 设置 */,
+				26D53ED51AEB491A00A1A33D /* 银行 */,
+				26D53ED71AEB491A00A1A33D /* 帐户名细 */,
+				26D53EDE1AEB491A00A1A33D /* loading */,
 			);
 			path = image;
 			sourceTree = "<group>";
@@ -204,6 +323,7 @@
 		2664B23B1AE2B2C200FA8054 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				26D53F151AEB5A6600A1A33D /* THSegmentedPager */,
 				2664B2421AE2FFD000FA8054 /* loginVC.h */,
 				2664B2431AE2FFD000FA8054 /* loginVC.m */,
 				2664B24C1AE32D4800FA8054 /* mainVC.h */,
@@ -216,6 +336,8 @@
 				2664B2561AE3302D00FA8054 /* bankVC.m */,
 				2664B2581AE3304400FA8054 /* settingVC.h */,
 				2664B2591AE3304400FA8054 /* settingVC.m */,
+				2678F2431AED393D001A0596 /* aboutVC.h */,
+				2678F2441AED393D001A0596 /* aboutVC.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -229,6 +351,139 @@
 				2664B24A1AE3263100FA8054 /* Utility.m */,
 			);
 			path = utilities;
+			sourceTree = "<group>";
+		};
+		2678F2481AED50E1001A0596 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				2678F2491AED50E1001A0596 /* msyh.ttf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+		26D53EA91AEB491A00A1A33D /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+				26D53EAA1AEB491A00A1A33D /* 刷新认证码-标准状态.png */,
+				26D53EAB1AEB491A00A1A33D /* 刷新认证码-选中状态.png */,
+				26D53EAC1AEB491A00A1A33D /* 帮助按钮-标准状态.png */,
+				26D53EAD1AEB491A00A1A33D /* 帮助按钮-选中状态.png */,
+				26D53EAE1AEB491A00A1A33D /* 登录按钮-标准状态.png */,
+				26D53EAF1AEB491A00A1A33D /* 登录按钮-选中状态.png */,
+				26D53EB01AEB491A00A1A33D /* 登录框.png */,
+				26D53EB11AEB491A00A1A33D /* 登录背景.png */,
+				26D53EB21AEB491A00A1A33D /* 认证码背景.png */,
+				26D53EB31AEB491A00A1A33D /* 设置-标准状态.png */,
+				26D53EB41AEB491A00A1A33D /* 设置-选中状态.png */,
+				26D53EB51AEB491A00A1A33D /* 输入框01.png */,
+				26D53EB61AEB491A00A1A33D /* 输入框02.png */,
+			);
+			path = "登录";
+			sourceTree = "<group>";
+		};
+		26D53EB71AEB491A00A1A33D /* 动态 */ = {
+			isa = PBXGroup;
+			children = (
+				26D53EB81AEB491A00A1A33D /* 公司-标准状态.png */,
+				26D53EB91AEB491A00A1A33D /* 公司-经过，选中状态.png */,
+				26D53EBA1AEB491A00A1A33D /* 关于-标准状态.png */,
+				26D53EBB1AEB491A00A1A33D /* 关于-经过，选中状态.png */,
+				26D53EBC1AEB491A00A1A33D /* 动态-标准状态.png */,
+				26D53EBD1AEB491A00A1A33D /* 动态-经过，选中状态.png */,
+				26D53EBE1AEB491A00A1A33D /* 背景01.png */,
+				26D53EBF1AEB491A00A1A33D /* 背景02.png */,
+				26D53EC01AEB491A00A1A33D /* 背景03.png */,
+				26D53EC11AEB491A00A1A33D /* 设置-标准状态.png */,
+				26D53EC21AEB491A00A1A33D /* 设置-经过，选中状态.png */,
+				26D53EC31AEB491A00A1A33D /* 银行-标准状态.png */,
+				26D53EC41AEB491A00A1A33D /* 银行-经过，选中状态.png */,
+			);
+			path = "动态";
+			sourceTree = "<group>";
+		};
+		26D53EC51AEB491A00A1A33D /* 公司 */ = {
+			isa = PBXGroup;
+			children = (
+				26D53EC61AEB491A00A1A33D /* 表格背景.png */,
+			);
+			path = "公司";
+			sourceTree = "<group>";
+		};
+		26D53EC71AEB491A00A1A33D /* 关于 */ = {
+			isa = PBXGroup;
+			children = (
+				2678F2461AED4EB3001A0596 /* szLogo.png */,
+				26D53EC81AEB491A00A1A33D /* LOGO.png */,
+				26D53EC91AEB491A00A1A33D /* 背景.png */,
+			);
+			path = "关于";
+			sourceTree = "<group>";
+		};
+		26D53ECA1AEB491A00A1A33D /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				26D53ECB1AEB491A00A1A33D /* 按钮-标准状态.png */,
+				26D53ECC1AEB491A00A1A33D /* 按钮-选中状态.png */,
+				26D53ECD1AEB491A00A1A33D /* 未选中.png */,
+				26D53ECE1AEB491A00A1A33D /* 标题栏.png */,
+				26D53ECF1AEB491A00A1A33D /* 灰色-没选中.png */,
+				26D53ED01AEB491A00A1A33D /* 灰色-选中.png */,
+				26D53ED11AEB491A00A1A33D /* 设置背景.png */,
+				26D53ED21AEB491A00A1A33D /* 输入框.png */,
+				26D53ED31AEB491A00A1A33D /* 输入框小.png */,
+				26D53ED41AEB491A00A1A33D /* 选中.png */,
+			);
+			path = "设置";
+			sourceTree = "<group>";
+		};
+		26D53ED51AEB491A00A1A33D /* 银行 */ = {
+			isa = PBXGroup;
+			children = (
+				26D53ED61AEB491A00A1A33D /* 银行-表格背景.png */,
+			);
+			path = "银行";
+			sourceTree = "<group>";
+		};
+		26D53ED71AEB491A00A1A33D /* 帐户名细 */ = {
+			isa = PBXGroup;
+			children = (
+				26D53ED81AEB491A00A1A33D /* 01.png */,
+				26D53ED91AEB491A00A1A33D /* 02.png */,
+				26D53EDA1AEB491A00A1A33D /* 取消赞.png */,
+				26D53EDB1AEB491A00A1A33D /* 明细背景.png */,
+				26D53EDC1AEB491A00A1A33D /* 赞.png */,
+				26D53EDD1AEB491A00A1A33D /* 顶部-背景.png */,
+			);
+			path = "帐户名细";
+			sourceTree = "<group>";
+		};
+		26D53EDE1AEB491A00A1A33D /* loading */ = {
+			isa = PBXGroup;
+			children = (
+				26D53EDF1AEB491A00A1A33D /* images */,
+			);
+			path = loading;
+			sourceTree = "<group>";
+		};
+		26D53EDF1AEB491A00A1A33D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				26D53EE01AEB491A00A1A33D /* loading-背景_01.png */,
+				26D53EE11AEB491A00A1A33D /* loading-背景_02.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		26D53F151AEB5A6600A1A33D /* THSegmentedPager */ = {
+			isa = PBXGroup;
+			children = (
+				26D53F161AEB5A6600A1A33D /* HMSegmentedControl.h */,
+				26D53F171AEB5A6600A1A33D /* HMSegmentedControl.m */,
+				26D53F181AEB5A6600A1A33D /* THSegmentedPager.h */,
+				26D53F191AEB5A6600A1A33D /* THSegmentedPager.m */,
+				26D53F1A1AEB5A6600A1A33D /* THSegmentedPageViewControllerDelegate.h */,
+			);
+			path = THSegmentedPager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,9 +566,59 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26D53F021AEB491A00A1A33D /* 标题栏.png in Resources */,
+				26D53EFD1AEB491A00A1A33D /* LOGO.png in Resources */,
+				26D53EF71AEB491A00A1A33D /* 背景03.png in Resources */,
+				26D53EE81AEB491A00A1A33D /* 登录框.png in Resources */,
+				26D53F001AEB491A00A1A33D /* 按钮-选中状态.png in Resources */,
+				26D53EEA1AEB491A00A1A33D /* 认证码背景.png in Resources */,
+				26D53F0E1AEB491A00A1A33D /* 赞.png in Resources */,
+				26D53EF31AEB491A00A1A33D /* 动态-标准状态.png in Resources */,
+				26D53EF51AEB491A00A1A33D /* 背景01.png in Resources */,
+				26D53F0F1AEB491A00A1A33D /* 顶部-背景.png in Resources */,
+				26D53F061AEB491A00A1A33D /* 输入框.png in Resources */,
+				26D53EF21AEB491A00A1A33D /* 关于-经过，选中状态.png in Resources */,
+				26D53EE61AEB491A00A1A33D /* 登录按钮-标准状态.png in Resources */,
+				26D53EED1AEB491A00A1A33D /* 输入框01.png in Resources */,
+				26D53F0C1AEB491A00A1A33D /* 取消赞.png in Resources */,
+				26D53EE31AEB491A00A1A33D /* 刷新认证码-选中状态.png in Resources */,
+				26D53EF11AEB491A00A1A33D /* 关于-标准状态.png in Resources */,
+				26D53EEC1AEB491A00A1A33D /* 设置-选中状态.png in Resources */,
+				26D53EE71AEB491A00A1A33D /* 登录按钮-选中状态.png in Resources */,
+				26D53F051AEB491A00A1A33D /* 设置背景.png in Resources */,
 				2664B21F1AE2B1CA00FA8054 /* Main.storyboard in Resources */,
+				26D53F031AEB491A00A1A33D /* 灰色-没选中.png in Resources */,
 				2664B2241AE2B1CA00FA8054 /* LaunchScreen.xib in Resources */,
+				26D53EF91AEB491A00A1A33D /* 设置-经过，选中状态.png in Resources */,
+				26D53EFB1AEB491A00A1A33D /* 银行-经过，选中状态.png in Resources */,
 				2664B2211AE2B1CA00FA8054 /* Images.xcassets in Resources */,
+				26D53F081AEB491A00A1A33D /* 选中.png in Resources */,
+				26D53F091AEB491A00A1A33D /* 银行-表格背景.png in Resources */,
+				26D53EE91AEB491A00A1A33D /* 登录背景.png in Resources */,
+				26D53EF01AEB491A00A1A33D /* 公司-经过，选中状态.png in Resources */,
+				2678F24A1AED50E1001A0596 /* msyh.ttf in Resources */,
+				26D53EFE1AEB491A00A1A33D /* 背景.png in Resources */,
+				2678F2471AED4EB3001A0596 /* szLogo.png in Resources */,
+				26D53EF61AEB491A00A1A33D /* 背景02.png in Resources */,
+				26D53EE51AEB491A00A1A33D /* 帮助按钮-选中状态.png in Resources */,
+				26D53EF41AEB491A00A1A33D /* 动态-经过，选中状态.png in Resources */,
+				26D53EEF1AEB491A00A1A33D /* 公司-标准状态.png in Resources */,
+				26D53F111AEB491A00A1A33D /* loading-背景_02.png in Resources */,
+				26D53EFF1AEB491A00A1A33D /* 按钮-标准状态.png in Resources */,
+				26D53F0D1AEB491A00A1A33D /* 明细背景.png in Resources */,
+				26D53EEE1AEB491A00A1A33D /* 输入框02.png in Resources */,
+				26D53F0A1AEB491A00A1A33D /* 01.png in Resources */,
+				26D53F0B1AEB491A00A1A33D /* 02.png in Resources */,
+				26D53EEB1AEB491A00A1A33D /* 设置-标准状态.png in Resources */,
+				26D53F041AEB491A00A1A33D /* 灰色-选中.png in Resources */,
+				26D53F011AEB491A00A1A33D /* 未选中.png in Resources */,
+				26D53EF81AEB491A00A1A33D /* 设置-标准状态.png in Resources */,
+				26D53EFC1AEB491A00A1A33D /* 表格背景.png in Resources */,
+				26D53EFA1AEB491A00A1A33D /* 银行-标准状态.png in Resources */,
+				26D53EE21AEB491A00A1A33D /* 刷新认证码-标准状态.png in Resources */,
+				26D53EE41AEB491A00A1A33D /* 帮助按钮-标准状态.png in Resources */,
+				26D53F101AEB491A00A1A33D /* loading-背景_01.png in Resources */,
+				26D53F071AEB491A00A1A33D /* 输入框小.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,13 +645,16 @@
 				26E440031AE4AF0300CDE8A7 /* loginService.m in Sources */,
 				2664B23E1AE2B33500FA8054 /* webService.m in Sources */,
 				2664B24E1AE32D4800FA8054 /* mainVC.m in Sources */,
+				26D53F1B1AEB5A6600A1A33D /* HMSegmentedControl.m in Sources */,
 				0866E0D91AE5CD3100435CD5 /* newMsgService.m in Sources */,
 				2664B2441AE2FFD000FA8054 /* loginVC.m in Sources */,
+				26D53F1C1AEB5A6600A1A33D /* THSegmentedPager.m in Sources */,
 				0866E5981AE47E5300F17A31 /* logoutService.m in Sources */,
 				2648CA861AE7587400B06DBA /* aliveHelper.m in Sources */,
 				2664B2511AE32FEA00FA8054 /* homeVC.m in Sources */,
 				26E440061AE4AF9E00CDE8A7 /* dataHelper.m in Sources */,
 				2664B2571AE3302D00FA8054 /* bankVC.m in Sources */,
+				2678F2451AED393D001A0596 /* aboutVC.m in Sources */,
 				2664B2161AE2B1CA00FA8054 /* main.m in Sources */,
 				2664B2541AE3301600FA8054 /* companyVC.m in Sources */,
 				2664B2471AE300FA00FA8054 /* verifyImageService.m in Sources */,
@@ -474,8 +782,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iBank/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -484,8 +794,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iBank/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
