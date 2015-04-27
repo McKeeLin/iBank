@@ -30,6 +30,8 @@
 		2678F2451AED393D001A0596 /* aboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678F2441AED393D001A0596 /* aboutVC.m */; };
 		2678F2471AED4EB3001A0596 /* szLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2678F2461AED4EB3001A0596 /* szLogo.png */; };
 		2678F24A1AED50E1001A0596 /* msyh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2678F2491AED50E1001A0596 /* msyh.ttf */; };
+		2678F24D1AEDC55A001A0596 /* settingNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2678F24B1AEDC55A001A0596 /* settingNormal.png */; };
+		2678F24E1AEDC55A001A0596 /* settingSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 2678F24C1AEDC55A001A0596 /* settingSelected.png */; };
 		26D53EA81AE8A19500A1A33D /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D53EA71AE8A19500A1A33D /* UICKeyChainStore.m */; };
 		26D53EE21AEB491A00A1A33D /* 刷新认证码-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAA1AEB491A00A1A33D /* 刷新认证码-标准状态.png */; };
 		26D53EE31AEB491A00A1A33D /* 刷新认证码-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAB1AEB491A00A1A33D /* 刷新认证码-选中状态.png */; };
@@ -40,8 +42,6 @@
 		26D53EE81AEB491A00A1A33D /* 登录框.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB01AEB491A00A1A33D /* 登录框.png */; };
 		26D53EE91AEB491A00A1A33D /* 登录背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB11AEB491A00A1A33D /* 登录背景.png */; };
 		26D53EEA1AEB491A00A1A33D /* 认证码背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB21AEB491A00A1A33D /* 认证码背景.png */; };
-		26D53EEB1AEB491A00A1A33D /* 设置-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB31AEB491A00A1A33D /* 设置-标准状态.png */; };
-		26D53EEC1AEB491A00A1A33D /* 设置-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB41AEB491A00A1A33D /* 设置-选中状态.png */; };
 		26D53EED1AEB491A00A1A33D /* 输入框01.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB51AEB491A00A1A33D /* 输入框01.png */; };
 		26D53EEE1AEB491A00A1A33D /* 输入框02.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB61AEB491A00A1A33D /* 输入框02.png */; };
 		26D53EEF1AEB491A00A1A33D /* 公司-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EB81AEB491A00A1A33D /* 公司-标准状态.png */; };
@@ -139,6 +139,8 @@
 		2678F2441AED393D001A0596 /* aboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutVC.m; sourceTree = "<group>"; };
 		2678F2461AED4EB3001A0596 /* szLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = szLogo.png; sourceTree = "<group>"; };
 		2678F2491AED50E1001A0596 /* msyh.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = msyh.ttf; sourceTree = "<group>"; };
+		2678F24B1AEDC55A001A0596 /* settingNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingNormal.png; sourceTree = "<group>"; };
+		2678F24C1AEDC55A001A0596 /* settingSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingSelected.png; sourceTree = "<group>"; };
 		26D53EA61AE8A19500A1A33D /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		26D53EA71AE8A19500A1A33D /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		26D53EAA1AEB491A00A1A33D /* 刷新认证码-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "刷新认证码-标准状态.png"; sourceTree = "<group>"; };
@@ -150,8 +152,6 @@
 		26D53EB01AEB491A00A1A33D /* 登录框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录框.png"; sourceTree = "<group>"; };
 		26D53EB11AEB491A00A1A33D /* 登录背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录背景.png"; sourceTree = "<group>"; };
 		26D53EB21AEB491A00A1A33D /* 认证码背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "认证码背景.png"; sourceTree = "<group>"; };
-		26D53EB31AEB491A00A1A33D /* 设置-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置-标准状态.png"; sourceTree = "<group>"; };
-		26D53EB41AEB491A00A1A33D /* 设置-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置-选中状态.png"; sourceTree = "<group>"; };
 		26D53EB51AEB491A00A1A33D /* 输入框01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框01.png"; sourceTree = "<group>"; };
 		26D53EB61AEB491A00A1A33D /* 输入框02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框02.png"; sourceTree = "<group>"; };
 		26D53EB81AEB491A00A1A33D /* 公司-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "公司-标准状态.png"; sourceTree = "<group>"; };
@@ -364,6 +364,8 @@
 		26D53EA91AEB491A00A1A33D /* 登录 */ = {
 			isa = PBXGroup;
 			children = (
+				2678F24B1AEDC55A001A0596 /* settingNormal.png */,
+				2678F24C1AEDC55A001A0596 /* settingSelected.png */,
 				26D53EAA1AEB491A00A1A33D /* 刷新认证码-标准状态.png */,
 				26D53EAB1AEB491A00A1A33D /* 刷新认证码-选中状态.png */,
 				26D53EAC1AEB491A00A1A33D /* 帮助按钮-标准状态.png */,
@@ -373,8 +375,6 @@
 				26D53EB01AEB491A00A1A33D /* 登录框.png */,
 				26D53EB11AEB491A00A1A33D /* 登录背景.png */,
 				26D53EB21AEB491A00A1A33D /* 认证码背景.png */,
-				26D53EB31AEB491A00A1A33D /* 设置-标准状态.png */,
-				26D53EB41AEB491A00A1A33D /* 设置-选中状态.png */,
 				26D53EB51AEB491A00A1A33D /* 输入框01.png */,
 				26D53EB61AEB491A00A1A33D /* 输入框02.png */,
 			);
@@ -583,8 +583,8 @@
 				26D53F0C1AEB491A00A1A33D /* 取消赞.png in Resources */,
 				26D53EE31AEB491A00A1A33D /* 刷新认证码-选中状态.png in Resources */,
 				26D53EF11AEB491A00A1A33D /* 关于-标准状态.png in Resources */,
-				26D53EEC1AEB491A00A1A33D /* 设置-选中状态.png in Resources */,
 				26D53EE71AEB491A00A1A33D /* 登录按钮-选中状态.png in Resources */,
+				2678F24E1AEDC55A001A0596 /* settingSelected.png in Resources */,
 				26D53F051AEB491A00A1A33D /* 设置背景.png in Resources */,
 				2664B21F1AE2B1CA00FA8054 /* Main.storyboard in Resources */,
 				26D53F031AEB491A00A1A33D /* 灰色-没选中.png in Resources */,
@@ -609,12 +609,12 @@
 				26D53EEE1AEB491A00A1A33D /* 输入框02.png in Resources */,
 				26D53F0A1AEB491A00A1A33D /* 01.png in Resources */,
 				26D53F0B1AEB491A00A1A33D /* 02.png in Resources */,
-				26D53EEB1AEB491A00A1A33D /* 设置-标准状态.png in Resources */,
 				26D53F041AEB491A00A1A33D /* 灰色-选中.png in Resources */,
 				26D53F011AEB491A00A1A33D /* 未选中.png in Resources */,
 				26D53EF81AEB491A00A1A33D /* 设置-标准状态.png in Resources */,
 				26D53EFC1AEB491A00A1A33D /* 表格背景.png in Resources */,
 				26D53EFA1AEB491A00A1A33D /* 银行-标准状态.png in Resources */,
+				2678F24D1AEDC55A001A0596 /* settingNormal.png in Resources */,
 				26D53EE21AEB491A00A1A33D /* 刷新认证码-标准状态.png in Resources */,
 				26D53EE41AEB491A00A1A33D /* 帮助按钮-标准状态.png in Resources */,
 				26D53F101AEB491A00A1A33D /* loading-背景_01.png in Resources */,

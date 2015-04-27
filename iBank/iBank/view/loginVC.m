@@ -15,7 +15,7 @@
 #import "newMsgService.h"
 
 
-@interface loginVC ()
+@interface loginVC ()<UITextFieldDelegate>
 {
     verifyImageService *_vImgSrv;
     loginService *_loginSrv;
@@ -23,9 +23,15 @@
     IBOutlet UITextField *_accountTextField;
     IBOutlet UITextField *_passwordTextField;
     IBOutlet UITextField *_codeTextField;
+    IBOutlet UIView *_container;
+    UITextField *_currentTextField;
+    CGFloat _yOffset;
+    CGRect _containerFrame;
+    UITapGestureRecognizer *_tgr;
 }
 
 @property NSString *imageSN;
+@property IBOutlet UIButton *loginButton;
 
 
 @end
@@ -40,16 +46,44 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
+    self.loginButton.enabled = NO;
+    _containerFrame = _container.frame;
+    _yOffset = 0;
+    _tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onViewTap:)];
+    _accountTextField.delegate = self;
+    _accountTextField.returnKeyType = UIReturnKeyNext;
+    _passwordTextField.delegate = self;
+    _passwordTextField.returnKeyType = UIReturnKeyNext;
+    _codeTextField.delegate = self;
+    _codeTextField.returnKeyType = UIReturnKeyGo;
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(onKeyboardFrameWillShowNotification:)
+     name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(onKeyboardWillHideNotification:)
+     name:UIKeyboardWillHideNotification object:nil];
+    
     __weak UIImageView *weakImageView = _codeImageView;
     __weak loginVC *weakSelf = self;
     _vImgSrv = [[verifyImageService alloc] init];
     _vImgSrv.getImageBlock = ^(UIImage *image, NSString *code, NSString *error){
         weakImageView.image = image;
         weakSelf.imageSN = code;
+        weakSelf.loginButton.enabled = YES;
     };
+    [_vImgSrv request];
     
     _loginSrv = [[loginService alloc] init];
     _loginSrv.loginBlock = ^(NSInteger code, NSString *data){
@@ -75,6 +109,15 @@
 }
 */
 
+- (void)doLogin
+{
+    _loginSrv.uid = _accountTextField.text;
+    _loginSrv.pcode = _passwordTextField.text;
+    _loginSrv.vcode = _codeTextField.text;
+    _loginSrv.qid = _imageSN;
+    [_loginSrv request];
+}
+
 - (IBAction)onTouchRefresh:(id)sender
 {
     [_vImgSrv request];
@@ -82,11 +125,7 @@
 
 - (IBAction)onTouchLogin:(id)sender
 {
-    _loginSrv.uid = _accountTextField.text;
-    _loginSrv.pcode = _passwordTextField.text;
-    _loginSrv.vcode = _codeTextField.text;
-    _loginSrv.qid = _imageSN;
-    [_loginSrv request];
+    [self doLogin];
 }
 
 - (IBAction)onTouchLogout:(id)sender
@@ -105,6 +144,76 @@
 {
     newMsgService *newMsgSrv = [[newMsgService alloc] init];
     [newMsgSrv request];
+}
+
+
+- (void)onKeyboardFrameWillShowNotification:(NSNotification*)notification
+{
+    [self.view addGestureRecognizer:_tgr];
+    
+    NSDictionary *userInfo = notification.userInfo;
+    NSValue *endFrameValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSValue *durationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    CGRect endFrame;
+    double duration;
+    [endFrameValue getValue:&endFrame];
+    [durationValue getValue:&duration];
+    [UIView beginAnimations:@"keyboardWillShow" context:nil];
+    [UIView setAnimationCurve:curve.unsignedIntegerValue];
+    [UIView setAnimationDuration:duration];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    CGRect keyboardFrameSelfView = [window convertRect:endFrame toView:self.view];
+    CGRect newFrame = _container.frame;
+    newFrame.origin.y = keyboardFrameSelfView.origin.y - newFrame.size.height;
+    _container.frame = newFrame;
+    [UIView commitAnimations];
+}
+
+- (void)onKeyboardWillHideNotification:(NSNotification*)notification
+{
+    [self.view removeGestureRecognizer:_tgr];
+    NSDictionary *userInfo = notification.userInfo;
+    NSValue *endFrameValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSValue *durationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    CGRect endFrame;
+    double duration;
+    [endFrameValue getValue:&endFrame];
+    [durationValue getValue:&duration];
+    [UIView beginAnimations:@"keyboardWillHide" context:nil];
+    [UIView setAnimationCurve:curve.unsignedIntegerValue];
+    [UIView setAnimationDuration:duration];
+    _container.frame = _containerFrame;
+    [UIView commitAnimations];
+}
+
+
+- (void)onViewTap:(UITapGestureRecognizer*)tgr
+{
+    [_currentTextField resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    _currentTextField = textField;
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if( textField == _accountTextField )
+    {
+        [_passwordTextField becomeFirstResponder];
+    }
+    else if( textField == _passwordTextField ){
+        [_codeTextField becomeFirstResponder];
+    }
+    else if( textField == _codeTextField ){
+        [_codeTextField resignFirstResponder];
+        [self doLogin];
+    }
+    return YES;
 }
 
 @end

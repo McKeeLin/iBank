@@ -289,6 +289,11 @@
                 imageLayer.contents = (id)icon.CGImage;
             }
             
+            NSLog(@"####:%ld", idx);
+            NSLog(@"w:%f,h:%f, left:%f, top:%f", imageWidth, imageHeight, rect.origin.x, rect.origin.y);
+            NSLog(@"normal:%@", icon);
+            NSLog(@"selected:%@", [self.sectionSelectedImages objectAtIndex:idx]);
+            
             [self.scrollView.layer addSublayer:imageLayer];
             // Vertical Divider
             if ([self isShowVerticalDivider] && idx>0) {
@@ -531,6 +536,7 @@
         for (UIImage *sectionImage in self.sectionImages) {
             CGFloat imageWidth = sectionImage.size.width + self.segmentEdgeInset.left + self.segmentEdgeInset.right;
             self.segmentWidth = MAX(imageWidth, self.segmentWidth);
+            NSLog(@"......%f", self.segmentWidth);
         }
     } else if (self.type == HMSegmentedControlTypeTextImages && HMSegmentedControlSegmentWidthStyleFixed){
         //lets just use the title.. we will assume it is wider then images...
