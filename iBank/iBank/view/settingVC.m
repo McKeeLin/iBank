@@ -8,7 +8,10 @@
 
 #import "settingVC.h"
 
-@interface settingVC ()
+@interface settingVC ()<UITableViewDataSource,UITableViewDelegate>
+{
+    UITableView *_tableView;
+}
 
 @end
 
@@ -24,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
 }
 
 - (void)didReceiveMemoryWarning {

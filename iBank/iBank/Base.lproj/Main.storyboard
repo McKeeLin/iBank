@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="1635" y="248"/>
         </scene>
-        <!--AboutVC-->
+        <!--关于-->
         <scene sceneID="X1E-AP-Rpj">
             <objects>
-                <viewController storyboardIdentifier="aboutVC" id="Zlq-pU-FjQ" customClass="aboutVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aboutVC" title="关于" id="Zlq-pU-FjQ" customClass="aboutVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zFY-gg-JIG"/>
                         <viewControllerLayoutGuide type="bottom" id="baS-Az-M7l"/>
@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAi-ce-Sj1" userLabel="container">
-                                <rect key="frame" x="238.5" y="58" width="547" height="650"/>
+                                <rect key="frame" x="238.5" y="78" width="547" height="650"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LOGO.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Xb-KC-1mh">
                                         <rect key="frame" x="0.0" y="0.0" width="256" height="129"/>
@@ -125,7 +125,7 @@
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="iAi-ce-Sj1" secondAttribute="centerX" id="8UC-Rv-pV0"/>
-                            <constraint firstItem="iAi-ce-Sj1" firstAttribute="top" secondItem="zFY-gg-JIG" secondAttribute="bottom" constant="38" id="Ksx-o5-jOU"/>
+                            <constraint firstItem="iAi-ce-Sj1" firstAttribute="top" secondItem="zFY-gg-JIG" secondAttribute="bottom" constant="58" id="Ksx-o5-jOU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FQ9-G9-Med"/>
@@ -196,10 +196,10 @@
             </objects>
             <point key="canvasLocation" x="2917" y="797"/>
         </scene>
-        <!--SettingVC-->
+        <!--设置-->
         <scene sceneID="u6c-dV-ssp">
             <objects>
-                <viewController storyboardIdentifier="settingVC" id="2Ba-DD-X4e" customClass="settingVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingVC" title="设置" id="2Ba-DD-X4e" customClass="settingVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yin-sU-lvd"/>
                         <viewControllerLayoutGuide type="bottom" id="eSk-2X-np2"/>
@@ -250,8 +250,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="登录背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="l6k-dt-0lK">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdx-QJ-4yq" userLabel="container">
-                                <rect key="frame" x="291" y="320" width="442" height="292"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ELG-gO-PFO" userLabel="temp">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rdx-QJ-4yq" userLabel="container">
+                                <rect key="frame" x="291" y="300" width="442" height="292"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="登录框.png" translatesAutoresizingMaskIntoConstraints="NO" id="wc5-7a-yuu">
                                         <rect key="frame" x="0.0" y="0.0" width="442" height="292"/>
@@ -282,19 +286,15 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGP-ow-ivK">
                                         <rect key="frame" x="150" y="89" width="208" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PWJ-BE-h8q">
                                         <rect key="frame" x="150" y="139" width="70" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qld-jw-K3T" userLabel="login">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qld-jw-K3T" userLabel="login">
                                         <rect key="frame" x="71" y="205" width="300" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="TTa-CV-avq"/>
-                                            <constraint firstAttribute="width" constant="300" id="nVh-me-X4p"/>
-                                        </constraints>
                                         <state key="normal" image="登录按钮-标准状态.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -325,12 +325,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="qld-jw-K3T" secondAttribute="bottom" constant="39" id="3Mt-db-jFw"/>
-                                    <constraint firstAttribute="height" constant="292" id="HL3-5f-5RH"/>
-                                    <constraint firstAttribute="centerX" secondItem="qld-jw-K3T" secondAttribute="centerX" id="K7x-aN-1vf"/>
-                                    <constraint firstAttribute="width" constant="442" id="a6r-4C-szT"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXl-Y8-OlP" userLabel="setting">
                                 <rect key="frame" x="948" y="702" width="32" height="37"/>
@@ -352,10 +346,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="rdx-QJ-4yq" secondAttribute="centerX" id="Efs-RA-lCY"/>
-                            <constraint firstItem="rdx-QJ-4yq" firstAttribute="top" secondItem="E9g-jL-Ecu" secondAttribute="bottom" constant="300" id="TqK-XL-0wr"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2OP-JD-36v"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -363,10 +353,12 @@
                     <size key="freeformSize" width="1024" height="768"/>
                     <connections>
                         <outlet property="_accountTextField" destination="nR7-WT-6AA" id="4lM-xJ-TyD"/>
+                        <outlet property="_bgImageView" destination="l6k-dt-0lK" id="R0v-39-Tgh"/>
                         <outlet property="_codeImageView" destination="fJs-Yp-Opf" id="e5M-S6-GmE"/>
                         <outlet property="_codeTextField" destination="PWJ-BE-h8q" id="DWs-HX-3b0"/>
                         <outlet property="_container" destination="rdx-QJ-4yq" id="XwO-sy-4q8"/>
                         <outlet property="_passwordTextField" destination="SGP-ow-ivK" id="p5S-rj-J74"/>
+                        <outlet property="_tempView" destination="ELG-gO-PFO" id="ZtS-nl-SEz"/>
                         <outlet property="loginButton" destination="qld-jw-K3T" id="lMq-g4-SVT"/>
                     </connections>
                 </viewController>

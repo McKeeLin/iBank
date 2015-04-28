@@ -27,6 +27,7 @@
 		2664B2541AE3301600FA8054 /* companyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2531AE3301600FA8054 /* companyVC.m */; };
 		2664B2571AE3302D00FA8054 /* bankVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2561AE3302D00FA8054 /* bankVC.m */; };
 		2664B25A1AE3304400FA8054 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2591AE3304400FA8054 /* settingVC.m */; };
+		267800FC1AEF57FB008DE5E8 /* cells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267800FB1AEF57FB008DE5E8 /* cells.xib */; };
 		2678F2451AED393D001A0596 /* aboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678F2441AED393D001A0596 /* aboutVC.m */; };
 		2678F2471AED4EB3001A0596 /* szLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2678F2461AED4EB3001A0596 /* szLogo.png */; };
 		2678F24A1AED50E1001A0596 /* msyh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2678F2491AED50E1001A0596 /* msyh.ttf */; };
@@ -135,6 +136,7 @@
 		2664B2561AE3302D00FA8054 /* bankVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bankVC.m; sourceTree = "<group>"; };
 		2664B2581AE3304400FA8054 /* settingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingVC.h; sourceTree = "<group>"; };
 		2664B2591AE3304400FA8054 /* settingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingVC.m; sourceTree = "<group>"; };
+		267800FB1AEF57FB008DE5E8 /* cells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cells.xib; sourceTree = "<group>"; };
 		2678F2431AED393D001A0596 /* aboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutVC.h; sourceTree = "<group>"; };
 		2678F2441AED393D001A0596 /* aboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutVC.m; sourceTree = "<group>"; };
 		2678F2461AED4EB3001A0596 /* szLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = szLogo.png; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				2664B2591AE3304400FA8054 /* settingVC.m */,
 				2678F2431AED393D001A0596 /* aboutVC.h */,
 				2678F2441AED393D001A0596 /* aboutVC.m */,
+				267800FB1AEF57FB008DE5E8 /* cells.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				26D53EFB1AEB491A00A1A33D /* 银行-经过，选中状态.png in Resources */,
 				2664B2211AE2B1CA00FA8054 /* Images.xcassets in Resources */,
 				26D53F081AEB491A00A1A33D /* 选中.png in Resources */,
+				267800FC1AEF57FB008DE5E8 /* cells.xib in Resources */,
 				26D53F091AEB491A00A1A33D /* 银行-表格背景.png in Resources */,
 				26D53EE91AEB491A00A1A33D /* 登录背景.png in Resources */,
 				26D53EF01AEB491A00A1A33D /* 公司-经过，选中状态.png in Resources */,
