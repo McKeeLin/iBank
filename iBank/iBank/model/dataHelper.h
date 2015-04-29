@@ -9,6 +9,50 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@interface monyFlow : NSObject
+
+@property NSString *account;
+
+@property NSString *date;
+
+@property NSString *operType;
+
+@property NSString *account2;
+
+@property NSString *digest;
+
+@property NSString *theBorrow;
+
+@property NSString *theLoan;
+
+@property NSString *total;
+
+@property NSString *comment;
+
+@end
+
+
+@interface accountData : NSObject
+
+@property NSString *companyName;
+
+@property NSString *companyId;
+
+@property NSString *bankName;
+
+@property NSString *bankId;
+
+@property NSString *account;
+
+@property NSString *currencyType;
+
+@property NSString *total;
+
+@property NSString *comment;
+
+@end
+
+
 @interface dataHelper : NSObject
 
 @property NSString *host;
@@ -26,6 +70,10 @@
 @property NSString *savedPassword;
 
 @property NSString *sn;
+
+@property NSMutableArray *focusAccount;
+
+@property NSMutableArray *accounts;
 
 
 + (instancetype)helper;

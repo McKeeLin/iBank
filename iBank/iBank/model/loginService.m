@@ -10,6 +10,14 @@
 #import "dataHelper.h"
 #import "Utility.h"
 
+
+/*
+ 
+ <?xml version="1.0" encoding="UTF-8"?>
+ <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="urn:AuthControllerwsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><SOAP-ENV:Body><ns1:SignInResponse><return xsi:type="xsd:string">{"result":1,"data":"05357713-2dc7-4ca7-90f9-7945108f8edb"}</return></ns1:SignInResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+ 
+ */
+
 @implementation loginService
 
 - (instancetype)init
