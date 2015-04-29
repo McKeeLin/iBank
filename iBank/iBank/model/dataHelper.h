@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface monyFlow : NSObject
+@interface moneyFlow : NSObject
 
 @property NSString *account;
 
@@ -71,7 +71,7 @@
 
 @property NSString *sn;
 
-@property NSMutableArray *focusAccount;
+@property NSMutableArray *focusAccounts;
 
 @property NSMutableArray *accounts;
 

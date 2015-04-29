@@ -9,6 +9,17 @@
 #import "dataHelper.h"
 #import "UICKeyChainStore.h"
 
+@implementation moneyFlow
+
+@end
+
+
+@implementation accountData
+
+@end
+
+
+
 @implementation dataHelper
 
 + (instancetype)helper
@@ -30,6 +41,8 @@
         self.os = [NSString stringWithFormat:@"%@%@", [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
         self.ip = @"192.168.10.100";
         self.sn = @"S/N: 23135-2135-292198-0283";
+        self.focusAccounts = [[NSMutableArray alloc] initWithCapacity:0];
+        self.accounts = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return self;
 }
