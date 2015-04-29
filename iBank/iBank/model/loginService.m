@@ -37,9 +37,9 @@
     NSMutableString *soapBody = [[NSMutableString alloc] initWithCapacity:0];
     [soapBody appendString:@"<SignIn xmlns=\"urn:AuthControllerwsdl\">\n"];
     [soapBody appendFormat:@"<uid xsi:type=\"xsd:string\">%@</uid>\n", self.uid];
-    [soapBody appendFormat:@"<pcode xsi:type=\"xsd:string\">%@</pcode>\n", @""];
+    [soapBody appendFormat:@"<pcode xsi:type=\"xsd:string\">%@</pcode>\n", [Utility md5String:[NSString stringWithFormat:@"%@%@", self.uid, self.pcode]]];
     [soapBody appendFormat:@"<qid xsi:type=\"xsd:integer\">%@</qid>\n", self.qid];
-    [soapBody appendFormat:@"<vcode xsi:type=\"xsd:string\">%@</vcode>\n", self.vcode];
+    [soapBody appendFormat:@"<vcode xsi:type=\"xsd:string\">%@</vcode>\n", [Utility md5String:self.vcode]];
     [soapBody appendFormat:@"<ctp xsi:type=\"xsd:integer\">%@</ctp>\n", self.ctp];
     [soapBody appendFormat:@"<os xsi:type=\"xsd:string\">%@</os>\n", [dataHelper helper].os];
     [soapBody appendFormat:@"<dev xsi:type=\"xsd:string\">%@</dev>\n", [dataHelper helper].dev];

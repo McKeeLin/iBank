@@ -205,13 +205,36 @@
                         <viewControllerLayoutGuide type="bottom" id="eSk-2X-np2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Gd-SU-W9c">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.84313732389999996" green="0.1411764771" blue="0.1176470667" alpha="1" colorSpace="deviceRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="设置背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="9U9-kU-cvo">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="syw-fd-bdQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2Ba-DD-X4e" id="z4J-Oc-Avz"/>
+                                    <outlet property="delegate" destination="2Ba-DD-X4e" id="dX8-23-ttM"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="9U9-kU-cvo" firstAttribute="top" secondItem="3Gd-SU-W9c" secondAttribute="top" id="6GI-DZ-B0O"/>
+                            <constraint firstItem="syw-fd-bdQ" firstAttribute="top" secondItem="3Gd-SU-W9c" secondAttribute="top" id="8dd-3S-kUv"/>
+                            <constraint firstAttribute="trailing" secondItem="9U9-kU-cvo" secondAttribute="trailing" id="Gq5-Tq-K3B"/>
+                            <constraint firstItem="9U9-kU-cvo" firstAttribute="leading" secondItem="3Gd-SU-W9c" secondAttribute="leading" id="MXQ-yS-8hh"/>
+                            <constraint firstItem="eSk-2X-np2" firstAttribute="top" secondItem="syw-fd-bdQ" secondAttribute="bottom" id="mZN-mI-6nw"/>
+                            <constraint firstItem="syw-fd-bdQ" firstAttribute="leading" secondItem="3Gd-SU-W9c" secondAttribute="leading" id="oRR-SA-Ehq"/>
+                            <constraint firstItem="eSk-2X-np2" firstAttribute="top" secondItem="9U9-kU-cvo" secondAttribute="bottom" id="td5-d7-Dtm"/>
+                            <constraint firstAttribute="trailing" secondItem="syw-fd-bdQ" secondAttribute="trailing" id="uQA-Hw-qw3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u0r-N3-aoB"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="768"/>
+                    <connections>
+                        <outlet property="_tableView" destination="syw-fd-bdQ" id="4cg-hI-7cV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRV-qm-bUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -283,7 +306,7 @@
                                         <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGP-ow-ivK">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="admin" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGP-ow-ivK">
                                         <rect key="frame" x="150" y="89" width="208" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -331,18 +354,12 @@
                                 <state key="normal" image="settingNormal.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="2Ba-DD-X4e" kind="push" id="BVL-Xs-7yB"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udm-bh-Ncg" userLabel="about">
                                 <rect key="frame" x="897" y="702" width="32" height="37"/>
                                 <state key="normal" image="帮助按钮-标准状态.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="Zlq-pU-FjQ" kind="push" id="f1E-Ah-koi"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -352,12 +369,14 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="768"/>
                     <connections>
+                        <outlet property="_aboutButton" destination="udm-bh-Ncg" id="oTr-fn-1Ek"/>
                         <outlet property="_accountTextField" destination="nR7-WT-6AA" id="4lM-xJ-TyD"/>
                         <outlet property="_bgImageView" destination="l6k-dt-0lK" id="R0v-39-Tgh"/>
                         <outlet property="_codeImageView" destination="fJs-Yp-Opf" id="e5M-S6-GmE"/>
                         <outlet property="_codeTextField" destination="PWJ-BE-h8q" id="DWs-HX-3b0"/>
                         <outlet property="_container" destination="rdx-QJ-4yq" id="XwO-sy-4q8"/>
                         <outlet property="_passwordTextField" destination="SGP-ow-ivK" id="p5S-rj-J74"/>
+                        <outlet property="_settingButton" destination="JXl-Y8-OlP" id="Siw-0M-w6D"/>
                         <outlet property="_tempView" destination="ELG-gO-PFO" id="ZtS-nl-SEz"/>
                         <outlet property="loginButton" destination="qld-jw-K3T" id="lMq-g4-SVT"/>
                     </connections>
@@ -377,6 +396,7 @@
         <image name="登录框.png" width="442" height="292"/>
         <image name="登录背景.png" width="1024" height="768"/>
         <image name="背景.png" width="1024" height="693"/>
+        <image name="设置背景.png" width="1024" height="694"/>
         <image name="输入框01.png" width="229" height="31"/>
         <image name="输入框02.png" width="100" height="31"/>
     </resources>

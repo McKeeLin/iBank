@@ -13,6 +13,8 @@
 #import "logoutService.h"
 #import "keepAliveService.h"
 #import "newMsgService.h"
+#import "settingVC.h"
+#import "aboutVC.h"
 
 
 @interface loginVC ()<UITextFieldDelegate>
@@ -26,6 +28,8 @@
     IBOutlet UIView *_container;
     IBOutlet UIView *_tempView;
     IBOutlet UIImageView *_bgImageView;
+    IBOutlet UIButton *_aboutButton;
+    IBOutlet UIButton *_settingButton;
     UITextField *_currentTextField;
     CGFloat _yOffset;
     CGRect _containerFrame;
@@ -61,7 +65,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
-//    self.loginButton.enabled = NO;
+    self.loginButton.enabled = NO;
     _containerFrame = _container.frame;
     _yOffset = 0;
     _tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onViewTap:)];
@@ -90,7 +94,7 @@
         weakSelf.imageSN = code;
         weakSelf.loginButton.enabled = YES;
     };
-//    [_vImgSrv request];
+    [_vImgSrv request];
     
     _loginSrv = [[loginService alloc] init];
     _loginSrv.loginBlock = ^(NSInteger code, NSString *data){
@@ -99,6 +103,8 @@
         }
         [dataHelper helper].sessionid = @"3c5d37d-e59b-4dba-804d-3126d6d844ac";
     };
+    [_aboutButton addTarget:self action:@selector(onTouchAbout:) forControlEvents:UIControlEventTouchUpInside];
+    [_settingButton addTarget:self action:@selector(onTouchSetting:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -124,7 +130,7 @@
     _loginSrv.pcode = _passwordTextField.text;
     _loginSrv.vcode = _codeTextField.text;
     _loginSrv.qid = _imageSN;
-//    [_loginSrv request];
+    [_loginSrv request];
 }
 
 - (IBAction)onTouchRefresh:(id)sender
@@ -153,6 +159,20 @@
 {
     newMsgService *newMsgSrv = [[newMsgService alloc] init];
     [newMsgSrv request];
+}
+
+- (void)onTouchSetting:(id)sender
+{
+    settingVC *vc = [settingVC viewController];
+    vc.navigationController.navigationBarHidden = NO;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)onTouchAbout:(id)sender
+{
+    aboutVC *vc = [aboutVC viewController];
+    vc.navigationController.navigationBarHidden = NO;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
