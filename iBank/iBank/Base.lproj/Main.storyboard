@@ -3,9 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="msyh.ttf">
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
             <string>MicrosoftYaHei</string>
             <string>MicrosoftYaHei</string>
             <string>MicrosoftYaHei</string>
@@ -147,7 +150,77 @@
                     <view key="view" contentMode="scaleToFill" id="lPo-y3-iQe">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天的资金动态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbK-3z-eDR">
+                                <rect key="frame" x="0.0" y="15" width="504" height="71"/>
+                                <color key="backgroundColor" red="1" green="0.62745098040000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="504" id="Pvg-cg-B3a"/>
+                                    <constraint firstAttribute="height" constant="71" id="VXw-hL-r89"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="35"/>
+                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Shk-ji-FF0" userLabel="tl">
+                                <rect key="frame" x="0.0" y="86" width="504" height="682"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.47843137250000001" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="504" id="ZPD-hL-a0e"/>
+                                </constraints>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5a-1X-FKx" userLabel="rt">
+                                <rect key="frame" x="520" y="15" width="504" height="172"/>
+                                <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="172" id="Jfv-QU-Mfn"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vin-LW-p4B" userLabel="rb">
+                                <rect key="frame" x="520" y="202" width="504" height="566"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日重点关注" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIQ-LP-Og9">
+                                        <rect key="frame" x="0.0" y="0.0" width="504" height="71"/>
+                                        <color key="backgroundColor" red="0.5725490196078431" green="0.83137254901960778" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="71" id="Myc-d2-UTr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="35"/>
+                                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="okx-md-pNM">
+                                        <rect key="frame" x="0.0" y="71" width="504" height="495"/>
+                                        <color key="backgroundColor" red="0.4823529411764706" green="0.76078431372549016" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="okx-md-pNM" firstAttribute="leading" secondItem="vin-LW-p4B" secondAttribute="leading" id="3xD-cl-E08"/>
+                                    <constraint firstItem="okx-md-pNM" firstAttribute="top" secondItem="hIQ-LP-Og9" secondAttribute="bottom" id="5aS-ot-cZK"/>
+                                    <constraint firstAttribute="trailing" secondItem="hIQ-LP-Og9" secondAttribute="trailing" id="K4Z-va-WqR"/>
+                                    <constraint firstItem="hIQ-LP-Og9" firstAttribute="top" secondItem="vin-LW-p4B" secondAttribute="top" id="dbP-3y-d3q"/>
+                                    <constraint firstAttribute="trailing" secondItem="okx-md-pNM" secondAttribute="trailing" id="fhn-3B-Bt4"/>
+                                    <constraint firstItem="hIQ-LP-Og9" firstAttribute="leading" secondItem="vin-LW-p4B" secondAttribute="leading" id="jtN-Nm-iUt"/>
+                                    <constraint firstAttribute="bottom" secondItem="okx-md-pNM" secondAttribute="bottom" id="lUD-58-NvU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vin-LW-p4B" firstAttribute="top" secondItem="q5a-1X-FKx" secondAttribute="bottom" constant="15" id="Awr-eT-XYh"/>
+                            <constraint firstItem="q5a-1X-FKx" firstAttribute="leading" secondItem="Shk-ji-FF0" secondAttribute="trailing" constant="16" id="DFM-Ro-JgG"/>
+                            <constraint firstAttribute="trailing" secondItem="vin-LW-p4B" secondAttribute="trailing" id="Nqo-2A-5S5"/>
+                            <constraint firstAttribute="bottom" secondItem="Shk-ji-FF0" secondAttribute="bottom" id="TM4-BO-l4t"/>
+                            <constraint firstItem="hbK-3z-eDR" firstAttribute="top" secondItem="lPo-y3-iQe" secondAttribute="top" constant="15" id="Vbf-NJ-WyI"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="vin-LW-p4B" secondAttribute="bottom" id="Wna-BF-srv"/>
+                            <constraint firstItem="Shk-ji-FF0" firstAttribute="top" secondItem="hbK-3z-eDR" secondAttribute="bottom" id="XEL-Vf-LVF"/>
+                            <constraint firstItem="hbK-3z-eDR" firstAttribute="leading" secondItem="lPo-y3-iQe" secondAttribute="leading" id="bww-sj-d7J"/>
+                            <constraint firstItem="Shk-ji-FF0" firstAttribute="leading" secondItem="lPo-y3-iQe" secondAttribute="leading" id="gYZ-6g-wLS"/>
+                            <constraint firstItem="q5a-1X-FKx" firstAttribute="top" secondItem="lPo-y3-iQe" secondAttribute="top" constant="15" id="vCa-80-6iH"/>
+                            <constraint firstItem="vin-LW-p4B" firstAttribute="leading" secondItem="Shk-ji-FF0" secondAttribute="trailing" constant="16" id="xJh-Gm-jdI"/>
+                            <constraint firstAttribute="trailing" secondItem="q5a-1X-FKx" secondAttribute="trailing" id="zJr-TU-oRh"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="768"/>
