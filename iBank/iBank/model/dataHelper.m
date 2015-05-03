@@ -36,7 +36,6 @@
 {
     self = [super init];
     if( self ){
-        self.host = @"http://222.49.117.9";
         self.dev = [UIDevice currentDevice].name;
         self.os = [NSString stringWithFormat:@"%@%@", [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
         self.ip = @"192.168.10.100";
@@ -71,6 +70,20 @@
 {
     [UICKeyChainStore removeItemForKey:@"IBANK_SAVED_ACCOUNT" service:@"IBANK"];
     [UICKeyChainStore removeItemForKey:@"IBANK_SAVED_PASSWORD" service:@"IBANK"];
+}
+
+- (NSString*)host
+{
+    NSString *host = [UICKeyChainStore stringForKey:@"IBANK_HOST" service:@"IBANK"];
+    if( !host || host.length == 0 ){
+        host = @"http://222.49.117.9";
+    }
+    return host;
+}
+
+- (void)setHost:(NSString *)host
+{
+    [UICKeyChainStore setString:host forKey:@"IBANK_HOST" service:@"IBANK"];
 }
 
 @end

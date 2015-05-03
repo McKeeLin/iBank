@@ -7,6 +7,8 @@
 //
 
 #import "getMyInfoService.h"
+#import "dataHelper.h"
+#import "Utility.h"
 
 /*
  <?xml version="1.0" encoding="utf-16"?>
@@ -39,6 +41,50 @@
  */
 
 @implementation getMyInfoService
+
+
+- (instancetype)init
+{
+    self = [super init];
+    if( self ){
+        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
+        self.soapAction = @"urn:AuthControllerwsdl/getMyInfo";
+    }
+    return self;
+}
+
+- (void)request
+{
+    NSMutableString *body = [[NSMutableString alloc] initWithCapacity:0];
+    [body appendString:@"<tns:getMyInfo\n>"];
+    [body appendFormat:@"<sid xsi:type=\"xsd:string\">%@</sid>\n",[dataHelper helper].sessionid];
+    [body appendString:@"</tns:getMyInfo>"];
+    self.soapBody = body;
+    [super request];
+}
+
+
+- (void)parseResult:(NSString *)result
+{
+    NSDictionary *dict = [Utility dictionaryWithJsonString:result];
+    NSNumber *code;
+    id data;
+    if( dict ){
+        code = [dict objectForKey:@"result"];
+        data = [dict objectForKey:@"data"];
+    }
+    if( self.getMyInfoBlock ){
+        self.getMyInfoBlock( code.intValue, data );
+    }
+}
+
+- (void)onError:(NSString *)error
+{
+    if( self.getMyInfoBlock ){
+        self.getMyInfoBlock( 99, @"无法连接服务器！" );
+    }
+}
+
 
 
 @end

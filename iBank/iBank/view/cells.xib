@@ -13,6 +13,19 @@
             <string>MicrosoftYaHei</string>
             <string>MicrosoftYaHei</string>
             <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -141,6 +154,169 @@
             </connections>
             <point key="canvasLocation" x="167" y="557.5"/>
         </tableViewCell>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" id="c6D-Pg-1vZ" customClass="homeCell">
+            <rect key="frame" x="0.0" y="0.0" width="504" height="52"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c6D-Pg-1vZ" id="TzU-4W-key">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="中国农业银行:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mM5-mx-bm3">
+                        <rect key="frame" x="30" y="0.0" width="180" height="51"/>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥ 10000.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYu-VJ-wS2">
+                        <rect key="frame" x="210" y="0.0" width="260" height="51"/>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="titleLabel" destination="mM5-mx-bm3" id="chl-Us-K2T"/>
+                <outlet property="valueLabel" destination="dYu-VJ-wS2" id="SSS-nq-KgE"/>
+            </connections>
+            <point key="canvasLocation" x="-93" y="816"/>
+        </tableViewCell>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" id="dVp-q9-ukf" customClass="favoriteCell">
+            <rect key="frame" x="0.0" y="0.0" width="504" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dVp-q9-ukf" id="EII-lK-i0W">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="中国农业银行：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YgF-6k-Xwg">
+                        <rect key="frame" x="11" y="8" width="176" height="30"/>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6222020902674589998" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twx-ns-tA6">
+                        <rect key="frame" x="180" y="8" width="293" height="30"/>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥ 10000.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T6-53-IXs">
+                        <rect key="frame" x="208" y="37" width="265" height="30"/>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="accountLabel" destination="twx-ns-tA6" id="wqf-fL-kjY"/>
+                <outlet property="balanceLabel" destination="2T6-53-IXs" id="vME-8z-0WI"/>
+                <outlet property="bankLabel" destination="YgF-6k-Xwg" id="aHW-3j-juo"/>
+            </connections>
+            <point key="canvasLocation" x="-93" y="932"/>
+        </tableViewCell>
+        <view contentMode="scaleToFill" id="o1E-gf-KLY">
+            <rect key="frame" x="0.0" y="0.0" width="992" height="51"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSb-PP-5ZI" userLabel="topline">
+                    <rect key="frame" x="0.0" y="0.0" width="992" height="1"/>
+                    <color key="backgroundColor" red="0.84705882352941175" green="0.36862745098039218" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R9i-2S-Kjb" userLabel="bottomline">
+                    <rect key="frame" x="0.0" y="50" width="992" height="1"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2uj-9x-GO0" userLabel="leftline">
+                    <rect key="frame" x="0.0" y="0.0" width="1" height="51"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jrt-MR-DLv" userLabel="rightline">
+                    <rect key="frame" x="991" y="0.0" width="1" height="51"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAL-sf-UKz" userLabel="s1">
+                    <rect key="frame" x="130" y="6" width="1" height="40"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umi-SC-z1P">
+                    <rect key="frame" x="0.0" y="0.0" width="130" height="51"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mVP-S3-B3B" userLabel="s2">
+                    <rect key="frame" x="260" y="6" width="1" height="40"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="银行" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xS-FY-YLE">
+                    <rect key="frame" x="130" y="0.0" width="130" height="51"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="帐号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pb7-On-EZj">
+                    <rect key="frame" x="260" y="0.0" width="165" height="51"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="上期余额" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiD-km-Pqn">
+                    <rect key="frame" x="470" y="0.0" width="132" height="51"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="本期余额" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ray-qG-9ba">
+                    <rect key="frame" x="862" y="0.0" width="132" height="51"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="本期借方发生" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxA-16-o9Z">
+                    <rect key="frame" x="602" y="0.0" width="130" height="51"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="本期贷方发生" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQM-4g-ySR">
+                    <rect key="frame" x="732" y="0.0" width="130" height="51"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="币种" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eJ-Jq-bmW">
+                    <rect key="frame" x="425" y="0.0" width="45" height="51"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZMX-30-b0F" userLabel="s2">
+                    <rect key="frame" x="425" y="6" width="1" height="40"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0w-ei-tKC" userLabel="s3">
+                    <rect key="frame" x="470" y="6" width="1" height="40"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Zv-eP-Tr6" userLabel="s4">
+                    <rect key="frame" x="602" y="6" width="1" height="40"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qmN-2V-R8f" userLabel="s5">
+                    <rect key="frame" x="732" y="6" width="1" height="40"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tzC-5T-5AU" userLabel="s5">
+                    <rect key="frame" x="862" y="6" width="1" height="40"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.98431372549019602" green="0.47843137254901957" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="151" y="1116.5"/>
+        </view>
     </objects>
     <resources>
         <image name="按钮-标准状态.png" width="301" height="52"/>

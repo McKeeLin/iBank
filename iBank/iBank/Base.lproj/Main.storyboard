@@ -19,13 +19,15 @@
             <string>MicrosoftYaHei</string>
             <string>MicrosoftYaHei</string>
             <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
         </mutableArray>
     </customFonts>
     <scenes>
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="mainVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainVC" id="BYZ-38-t0r" customClass="mainVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -168,9 +170,27 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="504" id="ZPD-hL-a0e"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="HB9-KG-zgv" id="D0T-Hi-TQT"/>
+                                    <outlet property="delegate" destination="HB9-KG-zgv" id="u0x-TD-Thq"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5a-1X-FKx" userLabel="rt">
                                 <rect key="frame" x="520" y="15" width="504" height="172"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="您好！管理员" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihI-bh-Emp">
+                                        <rect key="frame" x="40" y="40" width="400" height="30"/>
+                                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今天是：2015年05月02日星期二" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-uW-snC">
+                                        <rect key="frame" x="40" y="94" width="400" height="30"/>
+                                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="172" id="Jfv-QU-Mfn"/>
@@ -192,6 +212,10 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="okx-md-pNM">
                                         <rect key="frame" x="0.0" y="71" width="504" height="495"/>
                                         <color key="backgroundColor" red="0.4823529411764706" green="0.76078431372549016" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="HB9-KG-zgv" id="mXx-lO-MJN"/>
+                                            <outlet property="delegate" destination="HB9-KG-zgv" id="jkT-SM-RkS"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -224,6 +248,12 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="768"/>
+                    <connections>
+                        <outlet property="_leftTableView" destination="Shk-ji-FF0" id="Rzk-VL-cIm"/>
+                        <outlet property="_rightTableView" destination="okx-md-pNM" id="9d2-pl-DMb"/>
+                        <outlet property="dayInfoLabel" destination="8oX-uW-snC" id="Ai7-xM-pPc"/>
+                        <outlet property="userInfoLabel" destination="ihI-bh-Emp" id="Aw5-Ve-PQ8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ru-5e-j9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -361,9 +391,6 @@
                                         <state key="normal" image="刷新认证码-标准状态.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="onTouchRefresh:" destination="HMF-Da-yAW" eventType="touchUpInside" id="0gV-ri-QAU"/>
-                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="输入框01.png" translatesAutoresizingMaskIntoConstraints="NO" id="09k-8E-rPS">
                                         <rect key="frame" x="135" y="39" width="225" height="31"/>
@@ -395,7 +422,6 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onTouchLogin:" destination="HMF-Da-yAW" eventType="touchUpInside" id="odP-SC-IWc"/>
                                             <segue destination="BYZ-38-t0r" kind="push" id="Dc2-dt-P2B"/>
                                         </connections>
                                     </button>
@@ -410,7 +436,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密码：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hT5-pi-K3f">
                                         <rect key="frame" x="77" y="89" width="50" height="30"/>
-                                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>

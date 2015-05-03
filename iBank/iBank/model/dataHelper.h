@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "verifyImageService.h"
 
 @interface moneyFlow : NSObject
 
@@ -50,12 +51,14 @@
 
 @property NSString *comment;
 
+
+
 @end
 
 
 @interface dataHelper : NSObject
 
-@property NSString *host;
+@property (nonatomic) NSString *host;
 
 @property NSString *sessionid;
 
@@ -71,9 +74,17 @@
 
 @property NSString *sn;
 
+@property BOOL userHttps;
+
 @property NSMutableArray *focusAccounts;
 
 @property NSMutableArray *accounts;
+
+@property verifyImageService *verifyImageSrv;
+
+@property UITextField *passwordTextField;
+
+@property UITextField *verifyCodeTextField;
 
 
 + (instancetype)helper;

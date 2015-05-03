@@ -7,6 +7,7 @@
 
 #import "logoutService.h"
 #import "dataHelper.h"
+#import "Utility.h"
 
 /*
 http://222.49.117.9/ibankbizdev/index.php/ibankbiz/auth
@@ -67,12 +68,23 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/auth
 
 - (void)parseResult:(NSString *)result
 {
-    ;
+    NSDictionary *dict = [Utility dictionaryWithJsonString:result];
+    NSNumber *code;
+    NSString *data;
+    if( dict ){
+        code = [dict objectForKey:@"code"];
+        data = [dict objectForKey:@"data"];
+    }
+    if( self.logoutBlock ){
+        self.logoutBlock( code.integerValue, data );
+    }
 }
 
 - (void)onError:(NSString *)error
 {
-    ;
+    if( self.logoutBlock ){
+        self.logoutBlock( 99, @"未能连接服务器！" );
+    }
 }
 
 @end

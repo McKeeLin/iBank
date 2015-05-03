@@ -7,6 +7,9 @@
 //
 
 #import "settingVC.h"
+#import "dataHelper.h"
+#import "logoutService.h"
+#import "indicatorView.h"
 
 @implementation serverCell
 
@@ -20,8 +23,10 @@
 @interface settingVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     IBOutlet UITableView *_tableView;
+    logoutService *_logoutService;
+    indicatorView *_indicatorView;
 }
-
+@property indicatorView *indicatorView;
 @end
 
 @implementation settingVC
@@ -36,6 +41,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if( [dataHelper helper].sessionid.length > 0 ){
+        self.navigationController.navigationBarHidden = YES;
+    }
+    else{
+        self.navigationController.navigationBarHidden = NO;
+        self.title = @"设置";
+    }
+    
+    _indicatorView = [indicatorView view];
+    _indicatorView.label.text = @"正在退出系统，请稍候...";
+    __weak settingVC *weakSelf = self;
+    _logoutService = [[logoutService alloc] init];
+    _logoutService.logoutBlock = ^(NSInteger code, NSString *data){
+        [weakSelf.indicatorView dismiss];
+        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+    };
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,9 +109,14 @@
             return cll;
         }
         else{
-            loginCell *cll = cells.lastObject;
+            loginCell *cll = [cells objectAtIndex:1];
             cll.backgroundColor = [UIColor clearColor];
-            [cll.logoutButton addTarget:self action:@selector(onTouchLogout:) forControlEvents:UIControlEventTouchUpInside];
+            if( [dataHelper helper].sessionid.length > 0 ){
+                [cll.logoutButton addTarget:self action:@selector(onTouchLogout:) forControlEvents:UIControlEventTouchUpInside];
+            }
+            else{
+                cll.logoutButton.hidden = YES;
+            }
             return cll;
         }
     }
@@ -101,7 +127,11 @@
 
 - (void)onTouchLogout:(id)sender
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [_indicatorView showAtMainWindow];
+    [_logoutService request];
+    [dataHelper helper].passwordTextField.text = @"";
+    [dataHelper helper].verifyCodeTextField.text = @"";
+    [[dataHelper helper].verifyImageSrv request];
 }
 
 - (void)onTouchTest:(id)sender

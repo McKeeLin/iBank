@@ -19,6 +19,12 @@
 
 @implementation mainVC
 
++ (instancetype)viewController
+{
+    mainVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mainVC"];
+    return vc;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;

@@ -146,7 +146,7 @@
     return decodedString;
 }
 
-+ (NSString*)md5String:(NSString *)src
++(NSString*)md5String:(NSString *)src
 {
     const char *cStr = [src UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
@@ -160,6 +160,13 @@
              ] lowercaseString];
     NSLog(@"plain text:\n%@\nencoded text:\n%@\n", src, encodeString);
     return encodeString;
+}
+
++(NSDateComponents*)currentDateComponents
+{
+    NSDate *today = [NSDate date];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    return [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond|NSCalendarUnitWeekday fromDate:today];
 }
 
 @end

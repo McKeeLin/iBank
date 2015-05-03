@@ -13,14 +13,16 @@
 
 +(NSDictionary*)dictionaryWithResponseObject:(id)responseObject;
 
-+(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
++(NSDictionary*)dictionaryWithJsonString:(NSString *)jsonString;
 
-+(NSString *)jsonStringWithDictionary:(NSDictionary *)dictionary;
++(NSString*)jsonStringWithDictionary:(NSDictionary *)dictionary;
 
 +(NSString*)URLEncode:(NSString*)unencodedString;
 
-+(NSString *)URLDecode:(NSString*)encodedString;
++(NSString*)URLDecode:(NSString*)encodedString;
 
-+ (NSString*)md5String:(NSString*)src;
++(NSString*)md5String:(NSString*)src;
+
++(NSDateComponents*)currentDateComponents;
 
 @end

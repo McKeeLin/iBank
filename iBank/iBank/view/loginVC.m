@@ -15,6 +15,8 @@
 #import "newMsgService.h"
 #import "settingVC.h"
 #import "aboutVC.h"
+#import "loginView.h"
+#import "mainVC.h"
 
 
 @interface loginVC ()<UITextFieldDelegate>
@@ -31,13 +33,13 @@
     IBOutlet UIButton *_aboutButton;
     IBOutlet UIButton *_settingButton;
     UITextField *_currentTextField;
-    CGFloat _yOffset;
-    CGRect _containerFrame;
+    CGRect _loginViewFrame;
     UITapGestureRecognizer *_tgr;
 }
 
 @property NSString *imageSN;
 @property IBOutlet UIButton *loginButton;
+@property loginView *loginView;
 
 
 @end
@@ -64,17 +66,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBarHidden = YES;
-    self.loginButton.enabled = NO;
-    _containerFrame = _container.frame;
-    _yOffset = 0;
+    _loginViewFrame = CGRectMake(291, 300, 242, 292);
     _tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onViewTap:)];
-    _accountTextField.delegate = self;
-    _accountTextField.returnKeyType = UIReturnKeyNext;
-    _passwordTextField.delegate = self;
-    _passwordTextField.returnKeyType = UIReturnKeyNext;
-    _codeTextField.delegate = self;
-    _codeTextField.returnKeyType = UIReturnKeyGo;
+    
+    _container.hidden = YES;
+    _loginView = [[NSBundle mainBundle] loadNibNamed:@"views" owner:nil options:nil].firstObject;
+    _loginView.frame = _loginViewFrame;
+    _loginView.accountTextField.delegate = self;
+    _loginView.accountTextField.returnKeyType = UIReturnKeyNext;
+    _loginView.passwordTextField.delegate = self;
+    _loginView.passwordTextField.returnKeyType = UIReturnKeyNext;
+    _loginView.codeTextField.delegate = self;
+    _loginView.codeTextField.returnKeyType = UIReturnKeyDone;
+    _loginView.loginButton.enabled = NO;
+    [_loginView.loginButton addTarget:self action:@selector(onTouchLogin2:) forControlEvents:UIControlEventTouchUpInside];
+    [_loginView.refreshButton addTarget:self action:@selector(onTouchRefreshCode:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_loginView];
     
     [[NSNotificationCenter defaultCenter]
      addObserver:self
@@ -86,13 +93,13 @@
      selector:@selector(onKeyboardWillHideNotification:)
      name:UIKeyboardWillHideNotification object:nil];
     
-    __weak UIImageView *weakImageView = _codeImageView;
-    __weak loginVC *weakSelf = self;
+    __weak __block loginVC *weakSelf = self;
     _vImgSrv = [[verifyImageService alloc] init];
     _vImgSrv.getImageBlock = ^(UIImage *image, NSString *code, NSString *error){
-        weakImageView.image = image;
+        weakSelf.loginView.codeImageView.image = image;
         weakSelf.imageSN = code;
-        weakSelf.loginButton.enabled = YES;
+        weakSelf.loginView.loginButton.enabled = YES;
+        weakSelf.loginView.refreshButton.enabled = YES;
     };
     [_vImgSrv request];
     
@@ -100,11 +107,18 @@
     _loginSrv.loginBlock = ^(NSInteger code, NSString *data){
         if( code == 1 ){
             [dataHelper helper].sessionid = data;
+            [weakSelf.navigationController pushViewController:[mainVC viewController] animated:YES];
         }
-        [dataHelper helper].sessionid = @"3c5d37d-e59b-4dba-804d-3126d6d844ac";
+        else if( data.length > 0 ){
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:data delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alertView show];
+        }
     };
     [_aboutButton addTarget:self action:@selector(onTouchAbout:) forControlEvents:UIControlEventTouchUpInside];
     [_settingButton addTarget:self action:@selector(onTouchSetting:) forControlEvents:UIControlEventTouchUpInside];
+    [dataHelper helper].verifyImageSrv = _vImgSrv;
+    [dataHelper helper].passwordTextField = _loginView.passwordTextField;
+    [dataHelper helper].verifyCodeTextField = _loginView.codeTextField;
 }
 
 
@@ -112,6 +126,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = YES;
 }
 
 /*
@@ -126,19 +145,21 @@
 
 - (void)doLogin
 {
-    _loginSrv.uid = _accountTextField.text;
-    _loginSrv.pcode = _passwordTextField.text;
-    _loginSrv.vcode = _codeTextField.text;
+    _loginSrv.uid = _loginView.accountTextField.text;
+    _loginSrv.pcode = _loginView.passwordTextField.text;
+    _loginSrv.vcode = _loginView.codeTextField.text;
     _loginSrv.qid = _imageSN;
     [_loginSrv request];
 }
 
-- (IBAction)onTouchRefresh:(id)sender
+
+- (void)onTouchRefreshCode:(id)sender
 {
+    _loginView.refreshButton.enabled = NO;
     [_vImgSrv request];
 }
 
-- (IBAction)onTouchLogin:(id)sender
+- (void)onTouchLogin2:(id)sender
 {
     [self doLogin];
 }
@@ -164,14 +185,12 @@
 - (void)onTouchSetting:(id)sender
 {
     settingVC *vc = [settingVC viewController];
-    vc.navigationController.navigationBarHidden = NO;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)onTouchAbout:(id)sender
 {
     aboutVC *vc = [aboutVC viewController];
-    vc.navigationController.navigationBarHidden = NO;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -183,21 +202,17 @@
     NSDictionary *userInfo = notification.userInfo;
     NSValue *endFrameValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     NSValue *durationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
     CGRect endFrame;
     double duration;
     [endFrameValue getValue:&endFrame];
     [durationValue getValue:&duration];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     CGRect keyboardFrameSelfView = [window convertRect:endFrame toView:self.view];
-    __block CGRect newFrame = _container.frame;
-    newFrame.origin.y = keyboardFrameSelfView.origin.y - newFrame.size.height;
-    CGRect frame = CGRectMake(_container.frame.origin.x,keyboardFrameSelfView.origin.y - 10 - _container.frame.size.height, _container.frame.size.width, _container.frame.size.height);
-    
+    __block CGRect newFrame = _loginView.frame;
+    newFrame.origin.y = keyboardFrameSelfView.origin.y - newFrame.size.height - 5;
     [UIView animateWithDuration:duration animations:^(){
-        _container.frame = frame;
+        _loginView.frame = newFrame;
     }completion:^(BOOL finished){
-        _container.frame = frame;
     }];
 }
 
@@ -216,7 +231,7 @@
     [UIView beginAnimations:@"keyboardWillHide" context:nil];
     [UIView setAnimationCurve:curve.unsignedIntegerValue];
     [UIView setAnimationDuration:duration];
-    _container.frame = _containerFrame;
+    _loginView.frame = _loginViewFrame;
     [UIView commitAnimations];
 }
 
@@ -236,13 +251,13 @@
 {
     if( textField == _accountTextField )
     {
-        [_passwordTextField becomeFirstResponder];
+        [_loginView.passwordTextField becomeFirstResponder];
     }
     else if( textField == _passwordTextField ){
-        [_codeTextField becomeFirstResponder];
+        [_loginView.codeTextField becomeFirstResponder];
     }
     else if( textField == _codeTextField ){
-        [_codeTextField resignFirstResponder];
+        [_loginView.codeTextField resignFirstResponder];
         [self doLogin];
     }
     return YES;

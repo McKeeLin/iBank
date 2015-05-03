@@ -12,6 +12,15 @@
 		0866E5981AE47E5300F17A31 /* logoutService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5971AE47E5300F17A31 /* logoutService.m */; };
 		2612D5B81AF11CA6002B45D9 /* getMyInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5B71AF11CA6002B45D9 /* getMyInfoService.m */; };
 		2612D5BB1AF11D4E002B45D9 /* getAuthListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5BA1AF11D4E002B45D9 /* getAuthListService.m */; };
+		2612D5BE1AF42E92002B45D9 /* loginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5BD1AF42E92002B45D9 /* loginView.m */; };
+		2612D5C01AF42EC1002B45D9 /* views.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2612D5BF1AF42EC1002B45D9 /* views.xib */; };
+		2612D5C41AF43E96002B45D9 /* indicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5C21AF43E96002B45D9 /* indicatorView.m */; };
+		2612D5C51AF43E96002B45D9 /* indicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2612D5C31AF43E96002B45D9 /* indicatorView.xib */; };
+		2612D5C81AF47DF6002B45D9 /* qryOrgBankBalanceService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5C71AF47DF6002B45D9 /* qryOrgBankBalanceService.m */; };
+		2612D5CB1AF47E78002B45D9 /* qryOrgBankAcctService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5CA1AF47E78002B45D9 /* qryOrgBankAcctService.m */; };
+		2612D5CE1AF47F46002B45D9 /* qryBankOrgAcctService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5CD1AF47F46002B45D9 /* qryBankOrgAcctService.m */; };
+		2612D5D11AF4824D002B45D9 /* qryMyFavoriteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5D01AF4824D002B45D9 /* qryMyFavoriteService.m */; };
+		2612D5D41AF55EE9002B45D9 /* homeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5D31AF55EE9002B45D9 /* homeCell.m */; };
 		2648CA861AE7587400B06DBA /* aliveHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648CA851AE7587400B06DBA /* aliveHelper.m */; };
 		2664B2161AE2B1CA00FA8054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2151AE2B1CA00FA8054 /* main.m */; };
 		2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2181AE2B1CA00FA8054 /* AppDelegate.m */; };
@@ -109,6 +118,22 @@
 		2612D5B71AF11CA6002B45D9 /* getMyInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getMyInfoService.m; sourceTree = "<group>"; };
 		2612D5B91AF11D4E002B45D9 /* getAuthListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getAuthListService.h; sourceTree = "<group>"; };
 		2612D5BA1AF11D4E002B45D9 /* getAuthListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getAuthListService.m; sourceTree = "<group>"; };
+		2612D5BC1AF42E92002B45D9 /* loginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginView.h; sourceTree = "<group>"; };
+		2612D5BD1AF42E92002B45D9 /* loginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginView.m; sourceTree = "<group>"; };
+		2612D5BF1AF42EC1002B45D9 /* views.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = views.xib; sourceTree = "<group>"; };
+		2612D5C11AF43E96002B45D9 /* indicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = indicatorView.h; sourceTree = "<group>"; };
+		2612D5C21AF43E96002B45D9 /* indicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = indicatorView.m; sourceTree = "<group>"; };
+		2612D5C31AF43E96002B45D9 /* indicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = indicatorView.xib; sourceTree = "<group>"; };
+		2612D5C61AF47DF6002B45D9 /* qryOrgBankBalanceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qryOrgBankBalanceService.h; sourceTree = "<group>"; };
+		2612D5C71AF47DF6002B45D9 /* qryOrgBankBalanceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qryOrgBankBalanceService.m; sourceTree = "<group>"; };
+		2612D5C91AF47E78002B45D9 /* qryOrgBankAcctService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qryOrgBankAcctService.h; sourceTree = "<group>"; };
+		2612D5CA1AF47E78002B45D9 /* qryOrgBankAcctService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qryOrgBankAcctService.m; sourceTree = "<group>"; };
+		2612D5CC1AF47F46002B45D9 /* qryBankOrgAcctService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qryBankOrgAcctService.h; sourceTree = "<group>"; };
+		2612D5CD1AF47F46002B45D9 /* qryBankOrgAcctService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qryBankOrgAcctService.m; sourceTree = "<group>"; };
+		2612D5CF1AF4824D002B45D9 /* qryMyFavoriteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qryMyFavoriteService.h; sourceTree = "<group>"; };
+		2612D5D01AF4824D002B45D9 /* qryMyFavoriteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qryMyFavoriteService.m; sourceTree = "<group>"; };
+		2612D5D21AF55EE9002B45D9 /* homeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeCell.h; sourceTree = "<group>"; };
+		2612D5D31AF55EE9002B45D9 /* homeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeCell.m; sourceTree = "<group>"; };
 		2648CA841AE7587400B06DBA /* aliveHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aliveHelper.h; sourceTree = "<group>"; };
 		2648CA851AE7587400B06DBA /* aliveHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aliveHelper.m; sourceTree = "<group>"; };
 		2664B2101AE2B1CA00FA8054 /* iBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -328,6 +353,14 @@
 				2612D5B71AF11CA6002B45D9 /* getMyInfoService.m */,
 				2612D5B91AF11D4E002B45D9 /* getAuthListService.h */,
 				2612D5BA1AF11D4E002B45D9 /* getAuthListService.m */,
+				2612D5C61AF47DF6002B45D9 /* qryOrgBankBalanceService.h */,
+				2612D5C71AF47DF6002B45D9 /* qryOrgBankBalanceService.m */,
+				2612D5C91AF47E78002B45D9 /* qryOrgBankAcctService.h */,
+				2612D5CA1AF47E78002B45D9 /* qryOrgBankAcctService.m */,
+				2612D5CC1AF47F46002B45D9 /* qryBankOrgAcctService.h */,
+				2612D5CD1AF47F46002B45D9 /* qryBankOrgAcctService.m */,
+				2612D5CF1AF4824D002B45D9 /* qryMyFavoriteService.h */,
+				2612D5D01AF4824D002B45D9 /* qryMyFavoriteService.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -335,6 +368,9 @@
 		2664B23B1AE2B2C200FA8054 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				2612D5C11AF43E96002B45D9 /* indicatorView.h */,
+				2612D5C21AF43E96002B45D9 /* indicatorView.m */,
+				2612D5C31AF43E96002B45D9 /* indicatorView.xib */,
 				26D53F151AEB5A6600A1A33D /* THSegmentedPager */,
 				2664B2421AE2FFD000FA8054 /* loginVC.h */,
 				2664B2431AE2FFD000FA8054 /* loginVC.m */,
@@ -351,6 +387,11 @@
 				2678F2431AED393D001A0596 /* aboutVC.h */,
 				2678F2441AED393D001A0596 /* aboutVC.m */,
 				267800FB1AEF57FB008DE5E8 /* cells.xib */,
+				2612D5BC1AF42E92002B45D9 /* loginView.h */,
+				2612D5BD1AF42E92002B45D9 /* loginView.m */,
+				2612D5BF1AF42EC1002B45D9 /* views.xib */,
+				2612D5D21AF55EE9002B45D9 /* homeCell.h */,
+				2612D5D31AF55EE9002B45D9 /* homeCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -611,6 +652,7 @@
 				26D53F091AEB491A00A1A33D /* 银行-表格背景.png in Resources */,
 				26D53EE91AEB491A00A1A33D /* 登录背景.png in Resources */,
 				26D53EF01AEB491A00A1A33D /* 公司-经过，选中状态.png in Resources */,
+				2612D5C01AF42EC1002B45D9 /* views.xib in Resources */,
 				2678F24A1AED50E1001A0596 /* msyh.ttf in Resources */,
 				26D53EFE1AEB491A00A1A33D /* 背景.png in Resources */,
 				2678F2471AED4EB3001A0596 /* szLogo.png in Resources */,
@@ -629,6 +671,7 @@
 				26D53EF81AEB491A00A1A33D /* 设置-标准状态.png in Resources */,
 				26D53EFC1AEB491A00A1A33D /* 表格背景.png in Resources */,
 				26D53EFA1AEB491A00A1A33D /* 银行-标准状态.png in Resources */,
+				2612D5C51AF43E96002B45D9 /* indicatorView.xib in Resources */,
 				2678F24D1AEDC55A001A0596 /* settingNormal.png in Resources */,
 				26D53EE21AEB491A00A1A33D /* 刷新认证码-标准状态.png in Resources */,
 				26D53EE41AEB491A00A1A33D /* 帮助按钮-标准状态.png in Resources */,
@@ -652,9 +695,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2664B24B1AE3263100FA8054 /* Utility.m in Sources */,
+				2612D5D41AF55EE9002B45D9 /* homeCell.m in Sources */,
 				2664B2411AE2B65E00FA8054 /* wbConn.m in Sources */,
+				2612D5D11AF4824D002B45D9 /* qryMyFavoriteService.m in Sources */,
+				2612D5C81AF47DF6002B45D9 /* qryOrgBankBalanceService.m in Sources */,
 				26D53EA81AE8A19500A1A33D /* UICKeyChainStore.m in Sources */,
 				2664B25A1AE3304400FA8054 /* settingVC.m in Sources */,
+				2612D5C41AF43E96002B45D9 /* indicatorView.m in Sources */,
 				2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */,
 				0866E0D61AE5C9F200435CD5 /* keepAliveService.m in Sources */,
 				2612D5BB1AF11D4E002B45D9 /* getAuthListService.m in Sources */,
@@ -663,13 +710,16 @@
 				2664B24E1AE32D4800FA8054 /* mainVC.m in Sources */,
 				26D53F1B1AEB5A6600A1A33D /* HMSegmentedControl.m in Sources */,
 				0866E0D91AE5CD3100435CD5 /* newMsgService.m in Sources */,
+				2612D5CB1AF47E78002B45D9 /* qryOrgBankAcctService.m in Sources */,
 				2664B2441AE2FFD000FA8054 /* loginVC.m in Sources */,
 				26D53F1C1AEB5A6600A1A33D /* THSegmentedPager.m in Sources */,
 				0866E5981AE47E5300F17A31 /* logoutService.m in Sources */,
 				2648CA861AE7587400B06DBA /* aliveHelper.m in Sources */,
 				2664B2511AE32FEA00FA8054 /* homeVC.m in Sources */,
 				26E440061AE4AF9E00CDE8A7 /* dataHelper.m in Sources */,
+				2612D5BE1AF42E92002B45D9 /* loginView.m in Sources */,
 				2664B2571AE3302D00FA8054 /* bankVC.m in Sources */,
+				2612D5CE1AF47F46002B45D9 /* qryBankOrgAcctService.m in Sources */,
 				2678F2451AED393D001A0596 /* aboutVC.m in Sources */,
 				2612D5B81AF11CA6002B45D9 /* getMyInfoService.m in Sources */,
 				2664B2161AE2B1CA00FA8054 /* main.m in Sources */,

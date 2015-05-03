@@ -8,6 +8,11 @@
 
 #import "wbConn.h"
 
+typedef void(^GET_MY_INFO_BLOCK) (int code, id data);
+
+
 @interface getMyInfoService : wbConn
+
+@property (strong) GET_MY_INFO_BLOCK getMyInfoBlock;
 
 @end

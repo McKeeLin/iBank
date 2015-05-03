@@ -7,6 +7,7 @@
 //
 
 #import "aboutVC.h"
+#import "dataHelper.h"
 
 @interface aboutVC ()
 
@@ -25,6 +26,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if( [dataHelper helper].sessionid.length > 0 ){
+        self.navigationController.navigationBarHidden = YES;
+    }
+    else{
+        self.navigationController.navigationBarHidden = NO;
+        self.title = @"关于";
+    }
 }
 
 - (void)didReceiveMemoryWarning {

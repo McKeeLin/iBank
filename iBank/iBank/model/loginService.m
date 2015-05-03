@@ -27,7 +27,7 @@
         self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
         self.soapAction = @"urn:AuthControllerwsdl/SignIn";
         self.ctp = @"2";
-        self.os = @"iOS7.0";
+        self.os = [dataHelper helper].os;
     }
     return self;
 }
