@@ -30,7 +30,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="输入框01.png" translatesAutoresizingMaskIntoConstraints="NO" id="hnK-hh-KaZ">
                     <rect key="frame" x="135" y="39" width="225" height="31"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="admin" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ZW-tJ-O6K">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ZW-tJ-O6K">
                     <rect key="frame" x="150" y="39" width="208" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -44,7 +44,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="输入框01.png" translatesAutoresizingMaskIntoConstraints="NO" id="Stv-Xd-Bbz">
                     <rect key="frame" x="135" y="89" width="225" height="31"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="admin" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="foN-dn-8cr">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="foN-dn-8cr">
                     <rect key="frame" x="150" y="89" width="208" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>

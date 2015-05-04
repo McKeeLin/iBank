@@ -175,8 +175,9 @@
     _infoSrv = [[getMyInfoService alloc] init];
     _infoSrv.getMyInfoBlock = ^(int code, id data){
         if( code == 1 ){
-            NSDictionary *info = (NSDictionary*)data;
-            weakSelf.userInfoLabel.text = [NSString stringWithFormat:@"您好！%@", [info objectForKey:@"real_name"]];
+            NSArray *arr = (NSArray*)data;
+            NSDictionary *info = arr.firstObject;
+            weakSelf.userInfoLabel.text = [NSString stringWithFormat:@"您好！%@", [info objectForKey:@"name"]];
         }
         else{
             ;
@@ -319,14 +320,14 @@
         homeOrg *org = [_orgs objectAtIndex:indexPath.section];
         homeItem *item = [org.items objectAtIndex:indexPath.row];
         cell.titleLabel.text = [NSString stringWithFormat:@"%@：", item.title];
-        cell.valueLabel.text = [NSString stringWithFormat:@"%@：", item.value];
+        cell.valueLabel.text = [NSString stringWithFormat:@"%@", item.value];
         if( indexPath.row == 0 ){
-            cell.titleLabel.font = [UIFont fontWithName:@"微软雅黑" size:30];
-            cell.valueLabel.font = [UIFont fontWithName:@"微软雅黑" size:30];
+            cell.titleLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:30];
+            cell.valueLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:30];
         }
         else{
-            cell.titleLabel.font = [UIFont fontWithName:@"微软雅黑" size:25];
-            cell.valueLabel.font = [UIFont fontWithName:@"微软雅黑" size:25];
+            cell.titleLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:25];
+            cell.valueLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:25];
         }
         return cell;
     }

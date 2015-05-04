@@ -21,6 +21,7 @@
 		2612D5CE1AF47F46002B45D9 /* qryBankOrgAcctService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5CD1AF47F46002B45D9 /* qryBankOrgAcctService.m */; };
 		2612D5D11AF4824D002B45D9 /* qryMyFavoriteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5D01AF4824D002B45D9 /* qryMyFavoriteService.m */; };
 		2612D5D41AF55EE9002B45D9 /* homeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5D31AF55EE9002B45D9 /* homeCell.m */; };
+		2612D5D71AF681E0002B45D9 /* cells.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5D61AF681E0002B45D9 /* cells.m */; };
 		2648CA861AE7587400B06DBA /* aliveHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648CA851AE7587400B06DBA /* aliveHelper.m */; };
 		2664B2161AE2B1CA00FA8054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2151AE2B1CA00FA8054 /* main.m */; };
 		2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2181AE2B1CA00FA8054 /* AppDelegate.m */; };
@@ -134,6 +135,8 @@
 		2612D5D01AF4824D002B45D9 /* qryMyFavoriteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qryMyFavoriteService.m; sourceTree = "<group>"; };
 		2612D5D21AF55EE9002B45D9 /* homeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeCell.h; sourceTree = "<group>"; };
 		2612D5D31AF55EE9002B45D9 /* homeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeCell.m; sourceTree = "<group>"; };
+		2612D5D51AF681E0002B45D9 /* cells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cells.h; sourceTree = "<group>"; };
+		2612D5D61AF681E0002B45D9 /* cells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cells.m; sourceTree = "<group>"; };
 		2648CA841AE7587400B06DBA /* aliveHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aliveHelper.h; sourceTree = "<group>"; };
 		2648CA851AE7587400B06DBA /* aliveHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aliveHelper.m; sourceTree = "<group>"; };
 		2664B2101AE2B1CA00FA8054 /* iBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,6 +395,8 @@
 				2612D5BF1AF42EC1002B45D9 /* views.xib */,
 				2612D5D21AF55EE9002B45D9 /* homeCell.h */,
 				2612D5D31AF55EE9002B45D9 /* homeCell.m */,
+				2612D5D51AF681E0002B45D9 /* cells.h */,
+				2612D5D61AF681E0002B45D9 /* cells.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -715,6 +720,7 @@
 				26D53F1C1AEB5A6600A1A33D /* THSegmentedPager.m in Sources */,
 				0866E5981AE47E5300F17A31 /* logoutService.m in Sources */,
 				2648CA861AE7587400B06DBA /* aliveHelper.m in Sources */,
+				2612D5D71AF681E0002B45D9 /* cells.m in Sources */,
 				2664B2511AE32FEA00FA8054 /* homeVC.m in Sources */,
 				26E440061AE4AF9E00CDE8A7 /* dataHelper.m in Sources */,
 				2612D5BE1AF42E92002B45D9 /* loginView.m in Sources */,

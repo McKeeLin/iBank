@@ -270,10 +270,29 @@
                     <view key="view" contentMode="scaleToFill" id="SzK-h0-O4h">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QiN-yJ-g9w">
+                                <rect key="frame" x="16" y="60" width="992" height="700"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yYP-gS-Vri" id="kVe-mj-LFV"/>
+                                    <outlet property="delegate" destination="yYP-gS-Vri" id="2pX-6M-FB7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QiN-yJ-g9w" firstAttribute="top" secondItem="6rU-2e-piT" secondAttribute="bottom" constant="40" id="5S3-1Q-Pyq"/>
+                            <constraint firstAttribute="bottom" secondItem="QiN-yJ-g9w" secondAttribute="bottom" constant="8" id="B2Y-x7-ZAC"/>
+                            <constraint firstItem="QiN-yJ-g9w" firstAttribute="leading" secondItem="SzK-h0-O4h" secondAttribute="leading" constant="16" id="QoI-PG-kdt"/>
+                            <constraint firstAttribute="trailing" secondItem="QiN-yJ-g9w" secondAttribute="trailing" constant="16" id="zTb-xa-RQ8"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="768"/>
+                    <connections>
+                        <outlet property="tableView" destination="QiN-yJ-g9w" id="JTt-Ye-JVx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klb-1C-2Ng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
