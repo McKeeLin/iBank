@@ -96,6 +96,7 @@
     CGFloat usdDebit = 0;
     CGFloat usdCredit = 0;
     CGFloat usdBalance = 0;
+    NSInteger itemCount = 0;
     for( orgObj *org in _orgs ){
         rmbLastBalance += org.rmbLastBalance;
         rmbDebit += org.rmbDebit;
@@ -105,6 +106,7 @@
         usdDebit += org.usdDebit;
         usdCredit += org.usdCredit;
         usdBalance += org.usdCredit;
+        itemCount += org.items.count;
     }
     _footerView.rmbLastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", rmbLastBalance];
     _footerView.rmbDebitLabel.text = [NSString stringWithFormat:@"%.02f", rmbDebit];
@@ -114,6 +116,20 @@
     _footerView.usdDebitLabel.text = [NSString stringWithFormat:@"%.02f", usdDebit];
     _footerView.usdCreditLabel.text = [NSString stringWithFormat:@"%.02f", usdCredit];
     _footerView.usdBalanceLabe.text = [NSString stringWithFormat:@"%.02f", usdBalance];
+    if( itemCount % 2 == 0 ){
+        _footerView.container1.backgroundColor = ROW_COLOR_1;
+        _footerView.container2.backgroundColor = ROW_COLOR_2;
+    }
+    else{
+        _footerView.container1.backgroundColor = ROW_COLOR_2;
+        _footerView.container2.backgroundColor = ROW_COLOR_1;
+    }
+    if( _orgs.count % 2 == 0 ){
+        _footerView.backgroundColor = [UIColor whiteColor];
+    }
+    else{
+        _footerView.backgroundColor = [UIColor colorWithRed:242.00/255.00 green:242.00/255.00 blue:242.00/255.00 alpha:1];
+    }
 }
 
 
@@ -151,6 +167,7 @@
         cell.target = self;
         cell.action = @selector(onTouchAccount:);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.label.backgroundColor = [UIColor clearColor];
     }
     if( indexPath.row % 2 == 1 ){
         cell.backgroundColor = [UIColor colorWithRed:242.00/255.00 green:242.00/255.00 blue:242.00/255.00 alpha:1];
@@ -158,8 +175,14 @@
     else{
         cell.backgroundColor = [UIColor whiteColor];
     }
+    NSInteger startIndex = 0;
+    for( NSInteger i = 0; i < indexPath.row; i++ ){
+        orgObj *o = [_orgs objectAtIndex:i];
+        startIndex += o.items.count;
+    }
     cell.label.text = org.name;
     cell.items = org.items;
+    cell.startIndex = startIndex;
     [cell.tableview reloadData];
     return cell;
 }
@@ -168,7 +191,6 @@
 - (void)onTouchAccount:(UIButton*)button
 {
     NSString *account = button.titleLabel.text;
-    NSLog(@"----------%@", account);
 }
 
 @end

@@ -41,7 +41,173 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/qry-acct
  */
 
 #import "qryBankOrgAcctService.h"
+#import "Utility.h"
+#import "dataHelper.h"
+
+
+
+@interface bankObj ()
+{
+    NSMutableDictionary *_rmbItem;
+    NSMutableDictionary *_usdItem;
+    CGFloat _rmbLastBalance;
+    CGFloat _rmbDebit;
+    CGFloat _rmbCredit;
+    CGFloat _rmbBalance;
+    CGFloat _usdLastBalance;
+    CGFloat _usdDebit;
+    CGFloat _usdBalance;
+    CGFloat _usdCredit;
+}
+
+@end
+
+@implementation bankObj
+
+- (instancetype)init
+{
+    self = [super init];
+    if( self ){
+        _rmbLastBalance = 0.00;
+        _rmbDebit = 0.00;
+        _rmbCredit = 0.00;
+        _rmbLastBalance = 0.00;
+        _items = [[NSMutableArray alloc] initWithCapacity:0];
+        _rmbItem = [[NSMutableDictionary alloc] initWithCapacity:0];
+        [_rmbItem setObject:@"0.00" forKey:@"balance"];
+        [_rmbItem setObject:@"0.00" forKey:@"credit_amount"];
+        [_rmbItem setObject:@"0.00" forKey:@"debit_amount"];
+        [_rmbItem setObject:@"0.00" forKey:@"last_balance"];
+        [_items addObject:_rmbItem];
+        
+        _usdItem = [[NSMutableDictionary alloc] initWithCapacity:0];
+        [_usdItem setObject:@"0.00" forKey:@"balance"];
+        [_usdItem setObject:@"0.00" forKey:@"credit_amount"];
+        [_usdItem setObject:@"0.00" forKey:@"debit_amount"];
+        [_usdItem setObject:@"0.00" forKey:@"last_balance"];
+        [_items addObject:_usdItem];
+    }
+    return self;
+}
+
+- (instancetype)initWithDictionary:(NSDictionary*)dict
+{
+    self = [self init];
+    if( self ){
+        _name = [dict objectForKey:@"bank_sname"];
+        _Id = [dict objectForKey:@"bank_id"];
+    }
+    return self;
+}
+
+- (void)addItem:(NSDictionary *)item
+{
+    NSString *currencyCode = [item objectForKey:@"currency_code"];
+    NSString *balance = [item objectForKey:@"balance"];
+    NSString *credit_amount = [item objectForKey:@"credit_amount"];
+    NSString *debit_amount = [item objectForKey:@"debit_amount"];
+    NSString *last_balance = [item objectForKey:@"last_balance"];
+    if( [currencyCode isEqualToString:@"RMB"] ){
+        _rmbLastBalance += last_balance.floatValue;
+        _rmbDebit += debit_amount.floatValue;
+        _rmbCredit += credit_amount.floatValue;
+        _rmbBalance += balance.floatValue;
+        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbLastBalance] forKey:@"last_balance"];
+        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbDebit] forKey:@"debit_amount"];
+        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbCredit] forKey:@"credit_amount"];
+        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbBalance] forKey:@"balance"];
+    }
+    else{
+        _usdLastBalance += last_balance.floatValue;
+        _usdDebit += debit_amount.floatValue;
+        _usdCredit += credit_amount.floatValue;
+        _usdBalance += balance.floatValue;
+        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdLastBalance] forKey:@"last_balance"];
+        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdDebit] forKey:@"debit_amount"];
+        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdCredit] forKey:@"credit_amount"];
+        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdBalance] forKey:@"balance"];
+    }
+    
+    NSInteger index = 0;
+    for( NSInteger i = 0; i < self.items.count - 2; i++ ){
+        NSDictionary * dict = [self.items objectAtIndex:i];
+        if( [[dict objectForKey:@"organ_id"] isEqualToString:[item objectForKey:@"organ_id"]] )
+        {
+            index = i;
+            break;
+        }
+    }
+    [self.items insertObject:item atIndex:index];
+}
+
+@end
+
+
 
 @implementation qryBankOrgAcctService
+
+
+- (instancetype)init
+{
+    self = [super init];
+    if( self ){
+        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/qry-acct/api?ws=1", [dataHelper helper].host];
+        self.soapAction = @"urn:QryAcctControllerwsdl/qryBankOrgAcct";
+    }
+    return self;
+}
+
+- (void)request
+{
+    NSMutableString *body = [[NSMutableString alloc] initWithCapacity:0];
+    [body appendString:@"<tns:qryBankOrgAcct>\n"];
+    [body appendFormat:@"<sid xsi:type=\"xsd:string\">%@</sid>\n",[dataHelper helper].sessionid];
+    [body appendFormat:@"<AYear xsi:type=\"xsd:string\">%@</AYear>\n", self.year];
+    [body appendFormat:@"<APeriod xsi:type=\"xsd:string\">%@</APeriod>\n", self.month];
+    [body appendString:@"</tns:qryBankOrgAcct>"];
+    self.soapBody = body;
+    [super request];
+}
+
+- (void)parseResult:(NSString *)result
+{
+    NSDictionary *dict = [Utility dictionaryWithJsonString:result];
+    NSNumber *code;
+    id data;
+    if( dict ){
+        code = [dict objectForKey:@"result"];
+        data = [dict objectForKey:@"data"];
+        if( code.intValue == 1 ){
+            NSMutableArray *banks = [[NSMutableArray alloc] initWithCapacity:0];
+            NSArray *dicts = (NSArray*)data;
+            for( NSDictionary *dict in dicts ){
+                NSString *bankId = [dict objectForKey:@"bank_id"];
+                bankObj *existBank;
+                for( bankObj *bank in banks ){
+                    if( [bank.Id isEqualToString:bankId] ){
+                        existBank = bank;
+                        break;
+                    }
+                }
+                if( !existBank ){
+                    existBank = [[bankObj alloc] initWithDictionary:dict];
+                    [banks addObject:existBank];
+                }
+                [existBank addItem:dict];
+            }
+            data = banks;
+        }
+    }
+    if( self.qryBankOrgAcctBlock ){
+        self.qryBankOrgAcctBlock( code.intValue, data );
+    }
+}
+
+- (void)onError:(NSString *)error
+{
+    if( self.qryBankOrgAcctBlock ){
+        self.qryBankOrgAcctBlock( 99, @"无法连接服务器！" );
+    }
+}
 
 @end

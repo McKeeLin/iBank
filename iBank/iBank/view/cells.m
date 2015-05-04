@@ -77,10 +77,10 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIColor *backgroundColor1 = [UIColor colorWithRed:254.00/255.00 green:246.00/255.00 blue:238.00/255.00 alpha:1];
-    UIColor *backgroundColor2 = [UIColor colorWithRed:255.00/255.00 green:221.00/255.00 blue:187.00/255.00 alpha:1];
+    UIColor *backgroundColor1 = ROW_COLOR_1;
+    UIColor *backgroundColor2 = ROW_COLOR_2;
     UIColor *backgroundColor = backgroundColor1;
-    if( indexPath.row % 2 == 1 ){
+    if( (indexPath.row + _startIndex) % 2 == 1 ){
         backgroundColor = backgroundColor2;
     }
     NSDictionary *item = [self.items objectAtIndex:indexPath.row];
@@ -106,6 +106,7 @@
         cell.debitLabel.text = [NSString stringWithFormat:@"%.02f", debit.floatValue];
         cell.creditLabel.text = [NSString stringWithFormat:@"%.02f", credit.floatValue];
         cell.balanceLabe.text= [NSString stringWithFormat:@"%.02f", balance.floatValue];
+        cell.backgroundColor = backgroundColor;
         [cell.accountButton setTitle:[item objectForKey:@"bank_account"] forState:UIControlStateNormal];
         return cell;
     }

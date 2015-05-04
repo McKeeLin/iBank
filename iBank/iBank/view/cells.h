@@ -12,6 +12,8 @@
 
 #define COMPANY_ROW_HEIGHT      47
 
+#define ROW_COLOR_1             [UIColor colorWithRed:254.00/255.00 green:246.00/255.00 blue:238.00/255.00 alpha:1]
+#define ROW_COLOR_2             [UIColor colorWithRed:255.00/255.00 green:227.00/255.00 blue:187.00/255.00 alpha:1]
 
 @interface cbHeaderView : UIView
 
@@ -114,6 +116,12 @@
 @property SEL  action;
 
 @property BOOL forBank;
+
+@property UIColor *color1;
+
+@property UIColor *color2;
+
+@property NSInteger startIndex;
 
 + (CGFloat)heightForRowsCount:(NSInteger)count;
 

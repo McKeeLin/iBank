@@ -22,6 +22,8 @@
 		2612D5D11AF4824D002B45D9 /* qryMyFavoriteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5D01AF4824D002B45D9 /* qryMyFavoriteService.m */; };
 		2612D5D41AF55EE9002B45D9 /* homeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5D31AF55EE9002B45D9 /* homeCell.m */; };
 		2612D5D71AF681E0002B45D9 /* cells.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5D61AF681E0002B45D9 /* cells.m */; };
+		2612D5DA1AF73F77002B45D9 /* detailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5D91AF73F77002B45D9 /* detailVC.m */; };
+		2612D5DD1AF744A3002B45D9 /* qryAcctDetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5DC1AF744A3002B45D9 /* qryAcctDetailService.m */; };
 		2648CA861AE7587400B06DBA /* aliveHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648CA851AE7587400B06DBA /* aliveHelper.m */; };
 		2664B2161AE2B1CA00FA8054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2151AE2B1CA00FA8054 /* main.m */; };
 		2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2181AE2B1CA00FA8054 /* AppDelegate.m */; };
@@ -137,6 +139,10 @@
 		2612D5D31AF55EE9002B45D9 /* homeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeCell.m; sourceTree = "<group>"; };
 		2612D5D51AF681E0002B45D9 /* cells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cells.h; sourceTree = "<group>"; };
 		2612D5D61AF681E0002B45D9 /* cells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cells.m; sourceTree = "<group>"; };
+		2612D5D81AF73F77002B45D9 /* detailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailVC.h; sourceTree = "<group>"; };
+		2612D5D91AF73F77002B45D9 /* detailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailVC.m; sourceTree = "<group>"; };
+		2612D5DB1AF744A3002B45D9 /* qryAcctDetailService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qryAcctDetailService.h; sourceTree = "<group>"; };
+		2612D5DC1AF744A3002B45D9 /* qryAcctDetailService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qryAcctDetailService.m; sourceTree = "<group>"; };
 		2648CA841AE7587400B06DBA /* aliveHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aliveHelper.h; sourceTree = "<group>"; };
 		2648CA851AE7587400B06DBA /* aliveHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aliveHelper.m; sourceTree = "<group>"; };
 		2664B2101AE2B1CA00FA8054 /* iBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -364,6 +370,8 @@
 				2612D5CD1AF47F46002B45D9 /* qryBankOrgAcctService.m */,
 				2612D5CF1AF4824D002B45D9 /* qryMyFavoriteService.h */,
 				2612D5D01AF4824D002B45D9 /* qryMyFavoriteService.m */,
+				2612D5DB1AF744A3002B45D9 /* qryAcctDetailService.h */,
+				2612D5DC1AF744A3002B45D9 /* qryAcctDetailService.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -397,6 +405,8 @@
 				2612D5D31AF55EE9002B45D9 /* homeCell.m */,
 				2612D5D51AF681E0002B45D9 /* cells.h */,
 				2612D5D61AF681E0002B45D9 /* cells.m */,
+				2612D5D81AF73F77002B45D9 /* detailVC.h */,
+				2612D5D91AF73F77002B45D9 /* detailVC.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -704,6 +714,7 @@
 				2664B2411AE2B65E00FA8054 /* wbConn.m in Sources */,
 				2612D5D11AF4824D002B45D9 /* qryMyFavoriteService.m in Sources */,
 				2612D5C81AF47DF6002B45D9 /* qryOrgBankBalanceService.m in Sources */,
+				2612D5DA1AF73F77002B45D9 /* detailVC.m in Sources */,
 				26D53EA81AE8A19500A1A33D /* UICKeyChainStore.m in Sources */,
 				2664B25A1AE3304400FA8054 /* settingVC.m in Sources */,
 				2612D5C41AF43E96002B45D9 /* indicatorView.m in Sources */,
@@ -712,6 +723,7 @@
 				2612D5BB1AF11D4E002B45D9 /* getAuthListService.m in Sources */,
 				26E440031AE4AF0300CDE8A7 /* loginService.m in Sources */,
 				2664B23E1AE2B33500FA8054 /* webService.m in Sources */,
+				2612D5DD1AF744A3002B45D9 /* qryAcctDetailService.m in Sources */,
 				2664B24E1AE32D4800FA8054 /* mainVC.m in Sources */,
 				26D53F1B1AEB5A6600A1A33D /* HMSegmentedControl.m in Sources */,
 				0866E0D91AE5CD3100435CD5 /* newMsgService.m in Sources */,
