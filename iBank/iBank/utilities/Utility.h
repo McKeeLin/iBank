@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Utility : NSObject
 
@@ -24,5 +25,7 @@
 +(NSString*)md5String:(NSString*)src;
 
 +(NSDateComponents*)currentDateComponents;
+
++(UIColor*)colorWithRead:(int)red green:(int)green blue:(int)blue alpha:(CGFloat)alpha;
 
 @end

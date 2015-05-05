@@ -10,6 +10,9 @@
 		0866E0D61AE5C9F200435CD5 /* keepAliveService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0866E0D51AE5C9F200435CD5 /* keepAliveService.m */; };
 		0866E0D91AE5CD3100435CD5 /* newMsgService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0866E0D81AE5CD3100435CD5 /* newMsgService.m */; };
 		0866E5981AE47E5300F17A31 /* logoutService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0866E5971AE47E5300F17A31 /* logoutService.m */; };
+		086B214D1AF713C000E2EC58 /* monthSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B21481AF713C000E2EC58 /* monthSelectView.m */; };
+		086B214E1AF713C000E2EC58 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B214A1AF713C000E2EC58 /* UIImage+ImageEffects.m */; };
+		086B214F1AF713C000E2EC58 /* yearMonthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B214C1AF713C000E2EC58 /* yearMonthVC.m */; };
 		2612D5B81AF11CA6002B45D9 /* getMyInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5B71AF11CA6002B45D9 /* getMyInfoService.m */; };
 		2612D5BB1AF11D4E002B45D9 /* getAuthListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5BA1AF11D4E002B45D9 /* getAuthListService.m */; };
 		2612D5BE1AF42E92002B45D9 /* loginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5BD1AF42E92002B45D9 /* loginView.m */; };
@@ -118,6 +121,12 @@
 		0866E0D81AE5CD3100435CD5 /* newMsgService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newMsgService.m; sourceTree = "<group>"; };
 		0866E5961AE47E5300F17A31 /* logoutService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logoutService.h; sourceTree = "<group>"; };
 		0866E5971AE47E5300F17A31 /* logoutService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logoutService.m; sourceTree = "<group>"; };
+		086B21471AF713C000E2EC58 /* monthSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monthSelectView.h; sourceTree = "<group>"; };
+		086B21481AF713C000E2EC58 /* monthSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = monthSelectView.m; sourceTree = "<group>"; };
+		086B21491AF713C000E2EC58 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		086B214A1AF713C000E2EC58 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		086B214B1AF713C000E2EC58 /* yearMonthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yearMonthVC.h; sourceTree = "<group>"; };
+		086B214C1AF713C000E2EC58 /* yearMonthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yearMonthVC.m; sourceTree = "<group>"; };
 		2612D5B61AF11CA6002B45D9 /* getMyInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getMyInfoService.h; sourceTree = "<group>"; };
 		2612D5B71AF11CA6002B45D9 /* getMyInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getMyInfoService.m; sourceTree = "<group>"; };
 		2612D5B91AF11D4E002B45D9 /* getAuthListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getAuthListService.h; sourceTree = "<group>"; };
@@ -262,6 +271,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		086B21461AF713C000E2EC58 /* yearMonth */ = {
+			isa = PBXGroup;
+			children = (
+				086B21471AF713C000E2EC58 /* monthSelectView.h */,
+				086B21481AF713C000E2EC58 /* monthSelectView.m */,
+				086B21491AF713C000E2EC58 /* UIImage+ImageEffects.h */,
+				086B214A1AF713C000E2EC58 /* UIImage+ImageEffects.m */,
+				086B214B1AF713C000E2EC58 /* yearMonthVC.h */,
+				086B214C1AF713C000E2EC58 /* yearMonthVC.m */,
+			);
+			path = yearMonth;
+			sourceTree = "<group>";
+		};
 		2664B2071AE2B1CA00FA8054 = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +403,7 @@
 		2664B23B1AE2B2C200FA8054 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				086B21461AF713C000E2EC58 /* yearMonth */,
 				2612D5C11AF43E96002B45D9 /* indicatorView.h */,
 				2612D5C21AF43E96002B45D9 /* indicatorView.m */,
 				2612D5C31AF43E96002B45D9 /* indicatorView.xib */,
@@ -713,6 +736,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				086B214D1AF713C000E2EC58 /* monthSelectView.m in Sources */,
 				2664B24B1AE3263100FA8054 /* Utility.m in Sources */,
 				2612D5D41AF55EE9002B45D9 /* homeCell.m in Sources */,
 				2664B2411AE2B65E00FA8054 /* wbConn.m in Sources */,
@@ -727,6 +751,7 @@
 				2612D5BB1AF11D4E002B45D9 /* getAuthListService.m in Sources */,
 				26E440031AE4AF0300CDE8A7 /* loginService.m in Sources */,
 				2664B23E1AE2B33500FA8054 /* webService.m in Sources */,
+				086B214F1AF713C000E2EC58 /* yearMonthVC.m in Sources */,
 				2612D5DD1AF744A3002B45D9 /* qryAcctDetailService.m in Sources */,
 				2664B24E1AE32D4800FA8054 /* mainVC.m in Sources */,
 				26D53F1B1AEB5A6600A1A33D /* HMSegmentedControl.m in Sources */,
@@ -744,6 +769,7 @@
 				2612D5CE1AF47F46002B45D9 /* qryBankOrgAcctService.m in Sources */,
 				2678F2451AED393D001A0596 /* aboutVC.m in Sources */,
 				2612D5B81AF11CA6002B45D9 /* getMyInfoService.m in Sources */,
+				086B214E1AF713C000E2EC58 /* UIImage+ImageEffects.m in Sources */,
 				2664B2161AE2B1CA00FA8054 /* main.m in Sources */,
 				2664B2541AE3301600FA8054 /* companyVC.m in Sources */,
 				2664B2471AE300FA00FA8054 /* verifyImageService.m in Sources */,
