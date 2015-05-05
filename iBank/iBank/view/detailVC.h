@@ -10,4 +10,6 @@
 
 @interface detailVC : UIViewController
 
++ (instancetype)viewController;
+
 @end

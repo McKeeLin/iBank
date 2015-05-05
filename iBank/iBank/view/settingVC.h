@@ -31,6 +31,8 @@
 
 @property IBOutlet UISlider *slider;
 
+@property IBOutlet UILabel *timeoutIntervalLabel;
+
 @end
 
 

@@ -10,6 +10,7 @@
 #import "dataHelper.h"
 #import "logoutService.h"
 #import "indicatorView.h"
+#import "Utility.h"
 
 @implementation serverCell
 
@@ -26,6 +27,7 @@
     logoutService *_logoutService;
     indicatorView *_indicatorView;
     UITextField *_serverTextField;
+    UILabel *_timeoutIntervalLabel;
     BOOL _useSSL;
     BOOL _autoTimeout;
     BOOL _autoSaveAccount;
@@ -86,7 +88,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    if( [dataHelper helper].sessionid.length > 0 ){
+        return 2;
+    }
+    else{
+        return 1;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,7 +141,10 @@
             [cll.autoLogoutButton addTarget:self action:@selector(onTouchAutoLogoutButton:) forControlEvents:UIControlEventTouchUpInside];
             cll.saveAccountButton.selected = [dataHelper helper].autoSaveAccount;
             cll.autoLogoutButton.selected = [dataHelper helper].autoTimeout;
-            [cll.slider setValue:[dataHelper helper].timeoutInterval];
+            int interval = [dataHelper helper].timeoutInterval;
+            _timeoutIntervalLabel = cll.timeoutIntervalLabel;
+            [cll.slider addTarget:self action:@selector(onSliderValueChange:) forControlEvents:UIControlEventValueChanged];
+            [cll.slider setValue:interval];
             return cll;
         }
     }
@@ -188,5 +198,17 @@
     _useSSL = button.selected;
 }
 
+- (void)onSliderValueChange:(id)sender
+{
+    UISlider *slider = (UISlider*)sender;
+    NSString *intervalString = [NSString stringWithFormat:@"%d", (int)slider.value];
+    NSString *text = [NSString stringWithFormat:@"%@", intervalString];
+    NSRange intervalRange = NSMakeRange(0, intervalString.length);
+    NSRange textRange = NSMakeRange(0, text.length);
+    NSMutableAttributedString *attrText = [[NSMutableAttributedString alloc] initWithString:text];
+    [attrText addAttribute:NSForegroundColorAttributeName value:[Utility colorWithRead:85 green:85 blue:85 alpha:1] range:textRange];
+    [attrText addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"MicrosoftYaHei" size:25] range:textRange];
+    [attrText addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"MicrosoftYaHei" size:30] range:intervalRange];
+}
 
 @end
