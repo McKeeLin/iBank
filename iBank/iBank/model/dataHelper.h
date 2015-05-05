@@ -74,7 +74,15 @@
 
 @property NSString *sn;
 
-@property BOOL userHttps;
+@property NSString *server;
+
+@property BOOL useSSL;
+
+@property BOOL autoSaveAccount;
+
+@property BOOL autoTimeout;
+
+@property int timeoutInterval; //minutes
 
 @property NSMutableArray *focusAccounts;
 

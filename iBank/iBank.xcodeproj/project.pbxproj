@@ -24,6 +24,7 @@
 		2612D5D71AF681E0002B45D9 /* cells.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5D61AF681E0002B45D9 /* cells.m */; };
 		2612D5DA1AF73F77002B45D9 /* detailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5D91AF73F77002B45D9 /* detailVC.m */; };
 		2612D5DD1AF744A3002B45D9 /* qryAcctDetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5DC1AF744A3002B45D9 /* qryAcctDetailService.m */; };
+		2612D5DF1AF890B7002B45D9 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 2612D5DE1AF890B7002B45D9 /* logout.png */; };
 		2648CA861AE7587400B06DBA /* aliveHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2648CA851AE7587400B06DBA /* aliveHelper.m */; };
 		2664B2161AE2B1CA00FA8054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2151AE2B1CA00FA8054 /* main.m */; };
 		2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2181AE2B1CA00FA8054 /* AppDelegate.m */; };
@@ -143,6 +144,7 @@
 		2612D5D91AF73F77002B45D9 /* detailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailVC.m; sourceTree = "<group>"; };
 		2612D5DB1AF744A3002B45D9 /* qryAcctDetailService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qryAcctDetailService.h; sourceTree = "<group>"; };
 		2612D5DC1AF744A3002B45D9 /* qryAcctDetailService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qryAcctDetailService.m; sourceTree = "<group>"; };
+		2612D5DE1AF890B7002B45D9 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
 		2648CA841AE7587400B06DBA /* aliveHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aliveHelper.h; sourceTree = "<group>"; };
 		2648CA851AE7587400B06DBA /* aliveHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aliveHelper.m; sourceTree = "<group>"; };
 		2664B2101AE2B1CA00FA8054 /* iBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -491,6 +493,7 @@
 		26D53ECA1AEB491A00A1A33D /* 设置 */ = {
 			isa = PBXGroup;
 			children = (
+				2612D5DE1AF890B7002B45D9 /* logout.png */,
 				26D53ECB1AEB491A00A1A33D /* 按钮-标准状态.png */,
 				26D53ECC1AEB491A00A1A33D /* 按钮-选中状态.png */,
 				26D53ECD1AEB491A00A1A33D /* 未选中.png */,
@@ -683,6 +686,7 @@
 				26D53F0B1AEB491A00A1A33D /* 02.png in Resources */,
 				26D53F041AEB491A00A1A33D /* 灰色-选中.png in Resources */,
 				26D53F011AEB491A00A1A33D /* 未选中.png in Resources */,
+				2612D5DF1AF890B7002B45D9 /* logout.png in Resources */,
 				26D53EF81AEB491A00A1A33D /* 设置-标准状态.png in Resources */,
 				26D53EFC1AEB491A00A1A33D /* 表格背景.png in Resources */,
 				26D53EFA1AEB491A00A1A33D /* 银行-标准状态.png in Resources */,

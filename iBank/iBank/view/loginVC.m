@@ -66,7 +66,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _loginViewFrame = CGRectMake(291, 300, 242, 292);
+    _loginViewFrame = CGRectMake(291, 300, 442, 292);
     _tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onViewTap:)];
     
     _container.hidden = YES;
@@ -79,7 +79,7 @@
     _loginView.codeTextField.delegate = self;
     _loginView.codeTextField.returnKeyType = UIReturnKeyDone;
     _loginView.loginButton.enabled = NO;
-    [_loginView.loginButton addTarget:self action:@selector(onTouchLogin2:) forControlEvents:UIControlEventTouchUpInside];
+    [_loginView.loginButton addTarget:self action:@selector(onTouchLogin:) forControlEvents:UIControlEventTouchUpInside];
     [_loginView.refreshButton addTarget:self action:@selector(onTouchRefreshCode:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_loginView];
     
@@ -159,7 +159,7 @@
     [_vImgSrv request];
 }
 
-- (void)onTouchLogin2:(id)sender
+- (void)onTouchLogin:(id)sender
 {
     [self doLogin];
 }

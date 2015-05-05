@@ -25,6 +25,11 @@
     IBOutlet UITableView *_tableView;
     logoutService *_logoutService;
     indicatorView *_indicatorView;
+    UITextField *_serverTextField;
+    BOOL _useSSL;
+    BOOL _autoTimeout;
+    BOOL _autoSaveAccount;
+    int _timeoutInterval;
 }
 @property indicatorView *indicatorView;
 @end
@@ -106,6 +111,11 @@
             serverCell *cll = cells.firstObject;
             cll.backgroundColor = [UIColor clearColor];
             [cll.testButton addTarget:self action:@selector(onTouchTest:) forControlEvents:UIControlEventTouchUpInside];
+            [cll.sslButton setImage:[UIImage imageNamed:@"灰色-选中"] forState:UIControlStateSelected];
+            [cll.sslButton addTarget:self action:@selector(onTouchSSLButton:) forControlEvents:UIControlEventTouchUpInside];
+            cll.hostField.text = [dataHelper helper].server;
+            cll.sslButton.selected = [dataHelper helper].useSSL;
+            _serverTextField = cll.hostField;
             return cll;
         }
         else{
@@ -117,6 +127,14 @@
             else{
                 cll.logoutButton.hidden = YES;
             }
+            [cll.saveButton addTarget:self action:@selector(onTouchSave:) forControlEvents:UIControlEventTouchUpInside];
+            [cll.saveAccountButton setImage:[UIImage imageNamed:@"灰色-选中"] forState:UIControlStateSelected];
+            [cll.saveAccountButton addTarget:self action:@selector(onTouchSaveAccountButton:) forControlEvents:UIControlEventTouchUpInside];
+            [cll.autoLogoutButton setImage:[UIImage imageNamed:@"灰色-选中"] forState:UIControlStateSelected];
+            [cll.autoLogoutButton addTarget:self action:@selector(onTouchAutoLogoutButton:) forControlEvents:UIControlEventTouchUpInside];
+            cll.saveAccountButton.selected = [dataHelper helper].autoSaveAccount;
+            cll.autoLogoutButton.selected = [dataHelper helper].autoTimeout;
+            [cll.slider setValue:[dataHelper helper].timeoutInterval];
             return cll;
         }
     }
@@ -138,5 +156,37 @@
 {
     ;
 }
+
+- (void)onTouchSave:(id)sender
+{
+    [dataHelper helper].server = _serverTextField.text;
+    [dataHelper helper].useSSL = _useSSL;
+    [dataHelper helper].autoSaveAccount = _autoSaveAccount;
+    [dataHelper helper].autoTimeout = _autoTimeout;
+    [dataHelper helper].timeoutInterval = _timeoutInterval;
+}
+
+- (void)onTouchSaveAccountButton:(id)sender
+{
+    UIButton *button = (UIButton*)sender;
+    button.selected = !button.selected;
+    _autoSaveAccount = button.selected;
+}
+
+- (void)onTouchAutoLogoutButton:(id)sender
+{
+    UIButton *button = (UIButton*)sender;
+    button.selected = !button.selected;
+    _autoTimeout = button.selected;
+}
+
+
+- (void)onTouchSSLButton:(id)sender
+{
+    UIButton *button = (UIButton*)sender;
+    button.selected = !button.selected;
+    _useSSL = button.selected;
+}
+
 
 @end

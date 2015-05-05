@@ -27,6 +27,10 @@
 
 @property IBOutlet UIButton *autoLogoutButton;
 
+@property IBOutlet UIButton *saveButton;
+
+@property IBOutlet UISlider *slider;
+
 @end
 
 

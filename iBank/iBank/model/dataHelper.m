@@ -9,6 +9,8 @@
 #import "dataHelper.h"
 #import "UICKeyChainStore.h"
 
+#define SERVICE_NAME    @"IBANK"
+
 @implementation moneyFlow
 
 @end
@@ -48,42 +50,115 @@
 
 - (NSString*)savedAccount
 {
-    return [UICKeyChainStore stringForKey:@"IBANK_SAVED_ACCOUNT" service:@"IBANK"];
+    return [UICKeyChainStore stringForKey:@"IBANK_SAVED_ACCOUNT" service:SERVICE_NAME];
 }
 
 - (void)setSavedAccount:(NSString *)savedAccount
 {
-    [UICKeyChainStore setString:savedAccount forKey:@"IBANK_SAVED_ACCOUNT" service:@"IBANK"];
+    [UICKeyChainStore setString:savedAccount forKey:@"IBANK_SAVED_ACCOUNT" service:SERVICE_NAME];
 }
 
 - (NSString*)savedPassword
 {
-    return [UICKeyChainStore stringForKey:@"IBANK_SAVED_PASSWORD" service:@"IBANK"];
+    return [UICKeyChainStore stringForKey:@"IBANK_SAVED_PASSWORD" service:SERVICE_NAME];
 }
 
 - (void)setSavedPassword:(NSString *)savedPassword
 {
-    [UICKeyChainStore setString:savedPassword forKey:@"IBANK_SAVED_PASSWORD" service:@"IBANK"];
+    [UICKeyChainStore setString:savedPassword forKey:@"IBANK_SAVED_PASSWORD" service:SERVICE_NAME];
 }
 
 - (void)clearSavedAccount
 {
-    [UICKeyChainStore removeItemForKey:@"IBANK_SAVED_ACCOUNT" service:@"IBANK"];
-    [UICKeyChainStore removeItemForKey:@"IBANK_SAVED_PASSWORD" service:@"IBANK"];
+    [UICKeyChainStore removeItemForKey:@"IBANK_SAVED_ACCOUNT" service:SERVICE_NAME];
+    [UICKeyChainStore removeItemForKey:@"IBANK_SAVED_PASSWORD" service:SERVICE_NAME];
 }
 
 - (NSString*)host
 {
-    NSString *host = [UICKeyChainStore stringForKey:@"IBANK_HOST" service:@"IBANK"];
-    if( !host || host.length == 0 ){
-        host = @"http://222.49.117.9";
+    NSString *host = @"http://222.49.117.9";
+    if( self.server ){
+        NSString *protocol = @"http";
+        if( self.useSSL ){
+            protocol = @"https";
+        }
+        host = [NSString stringWithFormat:@"%@://%@", protocol, self.server];
     }
     return host;
 }
 
-- (void)setHost:(NSString *)host
+- (NSString*)server
 {
-    [UICKeyChainStore setString:host forKey:@"IBANK_HOST" service:@"IBANK"];
+    return [UICKeyChainStore stringForKey:@"IBANK_SERVER" service:SERVICE_NAME];
+}
+
+- (void)setServer:(NSString *)server
+{
+    [UICKeyChainStore setString:server forKey:@"IBANK_SERVER" service:SERVICE_NAME];
+}
+
+- (BOOL)useSSL
+{
+    NSString *str =  [UICKeyChainStore stringForKey:@"IBANK_USE_SSL" service:SERVICE_NAME];
+    if( [str isEqualToString:@"1"] ){
+        return YES;
+    }
+    else{
+        return NO;
+    }
+}
+
+- (void)setUseSSL:(BOOL)useSSL
+{
+    [UICKeyChainStore setString:[NSString stringWithFormat:@"%d", useSSL] forKey:@"IBANK_USE_SSL" service:SERVICE_NAME];
+}
+
+- (BOOL)autoSaveAccount
+{
+    NSString *str =  [UICKeyChainStore stringForKey:@"IBANK_AUTO_SAVE_ACCOUNT" service:SERVICE_NAME];
+    if( [str isEqualToString:@"1"] ){
+        return YES;
+    }
+    else{
+        return NO;
+    }
+}
+
+- (void)setAutoSaveAccount:(BOOL)autoSaveAccount
+{
+    [UICKeyChainStore setString:[NSString stringWithFormat:@"%d", autoSaveAccount] forKey:@"IBANK_AUTO_SAVE_ACCOUNT" service:SERVICE_NAME];
+}
+
+- (BOOL)autoTimeout
+{
+    NSString *str =  [UICKeyChainStore stringForKey:@"IBANK_AUTO_TIMEOUT" service:SERVICE_NAME];
+    if( [str isEqualToString:@"1"] ){
+        return YES;
+    }
+    else{
+        return NO;
+    }
+}
+
+- (void)setAutoTimeout:(BOOL)autoTimeout
+{
+    [UICKeyChainStore setString:[NSString stringWithFormat:@"%d", autoTimeout] forKey:@"IBANK_AUTO_TIMEOUT" service:SERVICE_NAME];
+}
+
+- (int)timeoutInterval
+{
+    NSString *str =  [UICKeyChainStore stringForKey:@"IBANK_TIMEOUT_INTERVAL" service:SERVICE_NAME];
+    if( str ){
+        return str.intValue;
+    }
+    else{
+        return 30;
+    }
+}
+
+- (void)setTimeoutInterval:(int)timeoutInterval
+{
+    [UICKeyChainStore setString:[NSString stringWithFormat:@"%d", timeoutInterval] forKey:@"IBANK_TIMEOUT_INTERVAL" service:SERVICE_NAME];
 }
 
 @end
