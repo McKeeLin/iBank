@@ -76,20 +76,21 @@
 
 - (NSString*)host
 {
-    NSString *host = @"http://222.49.117.9";
-    if( self.server ){
-        NSString *protocol = @"http";
-        if( self.useSSL ){
-            protocol = @"https";
-        }
-        host = [NSString stringWithFormat:@"%@://%@", protocol, self.server];
+//    NSString *host = @"http://222.49.117.9";
+    NSString *protocol = @"http";
+    if( self.useSSL ){
+        protocol = @"https";
     }
-    return host;
+    return [NSString stringWithFormat:@"%@://%@", protocol, self.server];
 }
 
 - (NSString*)server
 {
-    return [UICKeyChainStore stringForKey:@"IBANK_SERVER" service:SERVICE_NAME];
+    NSString *svr = [UICKeyChainStore stringForKey:@"IBANK_SERVER" service:SERVICE_NAME];
+    if( !svr ){
+        svr = @"222.49.117.9";
+    }
+    return svr;
 }
 
 - (void)setServer:(NSString *)server

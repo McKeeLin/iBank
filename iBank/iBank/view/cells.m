@@ -92,22 +92,22 @@
         }
         cell.backgroundColor = backgroundColor;
         if( self.forBank ){
-            cell.firstLabel.text = [item objectForKey:@"org_sname"];
+            cell.firstLabel.text = [item objectForKey:@"org"];
         }
         else{
-            cell.firstLabel.text = [item objectForKey:@"bank_sname"];
+            cell.firstLabel.text = [item objectForKey:@"bank"];
         }
-        NSString *lastBalance = [item objectForKey:@"last_balance"];
-        NSString *debit = [item objectForKey:@"debit_amount"];
-        NSString *credit = [item objectForKey:@"debit_amount"];
-        NSString *balance = [item objectForKey:@"balance"];
-        cell.typeLabel.text = [item objectForKey:@"currency_code"];
+        NSString *lastBalance = [item objectForKey:@"lastb"];
+        NSString *debit = [item objectForKey:@"debit"];
+        NSString *credit = [item objectForKey:@"credit"];
+        NSString *balance = [item objectForKey:@"thisb"];
+        cell.typeLabel.text = [item objectForKey:@"ccode"];
         cell.lastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", lastBalance.floatValue];
         cell.debitLabel.text = [NSString stringWithFormat:@"%.02f", debit.floatValue];
         cell.creditLabel.text = [NSString stringWithFormat:@"%.02f", credit.floatValue];
         cell.balanceLabe.text= [NSString stringWithFormat:@"%.02f", balance.floatValue];
         cell.backgroundColor = backgroundColor;
-        [cell.accountButton setTitle:[item objectForKey:@"bank_account"] forState:UIControlStateNormal];
+        [cell.accountButton setTitle:[item objectForKey:@"acct"] forState:UIControlStateNormal];
         return cell;
     }
     else{
@@ -119,14 +119,14 @@
         }
         cell.background1.backgroundColor = backgroundColor;
         cell.background2.backgroundColor = backgroundColor == backgroundColor1 ? backgroundColor2 : backgroundColor1;
-        cell.rmbLastBalanceLabel.text = [rmbItem objectForKey:@"last_balance"];
-        cell.rmbDebitLabel.text = [rmbItem objectForKey:@"debit_amount"];
-        cell.rmbCreditLabel.text = [rmbItem objectForKey:@"credit_amount"];
-        cell.rmbBalanceLabe.text = [rmbItem objectForKey:@"balance"];
-        cell.usdLastBalanceLabel.text = [usdItem objectForKey:@"last_balance"];
-        cell.usdDebitLabel.text = [usdItem objectForKey:@"debit_amount"];
-        cell.usdCreditLabel.text = [usdItem objectForKey:@"credit_amount"];
-        cell.usdBalanceLabe.text = [usdItem objectForKey:@"balance"];
+        cell.rmbLastBalanceLabel.text = [rmbItem objectForKey:@"lastb"];
+        cell.rmbDebitLabel.text = [rmbItem objectForKey:@"debit"];
+        cell.rmbCreditLabel.text = [rmbItem objectForKey:@"credit"];
+        cell.rmbBalanceLabe.text = [rmbItem objectForKey:@"thisb"];
+        cell.usdLastBalanceLabel.text = [usdItem objectForKey:@"lastb"];
+        cell.usdDebitLabel.text = [usdItem objectForKey:@"debit"];
+        cell.usdCreditLabel.text = [usdItem objectForKey:@"credit"];
+        cell.usdBalanceLabe.text = [usdItem objectForKey:@"thisb"];
         return cell;
     }
 }

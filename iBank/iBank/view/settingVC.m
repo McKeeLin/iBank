@@ -28,6 +28,7 @@
     indicatorView *_indicatorView;
     UITextField *_serverTextField;
     UILabel *_timeoutIntervalLabel;
+    UISlider *_slider;
     BOOL _useSSL;
     BOOL _autoTimeout;
     BOOL _autoSaveAccount;
@@ -64,6 +65,12 @@
         [weakSelf.indicatorView dismiss];
         [weakSelf.navigationController popToRootViewControllerAnimated:YES];
     };
+    
+    if( ![dataHelper helper].sessionid ){
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableView.frame.size.width, 64)];
+        headerView.backgroundColor = [UIColor clearColor];
+        _tableView.tableHeaderView = headerView;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,8 +127,15 @@
             [cll.testButton addTarget:self action:@selector(onTouchTest:) forControlEvents:UIControlEventTouchUpInside];
             [cll.sslButton setImage:[UIImage imageNamed:@"灰色-选中"] forState:UIControlStateSelected];
             [cll.sslButton addTarget:self action:@selector(onTouchSSLButton:) forControlEvents:UIControlEventTouchUpInside];
+            [cll.saveButton addTarget:self action:@selector(onTouchSave:) forControlEvents:UIControlEventTouchUpInside];
             cll.hostField.text = [dataHelper helper].server;
             cll.sslButton.selected = [dataHelper helper].useSSL;
+            if( ![dataHelper helper].sessionid ){
+                cll.saveButton.hidden = NO;
+            }
+            else{
+                cll.saveButton.hidden = YES;
+            }
             _serverTextField = cll.hostField;
             return cll;
         }
@@ -143,8 +157,15 @@
             cll.autoLogoutButton.selected = [dataHelper helper].autoTimeout;
             int interval = [dataHelper helper].timeoutInterval;
             _timeoutIntervalLabel = cll.timeoutIntervalLabel;
+            _slider = cll.slider;
             [cll.slider addTarget:self action:@selector(onSliderValueChange:) forControlEvents:UIControlEventValueChanged];
             [cll.slider setValue:interval];
+            if( [dataHelper helper].autoTimeout ){
+                cll.slider.enabled = YES;
+            }
+            else{
+                cll.slider.enabled = NO;
+            }
             return cll;
         }
     }
@@ -159,6 +180,7 @@
     [_logoutService request];
     [dataHelper helper].passwordTextField.text = @"";
     [dataHelper helper].verifyCodeTextField.text = @"";
+    [dataHelper helper].sessionid = nil;
     [[dataHelper helper].verifyImageSrv request];
 }
 
@@ -188,6 +210,12 @@
     UIButton *button = (UIButton*)sender;
     button.selected = !button.selected;
     _autoTimeout = button.selected;
+    if( _autoTimeout ){
+        _slider.enabled = YES;
+    }
+    else{
+        _slider.enabled = NO;
+    }
 }
 
 
@@ -201,14 +229,16 @@
 - (void)onSliderValueChange:(id)sender
 {
     UISlider *slider = (UISlider*)sender;
-    NSString *intervalString = [NSString stringWithFormat:@"%d", (int)slider.value];
-    NSString *text = [NSString stringWithFormat:@"%@", intervalString];
+    _timeoutInterval = slider.value;
+    NSString *intervalString = [NSString stringWithFormat:@"%d", _timeoutInterval];
+    NSString *text = [NSString stringWithFormat:@"%@分钟内无操作自动注销", intervalString];
     NSRange intervalRange = NSMakeRange(0, intervalString.length);
     NSRange textRange = NSMakeRange(0, text.length);
     NSMutableAttributedString *attrText = [[NSMutableAttributedString alloc] initWithString:text];
     [attrText addAttribute:NSForegroundColorAttributeName value:[Utility colorWithRead:85 green:85 blue:85 alpha:1] range:textRange];
-    [attrText addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"MicrosoftYaHei" size:25] range:textRange];
-    [attrText addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"MicrosoftYaHei" size:30] range:intervalRange];
+    [attrText addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"MicrosoftYaHei" size:17] range:textRange];
+    [attrText addAttribute:NSForegroundColorAttributeName value:[Utility colorWithRead:251 green:122 blue:58 alpha:1] range:intervalRange];
+    _timeoutIntervalLabel.attributedText = attrText;
 }
 
 @end

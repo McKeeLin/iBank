@@ -15,7 +15,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="loginView">
-            <rect key="frame" x="0.0" y="0.0" width="442" height="292"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="登录框.png" translatesAutoresizingMaskIntoConstraints="NO" id="VGK-Pj-cPV">
@@ -85,14 +85,6 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="accountTextField" destination="0ZW-tJ-O6K" id="YhP-96-A1h"/>
-                <outlet property="codeImageView" destination="LmK-AV-gAT" id="dfh-27-c1d"/>
-                <outlet property="codeTextField" destination="N9T-cl-2gJ" id="XdO-bB-pf5"/>
-                <outlet property="loginButton" destination="3vm-lr-3nh" id="ot9-4k-d9H"/>
-                <outlet property="passwordTextField" destination="foN-dn-8cr" id="gA0-Rc-G2I"/>
-                <outlet property="refreshButton" destination="IKN-5v-3si" id="dMt-eM-1QJ"/>
-            </connections>
         </view>
     </objects>
     <resources>

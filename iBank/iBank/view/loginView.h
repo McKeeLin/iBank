@@ -7,19 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TextFieldEx.h"
+
 
 @interface loginView : UIView
 
-@property IBOutlet UITextField *accountTextField;
+@property  TextFieldEx *accountTextField;
 
-@property IBOutlet UITextField *passwordTextField;
+@property  TextFieldEx *passwordTextField;
 
-@property IBOutlet UITextField *codeTextField;
+@property  TextFieldEx *codeTextField;
 
-@property IBOutlet UIImageView *codeImageView;
+@property  UIImageView *codeImageView;
 
-@property IBOutlet UIButton *refreshButton;
+@property  UIButton *refreshButton;
 
-@property IBOutlet UIButton *loginButton;
+@property  UIButton *loginButton;
+
+@property UIImageView *backgroudView;
 
 @end

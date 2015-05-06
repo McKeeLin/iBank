@@ -181,13 +181,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="您好！管理员" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihI-bh-Emp">
                                         <rect key="frame" x="40" y="40" width="400" height="30"/>
                                         <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今天是：2015年05月02日星期二" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-uW-snC">
                                         <rect key="frame" x="40" y="94" width="400" height="30"/>
                                         <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -272,7 +272,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QiN-yJ-g9w">
-                                <rect key="frame" x="16" y="80" width="992" height="680"/>
+                                <rect key="frame" x="16" y="40" width="992" height="720"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yYP-gS-Vri" id="kVe-mj-LFV"/>
@@ -282,7 +282,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="QiN-yJ-g9w" firstAttribute="top" secondItem="6rU-2e-piT" secondAttribute="bottom" constant="60" id="5S3-1Q-Pyq"/>
+                            <constraint firstItem="QiN-yJ-g9w" firstAttribute="top" secondItem="6rU-2e-piT" secondAttribute="bottom" constant="20" id="5S3-1Q-Pyq"/>
                             <constraint firstAttribute="bottom" secondItem="QiN-yJ-g9w" secondAttribute="bottom" constant="8" id="B2Y-x7-ZAC"/>
                             <constraint firstItem="QiN-yJ-g9w" firstAttribute="leading" secondItem="SzK-h0-O4h" secondAttribute="leading" constant="16" id="QoI-PG-kdt"/>
                             <constraint firstAttribute="trailing" secondItem="QiN-yJ-g9w" secondAttribute="trailing" constant="16" id="zTb-xa-RQ8"/>
@@ -311,7 +311,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fsp-lm-jHH">
-                                <rect key="frame" x="16" y="80" width="992" height="680"/>
+                                <rect key="frame" x="16" y="40" width="992" height="720"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="C2c-yL-OgO" id="RS6-Rd-cDc"/>
@@ -321,7 +321,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Fsp-lm-jHH" firstAttribute="top" secondItem="BM3-sq-v3F" secondAttribute="bottom" constant="60" id="A80-Fr-mP0"/>
+                            <constraint firstItem="Fsp-lm-jHH" firstAttribute="top" secondItem="BM3-sq-v3F" secondAttribute="bottom" constant="20" id="A80-Fr-mP0"/>
                             <constraint firstItem="Fsp-lm-jHH" firstAttribute="leading" secondItem="srv-OM-1c2" secondAttribute="leading" constant="16" id="Egl-pT-vvg"/>
                             <constraint firstAttribute="trailing" secondItem="Fsp-lm-jHH" secondAttribute="trailing" constant="16" id="ePD-ns-lGf"/>
                             <constraint firstItem="KqD-qx-FpN" firstAttribute="top" secondItem="Fsp-lm-jHH" secondAttribute="bottom" constant="8" id="weA-e3-kqN"/>

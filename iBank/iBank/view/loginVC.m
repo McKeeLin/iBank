@@ -66,11 +66,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _loginViewFrame = CGRectMake(291, 300, 442, 292);
     _tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onViewTap:)];
     
     _container.hidden = YES;
-    _loginView = [[NSBundle mainBundle] loadNibNamed:@"views" owner:nil options:nil].firstObject;
+    _loginViewFrame = CGRectMake(291, 300, 442, 292);
+    _loginView = [[loginView alloc] initWithFrame:_loginViewFrame];// [[NSBundle mainBundle] loadNibNamed:@"views" owner:nil options:nil].firstObject;
     _loginView.frame = _loginViewFrame;
     _loginView.accountTextField.delegate = self;
     _loginView.accountTextField.returnKeyType = UIReturnKeyNext;

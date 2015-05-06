@@ -51,6 +51,7 @@
 		2678F24A1AED50E1001A0596 /* msyh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2678F2491AED50E1001A0596 /* msyh.ttf */; };
 		2678F24D1AEDC55A001A0596 /* settingNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2678F24B1AEDC55A001A0596 /* settingNormal.png */; };
 		2678F24E1AEDC55A001A0596 /* settingSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 2678F24C1AEDC55A001A0596 /* settingSelected.png */; };
+		26AC06EB1AF9CC3300B5A3F0 /* TextFieldEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AC06EA1AF9CC3300B5A3F0 /* TextFieldEx.m */; };
 		26D53EA81AE8A19500A1A33D /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D53EA71AE8A19500A1A33D /* UICKeyChainStore.m */; };
 		26D53EE21AEB491A00A1A33D /* 刷新认证码-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAA1AEB491A00A1A33D /* 刷新认证码-标准状态.png */; };
 		26D53EE31AEB491A00A1A33D /* 刷新认证码-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAB1AEB491A00A1A33D /* 刷新认证码-选中状态.png */; };
@@ -194,6 +195,8 @@
 		2678F2491AED50E1001A0596 /* msyh.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = msyh.ttf; sourceTree = "<group>"; };
 		2678F24B1AEDC55A001A0596 /* settingNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingNormal.png; sourceTree = "<group>"; };
 		2678F24C1AEDC55A001A0596 /* settingSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingSelected.png; sourceTree = "<group>"; };
+		26AC06E91AF9CC3300B5A3F0 /* TextFieldEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEx.h; sourceTree = "<group>"; };
+		26AC06EA1AF9CC3300B5A3F0 /* TextFieldEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldEx.m; sourceTree = "<group>"; };
 		26D53EA61AE8A19500A1A33D /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		26D53EA71AE8A19500A1A33D /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		26D53EAA1AEB491A00A1A33D /* 刷新认证码-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "刷新认证码-标准状态.png"; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 				2612D5D61AF681E0002B45D9 /* cells.m */,
 				2612D5D81AF73F77002B45D9 /* detailVC.h */,
 				2612D5D91AF73F77002B45D9 /* detailVC.m */,
+				26AC06E91AF9CC3300B5A3F0 /* TextFieldEx.h */,
+				26AC06EA1AF9CC3300B5A3F0 /* TextFieldEx.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -748,6 +753,7 @@
 				2612D5C41AF43E96002B45D9 /* indicatorView.m in Sources */,
 				2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */,
 				0866E0D61AE5C9F200435CD5 /* keepAliveService.m in Sources */,
+				26AC06EB1AF9CC3300B5A3F0 /* TextFieldEx.m in Sources */,
 				2612D5BB1AF11D4E002B45D9 /* getAuthListService.m in Sources */,
 				26E440031AE4AF0300CDE8A7 /* loginService.m in Sources */,
 				2664B23E1AE2B33500FA8054 /* webService.m in Sources */,

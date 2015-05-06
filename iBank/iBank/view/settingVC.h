@@ -14,6 +14,8 @@
 
 @property IBOutlet UIButton *sslButton;
 
+@property IBOutlet UIButton *saveButton;
+
 @property IBOutlet UITextField *hostField;
 
 @end

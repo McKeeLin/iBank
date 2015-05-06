@@ -26,12 +26,12 @@
     self = [super init];
     if( self ){
         _currentcies = [[NSMutableArray alloc] initWithCapacity:0];
-        _Id = [dict objectForKey:@"bank_id"];
-        _name = [dict objectForKey:@"bank_sname"];
+        _Id = [dict objectForKey:@"bid"];
+        _name = [dict objectForKey:@"bank"];
         _rmb = 0.00;
         _dollar = 0.00;
-        NSString *balance = [dict objectForKey:@"balance"];
-        NSString *code = [dict objectForKey:@"currency_code"];
+        NSString *balance = [dict objectForKey:@"amount"];
+        NSString *code = [dict objectForKey:@"ccode"];
         if( [code isEqualToString:@"RMB"] ){
             _rmb = balance.floatValue;
         }
@@ -62,8 +62,8 @@
 {
     self = [self init];
     if( self ){
-        _Id = [dict objectForKey:@"organ_id"];
-        _name = [dict objectForKey:@"org_sname"];
+        _Id = [dict objectForKey:@"oid"];
+        _name = [dict objectForKey:@"org"];
         _rmb = 0.00;
         _dollar = 0.00;
     }
@@ -138,7 +138,7 @@
             [weakSelf.orgs removeAllObjects];
             NSArray *items = (NSArray*)data;
             for( NSDictionary *item in items ){
-                NSString *orgId = [item objectForKey:@"organ_id"];
+                NSString *orgId = [item objectForKey:@"oid"];
                 homeOrg *foundOrg;
                 for( homeOrg *org in weakSelf.orgs )
                 {
@@ -341,9 +341,9 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         NSDictionary *info = [_favoriteAccounts objectAtIndex:indexPath.row];
-        cell.bankLabel.text = [NSString stringWithFormat:@"%@：", [info objectForKey:@"bank_sname"]];
-        cell.accountLabel.text = [info objectForKey:@"bank_account"];
-        cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@",[info objectForKey:@"currency_symbol"], [info objectForKey:@"balance"]];
+        cell.bankLabel.text = [NSString stringWithFormat:@"%@：", [info objectForKey:@"bank"]];
+        cell.accountLabel.text = [info objectForKey:@"acct"];
+        cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@",[info objectForKey:@"cstr"], [info objectForKey:@"amount"]];
         return cell;
     }
 }
