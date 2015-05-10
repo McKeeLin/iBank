@@ -12,6 +12,8 @@
 #import "getMyInfoService.h"
 #import "Utility.h"
 #import "homeCell.h"
+#import "detailVC.h"
+#import "indicatorView.h"
 
 @implementation homeItem
 @end
@@ -155,9 +157,12 @@
                 [foundOrg add:item];
             }
             [weakSelf updateLeftTableView];
+            [indicatorView dismissOnlyIndicatorAtView:weakSelf.view];
         }
         else{
-            ;
+            if( code == -1202 || code == -1201 ){
+                [weakSelf onSessionTimeout];
+            }
         }
     };
     
@@ -211,6 +216,7 @@
 
 - (void)loadData
 {
+    [indicatorView showOnlyIndicatorAtView:self.view];
     NSDateComponents *components = [Utility currentDateComponents];
     NSLog(@"%@", components);
     NSString *year = [NSString stringWithFormat:@"%ld", components.year];
@@ -342,10 +348,24 @@
         }
         NSDictionary *info = [_favoriteAccounts objectAtIndex:indexPath.row];
         cell.bankLabel.text = [NSString stringWithFormat:@"%@：", [info objectForKey:@"bank"]];
-        cell.accountLabel.text = [info objectForKey:@"acct"];
+        cell.accountButton.tag = indexPath.row;
+        [cell.accountButton setTitle:[info objectForKey:@"acct"] forState:UIControlStateNormal];
+        [cell.accountButton addTarget:self action:@selector(onTouchAccount:) forControlEvents:UIControlEventTouchUpInside];
         cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@",[info objectForKey:@"cstr"], [info objectForKey:@"amount"]];
         return cell;
     }
+}
+
+- (void)onTouchAccount:(id)sender
+{
+    UIButton *button = (UIButton*)sender;
+    NSDictionary *info = [_favoriteAccounts objectAtIndex:button.tag];
+    detailVC *vc = [detailVC viewController];
+    vc.bank = [info objectForKey:@"bank"];
+    vc.company = [info objectForKey:@"org"];
+    vc.account = [info objectForKey:@"acct"];
+    vc.accountId = [[info objectForKey:@"aid"] intValue];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

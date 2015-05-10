@@ -47,6 +47,7 @@
 
 - (void)request
 {
+    NSLog(@"request:%@", self.url);
     NSMutableString *soap = [[NSMutableString alloc] initWithString:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"];
     [soap appendString:@"<soap:Envelope "];
     [soap appendString:@"xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\""];

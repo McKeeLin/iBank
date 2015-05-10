@@ -7,8 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "baseVC.h"
 
-@interface detailVC : UIViewController
+@interface detailVC : baseVC
+
+@property int accountId;
+
+@property NSString *account;
+
+@property NSString *company;
+
+@property NSString *bank;
+
+@property NSString *currencyType;
 
 + (instancetype)viewController;
 

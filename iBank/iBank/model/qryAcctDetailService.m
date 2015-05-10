@@ -13,7 +13,7 @@
  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:QryAcctControllerwsdl" xmlns:types="urn:QryAcctControllerwsdl/encodedTypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
  <soap:Body soap:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
  <tns:qryAcctDetail>
- <sid xsi:type="xsd:string">27601ce0-fe69-40f5-b3ef-b659df88d398</sid>
+ <sid xsi:type="xsd:string">100ad404-2811-45ae-b828-4d5ce138cbb4</sid>
  <AYear xsi:type="xsd:string">2015</AYear>
  <APeriod xsi:type="xsd:string">03</APeriod>
  <AcctID xsi:type="xsd:integer">2</AcctID>
@@ -22,14 +22,11 @@
  </soap:Body>
  </soap:Envelope>
  
- 
  ResponseCode: 200 (OK)
  Vary:Accept-Encoding
- Keep-Alive:timeout=3, max=100
- Connection:Keep-Alive
- Content-Length:753
+ Content-Length:709
  Content-Type:text/xml; charset=utf-8
- Date:Sun, 03 May 2015 15:28:08 GMT
+ Date:Wed, 06 May 2015 14:31:57 GMT
  Server:Apache/2.2.22 (Ubuntu)
  X-Powered-By:PHP/5.4.39-1+deb.sury.org~precise+2
  
@@ -37,11 +34,10 @@
  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="urn:QryAcctControllerwsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
  <SOAP-ENV:Body>
  <ns1:qryAcctDetailResponse>
- <return xsi:type="xsd:string">{"result":1,"pgCnt":1,"pgNo":1,"fav":true,"data":[{"alineno":0,"arecid":-1,"atrans_date":"2015-02-28","asettle_mode":"","areceipt_name":"","asummary":"上期余额","adebit":"0","acredit":"0","abalance":"0","adescription":""}]}</return>
+ <return xsi:type="xsd:string">{"result":1,"pgCnt":1,"pgNo":1,"fav":1,"data":[{"ln":0,"id":-1,"date":"2015-02-28","smode":"","receipt":"","summary":"上期余额","debit":"0","credit":"0","balance":"0","desc":""}]}</return>
  </ns1:qryAcctDetailResponse>
  </SOAP-ENV:Body>
- </SOAP-ENV:Envelope>
- */
+ </SOAP-ENV:Envelope> */
 
 #import "qryAcctDetailService.h"
 #import "dataHelper.h"

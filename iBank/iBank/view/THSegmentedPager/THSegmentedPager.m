@@ -57,7 +57,7 @@
 {
     [super viewWillAppear:animated];
     if ([self.pages count]>0) {
-        [self.pageViewController setViewControllers:@[self.pages[0]]
+        [self.pageViewController setViewControllers:@[self.pages[self.pageControl.selectedSegmentIndex]]
                                           direction:UIPageViewControllerNavigationDirectionForward
                                            animated:NO
                                          completion:NULL];

@@ -74,8 +74,13 @@
             };
         }
         else{
+            CGFloat top = viewHeight - height;
+            if( _isPopOver )
+            {
+                top = 0;
+            }
             msv = [[monthSelectView alloc] initWithFrame:self.view.bounds];
-            msv = [[monthSelectView alloc] initWithFrame:CGRectMake(0, viewHeight-height, viewWidth, height)];
+            msv = [[monthSelectView alloc] initWithFrame:CGRectMake(0, top, viewWidth, height)];
             msv.selectedYear = selectedYear;
             msv.selectedMonth = selectedMonth;
             [self.view addSubview:msv];

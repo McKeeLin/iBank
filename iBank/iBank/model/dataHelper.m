@@ -76,12 +76,12 @@
 
 - (NSString*)host
 {
-//    NSString *host = @"http://222.49.117.9";
     NSString *protocol = @"http";
     if( self.useSSL ){
         protocol = @"https";
     }
-    return [NSString stringWithFormat:@"%@://%@", protocol, self.server];
+    NSString *host = [NSString stringWithFormat:@"%@://%@", protocol, self.server];
+    return host;
 }
 
 - (NSString*)server
@@ -153,7 +153,7 @@
         return str.intValue;
     }
     else{
-        return 30;
+        return 30 * 60;
     }
 }
 

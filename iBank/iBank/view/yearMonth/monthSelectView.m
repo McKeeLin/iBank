@@ -155,9 +155,9 @@
     [monthsView selectItemAtIndexPath:[NSIndexPath indexPathForItem:dateComponent.month-1 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
     */
     
-    NSString *ok = NSLocalizedString(@"Confirm", nil);
-    NSString *clear = NSLocalizedString(@"Clear", nil);
-    NSString *cancel = NSLocalizedString(@"CANCEL", nil);
+    NSString *ok = @"确定";
+    NSString *clear = @"清除";
+    NSString *cancel = @"取消";
     /*
      if( !toolBar ){
      toolBar = [[UIToolbar alloc] initWithFrame:CGRectZero];
@@ -182,7 +182,7 @@
     UIButton *okButton = [UIButton buttonWithType:UIButtonTypeCustom];
     okButton.frame = buttonFrame;
     okButton.backgroundColor = [UIColor clearColor];
-    okButton.titleLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:25];
+    okButton.titleLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:17];
     okButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     [okButton setTitle:ok forState:UIControlStateNormal];
     [okButton setTitleColor:blueTextColor forState:UIControlStateNormal];
@@ -198,8 +198,9 @@
     UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
     clearButton.frame = buttonFrame;
     clearButton.backgroundColor = [UIColor clearColor];
-    clearButton.titleLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:25];
+    clearButton.titleLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:17];
     clearButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    clearButton.enabled = NO;
     [clearButton setTitle:clear forState:UIControlStateNormal];
     [clearButton setTitleColor:blueTextColor forState:UIControlStateNormal];
     [clearButton addTarget:self action:@selector(onTouchClear:) forControlEvents:UIControlEventTouchUpInside];
@@ -214,7 +215,7 @@
     UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
     cancelButton.frame = buttonFrame;
     cancelButton.backgroundColor = [UIColor clearColor];
-    cancelButton.titleLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:25];
+    cancelButton.titleLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:17];
     cancelButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     [cancelButton setTitle:cancel forState:UIControlStateNormal];
     [cancelButton setTitleColor:blueTextColor forState:UIControlStateNormal];

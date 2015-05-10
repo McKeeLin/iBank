@@ -7,6 +7,7 @@
 //
 
 #import "cells.h"
+#import "detailVC.h"
 
 
 @implementation cbHeaderView
@@ -88,7 +89,7 @@
         accountCell *cell = (accountCell*)[tableView dequeueReusableCellWithIdentifier:@"accountCell"];
         if( !cell ){
             cell = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:5];
-            [cell.accountButton addTarget:self.target action:self.action forControlEvents:UIControlEventTouchUpInside];
+            [cell.accountButton addTarget:self action:@selector(onTouchAccount:) forControlEvents:UIControlEventTouchUpInside];
         }
         cell.backgroundColor = backgroundColor;
         if( self.forBank ){
@@ -107,6 +108,7 @@
         cell.creditLabel.text = [NSString stringWithFormat:@"%.02f", credit.floatValue];
         cell.balanceLabe.text= [NSString stringWithFormat:@"%.02f", balance.floatValue];
         cell.backgroundColor = backgroundColor;
+        cell.accountButton.tag = indexPath.row;
         [cell.accountButton setTitle:[item objectForKey:@"acct"] forState:UIControlStateNormal];
         return cell;
     }
@@ -133,8 +135,10 @@
 
 - (void)onTouchAccount:(id)sender
 {
+    UIButton *button = (UIButton*)sender;
+    NSDictionary *item = [_items objectAtIndex:button.tag];
     if( self.target && self.action ){
-        [self.target performSelector:self.action withObject:nil];
+        [self.target performSelector:self.action withObject:item];
     }
 }
 

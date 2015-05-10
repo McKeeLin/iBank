@@ -46,6 +46,8 @@
 - (void)showAtView:(UIView*)view
 {
     self.frame = view.bounds;
+    self.label.hidden = YES;
+    _aiv.center = self.center;
     [view addSubview:self];
     [_aiv startAnimating];
 }
@@ -59,7 +61,10 @@
 - (void)dismiss
 {
     [self.aiv stopAnimating];
-    [self removeFromSuperview];
+    if( self.superview )
+    {
+        [self removeFromSuperview];
+    }
 }
 
 @end

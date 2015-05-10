@@ -12,6 +12,7 @@
 #import "dataHelper.h"
 #import "indicatorView.h"
 #import "cells.h"
+#import "detailVC.h"
 
 @interface companyVC ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -53,11 +54,18 @@
     _iv = [[indicatorView alloc] initWithFrame:self.view.bounds];
     _qryOrgBankAcctSrv = [[qryOrgBankAcctService alloc] init];
     _qryOrgBankAcctSrv.qryOrgBankAcctBlock = ^( int code, id data){
+        [indicatorView dismissOnlyIndicatorAtView:weakSelf.view];
         if( code == 1 ){
             weakSelf.orgs = (NSArray*)data;
             [weakSelf.tableView reloadData];
             [weakSelf.iv dismiss];
             [weakSelf updateFooterView];
+        }
+        if( code == -1201 || code == -1202 ){
+            [weakSelf onSessionTimeout];
+        }
+        else{
+            [weakSelf showMessage:data];
         }
     };
     [self loadData];
@@ -80,6 +88,7 @@
 
 - (void)loadData
 {
+    [indicatorView showOnlyIndicatorAtView:self.view];
     _qryOrgBankAcctSrv.year = _year;
     _qryOrgBankAcctSrv.month = _month;
     [_iv showAtView:self.view];
@@ -188,9 +197,16 @@
 }
 
 
-- (void)onTouchAccount:(UIButton*)button
+- (void)onTouchAccount:(NSDictionary*)item
 {
-    NSString *account = button.titleLabel.text;
+    if( item ){
+        detailVC *vc = [detailVC viewController];
+        vc.bank = [item objectForKey:@"bank"];
+        vc.company = [item objectForKey:@"org"];
+        vc.account = [item objectForKey:@"acct"];
+        vc.accountId = [[item objectForKey:@"aid"] intValue];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end

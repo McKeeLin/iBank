@@ -78,7 +78,9 @@
 
 - (void)onError:(NSString *)error
 {
-    ;
+    if( self.keepAliveBlock ){
+        self.keepAliveBlock( 99, error );
+    }
 }
 
 

@@ -17,6 +17,8 @@
 #import "aboutVC.h"
 #import "loginView.h"
 #import "mainVC.h"
+#import "indicatorView.h"
+#import "aliveHelper.h"
 
 
 @interface loginVC ()<UITextFieldDelegate>
@@ -40,7 +42,9 @@
 @property NSString *imageSN;
 @property IBOutlet UIButton *loginButton;
 @property loginView *loginView;
-
+@property indicatorView *loginIV;
+@property indicatorView *imageIV;
+@property UIImageView *codeImageView;
 
 @end
 
@@ -96,17 +100,21 @@
     __weak __block loginVC *weakSelf = self;
     _vImgSrv = [[verifyImageService alloc] init];
     _vImgSrv.getImageBlock = ^(UIImage *image, NSString *code, NSString *error){
+        [indicatorView dismissOnlyIndicatorAtView:weakSelf.codeImageView];
         weakSelf.loginView.codeImageView.image = image;
         weakSelf.imageSN = code;
         weakSelf.loginView.loginButton.enabled = YES;
         weakSelf.loginView.refreshButton.enabled = YES;
     };
+    [indicatorView showOnlyIndicatorAtView:_codeImageView];
     [_vImgSrv request];
     
     _loginSrv = [[loginService alloc] init];
     _loginSrv.loginBlock = ^(NSInteger code, NSString *data){
+        [indicatorView dismissOnlyIndicatorAtView:weakSelf.view];
         if( code == 1 ){
             [dataHelper helper].sessionid = data;
+            [[aliveHelper helper] startKeepAlive];
             [weakSelf.navigationController pushViewController:[mainVC viewController] animated:YES];
         }
         else if( data.length > 0 ){
@@ -145,6 +153,7 @@
 
 - (void)doLogin
 {
+    [indicatorView showOnlyIndicatorAtView:self.view];
     _loginSrv.uid = _loginView.accountTextField.text;
     _loginSrv.pcode = _loginView.passwordTextField.text;
     _loginSrv.vcode = _loginView.codeTextField.text;
@@ -155,6 +164,7 @@
 
 - (void)onTouchRefreshCode:(id)sender
 {
+    [indicatorView showOnlyIndicatorAtView:_codeImageView];
     _loginView.refreshButton.enabled = NO;
     [_vImgSrv request];
 }

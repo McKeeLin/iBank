@@ -11,6 +11,7 @@
 #import "logoutService.h"
 #import "indicatorView.h"
 #import "Utility.h"
+#import "aliveHelper.h"
 
 @implementation serverCell
 
@@ -63,8 +64,13 @@
     _logoutService = [[logoutService alloc] init];
     _logoutService.logoutBlock = ^(NSInteger code, NSString *data){
         [weakSelf.indicatorView dismiss];
+        [[aliveHelper helper] stopKeepAlive];
+        [dataHelper helper].passwordTextField.text = @"";
+        [dataHelper helper].verifyCodeTextField.text = @"";
+        [dataHelper helper].sessionid = nil;
+        [[dataHelper helper].verifyImageSrv request];
         [weakSelf.navigationController popToRootViewControllerAnimated:YES];
-    };
+   };
     
     if( ![dataHelper helper].sessionid ){
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableView.frame.size.width, 64)];
@@ -178,10 +184,6 @@
 {
     [_indicatorView showAtMainWindow];
     [_logoutService request];
-    [dataHelper helper].passwordTextField.text = @"";
-    [dataHelper helper].verifyCodeTextField.text = @"";
-    [dataHelper helper].sessionid = nil;
-    [[dataHelper helper].verifyImageSrv request];
 }
 
 - (void)onTouchTest:(id)sender
@@ -193,9 +195,12 @@
 {
     [dataHelper helper].server = _serverTextField.text;
     [dataHelper helper].useSSL = _useSSL;
-    [dataHelper helper].autoSaveAccount = _autoSaveAccount;
-    [dataHelper helper].autoTimeout = _autoTimeout;
-    [dataHelper helper].timeoutInterval = _timeoutInterval;
+    if( [dataHelper helper].sessionid.length > 0 )
+    {
+        [dataHelper helper].autoSaveAccount = _autoSaveAccount;
+        [dataHelper helper].autoTimeout = _autoTimeout;
+        [dataHelper helper].timeoutInterval = _timeoutInterval;
+    }
 }
 
 - (void)onTouchSaveAccountButton:(id)sender

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "baseVC.h"
 
 @interface homeItem : NSObject
 
@@ -74,7 +75,7 @@
 
 @property IBOutlet UILabel *bankLabel;
 
-@property IBOutlet UILabel *accountLabel;
+@property IBOutlet UIButton *accountButton;
 
 @property IBOutlet UILabel *balanceLabel;
 
@@ -82,7 +83,7 @@
 @end
 
 
-@interface homeVC : UIViewController
+@interface homeVC : baseVC
 
 + (instancetype)viewController;
 

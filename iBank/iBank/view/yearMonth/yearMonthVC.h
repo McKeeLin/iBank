@@ -18,6 +18,8 @@ typedef void (^YEAR_MONTH_VC_BLOCK)(NSInteger year, NSInteger month);
 
 @property NSInteger selectedMonth;
 
+@property BOOL isPopOver;
+
 @property (strong) YEAR_MONTH_VC_BLOCK block;
 
 + (UIImage*)screenShotImage;

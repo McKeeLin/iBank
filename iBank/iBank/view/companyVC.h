@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "baseVC.h"
 
-@interface companyVC : UIViewController
+@interface companyVC : baseVC
 
 + (instancetype)viewController;
 
