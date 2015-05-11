@@ -38,11 +38,9 @@
 
 - (void)onSessionTimeout
 {
-    [[aliveHelper helper] stopKeepAlive];
-    [dataHelper helper].passwordTextField.text = @"";
-    [dataHelper helper].verifyCodeTextField.text = @"";
-    [dataHelper helper].sessionid = nil;
-    [[dataHelper helper].verifyImageSrv request];
+    if( [dataHelper helper].loginViewController ){
+        [[dataHelper helper].loginViewController prepareLoginAgain];
+    }
     UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"会话超时，请重新登录！" delegate:self cancelButtonTitle:@"确认" otherButtonTitles: nil];
     [av show];
 }

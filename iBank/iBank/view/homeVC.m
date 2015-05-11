@@ -114,9 +114,11 @@
 
 @property NSMutableArray *orgs;
 @property NSArray *favoriteAccounts;
+@property UITableView *leftTableView;
 @property UITableView *rightTableView;
 @property IBOutlet UILabel *userInfoLabel;
 @property IBOutlet UILabel *dayInfoLabel;
+@property IBOutlet UIView *userInfoView;
 
 @end
 
@@ -136,6 +138,7 @@
     __weak homeVC *weakSelf = self;
     _balanceSrv = [[qryOrgBankBalanceService alloc] init];
     _balanceSrv.qryOrgBankBalanceBlock = ^(int code, id data){
+        [indicatorView dismissOnlyIndicatorAtView:weakSelf.leftTableView];
         if( code == 1 ){
             [weakSelf.orgs removeAllObjects];
             NSArray *items = (NSArray*)data;
@@ -157,7 +160,6 @@
                 [foundOrg add:item];
             }
             [weakSelf updateLeftTableView];
-            [indicatorView dismissOnlyIndicatorAtView:weakSelf.view];
         }
         else{
             if( code == -1202 || code == -1201 ){
@@ -168,6 +170,7 @@
     
     _favoriteSrv = [[qryMyFavoriteService alloc] init];
     _favoriteSrv.qryMyFavoriteBlock = ^(int code, id data){
+        [indicatorView dismissOnlyIndicatorAtView:weakSelf.rightTableView];
         if( code == 1 ){
             weakSelf.favoriteAccounts = (NSArray*)data;
             [weakSelf.rightTableView reloadData];
@@ -216,15 +219,15 @@
 
 - (void)loadData
 {
-    [indicatorView showOnlyIndicatorAtView:self.view];
     NSDateComponents *components = [Utility currentDateComponents];
-    NSLog(@"%@", components);
     NSString *year = [NSString stringWithFormat:@"%ld", components.year];
     NSString *month = [NSString stringWithFormat:@"%02ld", components.month];
+    [indicatorView showOnlyIndicatorAtView:_leftTableView];
     _balanceSrv.year = year;
     _balanceSrv.month = month;
     [_balanceSrv request];
     
+    [indicatorView showOnlyIndicatorAtView:_rightTableView];
     _favoriteSrv.year = year;
     _favoriteSrv.month = month;
     [_favoriteSrv request];

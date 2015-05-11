@@ -26,4 +26,6 @@
 
 @property UIImageView *backgroudView;
 
+@property UIView *codeIndicatorView;
+
 @end

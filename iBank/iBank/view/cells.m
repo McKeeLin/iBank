@@ -31,6 +31,10 @@
 
 @end
 
+@implementation innerSumaryCell1
+
+@end
+
 
 @interface cbCell ()
 {
@@ -46,6 +50,7 @@
 {
     return COMPANY_ROW_HEIGHT * count;
 }
+
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -63,16 +68,33 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.items.count - 1;
+    if( _org.rmbItem && _org.usdItem ){
+        return _org.items.count - 1;
+    }
+    else{
+        return _org.items.count;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if( indexPath.row < self.items.count - 2 ){
+    NSInteger rowCnt = 0;
+    if( _org.rmbItem && _org.usdItem ){
+        rowCnt = _org.items.count - 1;
+    }
+    else{
+        rowCnt = _org.items.count;
+    }
+    if( indexPath.row < rowCnt - 1 ){
         return COMPANY_ROW_HEIGHT;
     }
     else{
-        return 2 * COMPANY_ROW_HEIGHT;
+        if( _org.rmbItem && _org.usdItem ){
+            return 2 * COMPANY_ROW_HEIGHT;
+        }
+        else{
+            return COMPANY_ROW_HEIGHT;
+        }
     }
 }
 
@@ -85,7 +107,14 @@
         backgroundColor = backgroundColor2;
     }
     NSDictionary *item = [self.items objectAtIndex:indexPath.row];
-    if( indexPath.row < self.items.count - 2 ){
+    NSInteger rowCnt = 0;
+    if( _org.rmbItem && _org.usdItem ){
+        rowCnt = _org.items.count - 1;
+    }
+    else{
+        rowCnt = _org.items.count;
+    }
+    if( indexPath.row < rowCnt - 1 ){
         accountCell *cell = (accountCell*)[tableView dequeueReusableCellWithIdentifier:@"accountCell"];
         if( !cell ){
             cell = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:5];
@@ -107,29 +136,50 @@
         cell.debitLabel.text = [NSString stringWithFormat:@"%.02f", debit.floatValue];
         cell.creditLabel.text = [NSString stringWithFormat:@"%.02f", credit.floatValue];
         cell.balanceLabe.text= [NSString stringWithFormat:@"%.02f", balance.floatValue];
+        cell.descLabel.text = [item objectForKey:@"desc"];
         cell.backgroundColor = backgroundColor;
         cell.accountButton.tag = indexPath.row;
         [cell.accountButton setTitle:[item objectForKey:@"acct"] forState:UIControlStateNormal];
         return cell;
     }
     else{
-        NSDictionary *rmbItem = [self.items objectAtIndex:self.items.count - 2];
-        NSDictionary *usdItem = self.items.lastObject;
-        innerSumaryCell *cell = (innerSumaryCell*)[tableView dequeueReusableCellWithIdentifier:@"innerSumaryCell"];
-        if( !cell ){
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:6];
+        if( _org.rmbItem && _org.usdItem ){
+            innerSumaryCell *cell = (innerSumaryCell*)[tableView dequeueReusableCellWithIdentifier:@"innerSumaryCell"];
+            if( !cell ){
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:6];
+            }
+            cell.background1.backgroundColor = backgroundColor;
+            cell.background2.backgroundColor = backgroundColor == backgroundColor1 ? backgroundColor2 : backgroundColor1;
+            cell.rmbLastBalanceLabel.text = [_org.rmbItem objectForKey:@"lastb"];
+            cell.rmbDebitLabel.text = [_org.rmbItem objectForKey:@"debit"];
+            cell.rmbCreditLabel.text = [_org.rmbItem objectForKey:@"credit"];
+            cell.rmbBalanceLabe.text = [_org.rmbItem objectForKey:@"thisb"];
+            cell.usdLastBalanceLabel.text = [_org.usdItem objectForKey:@"lastb"];
+            cell.usdDebitLabel.text = [_org.usdItem objectForKey:@"debit"];
+            cell.usdCreditLabel.text = [_org.usdItem objectForKey:@"credit"];
+            cell.usdBalanceLabe.text = [_org.usdItem objectForKey:@"thisb"];
+            return cell;
         }
-        cell.background1.backgroundColor = backgroundColor;
-        cell.background2.backgroundColor = backgroundColor == backgroundColor1 ? backgroundColor2 : backgroundColor1;
-        cell.rmbLastBalanceLabel.text = [rmbItem objectForKey:@"lastb"];
-        cell.rmbDebitLabel.text = [rmbItem objectForKey:@"debit"];
-        cell.rmbCreditLabel.text = [rmbItem objectForKey:@"credit"];
-        cell.rmbBalanceLabe.text = [rmbItem objectForKey:@"thisb"];
-        cell.usdLastBalanceLabel.text = [usdItem objectForKey:@"lastb"];
-        cell.usdDebitLabel.text = [usdItem objectForKey:@"debit"];
-        cell.usdCreditLabel.text = [usdItem objectForKey:@"credit"];
-        cell.usdBalanceLabe.text = [usdItem objectForKey:@"thisb"];
-        return cell;
+        else{
+            innerSumaryCell1 *cell = (innerSumaryCell1*)[tableView dequeueReusableCellWithIdentifier:@"innerSumaryCell1"];
+            if( !cell ){
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:11];
+            }
+            NSDictionary *item;
+            if( _org.rmbItem ){
+                item = _org.rmbItem;
+            }
+            else{
+                item = _org.usdItem;
+            }
+            cell.background.backgroundColor = backgroundColor;
+            cell.currencyTypeLabel.text = [item objectForKey:@"ccode"];
+            cell.lastBalanceLabel.text = [item objectForKey:@"lastb"];
+            cell.debitLabel.text = [item objectForKey:@"debit"];
+            cell.creditLabel.text = [item objectForKey:@"credit"];
+            cell.balanceLabel.text = [item objectForKey:@"thisb"];
+            return cell;
+        }
     }
 }
 

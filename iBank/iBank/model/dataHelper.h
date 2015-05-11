@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "verifyImageService.h"
+#import "loginVC.h"
 
 @interface moneyFlow : NSObject
 
@@ -88,12 +89,7 @@
 
 @property NSMutableArray *accounts;
 
-@property verifyImageService *verifyImageSrv;
-
-@property UITextField *passwordTextField;
-
-@property UITextField *verifyCodeTextField;
-
+@property (weak)loginVC *loginViewController;
 
 + (instancetype)helper;
 

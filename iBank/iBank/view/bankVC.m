@@ -61,7 +61,7 @@
             [weakSelf.iv dismiss];
             [weakSelf updateFooterView];
         }
-        if( code == -1201 || code == -1202 ){
+        else if( code == 0 || code == -1201 || code == -1202 ){
             [weakSelf onSessionTimeout];
         }
         else{

@@ -20,6 +20,10 @@
 
 + (void)dismissOnlyIndicatorAtView:(UIView*)view;
 
++ (void)showMessage:(NSString*)message atView:(UIView*)view;
+
++ (void)dismissAtView:(UIView*)view;
+
 - (void)showAtMainWindow;
 
 - (void)showAtView:(UIView*)view;

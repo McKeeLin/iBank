@@ -51,17 +51,15 @@
     NSDateComponents *componets = [Utility currentDateComponents];
     _year = [NSString stringWithFormat:@"%ld", componets.year];
     _month = [NSString stringWithFormat:@"%02ld", componets.month];
-    _iv = [[indicatorView alloc] initWithFrame:self.view.bounds];
     _qryOrgBankAcctSrv = [[qryOrgBankAcctService alloc] init];
     _qryOrgBankAcctSrv.qryOrgBankAcctBlock = ^( int code, id data){
         [indicatorView dismissOnlyIndicatorAtView:weakSelf.view];
         if( code == 1 ){
             weakSelf.orgs = (NSArray*)data;
             [weakSelf.tableView reloadData];
-            [weakSelf.iv dismiss];
             [weakSelf updateFooterView];
         }
-        if( code == -1201 || code == -1202 ){
+        else if( code == 0 || code == -1201 || code == -1202 ){
             [weakSelf onSessionTimeout];
         }
         else{
@@ -91,7 +89,6 @@
     [indicatorView showOnlyIndicatorAtView:self.view];
     _qryOrgBankAcctSrv.year = _year;
     _qryOrgBankAcctSrv.month = _month;
-    [_iv showAtView:self.view];
     [_qryOrgBankAcctSrv request];
 }
 
@@ -191,6 +188,7 @@
     }
     cell.label.text = org.name;
     cell.items = org.items;
+    cell.org = org;
     cell.startIndex = startIndex;
     [cell.tableview reloadData];
     return cell;

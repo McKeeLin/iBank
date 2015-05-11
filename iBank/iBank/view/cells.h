@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "qryOrgBankAcctService.h"
 
 
 #define COMPANY_ROW_HEIGHT      47
@@ -37,6 +38,8 @@
 @property IBOutlet UILabel *creditLabel;
 
 @property IBOutlet UILabel *balanceLabe;
+
+@property IBOutlet UILabel *descLabel;
 
 @property IBOutlet UIButton *accountButton;
 
@@ -103,6 +106,23 @@
 @end
 
 
+@interface innerSumaryCell1 : UITableViewCell
+
+@property IBOutlet UILabel *currencyTypeLabel;
+
+@property IBOutlet UILabel *lastBalanceLabel;
+
+@property IBOutlet UILabel *debitLabel;
+
+@property IBOutlet UILabel *creditLabel;
+
+@property IBOutlet UILabel *balanceLabel;
+
+@property IBOutlet UIView *background;
+
+@end
+
+
 @interface cbCell : UITableViewCell<UITableViewDataSource,UITableViewDelegate>
 
 @property IBOutlet UILabel *label;
@@ -110,6 +130,8 @@
 @property IBOutlet UITableView *tableview;
 
 @property NSArray *items;
+
+@property orgObj *org;
 
 @property id target;
 

@@ -35,6 +35,10 @@ typedef void (^QRY_ORG_BANK_ACCT_BLOCK) (int code, id data);
 
 @property CGFloat usdCredit;
 
+@property NSMutableDictionary *rmbItem;
+
+@property NSMutableDictionary *usdItem;
+
 - (void)addItem:(NSDictionary*)item;
 
 @end

@@ -31,16 +31,38 @@
 + (void)showOnlyIndicatorAtView:(UIView *)view
 {
     UIActivityIndicatorView *aiv = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    aiv.center = view.center;
+    CGFloat aivWidth = 20;
+    CGFloat aivHeight = 20;
+    CGFloat viewWidth = view.bounds.size.width;
+    CGFloat viewHeight = view.bounds.size.height;
+    aiv.frame = CGRectMake((viewWidth-aivWidth)/2, (viewHeight-aivHeight)/2, aivWidth, aivHeight);
     aiv.tag = 60160101;
-    [aiv startAnimating];
     [view addSubview:aiv];
+    [aiv startAnimating];
 }
 
 + (void)dismissOnlyIndicatorAtView:(UIView *)view
 {
     UIView *aiv = [view viewWithTag:60160101];
     [aiv removeFromSuperview];
+}
+
++ (void)showMessage:(NSString *)message atView:(UIView *)view
+{
+    indicatorView *aiv = [indicatorView view];
+    aiv.label.text = message;
+    aiv.tag = 60160102;
+    aiv.frame = view.bounds;
+    [aiv.aiv startAnimating];
+    [view addSubview:aiv];
+}
+
++ (void)dismissAtView:(UIView *)view
+{
+    UIView *aiv = [view viewWithTag:60160102];
+    if( [aiv isKindOfClass:[indicatorView class]] ){
+        [aiv removeFromSuperview];
+    }
 }
 
 - (void)showAtView:(UIView*)view

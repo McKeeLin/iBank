@@ -64,11 +64,9 @@
     _logoutService = [[logoutService alloc] init];
     _logoutService.logoutBlock = ^(NSInteger code, NSString *data){
         [weakSelf.indicatorView dismiss];
-        [[aliveHelper helper] stopKeepAlive];
-        [dataHelper helper].passwordTextField.text = @"";
-        [dataHelper helper].verifyCodeTextField.text = @"";
-        [dataHelper helper].sessionid = nil;
-        [[dataHelper helper].verifyImageSrv request];
+        if( [dataHelper helper].loginViewController ){
+            [[dataHelper helper].loginViewController prepareLoginAgain];
+        }
         [weakSelf.navigationController popToRootViewControllerAnimated:YES];
    };
     

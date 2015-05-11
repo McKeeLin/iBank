@@ -10,4 +10,6 @@
 
 @interface loginVC : UIViewController
 
+- (void)prepareLoginAgain;
+
 @end

@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     _lastTouchTimestamp = 0;
-    [aliveHelper helper].inteval = 300;
+    [aliveHelper helper].inteval = 180;
     return YES;
 }
 
@@ -43,11 +43,9 @@
     NSTimeInterval timestamp = [NSDate date].timeIntervalSince1970;
     int interval = [dataHelper helper].timeoutInterval;
     if( timestamp - _lastTouchTimestamp > interval ){
-        [[aliveHelper helper] stopKeepAlive];
-        [dataHelper helper].passwordTextField.text = @"";
-        [dataHelper helper].verifyCodeTextField.text = @"";
-        [dataHelper helper].sessionid = nil;
-        [[dataHelper helper].verifyImageSrv request];
+        if( [dataHelper helper].loginViewController ){
+            [[dataHelper helper].loginViewController prepareLoginAgain];
+        }
         UINavigationController *nav = (UINavigationController*) self.window.rootViewController;
         [nav popToRootViewControllerAnimated:YES];
     }

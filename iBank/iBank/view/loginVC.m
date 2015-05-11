@@ -74,10 +74,12 @@
     
     _container.hidden = YES;
     _loginViewFrame = CGRectMake(291, 300, 442, 292);
-    _loginView = [[loginView alloc] initWithFrame:_loginViewFrame];// [[NSBundle mainBundle] loadNibNamed:@"views" owner:nil options:nil].firstObject;
+    _loginView = [[loginView alloc] initWithFrame:_loginViewFrame];
     _loginView.frame = _loginViewFrame;
+    _loginView.accountTextField.text = @"admin";
     _loginView.accountTextField.delegate = self;
     _loginView.accountTextField.returnKeyType = UIReturnKeyNext;
+    _loginView.passwordTextField.text = @"admin";
     _loginView.passwordTextField.delegate = self;
     _loginView.passwordTextField.returnKeyType = UIReturnKeyNext;
     _loginView.codeTextField.delegate = self;
@@ -100,18 +102,18 @@
     __weak __block loginVC *weakSelf = self;
     _vImgSrv = [[verifyImageService alloc] init];
     _vImgSrv.getImageBlock = ^(UIImage *image, NSString *code, NSString *error){
-        [indicatorView dismissOnlyIndicatorAtView:weakSelf.codeImageView];
+        [indicatorView dismissOnlyIndicatorAtView:weakSelf.loginView.codeIndicatorView];
         weakSelf.loginView.codeImageView.image = image;
         weakSelf.imageSN = code;
         weakSelf.loginView.loginButton.enabled = YES;
         weakSelf.loginView.refreshButton.enabled = YES;
     };
-    [indicatorView showOnlyIndicatorAtView:_codeImageView];
-    [_vImgSrv request];
+    [self requestVerifyCodeImage];
     
     _loginSrv = [[loginService alloc] init];
     _loginSrv.loginBlock = ^(NSInteger code, NSString *data){
-        [indicatorView dismissOnlyIndicatorAtView:weakSelf.view];
+        [indicatorView dismissAtView:weakSelf.view];
+        weakSelf.loginView.loginButton.enabled = YES;
         if( code == 1 ){
             [dataHelper helper].sessionid = data;
             [[aliveHelper helper] startKeepAlive];
@@ -124,9 +126,7 @@
     };
     [_aboutButton addTarget:self action:@selector(onTouchAbout:) forControlEvents:UIControlEventTouchUpInside];
     [_settingButton addTarget:self action:@selector(onTouchSetting:) forControlEvents:UIControlEventTouchUpInside];
-    [dataHelper helper].verifyImageSrv = _vImgSrv;
-    [dataHelper helper].passwordTextField = _loginView.passwordTextField;
-    [dataHelper helper].verifyCodeTextField = _loginView.codeTextField;
+    [dataHelper helper].loginViewController = self;
 }
 
 
@@ -153,20 +153,44 @@
 
 - (void)doLogin
 {
-    [indicatorView showOnlyIndicatorAtView:self.view];
+    if( _loginView.accountTextField.text.length == 0 ){
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入帐号！" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil];
+        [av show];
+        return;
+    }
+    if( _loginView.passwordTextField.text.length == 0 ){
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入密码！" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil];
+        [av show];
+        return;
+    }
+    if( _loginView.codeTextField.text.length == 0 ){
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入验证码！" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil];
+        [av show];
+        return;
+    }
+    [_loginView.accountTextField resignFirstResponder];
+    [_loginView.passwordTextField resignFirstResponder];
+    [_loginView.codeTextField resignFirstResponder];
+    [indicatorView showMessage:@"正在登录，请稍候..." atView:self.view];
+    _loginView.loginButton.enabled = NO;
     _loginSrv.uid = _loginView.accountTextField.text;
     _loginSrv.pcode = _loginView.passwordTextField.text;
-    _loginSrv.vcode = _loginView.codeTextField.text;
+    _loginSrv.vcode = _loginView.codeTextField.text.uppercaseString;
     _loginSrv.qid = _imageSN;
     [_loginSrv request];
+}
+
+- (void)requestVerifyCodeImage
+{
+    [indicatorView showOnlyIndicatorAtView:_loginView.codeIndicatorView];
+    _loginView.refreshButton.enabled = NO;
+    [_vImgSrv request];
 }
 
 
 - (void)onTouchRefreshCode:(id)sender
 {
-    [indicatorView showOnlyIndicatorAtView:_codeImageView];
-    _loginView.refreshButton.enabled = NO;
-    [_vImgSrv request];
+    [self requestVerifyCodeImage];
 }
 
 - (void)onTouchLogin:(id)sender
@@ -259,18 +283,26 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if( textField == _accountTextField )
+    if( textField == _loginView.accountTextField )
     {
         [_loginView.passwordTextField becomeFirstResponder];
     }
-    else if( textField == _passwordTextField ){
+    else if( textField == _loginView.passwordTextField ){
         [_loginView.codeTextField becomeFirstResponder];
     }
-    else if( textField == _codeTextField ){
-        [_loginView.codeTextField resignFirstResponder];
+    else if( textField == _loginView.codeTextField ){
         [self doLogin];
     }
     return YES;
+}
+
+- (void)prepareLoginAgain
+{
+    _loginView.passwordTextField.text = @"";
+    _loginView.codeTextField.text = @"";
+    [[aliveHelper helper] stopKeepAlive];
+    [dataHelper helper].sessionid = nil;
+    [self requestVerifyCodeImage];
 }
 
 @end

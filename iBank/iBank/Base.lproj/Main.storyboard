@@ -185,17 +185,20 @@
                                 <rect key="frame" x="520" y="15" width="504" height="172"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="您好！管理员" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihI-bh-Emp">
-                                        <rect key="frame" x="40" y="40" width="400" height="30"/>
+                                        <rect key="frame" x="150" y="40" width="275" height="30"/>
                                         <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今天是：2015年05月02日星期二" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-uW-snC">
-                                        <rect key="frame" x="40" y="94" width="400" height="30"/>
+                                        <rect key="frame" x="150" y="94" width="400" height="30"/>
                                         <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="portrait.png" translatesAutoresizingMaskIntoConstraints="NO" id="yGh-dO-jYL">
+                                        <rect key="frame" x="14" y="22" width="110" height="110"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -259,6 +262,7 @@
                         <outlet property="_rightTableView" destination="okx-md-pNM" id="9d2-pl-DMb"/>
                         <outlet property="dayInfoLabel" destination="8oX-uW-snC" id="Ai7-xM-pPc"/>
                         <outlet property="userInfoLabel" destination="ihI-bh-Emp" id="Aw5-Ve-PQ8"/>
+                        <outlet property="userInfoView" destination="q5a-1X-FKx" id="Ejr-6V-6KF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ru-5e-j9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -693,6 +697,7 @@
     <resources>
         <image name="LOGO.png" width="256" height="129"/>
         <image name="close.png" width="32" height="32"/>
+        <image name="portrait.png" width="110" height="110"/>
         <image name="settingNormal.png" width="32" height="37"/>
         <image name="szLogo.png" width="384" height="101"/>
         <image name="刷新认证码-标准状态.png" width="30" height="30"/>

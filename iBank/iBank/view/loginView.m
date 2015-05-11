@@ -38,6 +38,8 @@
         _accountTextField.font = [UIFont fontWithName:@"MicrosoftYaHei" size:14];
         _accountTextField.background = [UIImage imageNamed:@"输入框01"];
         _accountTextField.enabled = YES;
+        [_accountTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+        [_accountTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
         [self addSubview:_accountTextField];
         
         UILabel *passwordLabel = [[UILabel alloc] initWithFrame:CGRectMake(77, 89, 50, 30)];
@@ -71,6 +73,10 @@
         
         _codeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(238, 139, 87, 30)];
         [self addSubview:_codeImageView];
+        
+        _codeIndicatorView = [[UIView alloc] initWithFrame:_codeImageView.frame];
+        _codeImageView.backgroundColor = [UIColor clearColor];
+        [self addSubview:_codeIndicatorView];
         
         _refreshButton = [[UIButton alloc] initWithFrame:CGRectMake(330, 139, 30, 30)];
         [_refreshButton setImage:[UIImage imageNamed:@"刷新认证码-标准状态"] forState:UIControlStateNormal];
