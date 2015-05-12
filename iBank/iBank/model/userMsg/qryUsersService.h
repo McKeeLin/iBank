@@ -8,6 +8,10 @@
 
 #import "wbConn.h"
 
+typedef void(^QRY_USERS_BLOCK) (int code, id data);
+
 @interface qryUsersService : wbConn
+
+@property (strong) QRY_USERS_BLOCK qryUserBlock;
 
 @end

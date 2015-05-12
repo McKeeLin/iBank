@@ -7,6 +7,8 @@
 //
 
 #import "qryMsgListService.h"
+#import "dataHelper.h"
+#import "Utility.h"
 
 /*
  http://222.49.117.9/ibankbizdev/index.php/ibankbiz/user-msg/api?ws=1
@@ -41,5 +43,38 @@
  */
 
 @implementation qryMsgListService
+
+
+
+- (instancetype)init
+{
+    self = [super init];
+    if( self ){
+        self.url = [NSString stringWithFormat:@"%@//api?ws=1", [dataHelper helper].host];
+        self.soapAction = @"urn:";
+    }
+    return self;
+}
+
+- (void)request
+{
+    NSMutableString *body = [[NSMutableString alloc] initWithCapacity:0];
+    [body appendString:@"<tns:>\n"];
+    [body appendFormat:@"<sid xsi:type=\"xsd:string\">%@</sid>\n",[dataHelper helper].sessionid];
+    [body appendString:@"</tns:>"];
+    self.soapBody = body;
+    [super request];
+}
+
+- (void)parseResult:(NSString *)result
+{
+    NSDictionary *dict = [Utility dictionaryWithJsonString:result];
+    NSNumber *code;
+}
+
+- (void)onError:(NSString *)error
+{
+}
+
 
 @end
