@@ -13,6 +13,7 @@
 #import "indicatorView.h"
 #import "cells.h"
 #import "detailVC.h"
+#import "yearMonthVC.h"
 
 @interface companyVC ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -23,11 +24,16 @@
 
 @property IBOutlet UITableView *tableView;
 
+@property IBOutlet UIButton *yearMonthButton;
+
 @property NSArray *orgs;
 
 @property indicatorView *iv;
 
 @property outerSumaryCell *footerView;
+
+@property outerSumaryCell1 *footerView1;
+
 
 @end
 
@@ -47,6 +53,7 @@
     // Do any additional setup after loading the view.
     __weak companyVC *weakSelf = self;
     _footerView = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:7];
+    _footerView1 = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:12];
     _tableView.tableFooterView = _footerView;
     NSDateComponents *componets = [Utility currentDateComponents];
     _year = [NSString stringWithFormat:@"%ld", componets.year];
@@ -103,6 +110,8 @@
     CGFloat usdCredit = 0;
     CGFloat usdBalance = 0;
     NSInteger itemCount = 0;
+    BOOL hasRmbItem = NO;
+    BOOL hasUsdItem = NO;
     for( orgObj *org in _orgs ){
         rmbLastBalance += org.rmbLastBalance;
         rmbDebit += org.rmbDebit;
@@ -113,28 +122,62 @@
         usdCredit += org.usdCredit;
         usdBalance += org.usdCredit;
         itemCount += org.items.count;
+        if( org.rmbItem ) hasRmbItem = YES;
+        if( org.usdItem ) hasUsdItem = YES;
     }
-    _footerView.rmbLastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", rmbLastBalance];
-    _footerView.rmbDebitLabel.text = [NSString stringWithFormat:@"%.02f", rmbDebit];
-    _footerView.rmbCreditLabel.text = [NSString stringWithFormat:@"%.02f", rmbCredit];
-    _footerView.rmbBalanceLabe.text = [NSString stringWithFormat:@"%.02f", rmbBalance];
-    _footerView.usdLastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", usdLastBalance];
-    _footerView.usdDebitLabel.text = [NSString stringWithFormat:@"%.02f", usdDebit];
-    _footerView.usdCreditLabel.text = [NSString stringWithFormat:@"%.02f", usdCredit];
-    _footerView.usdBalanceLabe.text = [NSString stringWithFormat:@"%.02f", usdBalance];
-    if( itemCount % 2 == 0 ){
-        _footerView.container1.backgroundColor = ROW_COLOR_1;
-        _footerView.container2.backgroundColor = ROW_COLOR_2;
+    if( hasRmbItem && hasUsdItem ){
+        _footerView.rmbLastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", rmbLastBalance];
+        _footerView.rmbDebitLabel.text = [NSString stringWithFormat:@"%.02f", rmbDebit];
+        _footerView.rmbCreditLabel.text = [NSString stringWithFormat:@"%.02f", rmbCredit];
+        _footerView.rmbBalanceLabe.text = [NSString stringWithFormat:@"%.02f", rmbBalance];
+        _footerView.usdLastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", usdLastBalance];
+        _footerView.usdDebitLabel.text = [NSString stringWithFormat:@"%.02f", usdDebit];
+        _footerView.usdCreditLabel.text = [NSString stringWithFormat:@"%.02f", usdCredit];
+        _footerView.usdBalanceLabe.text = [NSString stringWithFormat:@"%.02f", usdBalance];
+        if( itemCount % 2 == 0 ){
+            _footerView.container1.backgroundColor = ROW_COLOR_1;
+            _footerView.container2.backgroundColor = ROW_COLOR_2;
+        }
+        else{
+            _footerView.container1.backgroundColor = ROW_COLOR_2;
+            _footerView.container2.backgroundColor = ROW_COLOR_1;
+        }
+        if( _orgs.count % 2 == 0 ){
+            _footerView.backgroundColor = [UIColor whiteColor];
+        }
+        else{
+            _footerView.backgroundColor = [UIColor colorWithRed:242.00/255.00 green:242.00/255.00 blue:242.00/255.00 alpha:1];
+        }
+        _tableView.tableFooterView = _footerView;
     }
     else{
-        _footerView.container1.backgroundColor = ROW_COLOR_2;
-        _footerView.container2.backgroundColor = ROW_COLOR_1;
-    }
-    if( _orgs.count % 2 == 0 ){
-        _footerView.backgroundColor = [UIColor whiteColor];
-    }
-    else{
-        _footerView.backgroundColor = [UIColor colorWithRed:242.00/255.00 green:242.00/255.00 blue:242.00/255.00 alpha:1];
+        if( hasRmbItem ){
+            _footerView1.lastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", rmbLastBalance];
+            _footerView1.debitLabel.text = [NSString stringWithFormat:@"%.02f", rmbDebit];
+            _footerView1.creditLabel.text = [NSString stringWithFormat:@"%.02f", rmbCredit];
+            _footerView1.balanceLabe.text = [NSString stringWithFormat:@"%.02f", rmbBalance];
+            _footerView1.currencyTypeLabel.text = @"RMB";
+        }
+        else{
+            _footerView1.lastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", usdLastBalance];
+            _footerView1.debitLabel.text = [NSString stringWithFormat:@"%.02f", usdDebit];
+            _footerView1.creditLabel.text = [NSString stringWithFormat:@"%.02f", usdCredit];
+            _footerView1.balanceLabe.text = [NSString stringWithFormat:@"%.02f", usdBalance];
+            _footerView1.currencyTypeLabel.text = @"USD";
+        }
+        if( itemCount % 2 == 0 ){
+            _footerView1.container.backgroundColor = ROW_COLOR_1;
+        }
+        else{
+            _footerView1.container.backgroundColor = ROW_COLOR_2;
+        }
+        if( _orgs.count % 2 == 0 ){
+            _footerView.backgroundColor = [UIColor whiteColor];
+        }
+        else{
+            _footerView.backgroundColor = [UIColor colorWithRed:242.00/255.00 green:242.00/255.00 blue:242.00/255.00 alpha:1];
+        }
+        _tableView.tableFooterView = _footerView1;
     }
 }
 
@@ -206,5 +249,24 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+
+- (IBAction)onTouchYearMonth:(id)sender
+{
+    yearMonthVC *vc = [[yearMonthVC alloc] init];
+    vc.selectedMonth = _month.integerValue;
+    vc.selectedYear = _year.integerValue;
+    vc.block = ^(NSInteger year, NSInteger month){
+        _year = [NSString stringWithFormat:@"%ld", year];
+        _month = [NSString stringWithFormat:@"%02ld", month];
+        [_yearMonthButton setTitle:[NSString stringWithFormat:@"%@-%@", _year,_month] forState:UIControlStateNormal];
+        [self loadData];
+    };
+    vc.isPopOver = YES;
+    UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:vc];
+    pop.popoverContentSize = CGSizeMake(320, 202);
+    [pop presentPopoverFromRect:_yearMonthButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
 
 @end

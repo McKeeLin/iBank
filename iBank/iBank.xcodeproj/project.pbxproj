@@ -71,6 +71,7 @@
 		26A2333D1AFCBF9F000ABDB3 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A2333C1AFCBF9F000ABDB3 /* Images-2.xcassets */; };
 		26A2333F1AFCBFC6000ABDB3 /* logo_165x165.png in Resources */ = {isa = PBXBuildFile; fileRef = 26A2333E1AFCBFC6000ABDB3 /* logo_165x165.png */; };
 		26AC06EB1AF9CC3300B5A3F0 /* TextFieldEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AC06EA1AF9CC3300B5A3F0 /* TextFieldEx.m */; };
+		26C77C211B018ABD0049B636 /* bankCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C77C201B018ABD0049B636 /* bankCells.xib */; };
 		26D53EA81AE8A19500A1A33D /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D53EA71AE8A19500A1A33D /* UICKeyChainStore.m */; };
 		26D53EE21AEB491A00A1A33D /* 刷新认证码-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAA1AEB491A00A1A33D /* 刷新认证码-标准状态.png */; };
 		26D53EE31AEB491A00A1A33D /* 刷新认证码-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D53EAB1AEB491A00A1A33D /* 刷新认证码-选中状态.png */; };
@@ -241,6 +242,7 @@
 		26A2333E1AFCBFC6000ABDB3 /* logo_165x165.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_165x165.png; sourceTree = "<group>"; };
 		26AC06E91AF9CC3300B5A3F0 /* TextFieldEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEx.h; sourceTree = "<group>"; };
 		26AC06EA1AF9CC3300B5A3F0 /* TextFieldEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldEx.m; sourceTree = "<group>"; };
+		26C77C201B018ABD0049B636 /* bankCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = bankCells.xib; sourceTree = "<group>"; };
 		26D53EA61AE8A19500A1A33D /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		26D53EA71AE8A19500A1A33D /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		26D53EAA1AEB491A00A1A33D /* 刷新认证码-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "刷新认证码-标准状态.png"; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 				26A233381AFB433F000ABDB3 /* detailCell.m */,
 				2627C2FA1AFF037800969720 /* baseVC.h */,
 				2627C2FB1AFF037800969720 /* baseVC.m */,
+				26C77C201B018ABD0049B636 /* bankCells.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				26A2333D1AFCBF9F000ABDB3 /* Images-2.xcassets in Resources */,
 				2678F24E1AEDC55A001A0596 /* settingSelected.png in Resources */,
 				26D53F051AEB491A00A1A33D /* 设置背景.png in Resources */,
+				26C77C211B018ABD0049B636 /* bankCells.xib in Resources */,
 				2664B21F1AE2B1CA00FA8054 /* Main.storyboard in Resources */,
 				26D53F031AEB491A00A1A33D /* 灰色-没选中.png in Resources */,
 				2664B2241AE2B1CA00FA8054 /* LaunchScreen.xib in Resources */,

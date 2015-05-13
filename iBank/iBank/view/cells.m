@@ -25,6 +25,10 @@
 
 @end
 
+@implementation outerSumaryCell1
+
+@end
+
 
 
 @implementation innerSumaryCell

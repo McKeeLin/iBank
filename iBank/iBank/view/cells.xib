@@ -465,7 +465,7 @@
                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3r-Rr-dZx">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3r-Rr-dZx">
                         <rect key="frame" x="820" y="0.0" width="84" height="46"/>
                         <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1081,7 +1081,7 @@
             </connections>
             <point key="canvasLocation" x="175" y="2109.5"/>
         </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="outerSumaryCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="outerSumaryCell" id="8qW-cl-RbZ" userLabel="outerSumaryCell_1" customClass="outerSumaryCell">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="outerSumaryCell1" selectionStyle="none" indentationWidth="10" reuseIdentifier="outerSumaryCell1" id="8qW-cl-RbZ" userLabel="outerSumaryCell_1" customClass="outerSumaryCell1">
             <rect key="frame" x="0.0" y="0.0" width="992" height="47"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8qW-cl-RbZ" id="8hz-pL-NpK">
@@ -1149,12 +1149,12 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="container1" destination="eQR-TK-weI" id="Yat-as-VoC"/>
-                <outlet property="rmbBalanceLabe" destination="lpo-rW-ReS" id="FO0-JE-kZL"/>
-                <outlet property="rmbCreditLabel" destination="mr4-3Y-1UJ" id="Z1H-2M-JRH"/>
-                <outlet property="rmbDebitLabel" destination="6AC-6b-sDE" id="c31-M8-JzN"/>
-                <outlet property="rmbLabel" destination="O4J-XO-J1a" id="ZUu-dU-bvx"/>
-                <outlet property="rmbLastBalanceLabel" destination="tfA-5i-xsL" id="Uap-J4-wkH"/>
+                <outlet property="balanceLabe" destination="lpo-rW-ReS" id="Lsr-Be-ClR"/>
+                <outlet property="container" destination="eQR-TK-weI" id="7oP-cU-DWj"/>
+                <outlet property="creditLabel" destination="mr4-3Y-1UJ" id="ww1-zs-HbX"/>
+                <outlet property="currencyTypeLabel" destination="O4J-XO-J1a" id="mPn-d9-N8r"/>
+                <outlet property="debitLabel" destination="tfA-5i-xsL" id="Gg1-FY-5u3"/>
+                <outlet property="lastBalanceLabel" destination="tfA-5i-xsL" id="QbA-7z-cqh"/>
             </connections>
             <point key="canvasLocation" x="131" y="2243"/>
         </tableViewCell>

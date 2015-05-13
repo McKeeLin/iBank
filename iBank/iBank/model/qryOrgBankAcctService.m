@@ -110,34 +110,30 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/qry-acct
         _rmbDebit += debit_amount.floatValue;
         _rmbCredit += credit_amount.floatValue;
         _rmbBalance += balance.floatValue;
-        if( [self hasRmbItem] ){
-            if( !_rmbItem ){
-                _rmbItem = [[NSMutableDictionary alloc] initWithCapacity:0];
-                [_rmbItem setObject:currencyCode forKey:@"ccode"];
-                [_items addObject:_rmbItem];
-            }
-            [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbLastBalance] forKey:@"lastb"];
-            [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbDebit] forKey:@"debit"];
-            [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbCredit] forKey:@"credit"];
-            [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbBalance] forKey:@"thisb"];
+        if( !_rmbItem ){
+            _rmbItem = [[NSMutableDictionary alloc] initWithCapacity:0];
+            [_rmbItem setObject:currencyCode forKey:@"ccode"];
+            [_items addObject:_rmbItem];
         }
+        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbLastBalance] forKey:@"lastb"];
+        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbDebit] forKey:@"debit"];
+        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbCredit] forKey:@"credit"];
+        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbBalance] forKey:@"thisb"];
     }
     else{
         _usdLastBalance += last_balance.floatValue;
         _usdDebit += debit_amount.floatValue;
         _usdCredit += credit_amount.floatValue;
         _usdBalance += balance.floatValue;
-        if( [self hasUsdItem] ){
-            if( !_usdItem ){
-                _usdItem = [[NSMutableDictionary alloc] initWithCapacity:0];
-                [_usdItem setObject:currencyCode forKey:@"ccode"];
-                [_items addObject:_usdItem];
-            }
-            [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdLastBalance] forKey:@"lastb"];
-            [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdDebit] forKey:@"debit"];
-            [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdCredit] forKey:@"credit"];
-            [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdBalance] forKey:@"thisb"];
+        if( !_usdItem ){
+            _usdItem = [[NSMutableDictionary alloc] initWithCapacity:0];
+            [_usdItem setObject:currencyCode forKey:@"ccode"];
+            [_items addObject:_usdItem];
         }
+        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdLastBalance] forKey:@"lastb"];
+        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdDebit] forKey:@"debit"];
+        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdCredit] forKey:@"credit"];
+        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdBalance] forKey:@"thisb"];
     }
     
 }

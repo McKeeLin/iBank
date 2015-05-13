@@ -77,6 +77,24 @@
 @end
 
 
+
+@interface outerSumaryCell1 : UITableViewCell
+
+@property IBOutlet UILabel *currencyTypeLabel;
+
+@property IBOutlet UILabel *lastBalanceLabel;
+
+@property IBOutlet UILabel *debitLabel;
+
+@property IBOutlet UILabel *creditLabel;
+
+@property IBOutlet UILabel *balanceLabe;
+
+@property IBOutlet UIView *container;
+
+@end
+
+
 @interface innerSumaryCell : UITableViewCell
 
 @property IBOutlet UILabel *rmbLabel;

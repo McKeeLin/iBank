@@ -13,6 +13,7 @@
 #import "indicatorView.h"
 #import "cells.h"
 #import "detailVC.h"
+#import "yearMonthVC.h"
 
 @interface bankVC ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -22,6 +23,8 @@
 }
 
 @property IBOutlet UITableView *tableView;
+
+@property IBOutlet UIButton *yearMonthButton;
 
 @property NSArray *banks;
 
@@ -210,6 +213,24 @@
         vc.accountId = [[item objectForKey:@"aid"] intValue];
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+
+- (IBAction)onTouchYearMonth:(id)sender
+{
+    yearMonthVC *vc = [[yearMonthVC alloc] init];
+    vc.selectedMonth = _month.integerValue;
+    vc.selectedYear = _year.integerValue;
+    vc.block = ^(NSInteger year, NSInteger month){
+        _year = [NSString stringWithFormat:@"%ld", year];
+        _month = [NSString stringWithFormat:@"%02ld", month];
+        [_yearMonthButton setTitle:[NSString stringWithFormat:@"%@-%@", _year,_month] forState:UIControlStateNormal];
+        [self loadData];
+    };
+    vc.isPopOver = YES;
+    UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:vc];
+    pop.popoverContentSize = CGSizeMake(320, 202);
+    [pop presentPopoverFromRect:_yearMonthButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 
