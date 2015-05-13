@@ -7,6 +7,8 @@
 //
 
 #import "qryUsersService.h"
+#import "dataHelper.h"
+#import "Utility.h"
 
 /*
  http://222.49.117.9/ibankbizdev/index.php/ibankbiz/auth/api?ws=1
@@ -39,5 +41,44 @@
  */
 
 @implementation qryUsersService
+
+
+- (instancetype)init
+{
+    self = [super init];
+    if( self ){
+        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
+        self.soapAction = @"urn:AuthControllerwsdl/qryUsers";
+    }
+    return self;
+}
+
+- (void)request
+{
+    NSMutableString *body = [[NSMutableString alloc] initWithCapacity:0];
+    [body appendString:@"<tns:qryUsers>\n"];
+    [body appendFormat:@"<sid xsi:type=\"xsd:string\">%@</sid>\n",[dataHelper helper].sessionid];
+    [body appendString:@"</tns:qryUsers>"];
+    self.soapBody = body;
+    [super request];
+}
+
+- (void)parseResult:(NSString *)result
+{
+    NSDictionary *dict = [Utility dictionaryWithJsonString:result];
+    NSNumber *code = [dict objectForKey:@"result"];
+    id data = [dict objectForKey:@"data"];
+    if( _qryUserBlock ){
+        _qryUserBlock( code.intValue, data );
+    }
+}
+
+- (void)onError:(NSString *)error
+{
+    if( _qryUserBlock ){
+        _qryUserBlock( 99, @"未能连接服务器!" );
+    }
+}
+
 
 @end

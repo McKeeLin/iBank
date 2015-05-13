@@ -676,6 +676,7 @@
 				2664B20C1AE2B1CA00FA8054 /* Sources */,
 				2664B20D1AE2B1CA00FA8054 /* Frameworks */,
 				2664B20E1AE2B1CA00FA8054 /* Resources */,
+				08AB197C1B01F56A00144563 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -829,6 +830,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08AB197C1B01F56A00144563 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nmonth=`date +%m`\nmain=\"1\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $main.$month.$buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2664B20C1AE2B1CA00FA8054 /* Sources */ = {
