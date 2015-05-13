@@ -79,16 +79,14 @@
             {
                 top = 0;
             }
-            msv = [[monthSelectView alloc] initWithFrame:self.view.bounds];
             msv = [[monthSelectView alloc] initWithFrame:CGRectMake(0, top, viewWidth, height)];
             msv.selectedYear = selectedYear;
             msv.selectedMonth = selectedMonth;
             [self.view addSubview:msv];
-            __weak YEAR_MONTH_VC_BLOCK weakBlock = self.block;
-            __weak UIViewController *weakSelf = self;
+            __weak yearMonthVC *weakSelf = self;
             msv.block = ^(NSInteger year, NSInteger month){
-                if( weakBlock ){
-                    weakBlock( year, month);
+                if( weakSelf.block ){
+                    weakSelf.block( year, month);
                 }
                 [weakSelf dismissViewControllerAnimated:YES completion:nil];
             };

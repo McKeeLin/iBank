@@ -186,7 +186,12 @@
 
 - (void)onTouchTest:(id)sender
 {
-    ;
+    NSString *host = _serverTextField.text;
+    if( host.length == 0 ){
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入服务器地址" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [av show];
+        return;
+    }
 }
 
 - (void)onTouchSave:(id)sender

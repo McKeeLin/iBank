@@ -81,6 +81,8 @@
 
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
+    
     if( !topLine ){
         topLine = [[UIView alloc] initWithFrame:CGRectZero];
         topLine.backgroundColor = grayLineColor;

@@ -176,7 +176,26 @@
 
 +(NSString*)moneyFormatString:(CGFloat)amount
 {
-    return [NSString stringWithFormat:@"%0.2f",amount];
+    NSArray * array = [[NSString stringWithFormat:@"%0.2f",amount] componentsSeparatedByString:@"."];
+    int len = [array[0] length];
+    int x = len%3;
+    int y = len/3;
+    int dotNumber = y;
+    if (x == 0)
+    {
+        dotNumber -= 1;
+        x = 3;
+    }
+    NSMutableString * rs = [@"" mutableCopy];
+    [rs appendString:[array[0] substringWithRange:NSMakeRange(0, x)]];
+    for (int i=0; i<dotNumber; i++)
+    {
+        [rs appendString:@","];
+        [rs appendString:[array[0] substringWithRange:NSMakeRange(x + i*3, 3)]];
+    }
+    [rs appendString:@"."];
+    [rs appendString:array[1]];
+    return rs;
 }
 
 @end
