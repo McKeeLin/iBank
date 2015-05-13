@@ -44,20 +44,16 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/qry-acct
 #import "Utility.h"
 #import "dataHelper.h"
 
+@implementation bankAccountObj
+@end
+
+@implementation bankOrgObj
+@end
+
 
 
 @interface bankObj ()
 {
-    NSMutableDictionary *_rmbItem;
-    NSMutableDictionary *_usdItem;
-    CGFloat _rmbLastBalance;
-    CGFloat _rmbDebit;
-    CGFloat _rmbCredit;
-    CGFloat _rmbBalance;
-    CGFloat _usdLastBalance;
-    CGFloat _usdDebit;
-    CGFloat _usdBalance;
-    CGFloat _usdCredit;
 }
 
 @end
@@ -68,24 +64,6 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/qry-acct
 {
     self = [super init];
     if( self ){
-        _rmbLastBalance = 0.00;
-        _rmbDebit = 0.00;
-        _rmbCredit = 0.00;
-        _rmbLastBalance = 0.00;
-        _items = [[NSMutableArray alloc] initWithCapacity:0];
-        _rmbItem = [[NSMutableDictionary alloc] initWithCapacity:0];
-        [_rmbItem setObject:@"0.00" forKey:@"thisb"];
-        [_rmbItem setObject:@"0.00" forKey:@"credit"];
-        [_rmbItem setObject:@"0.00" forKey:@"debit"];
-        [_rmbItem setObject:@"0.00" forKey:@"lastb"];
-        [_items addObject:_rmbItem];
-        
-        _usdItem = [[NSMutableDictionary alloc] initWithCapacity:0];
-        [_usdItem setObject:@"0.00" forKey:@"thisb"];
-        [_usdItem setObject:@"0.00" forKey:@"credit"];
-        [_usdItem setObject:@"0.00" forKey:@"debit"];
-        [_usdItem setObject:@"0.00" forKey:@"lastb"];
-        [_items addObject:_usdItem];
     }
     return self;
 }
@@ -96,6 +74,7 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/qry-acct
     if( self ){
         _name = [dict objectForKey:@"bank"];
         _Id = [dict objectForKey:@"bid"];
+        _orgs = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return self;
 }
@@ -107,37 +86,79 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/qry-acct
     NSString *credit_amount = [item objectForKey:@"credit"];
     NSString *debit_amount = [item objectForKey:@"debit"];
     NSString *last_balance = [item objectForKey:@"lastb"];
-    if( [currencyCode isEqualToString:@"RMB"] ){
-        _rmbLastBalance += last_balance.floatValue;
-        _rmbDebit += debit_amount.floatValue;
-        _rmbCredit += credit_amount.floatValue;
-        _rmbBalance += balance.floatValue;
-        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbLastBalance] forKey:@"lastb"];
-        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbDebit] forKey:@"debit"];
-        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbCredit] forKey:@"credit"];
-        [_rmbItem setObject:[NSString stringWithFormat:@"%.02f", _rmbBalance] forKey:@"thisb"];
-    }
-    else{
-        _usdLastBalance += last_balance.floatValue;
-        _usdDebit += debit_amount.floatValue;
-        _usdCredit += credit_amount.floatValue;
-        _usdBalance += balance.floatValue;
-        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdLastBalance] forKey:@"lastb"];
-        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdDebit] forKey:@"debit"];
-        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdCredit] forKey:@"credit"];
-        [_usdItem setObject:[NSString stringWithFormat:@"%.02f", _usdBalance] forKey:@"thisb"];
-    }
+    NSString *orgId = [item objectForKey:@"oid"];
     
-    NSInteger index = 0;
-    for( NSInteger i = 0; i < self.items.count - 2; i++ ){
-        NSDictionary * dict = [self.items objectAtIndex:i];
-        if( [[dict objectForKey:@"oid"] isEqualToString:[item objectForKey:@"oid"]] )
-        {
-            index = i;
+    bankOrgObj *foundOrg;
+    for( bankOrgObj *org in _orgs ){
+        if( [org.orgId isEqualToString:orgId] ){
+            foundOrg = org;
             break;
         }
     }
-    [self.items insertObject:item atIndex:index];
+    if( !foundOrg ){
+        foundOrg = [[bankOrgObj alloc] init];
+        foundOrg.orgId = orgId;
+        foundOrg.orgName = [item objectForKey:@"org"];
+        foundOrg.accounts = [[NSMutableArray alloc] initWithCapacity:0];
+        [_orgs addObject:foundOrg];
+    }
+    
+    bankAccountObj *account = [[bankAccountObj alloc] init];
+    account.account = [item objectForKey:@"name"];
+    account.desc = [item objectForKey:@"desc"];
+    account.currencyType = currencyCode;
+    account.balance = balance.floatValue;
+    account.credit = credit_amount.floatValue;
+    account.debit = debit_amount.floatValue;
+    account.lastBalance = last_balance.floatValue;
+    if( [currencyCode isEqualToString:@"RMB"] ){
+        if( !foundOrg.rmbSummary ){
+            foundOrg.rmbSummary = [[bankAccountObj alloc] init];
+            foundOrg.rmbSummary.account = @"RMB";
+            foundOrg.itemCount++;
+            _itemCount++;
+        }
+        foundOrg.rmbSummary.lastBalance += account.lastBalance;
+        foundOrg.rmbSummary.debit += account.debit;
+        foundOrg.rmbSummary.credit += account.credit;
+        foundOrg.rmbSummary.balance += account.balance;
+    }
+    else{
+        if( !foundOrg.usdSummary ){
+            foundOrg.usdSummary = [[bankAccountObj alloc] init];
+            foundOrg.usdSummary.account = @"usd";
+            foundOrg.itemCount++;
+            _itemCount++;
+        }
+        foundOrg.usdSummary.lastBalance += account.lastBalance;
+        foundOrg.usdSummary.debit += account.debit;
+        foundOrg.usdSummary.credit += account.credit;
+        foundOrg.usdSummary.balance += account.balance;
+    }
+    [foundOrg.accounts addObject:account];
+    foundOrg.itemCount++;
+    _itemCount++;
+    
+    if( [currencyCode isEqualToString:@"RMB"] ){
+        if( _rmbSummary ){
+            _rmbSummary = [[bankAccountObj alloc] init];
+            _rmbSummary.account = @"RMB";
+        }
+        _rmbSummary.lastBalance += account.lastBalance;
+        _rmbSummary.debit += account.debit;
+        _rmbSummary.credit += account.credit;
+        _rmbSummary.balance += account.balance;
+    }
+    else{
+        if( _usdSummary ){
+            _usdSummary = [[bankAccountObj alloc] init];
+            _usdSummary.account = @"usd";
+        }
+        _usdSummary.lastBalance += account.lastBalance;
+        _usdSummary.debit += account.debit;
+        _usdSummary.credit += account.credit;
+        _usdSummary.balance += account.balance;
+    }
 }
 
 @end

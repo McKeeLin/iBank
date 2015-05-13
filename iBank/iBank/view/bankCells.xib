@@ -35,7 +35,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="05Y-z5-RsY" userLabel="bankAccountCell">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="baAccountCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="baAccountCell" id="05Y-z5-RsY" userLabel="bankAccountCell" customClass="baAccountCell">
             <rect key="frame" x="0.0" y="0.0" width="814" height="47"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="05Y-z5-RsY" id="4gP-Yb-BtC">
@@ -88,9 +88,18 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.99607843139999996" green="0.96470588239999999" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="accountButton" destination="RL7-ti-SJI" id="rP8-bK-sv9"/>
+                <outlet property="balanceLabel" destination="WbG-Ea-Ilj" id="X9X-E3-dTQ"/>
+                <outlet property="creditLabel" destination="fib-rc-Snu" id="fPR-5s-aTw"/>
+                <outlet property="currencyTypeLabel" destination="ZyS-cv-byf" id="rnK-6Z-7ob"/>
+                <outlet property="debitLabel" destination="Sht-ea-oo9" id="6lr-z3-aBz"/>
+                <outlet property="descLabel" destination="kq0-PJ-EHV" id="Qoj-Xy-By0"/>
+                <outlet property="lastBalanceLabel" destination="owh-HP-Rhr" id="h8c-yd-uGs"/>
+            </connections>
             <point key="canvasLocation" x="109" y="794.5"/>
         </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="jyu-aD-mOg" userLabel="baInnerSumaryCell">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="baInerSummaryCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="baInerSummaryCell" id="jyu-aD-mOg" userLabel="baInnerSumaryCell" customClass="baInerSummaryCell">
             <rect key="frame" x="0.0" y="0.0" width="814" height="94"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jyu-aD-mOg" id="l7G-4c-fZg">
@@ -184,11 +193,20 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="usdLastBalanceLabel" destination="mPf-Jo-8wK" id="jwY-Ul-Mfk"/>
+                <outlet property="colorView1" destination="Y0U-pp-6W2" id="vfg-lx-Pi2"/>
+                <outlet property="colorView2" destination="TE0-MX-Mfh" id="hdd-Hh-elq"/>
+                <outlet property="rmbBalanceLabel" destination="OWd-aN-sdO" id="cXO-Do-sJK"/>
+                <outlet property="rmbCreditLabel" destination="rkT-7s-gfY" id="yGb-Tn-erC"/>
+                <outlet property="rmbDebitLabel" destination="NQq-1k-HHr" id="BTH-w2-UgR"/>
+                <outlet property="rmbLastBalanceLabel" destination="PgD-jG-1ip" id="xyB-C8-SSN"/>
+                <outlet property="usdBalanceLabel" destination="cxD-CX-dYH" id="bOZ-cu-kBf"/>
+                <outlet property="usdCreditLabel" destination="ghN-gR-nJ1" id="aFN-Iv-NNL"/>
+                <outlet property="usdDebitLabel" destination="Zm7-Q3-Umc" id="X3X-5u-pHx"/>
+                <outlet property="usdLastBalanceLabel" destination="mPf-Jo-8wK" id="te0-cM-PMH"/>
             </connections>
             <point key="canvasLocation" x="109" y="920"/>
         </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="innerSumaryCell" selectionStyle="none" indentationWidth="10" id="rv9-k0-TIa" userLabel="baInnerSumaryCell1">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="baInerSummaryCell1" selectionStyle="none" indentationWidth="10" reuseIdentifier="baInerSummaryCell1" id="rv9-k0-TIa" userLabel="baInnerSumaryCell1" customClass="baInserSummaryCell1">
             <rect key="frame" x="0.0" y="0.0" width="814" height="47"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rv9-k0-TIa" id="1b9-p6-HGq">
@@ -247,9 +265,17 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="balanceLabel" destination="eg7-xV-NpW" id="WxN-Kv-FB3"/>
+                <outlet property="colorView" destination="Qf3-np-8DI" id="bKU-J7-SO9"/>
+                <outlet property="creditLabel" destination="YX0-8S-b8a" id="nX9-Jq-kbo"/>
+                <outlet property="currencyTypeLabel" destination="gB2-G2-isw" id="fuI-rB-dNF"/>
+                <outlet property="debitLabel" destination="AQe-0y-H7t" id="OIf-xs-02y"/>
+                <outlet property="lastBalanceLabel" destination="qjc-9J-xYI" id="2q8-Xe-vFX"/>
+            </connections>
             <point key="canvasLocation" x="109" y="1075"/>
         </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xeZ-0d-JYc">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="baOrgCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="baOrgCell" id="xeZ-0d-JYc" customClass="baOrgCell">
             <rect key="frame" x="0.0" y="0.0" width="904" height="141"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xeZ-0d-JYc" id="P7O-Gc-vCU">
@@ -271,9 +297,13 @@
                             <constraint firstAttribute="width" constant="1" id="4zO-iL-x1t"/>
                         </constraints>
                     </view>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eAT-xd-3AW">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eAT-xd-3AW">
                         <rect key="frame" x="90" y="0.0" width="814" height="140.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="xeZ-0d-JYc" id="JjT-4y-vNA"/>
+                            <outlet property="delegate" destination="xeZ-0d-JYc" id="y9J-9a-mF3"/>
+                        </connections>
                     </tableView>
                 </subviews>
                 <constraints>
@@ -289,9 +319,13 @@
                     <constraint firstItem="erM-Zw-7Sa" firstAttribute="leading" secondItem="P7O-Gc-vCU" secondAttribute="leading" constant="89" id="yQ1-7T-oKl"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="accountTableView" destination="eAT-xd-3AW" id="50q-RP-iTN"/>
+                <outlet property="orgLabel" destination="XP5-0g-fVf" id="UdK-It-sQf"/>
+            </connections>
             <point key="canvasLocation" x="64" y="1234.5"/>
         </tableViewCell>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nce-IU-FpG">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bankCell" id="Nce-IU-FpG" customClass="bankCell">
             <rect key="frame" x="0.0" y="0.0" width="992" height="141"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nce-IU-FpG" id="mwz-Sf-6vd">
@@ -313,9 +347,13 @@
                             <constraint firstAttribute="width" constant="1" id="cOG-ih-411"/>
                         </constraints>
                     </view>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NWV-vY-cXc">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NWV-vY-cXc">
                         <rect key="frame" x="90" y="0.0" width="902" height="140.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Nce-IU-FpG" id="DZx-SH-QHf"/>
+                            <outlet property="delegate" destination="Nce-IU-FpG" id="GK3-wI-bjl"/>
+                        </connections>
                     </tableView>
                 </subviews>
                 <constraints>
@@ -331,6 +369,10 @@
                     <constraint firstAttribute="bottom" secondItem="eOt-ce-bSZ" secondAttribute="bottom" id="vcW-lV-tPd"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="bankLabel" destination="eOt-ce-bSZ" id="Rr0-JU-cqB"/>
+                <outlet property="orgTableView" destination="NWV-vY-cXc" id="uqY-2D-gUW"/>
+            </connections>
             <point key="canvasLocation" x="20" y="1447.5"/>
         </tableViewCell>
     </objects>

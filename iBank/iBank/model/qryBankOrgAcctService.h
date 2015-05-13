@@ -11,6 +11,39 @@
 typedef void (^QRY_BANK_ORG_ACCT_BLOCK) (int code, id data);
 
 
+@interface bankAccountObj : NSObject
+
+@property NSString *account;
+
+@property NSString *desc;
+
+@property NSString *currencyType;
+
+@property CGFloat lastBalance;
+
+@property CGFloat debit;
+
+@property CGFloat credit;
+
+@property CGFloat balance;
+
+@end
+
+@interface bankOrgObj : NSObject
+
+@property NSString *orgId;
+
+@property NSString *orgName;
+
+@property NSMutableArray *accounts;
+
+@property bankAccountObj *rmbSummary;
+
+@property bankAccountObj *usdSummary;
+
+@property int itemCount;
+
+@end
 
 @interface bankObj : NSObject
 
@@ -18,23 +51,13 @@ typedef void (^QRY_BANK_ORG_ACCT_BLOCK) (int code, id data);
 
 @property NSString *Id;
 
-@property NSMutableArray *items;
+@property NSMutableArray *orgs;
 
-@property CGFloat rmbLastBalance;
+@property bankAccountObj *rmbSummary;
 
-@property CGFloat rmbDebit;
+@property bankAccountObj *usdSummary;
 
-@property CGFloat rmbCredit;
-
-@property CGFloat rmbBalance;
-
-@property CGFloat usdLastBalance;
-
-@property CGFloat usdDebit;
-
-@property CGFloat usdBalance;
-
-@property CGFloat usdCredit;
+@property int itemCount;
 
 - (void)addItem:(NSDictionary*)item;
 

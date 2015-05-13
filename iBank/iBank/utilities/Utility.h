@@ -28,4 +28,6 @@
 
 +(UIColor*)colorWithRead:(int)red green:(int)green blue:(int)blue alpha:(CGFloat)alpha;
 
++(NSString*)moneyFormatString:(CGFloat)amount;
+
 @end
