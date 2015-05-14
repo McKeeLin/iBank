@@ -268,6 +268,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+- (void)onTouchBack:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 - (void)loadData
 {
     _iv = [indicatorView view];
