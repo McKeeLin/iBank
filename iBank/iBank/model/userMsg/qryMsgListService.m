@@ -67,8 +67,8 @@
     NSMutableString *body = [[NSMutableString alloc] initWithCapacity:0];
     [body appendString:@"<tns:qryMsgList>\n"];
     [body appendFormat:@"<sid xsi:type=\"xsd:string\">%@</sid>\n",[dataHelper helper].sessionid];
-    [body appendFormat:@"<AType xsi:type=\"xsd:integer\">%@</AType>\n",_type];
-    [body appendFormat:@"<ACount xsi:type=\"xsd:integer\">%@</ACount>\n",_accountId];
+    [body appendFormat:@"<AType xsi:type=\"xsd:integer\">%d</AType>\n",_type];
+    [body appendFormat:@"<ACount xsi:type=\"xsd:integer\">%d</ACount>\n",_accountId];
     [body appendString:@"</tns:qryMsgList>"];
     self.soapBody = body;
     [super request];
@@ -84,20 +84,20 @@
         msgs = [[NSMutableArray alloc] initWithCapacity:0];
         for( NSDictionary *item in items ){
             MsgObj *msg = [[MsgObj alloc] init];
-            NSNumber *msgId = [msg objectForKey:@"id"];
-            msg.msgId = msgId.integerValue;
-            msg.sender = [msg objectForKey:@"sender"];
-            msg.time = [msg objectForKey:@"time"];
-            msg.title = [msg objectForKey:@"msg"];
+            NSNumber *msgId = [item objectForKey:@"id"];
+            msg.msgId = msgId.intValue;
+            msg.sender = [item objectForKey:@"sender"];
+            msg.time = [item objectForKey:@"time"];
+            msg.title = [item objectForKey:@"msg"];
             [msgs addObject:msg];
         }
         if( _qryMsgListBlock ){
-            qryMsgListBlock( code.integerValue, msgs );
+            _qryMsgListBlock( code.intValue, msgs );
         }
     }
     else{
         if( _qryMsgListBlock ){
-            qryMsgListBlock( code.integerValue, [dict objectForKey:@"data"] );
+            _qryMsgListBlock( code.intValue, [dict objectForKey:@"data"] );
         }
     }
     
@@ -106,7 +106,7 @@
 - (void)onError:(NSString *)error
 {
     if( _qryMsgListBlock ){
-        qryMsgListBlock( 99, @"未能连接服务器!" );
+        _qryMsgListBlock( 99, @"未能连接服务器!" );
     }
 }
 
