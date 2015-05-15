@@ -80,7 +80,7 @@
             UserObj *user = [[UserObj alloc] init];
             user.name = [item objectForKey:@"name"];
             NSString *imageCode = [item objectForKey:@"avatar"];
-            if( imageCode.length > 0 ){
+            if( imageCode.Length > 0 ){
                 NSData *imageData = [[NSData alloc] initWithBase64EncodedString:imageCode options:NSDataBase64DecodingIgnoreUnknownCharacters];
                 user.image = [UIImage imageWithData:imageData];
             }
@@ -91,7 +91,7 @@
             [users addObject:user];
         }
         if( _qryUserBlock ){
-            _qryUserBlock( code.intValue, users );
+            _qryUserBlock( code.integerValue, users );
         }
     }
     else{

@@ -100,7 +100,6 @@
             _qryMsgListBlock( code.intValue, [dict objectForKey:@"data"] );
         }
     }
-    
 }
 
 - (void)onError:(NSString *)error
