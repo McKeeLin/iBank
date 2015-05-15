@@ -8,8 +8,17 @@
 
 #import "aboutVC.h"
 #import "dataHelper.h"
+#import "Utility.h"
 
 @interface aboutVC ()
+{
+    IBOutlet UILabel *_label1;
+    IBOutlet UILabel *_label2;
+    IBOutlet UILabel *_label3;
+    IBOutlet UILabel *_label4;
+    IBOutlet UILabel *_label5;
+    IBOutlet UILabel *_label6;
+}
 
 @end
 
@@ -33,7 +42,11 @@
         self.navigationController.navigationBarHidden = NO;
         self.title = @"关于";
     }
+    NSDictionary* infoDict =[[NSBundle mainBundle] infoDictionary];
+    NSString* version =[infoDict objectForKey:@"CFBundleShortVersionString"];
+    _label1.text = [NSString stringWithFormat:@"Ntrualbit iBankBiz %ld （%@）", [Utility currentDateComponents].year, version];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

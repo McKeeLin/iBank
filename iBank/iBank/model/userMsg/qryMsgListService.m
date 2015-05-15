@@ -42,6 +42,12 @@
  </SOAP-ENV:Envelope>
  */
 
+
+@implementation MsgObj
+
+@end
+
+
 @implementation qryMsgListService
 
 
@@ -50,8 +56,8 @@
 {
     self = [super init];
     if( self ){
-        self.url = [NSString stringWithFormat:@"%@//api?ws=1", [dataHelper helper].host];
-        self.soapAction = @"urn:";
+        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/user-msg/api?ws=1", [dataHelper helper].host];
+        self.soapAction = @"urn:UserMsgControllerwsdl/qryMsgList";
     }
     return self;
 }
@@ -59,9 +65,11 @@
 - (void)request
 {
     NSMutableString *body = [[NSMutableString alloc] initWithCapacity:0];
-    [body appendString:@"<tns:>\n"];
+    [body appendString:@"<tns:qryMsgList>\n"];
     [body appendFormat:@"<sid xsi:type=\"xsd:string\">%@</sid>\n",[dataHelper helper].sessionid];
-    [body appendString:@"</tns:>"];
+    [body appendFormat:@"<AType xsi:type=\"xsd:integer\">%@</AType>\n",_type];
+    [body appendFormat:@"<ACount xsi:type=\"xsd:integer\">%@</ACount>\n",_accountId];
+    [body appendString:@"</tns:qryMsgList>"];
     self.soapBody = body;
     [super request];
 }
@@ -69,11 +77,37 @@
 - (void)parseResult:(NSString *)result
 {
     NSDictionary *dict = [Utility dictionaryWithJsonString:result];
-    NSNumber *code;
+    NSNumber *code = [dict objectForKey:@"result"];
+    NSMutableArray *msgs;
+    if( code.integerValue == 1 ){
+        NSArray *items = [dict objectForKey:@"data"];
+        msgs = [[NSMutableArray alloc] initWithCapacity:0];
+        for( NSDictionary *item in items ){
+            MsgObj *msg = [[MsgObj alloc] init];
+            NSNumber *msgId = [msg objectForKey:@"id"];
+            msg.msgId = msgId.integerValue;
+            msg.sender = [msg objectForKey:@"sender"];
+            msg.time = [msg objectForKey:@"time"];
+            msg.title = [msg objectForKey:@"msg"];
+            [msgs addObject:msg];
+        }
+        if( _qryMsgListBlock ){
+            qryMsgListBlock( code.integerValue, msgs );
+        }
+    }
+    else{
+        if( _qryMsgListBlock ){
+            qryMsgListBlock( code.integerValue, [dict objectForKey:@"data"] );
+        }
+    }
+    
 }
 
 - (void)onError:(NSString *)error
 {
+    if( _qryMsgListBlock ){
+        qryMsgListBlock( 99, @"未能连接服务器!" );
+    }
 }
 
 

@@ -13,6 +13,8 @@
 		086B214D1AF713C000E2EC58 /* monthSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B21481AF713C000E2EC58 /* monthSelectView.m */; };
 		086B214E1AF713C000E2EC58 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B214A1AF713C000E2EC58 /* UIImage+ImageEffects.m */; };
 		086B214F1AF713C000E2EC58 /* yearMonthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B214C1AF713C000E2EC58 /* yearMonthVC.m */; };
+		26012DBE1B0474E5008DC8FA /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 26012DBD1B0474E5008DC8FA /* default.png */; };
+		26012DC01B0474FE008DC8FA /* customer_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26012DBF1B0474FE008DC8FA /* customer_logo.jpg */; };
 		2612D5B81AF11CA6002B45D9 /* getMyInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5B71AF11CA6002B45D9 /* getMyInfoService.m */; };
 		2612D5BB1AF11D4E002B45D9 /* getAuthListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5BA1AF11D4E002B45D9 /* getAuthListService.m */; };
 		2612D5BE1AF42E92002B45D9 /* loginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5BD1AF42E92002B45D9 /* loginView.m */; };
@@ -148,6 +150,8 @@
 		086B214A1AF713C000E2EC58 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		086B214B1AF713C000E2EC58 /* yearMonthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yearMonthVC.h; sourceTree = "<group>"; };
 		086B214C1AF713C000E2EC58 /* yearMonthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yearMonthVC.m; sourceTree = "<group>"; };
+		26012DBD1B0474E5008DC8FA /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		26012DBF1B0474FE008DC8FA /* customer_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = customer_logo.jpg; sourceTree = "<group>"; };
 		2612D5B61AF11CA6002B45D9 /* getMyInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getMyInfoService.h; sourceTree = "<group>"; };
 		2612D5B71AF11CA6002B45D9 /* getMyInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getMyInfoService.m; sourceTree = "<group>"; };
 		2612D5B91AF11D4E002B45D9 /* getAuthListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getAuthListService.h; sourceTree = "<group>"; };
@@ -561,6 +565,7 @@
 		26D53EB71AEB491A00A1A33D /* 动态 */ = {
 			isa = PBXGroup;
 			children = (
+				26012DBD1B0474E5008DC8FA /* default.png */,
 				2627C3111B0010AF00969720 /* portrait@2x.png */,
 				26D53EB81AEB491A00A1A33D /* 公司-标准状态.png */,
 				26D53EB91AEB491A00A1A33D /* 公司-经过，选中状态.png */,
@@ -590,6 +595,7 @@
 		26D53EC71AEB491A00A1A33D /* 关于 */ = {
 			isa = PBXGroup;
 			children = (
+				26012DBF1B0474FE008DC8FA /* customer_logo.jpg */,
 				2678F2461AED4EB3001A0596 /* szLogo.png */,
 				26D53EC81AEB491A00A1A33D /* LOGO.png */,
 				26D53EC91AEB491A00A1A33D /* 背景.png */,
@@ -783,6 +789,7 @@
 				26D53EF91AEB491A00A1A33D /* 设置-经过，选中状态.png in Resources */,
 				26D53EFB1AEB491A00A1A33D /* 银行-经过，选中状态.png in Resources */,
 				2627C3021AFF16C600969720 /* Icon-72@2x.png in Resources */,
+				26012DBE1B0474E5008DC8FA /* default.png in Resources */,
 				2627C30B1B00008700969720 /* Icon-29.png in Resources */,
 				26D53F081AEB491A00A1A33D /* 选中.png in Resources */,
 				267800FC1AEF57FB008DE5E8 /* cells.xib in Resources */,
@@ -815,6 +822,7 @@
 				26D53EFA1AEB491A00A1A33D /* 银行-标准状态.png in Resources */,
 				2612D5C51AF43E96002B45D9 /* indicatorView.xib in Resources */,
 				2678F24D1AEDC55A001A0596 /* settingNormal.png in Resources */,
+				26012DC01B0474FE008DC8FA /* customer_logo.jpg in Resources */,
 				26D53EE21AEB491A00A1A33D /* 刷新认证码-标准状态.png in Resources */,
 				26D53EE41AEB491A00A1A33D /* 帮助按钮-标准状态.png in Resources */,
 				26D53F101AEB491A00A1A33D /* loading-背景_01.png in Resources */,
@@ -843,7 +851,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nmonth=`date +%m`\nmain=\"1\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $main.$month.$buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nmonth=`date +%y.%m`\nmain=\"1\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $main.$month.$buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

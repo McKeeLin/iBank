@@ -188,14 +188,19 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:10];
     }
     NSDictionary *item = [_items objectAtIndex:indexPath.row];
+    NSString *balance = [item objectForKey:@"balance"];
+    NSString *credit = [item objectForKey:@"credit"];
+    NSString *debit = [item objectForKey:@"debit"];
     cell.dateLabel.text = [item objectForKey:@"date"];
     cell.smodeLabel.text = [item objectForKey:@"smode"];
     cell.receiptLabel.text = [item objectForKey:@"receipt"];
-    cell.debitLabel.text = [item objectForKey:@"debit"];
-    cell.creditLabel.text = [item objectForKey:@"credit"];
+    cell.debitLabel.text = [Utility moneyFormatString:debit.floatValue];
+    cell.creditLabel.text = [Utility moneyFormatString:credit.floatValue];
     cell.sumaryLabel.text = [item objectForKey:@"summary"];
     cell.descLabel.text = [item objectForKey:@"desc"];
-    cell.balanceLabel.text = [item objectForKey:@"balance"];
+    cell.balanceLabel.text = [Utility moneyFormatString:balance.floatValue];
+    NSNumber *ln = [item objectForKey:@"ln"];
+    cell.numLabel.text = [NSString stringWithFormat:@"%d", ln.intValue + 1 ];
     return cell;
 }
 

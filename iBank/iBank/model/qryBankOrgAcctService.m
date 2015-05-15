@@ -103,8 +103,13 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/qry-acct
         [_orgs addObject:foundOrg];
     }
     
+    NSNumber *aid = [item objectForKey:@"aid"];
     bankAccountObj *account = [[bankAccountObj alloc] init];
-    account.account = [item objectForKey:@"name"];
+    account.accountId = aid.intValue;
+    account.account = [item objectForKey:@"acct"];
+    account.bank = [item objectForKey:@"bank"];
+    account.org = [item objectForKey:@"org"];
+    account.ccode = [item objectForKey:@"ccode"];
     account.desc = [item objectForKey:@"desc"];
     account.currencyType = currencyCode;
     account.balance = balance.floatValue;
@@ -115,50 +120,51 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/qry-acct
         if( !foundOrg.rmbSummary ){
             foundOrg.rmbSummary = [[bankAccountObj alloc] init];
             foundOrg.rmbSummary.account = @"RMB";
+            foundOrg.rmbSummary.currencyType = @"RMB";
             foundOrg.itemCount++;
             _itemCount++;
+        }
+        if( !_rmbSummary ){
+            _rmbSummary = [[bankAccountObj alloc] init];
+            _rmbSummary.account = @"RMB";
+            _rmbSummary.currencyType = @"RMB";
         }
         foundOrg.rmbSummary.lastBalance += account.lastBalance;
         foundOrg.rmbSummary.debit += account.debit;
         foundOrg.rmbSummary.credit += account.credit;
         foundOrg.rmbSummary.balance += account.balance;
-    }
-    else{
-        if( !foundOrg.usdSummary ){
-            foundOrg.usdSummary = [[bankAccountObj alloc] init];
-            foundOrg.usdSummary.account = @"usd";
-            foundOrg.itemCount++;
-            _itemCount++;
-        }
-        foundOrg.usdSummary.lastBalance += account.lastBalance;
-        foundOrg.usdSummary.debit += account.debit;
-        foundOrg.usdSummary.credit += account.credit;
-        foundOrg.usdSummary.balance += account.balance;
-    }
-    [foundOrg.accounts addObject:account];
-    foundOrg.itemCount++;
-    _itemCount++;
-    
-    if( [currencyCode isEqualToString:@"RMB"] ){
-        if( _rmbSummary ){
-            _rmbSummary = [[bankAccountObj alloc] init];
-            _rmbSummary.account = @"RMB";
-        }
+        
         _rmbSummary.lastBalance += account.lastBalance;
         _rmbSummary.debit += account.debit;
         _rmbSummary.credit += account.credit;
         _rmbSummary.balance += account.balance;
     }
     else{
-        if( _usdSummary ){
-            _usdSummary = [[bankAccountObj alloc] init];
-            _usdSummary.account = @"usd";
+        if( !foundOrg.usdSummary ){
+            foundOrg.usdSummary = [[bankAccountObj alloc] init];
+            foundOrg.usdSummary.account = @"USD";
+            foundOrg.usdSummary.currencyType = @"USD";
+            foundOrg.itemCount++;
+            _itemCount++;
         }
+        if( !_usdSummary ){
+            _usdSummary = [[bankAccountObj alloc] init];
+            _usdSummary.account = @"USD";
+            _usdSummary.currencyType = @"USD";
+        }
+        foundOrg.usdSummary.lastBalance += account.lastBalance;
+        foundOrg.usdSummary.debit += account.debit;
+        foundOrg.usdSummary.credit += account.credit;
+        foundOrg.usdSummary.balance += account.balance;
+
         _usdSummary.lastBalance += account.lastBalance;
         _usdSummary.debit += account.debit;
         _usdSummary.credit += account.credit;
         _usdSummary.balance += account.balance;
     }
+    [foundOrg.accounts addObject:account];
+    foundOrg.itemCount++;
+    _itemCount++;
 }
 
 @end

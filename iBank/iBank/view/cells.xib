@@ -87,6 +87,8 @@
             <string>MicrosoftYaHei</string>
             <string>MicrosoftYaHei</string>
             <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -738,7 +740,7 @@
                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yrk-Ng-9LS" userLabel="v1">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrk-Ng-9LS" userLabel="v1">
                         <rect key="frame" x="0.0" y="0.0" width="1" height="161"/>
                         <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -752,21 +754,21 @@
                             <constraint firstAttribute="width" constant="1" id="hKF-v1-96k"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ai-xL-pp5" userLabel="v3">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ai-xL-pp5" userLabel="v3">
                         <rect key="frame" x="991" y="0.0" width="1" height="161"/>
                         <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="5Yg-EG-Vur"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHW-nc-fik" userLabel="h">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHW-nc-fik" userLabel="h">
                         <rect key="frame" x="0.0" y="160" width="992" height="1"/>
                         <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Mmq-m2-eWq"/>
                         </constraints>
                     </view>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fmY-DB-Kvf">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fmY-DB-Kvf">
                         <rect key="frame" x="90" y="0.0" width="901" height="160"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -819,18 +821,28 @@
                     <rect key="frame" x="0.0" y="0.0" width="1" height="50"/>
                     <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FzG-eh-TQ8" userLabel="vl1">
+                    <rect key="frame" x="48" y="0.0" width="1" height="50"/>
+                    <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日期" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1l7-vx-XNp">
-                    <rect key="frame" x="1" y="0.0" width="128" height="50"/>
+                    <rect key="frame" x="48" y="0.0" width="108" height="50"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="行号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hU-qz-kN1">
+                    <rect key="frame" x="0.0" y="0.0" width="48" height="50"/>
                     <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aod-Nb-QfJ" userLabel="vl2">
-                    <rect key="frame" x="129" y="0.0" width="1" height="50"/>
+                    <rect key="frame" x="158" y="0.0" width="1" height="50"/>
                     <color key="backgroundColor" red="0.84705882349999995" green="0.36862745099999999" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="交易类型" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ah-nh-WW9">
-                    <rect key="frame" x="130" y="0.0" width="128" height="50"/>
+                    <rect key="frame" x="158" y="0.0" width="100" height="50"/>
                     <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -913,18 +925,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="1" height="39.5"/>
                         <color key="backgroundColor" red="0.9137254901960784" green="0.78431372549019607" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3sP-BP-3ho" userLabel="l1">
+                        <rect key="frame" x="48" y="0.5" width="1" height="39.5"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.7843137255" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2015-03-03" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bV-L3-5hT">
-                        <rect key="frame" x="1" y="0.0" width="128" height="40"/>
+                        <rect key="frame" x="48" y="0.0" width="108" height="40"/>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xj2-Qy-FQS">
+                        <rect key="frame" x="0.0" y="0.0" width="48" height="40"/>
                         <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HGN-jh-bjT" userLabel="l2">
-                        <rect key="frame" x="129" y="0.5" width="1" height="39.5"/>
+                        <rect key="frame" x="158" y="0.5" width="1" height="39.5"/>
                         <color key="backgroundColor" red="0.91372549020000005" green="0.7843137255" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="转账" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sc-7r-mM4">
-                        <rect key="frame" x="130" y="0.0" width="128" height="40"/>
+                        <rect key="frame" x="158" y="0.0" width="100" height="40"/>
                         <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -1006,6 +1028,7 @@
                 <outlet property="dateLabel" destination="5bV-L3-5hT" id="2SX-0x-vbT"/>
                 <outlet property="debitLabel" destination="6FC-JU-9bV" id="OIt-aw-tOA"/>
                 <outlet property="descLabel" destination="bDT-N8-h5k" id="ttg-S4-Qs6"/>
+                <outlet property="numLabel" destination="Xj2-Qy-FQS" id="QUR-7A-j1a"/>
                 <outlet property="receiptLabel" destination="w7K-Cx-jhk" id="H8f-YF-vJn"/>
                 <outlet property="smodeLabel" destination="4sc-7r-mM4" id="1dG-oF-5g9"/>
                 <outlet property="sumaryLabel" destination="QLv-BB-JWj" id="Wai-On-44j"/>

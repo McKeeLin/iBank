@@ -204,7 +204,7 @@
 {
     [super viewWillAppear:animated];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    df.dateFormat = @"今天是：yyyy年MM月dd日EEEE";
+    df.dateFormat = @"yyyy年MM月dd日EEEE";
     _dayInfoLabel.text = [df stringFromDate:[NSDate date]];
 }
 /*

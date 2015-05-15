@@ -40,6 +40,12 @@
  </SOAP-ENV:Envelope>
  */
 
+@implementation UserObj
+
+@end
+
+
+
 @implementation qryUsersService
 
 
@@ -67,9 +73,31 @@
 {
     NSDictionary *dict = [Utility dictionaryWithJsonString:result];
     NSNumber *code = [dict objectForKey:@"result"];
-    id data = [dict objectForKey:@"data"];
-    if( _qryUserBlock ){
-        _qryUserBlock( code.intValue, data );
+    if( code.intValue == 1 ){
+        NSMutableArray *users = [[NSMutableArray alloc] initWithCapacity:0];
+        NSArray *items = [dict objectForKey:@"data"];
+        for( NSDictionary *item in items ){
+            UserObj *user = [[UserObj alloc] init];
+            user.name = [item objectForKey:@"name"];
+            NSString *imageCode = [item objectForKey:@"avatar"];
+            if( imageCode.Length > 0 ){
+                NSData *imageData = [[NSData alloc] initWithBase64EncodedString:imageCode options:NSDataBase64DecodingIgnoreUnknownCharacters];
+                user.image = [UIImage imageWithData:imageData];
+            }
+            NSNumber *userId = [item objectForKey:@"id"];
+            if( userId ){
+                user.userId = userId.intValue;
+            }
+            [users addObject:user];
+        }
+        if( _qryUserBlock ){
+            _qryUserBlock( code.integerValue, users );
+        }
+    }
+    else{
+        if( _qryUserBlock ){
+            _qryUserBlock( code.intValue, [dict objectForKey:@"data"] );
+        }
     }
 }
 

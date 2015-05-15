@@ -54,21 +54,22 @@
         if( !cell ){
             cell = [[[NSBundle mainBundle] loadNibNamed:@"bankCells" owner:nil options:nil] objectAtIndex:0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell.accountButton addTarget:_target action:_action forControlEvents:UIControlEventTouchUpInside];
+            [cell.accountButton addTarget:self action:@selector(onTouchAccount:) forControlEvents:UIControlEventTouchUpInside];
         }
         bankAccountObj *account = [_org.accounts objectAtIndex:indexPath.row];
         [cell.accountButton setTitle:account.account forState:UIControlStateNormal];
         cell.currencyTypeLabel.text = account.currencyType;
         cell.descLabel.text = account.desc;
-        NSString *lastBalance = [NSString stringWithFormat:@"%0.2f", account.lastBalance];
-        NSString *debit = [NSString stringWithFormat:@"%0.2f", account.debit];
-        NSString *credit = [NSString stringWithFormat:@"%0.2f", account.credit];
-        NSString *balance = [NSString stringWithFormat:@"%0.2f", account.balance];
+        NSString *lastBalance = [Utility moneyFormatString:account.lastBalance];
+        NSString *debit = [Utility moneyFormatString:account.debit];
+        NSString *credit = [Utility moneyFormatString:account.credit];
+        NSString *balance = [Utility moneyFormatString:account.balance];
         cell.lastBalanceLabel.text = lastBalance;
         cell.debitLabel.text= debit;
         cell.creditLabel.text = credit;
         cell.balanceLabel.text = balance;
         cell.backgroundColor = backgroundColor;
+        cell.accountButton.tag = indexPath.row;
         return cell;
     }
     else if( _org.rmbSummary && _org.usdSummary ){
@@ -101,18 +102,26 @@
             account = _org.usdSummary;
         }
         cell.currencyTypeLabel.text = account.currencyType;
-        NSString *lastBalance = [NSString stringWithFormat:@"%0.2f", account.lastBalance];
-        NSString *debit = [NSString stringWithFormat:@"%0.2f", account.debit];
-        NSString *credit = [NSString stringWithFormat:@"%0.2f", account.credit];
-        NSString *balance = [NSString stringWithFormat:@"%0.2f", account.balance];
+        NSString *lastBalance = [Utility moneyFormatString:account.lastBalance];
+        NSString *debit = [Utility moneyFormatString:account.debit];
+        NSString *credit = [Utility moneyFormatString:account.credit];;
+        NSString *balance = [Utility moneyFormatString:account.balance];;
         cell.lastBalanceLabel.text = lastBalance;
         cell.debitLabel.text= debit;
         cell.creditLabel.text = credit;
         cell.balanceLabel.text = balance;
-        cell.backgroundColor = backgroundColor;
+        cell.colorView.backgroundColor = backgroundColor;
         return cell;
     }
     
+}
+
+- (void)onTouchAccount:(UIButton*)button
+{
+    bankAccountObj *account = [_org.accounts objectAtIndex:button.tag];
+    if( _target && _action ){
+        [_target performSelector:_action withObject:account];
+    }
 }
 
 @end
@@ -137,11 +146,13 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"bankCells" owner:nil options:nil] objectAtIndex:3];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.orgLabel.backgroundColor = [UIColor clearColor];
+        cell.accountTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         cell.target = _target;
         cell.action = _action;
     }
     int startIndex = _startIndex;
-    for( bankOrgObj *org in _bank.orgs ){
+    for( int i = 0; i < indexPath.row; i++ ){
+        bankOrgObj *org = [_bank.orgs objectAtIndex:i];
         startIndex += org.itemCount;
     }
     cell.org = [_bank.orgs objectAtIndex:indexPath.row];
@@ -193,6 +204,7 @@
     _footerView = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:7];
     _footerView1 = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:12];
     _tableView.tableFooterView = _footerView;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     NSDateComponents *componets = [Utility currentDateComponents];
     _year = [NSString stringWithFormat:@"%ld", componets.year];
     _month = [NSString stringWithFormat:@"%02ld", componets.month];
@@ -272,14 +284,14 @@
     }
     
     if( hasRmbItem && hasUsdItem ){
-        _footerView.rmbLastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", rmbLastBalance];
-        _footerView.rmbDebitLabel.text = [NSString stringWithFormat:@"%.02f", rmbDebit];
-        _footerView.rmbCreditLabel.text = [NSString stringWithFormat:@"%.02f", rmbCredit];
-        _footerView.rmbBalanceLabe.text = [NSString stringWithFormat:@"%.02f", rmbBalance];
-        _footerView.usdLastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", usdLastBalance];
-        _footerView.usdDebitLabel.text = [NSString stringWithFormat:@"%.02f", usdDebit];
-        _footerView.usdCreditLabel.text = [NSString stringWithFormat:@"%.02f", usdCredit];
-        _footerView.usdBalanceLabe.text = [NSString stringWithFormat:@"%.02f", usdBalance];
+        _footerView.rmbLastBalanceLabel.text = [Utility moneyFormatString:rmbLastBalance];
+        _footerView.rmbDebitLabel.text = [Utility moneyFormatString:rmbDebit];
+        _footerView.rmbCreditLabel.text = [Utility moneyFormatString:rmbCredit];
+        _footerView.rmbBalanceLabe.text = [Utility moneyFormatString:rmbBalance];
+        _footerView.usdLastBalanceLabel.text = [Utility moneyFormatString:rmbLastBalance];
+        _footerView.usdDebitLabel.text = [Utility moneyFormatString:rmbDebit];
+        _footerView.usdCreditLabel.text = [Utility moneyFormatString:rmbCredit];
+        _footerView.usdBalanceLabe.text = [Utility moneyFormatString:rmbBalance];
         if( itemCount % 2 == 0 ){
             _footerView.container1.backgroundColor = ROW_COLOR_1;
             _footerView.container2.backgroundColor = ROW_COLOR_2;
@@ -298,17 +310,17 @@
     }
     else{
         if( hasRmbItem ){
-            _footerView1.lastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", rmbLastBalance];
-            _footerView1.debitLabel.text = [NSString stringWithFormat:@"%.02f", rmbDebit];
-            _footerView1.creditLabel.text = [NSString stringWithFormat:@"%.02f", rmbCredit];
-            _footerView1.balanceLabe.text = [NSString stringWithFormat:@"%.02f", rmbBalance];
+            _footerView1.lastBalanceLabel.text = [Utility moneyFormatString:rmbLastBalance];
+            _footerView1.debitLabel.text = [Utility moneyFormatString:rmbDebit];
+            _footerView1.creditLabel.text = [Utility moneyFormatString:rmbCredit];
+            _footerView1.balanceLabe.text = [Utility moneyFormatString:rmbBalance];
             _footerView1.currencyTypeLabel.text = @"RMB";
         }
         else{
-            _footerView1.lastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", usdLastBalance];
-            _footerView1.debitLabel.text = [NSString stringWithFormat:@"%.02f", usdDebit];
-            _footerView1.creditLabel.text = [NSString stringWithFormat:@"%.02f", usdCredit];
-            _footerView1.balanceLabe.text = [NSString stringWithFormat:@"%.02f", usdBalance];
+            _footerView1.lastBalanceLabel.text = [Utility moneyFormatString:usdLastBalance];
+            _footerView1.debitLabel.text = [Utility moneyFormatString:usdDebit];
+            _footerView1.creditLabel.text = [Utility moneyFormatString:usdCredit];
+            _footerView1.balanceLabe.text = [Utility moneyFormatString:usdLastBalance];
             _footerView1.currencyTypeLabel.text = @"USD";
         }
         if( itemCount % 2 == 0 ){
@@ -365,6 +377,7 @@
         cell.target = self;
         cell.action = @selector(onTouchAccount:);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.orgTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         cell.bankLabel.backgroundColor = [UIColor clearColor];
     }
     if( indexPath.row % 2 == 1 ){
@@ -386,14 +399,15 @@
 }
 
 
-- (void)onTouchAccount:(NSDictionary*)item
+- (void)onTouchAccount:(bankAccountObj*)account
 {
-    if( item ){
+    if( account ){
         detailVC *vc = [detailVC viewController];
-        vc.bank = [item objectForKey:@"bank"];
-        vc.company = [item objectForKey:@"org"];
-        vc.account = [item objectForKey:@"acct"];
-        vc.accountId = [[item objectForKey:@"aid"] intValue];
+        vc.accountId = account.accountId;
+        vc.bank = account.bank;
+        vc.company = account.org;
+        vc.currencyType = account.ccode;
+        vc.account = account.account;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

@@ -120,20 +120,20 @@
         usdLastBalance += org.usdLastBalance;
         usdDebit += org.usdDebit;
         usdCredit += org.usdCredit;
-        usdBalance += org.usdCredit;
+        usdBalance += org.usdBalance;
         itemCount += org.items.count;
         if( org.rmbItem ) hasRmbItem = YES;
         if( org.usdItem ) hasUsdItem = YES;
     }
     if( hasRmbItem && hasUsdItem ){
-        _footerView.rmbLastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", rmbLastBalance];
-        _footerView.rmbDebitLabel.text = [NSString stringWithFormat:@"%.02f", rmbDebit];
-        _footerView.rmbCreditLabel.text = [NSString stringWithFormat:@"%.02f", rmbCredit];
-        _footerView.rmbBalanceLabe.text = [NSString stringWithFormat:@"%.02f", rmbBalance];
-        _footerView.usdLastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", usdLastBalance];
-        _footerView.usdDebitLabel.text = [NSString stringWithFormat:@"%.02f", usdDebit];
-        _footerView.usdCreditLabel.text = [NSString stringWithFormat:@"%.02f", usdCredit];
-        _footerView.usdBalanceLabe.text = [NSString stringWithFormat:@"%.02f", usdBalance];
+        _footerView.rmbLastBalanceLabel.text = [Utility moneyFormatString:rmbLastBalance];
+        _footerView.rmbDebitLabel.text = [Utility moneyFormatString:rmbDebit];
+        _footerView.rmbCreditLabel.text = [Utility moneyFormatString:rmbCredit];
+        _footerView.rmbBalanceLabe.text = [Utility moneyFormatString:rmbBalance];
+        _footerView.usdLastBalanceLabel.text = [Utility moneyFormatString:usdLastBalance];
+        _footerView.usdDebitLabel.text = [Utility moneyFormatString:usdDebit];
+        _footerView.usdCreditLabel.text = [Utility moneyFormatString:usdCredit];
+        _footerView.usdBalanceLabe.text = [Utility moneyFormatString:usdBalance];
         if( itemCount % 2 == 0 ){
             _footerView.container1.backgroundColor = ROW_COLOR_1;
             _footerView.container2.backgroundColor = ROW_COLOR_2;
@@ -152,17 +152,17 @@
     }
     else{
         if( hasRmbItem ){
-            _footerView1.lastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", rmbLastBalance];
-            _footerView1.debitLabel.text = [NSString stringWithFormat:@"%.02f", rmbDebit];
-            _footerView1.creditLabel.text = [NSString stringWithFormat:@"%.02f", rmbCredit];
-            _footerView1.balanceLabe.text = [NSString stringWithFormat:@"%.02f", rmbBalance];
+            _footerView1.lastBalanceLabel.text = [Utility moneyFormatString:rmbLastBalance];
+            _footerView1.debitLabel.text = [Utility moneyFormatString:rmbDebit];
+            _footerView1.creditLabel.text = [Utility moneyFormatString:rmbCredit];
+            _footerView1.balanceLabe.text = [Utility moneyFormatString:rmbBalance];
             _footerView1.currencyTypeLabel.text = @"RMB";
         }
         else{
-            _footerView1.lastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", usdLastBalance];
-            _footerView1.debitLabel.text = [NSString stringWithFormat:@"%.02f", usdDebit];
-            _footerView1.creditLabel.text = [NSString stringWithFormat:@"%.02f", usdCredit];
-            _footerView1.balanceLabe.text = [NSString stringWithFormat:@"%.02f", usdBalance];
+            _footerView1.lastBalanceLabel.text = [Utility moneyFormatString:usdBalance];
+            _footerView1.debitLabel.text = [Utility moneyFormatString:usdDebit];
+            _footerView1.creditLabel.text = [Utility moneyFormatString:usdCredit];
+            _footerView1.balanceLabe.text = [Utility moneyFormatString:usdBalance];
             _footerView1.currencyTypeLabel.text = @"USD";
         }
         if( itemCount % 2 == 0 ){

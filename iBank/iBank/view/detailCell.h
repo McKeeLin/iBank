@@ -26,4 +26,6 @@
 
 @property IBOutlet UILabel *balanceLabel;
 
+@property IBOutlet UILabel *numLabel;
+
 @end

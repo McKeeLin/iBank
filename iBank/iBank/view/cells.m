@@ -8,6 +8,7 @@
 
 #import "cells.h"
 #import "detailVC.h"
+#import "Utility.h"
 
 
 @implementation cbHeaderView
@@ -136,10 +137,10 @@
         NSString *credit = [item objectForKey:@"credit"];
         NSString *balance = [item objectForKey:@"thisb"];
         cell.typeLabel.text = [item objectForKey:@"ccode"];
-        cell.lastBalanceLabel.text = [NSString stringWithFormat:@"%.02f", lastBalance.floatValue];
-        cell.debitLabel.text = [NSString stringWithFormat:@"%.02f", debit.floatValue];
-        cell.creditLabel.text = [NSString stringWithFormat:@"%.02f", credit.floatValue];
-        cell.balanceLabe.text= [NSString stringWithFormat:@"%.02f", balance.floatValue];
+        cell.lastBalanceLabel.text = [Utility moneyFormatString:lastBalance.floatValue];
+        cell.debitLabel.text = [Utility moneyFormatString:debit.floatValue];;
+        cell.creditLabel.text = [Utility moneyFormatString:credit.floatValue];;
+        cell.balanceLabe.text= [Utility moneyFormatString:balance.floatValue];;
         cell.descLabel.text = [item objectForKey:@"desc"];
         cell.backgroundColor = backgroundColor;
         cell.accountButton.tag = indexPath.row;
@@ -152,16 +153,24 @@
             if( !cell ){
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:6];
             }
+            NSString *rmbLastBalance = [_org.rmbItem objectForKey:@"lastb"];
+            NSString *rmbDebit = [_org.rmbItem objectForKey:@"debit"];
+            NSString *rmbCredit = [_org.rmbItem objectForKey:@"credit"];
+            NSString *rmbBalance = [_org.rmbItem objectForKey:@"thisb"];
+            NSString *usdLastBalance = [_org.usdItem objectForKey:@"lastb"];
+            NSString *usdDebit = [_org.usdItem objectForKey:@"debit"];
+            NSString *usdCredit = [_org.usdItem objectForKey:@"credit"];
+            NSString *usdBalance = [_org.usdItem objectForKey:@"thisb"];
             cell.background1.backgroundColor = backgroundColor;
             cell.background2.backgroundColor = backgroundColor == backgroundColor1 ? backgroundColor2 : backgroundColor1;
-            cell.rmbLastBalanceLabel.text = [_org.rmbItem objectForKey:@"lastb"];
-            cell.rmbDebitLabel.text = [_org.rmbItem objectForKey:@"debit"];
-            cell.rmbCreditLabel.text = [_org.rmbItem objectForKey:@"credit"];
-            cell.rmbBalanceLabe.text = [_org.rmbItem objectForKey:@"thisb"];
-            cell.usdLastBalanceLabel.text = [_org.usdItem objectForKey:@"lastb"];
-            cell.usdDebitLabel.text = [_org.usdItem objectForKey:@"debit"];
-            cell.usdCreditLabel.text = [_org.usdItem objectForKey:@"credit"];
-            cell.usdBalanceLabe.text = [_org.usdItem objectForKey:@"thisb"];
+            cell.rmbLastBalanceLabel.text = [Utility moneyFormatString:rmbLastBalance.floatValue];
+            cell.rmbDebitLabel.text = [Utility moneyFormatString:rmbDebit.floatValue];
+            cell.rmbCreditLabel.text = [Utility moneyFormatString:rmbCredit.floatValue];
+            cell.rmbBalanceLabe.text = [Utility moneyFormatString:rmbBalance.floatValue];
+            cell.usdLastBalanceLabel.text = [Utility moneyFormatString:usdBalance.floatValue];
+            cell.usdDebitLabel.text = [Utility moneyFormatString:usdDebit.floatValue];
+            cell.usdCreditLabel.text = [Utility moneyFormatString:usdCredit.floatValue];
+            cell.usdBalanceLabe.text = [Utility moneyFormatString:usdBalance.floatValue];
             return cell;
         }
         else{
@@ -176,12 +185,16 @@
             else{
                 item = _org.usdItem;
             }
+            NSString *lastBalance = [item objectForKey:@"lastb"];
+            NSString *debit = [item objectForKey:@"debit"];
+            NSString *credit = [item objectForKey:@"credit"];
+            NSString *balance = [item objectForKey:@"thisb"];
             cell.background.backgroundColor = backgroundColor;
             cell.currencyTypeLabel.text = [item objectForKey:@"ccode"];
-            cell.lastBalanceLabel.text = [item objectForKey:@"lastb"];
-            cell.debitLabel.text = [item objectForKey:@"debit"];
-            cell.creditLabel.text = [item objectForKey:@"credit"];
-            cell.balanceLabel.text = [item objectForKey:@"thisb"];
+            cell.lastBalanceLabel.text = [Utility moneyFormatString:lastBalance.floatValue];
+            cell.debitLabel.text = [Utility moneyFormatString:debit.floatValue];
+            cell.creditLabel.text = [Utility moneyFormatString:credit.floatValue];
+            cell.balanceLabel.text = [Utility moneyFormatString:balance.floatValue];
             return cell;
         }
     }

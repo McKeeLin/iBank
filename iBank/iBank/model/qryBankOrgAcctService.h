@@ -13,6 +13,14 @@ typedef void (^QRY_BANK_ORG_ACCT_BLOCK) (int code, id data);
 
 @interface bankAccountObj : NSObject
 
+@property int accountId;
+
+@property NSString *org;
+
+@property NSString *bank;
+
+@property NSString *ccode;
+
 @property NSString *account;
 
 @property NSString *desc;
