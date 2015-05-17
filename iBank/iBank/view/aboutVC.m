@@ -45,6 +45,7 @@
     NSDictionary* infoDict =[[NSBundle mainBundle] infoDictionary];
     NSString* version =[infoDict objectForKey:@"CFBundleShortVersionString"];
     _label1.text = [NSString stringWithFormat:@"Ntrualbit iBankBiz %ld （%@）", [Utility currentDateComponents].year, version];
+    _label6.text = [NSString stringWithFormat:@"S/N: %@", [dataHelper helper].sn];
 }
 
 

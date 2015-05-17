@@ -41,7 +41,7 @@
     }
     
     NSTimeInterval timestamp = [NSDate date].timeIntervalSince1970;
-    int interval = [dataHelper helper].timeoutInterval;
+    int interval = [dataHelper helper].timeoutInterval * 60;
     if( timestamp - _lastTouchTimestamp > interval ){
         if( [dataHelper helper].loginViewController ){
             [[dataHelper helper].loginViewController prepareLoginAgain];

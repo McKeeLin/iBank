@@ -41,9 +41,18 @@
         __weak aliveHelper *weakSelf = self;
         _keepAliveSrv = [[keepAliveService alloc] init];
         _keepAliveSrv.keepAliveBlock = ^(NSInteger code, NSString *data){
-            if( code == 0 ){
+            if( code == 1 ){
                 // 成功
-                ;
+                NSString *countString = (NSString*)data;
+                NSArray *counts = [countString componentsSeparatedByString:@","];
+                NSString *systemMsgCount = counts.lastObject;
+                NSString *userMsgCount = counts.firstObject;
+                if( systemMsgCount.intValue > 0 ){
+                    [[dataHelper helper].qrySystemMsgListSrv request];
+                }
+                if( userMsgCount.intValue > 0 ){
+                    [[dataHelper helper].qryUserMsgListSrv request];
+                }
             }
             else{
                 // -1:未知类型错误

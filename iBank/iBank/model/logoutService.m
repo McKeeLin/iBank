@@ -74,6 +74,9 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/auth
     if( dict ){
         code = [dict objectForKey:@"code"];
         data = [dict objectForKey:@"data"];
+        if( code && code.intValue == 1 ){
+            [dataHelper helper].users = nil;
+        }
     }
     if( self.logoutBlock ){
         self.logoutBlock( code.integerValue, data );

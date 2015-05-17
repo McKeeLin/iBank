@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "verifyImageService.h"
 #import "loginVC.h"
+#import "qryMsgListService.h"
+#import "MsgObj.h"
 
 @interface moneyFlow : NSObject
 
@@ -61,6 +63,8 @@
 
 @property (nonatomic) NSString *host;
 
+@property NSString *site;
+
 @property NSString *sessionid;
 
 @property NSString *dev;
@@ -77,6 +81,10 @@
 
 @property NSString *server;
 
+@property NSString *port;
+
+@property NSString *sslPort;
+
 @property BOOL useSSL;
 
 @property BOOL autoSaveAccount;
@@ -89,10 +97,18 @@
 
 @property NSMutableArray *accounts;
 
+@property NSArray *users;
+
 @property (weak)loginVC *loginViewController;
+
+@property qryMsgListService *qrySystemMsgListSrv;
+
+@property qryMsgListService *qryUserMsgListSrv;
 
 + (instancetype)helper;
 
 - (void)clearSavedAccount;
+
+- (void)saveSettingToFile;
 
 @end

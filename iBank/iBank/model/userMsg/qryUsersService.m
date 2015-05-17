@@ -40,10 +40,6 @@
  </SOAP-ENV:Envelope>
  */
 
-@implementation UserObj
-
-@end
-
 
 
 @implementation qryUsersService
@@ -80,7 +76,7 @@
             UserObj *user = [[UserObj alloc] init];
             user.name = [item objectForKey:@"name"];
             NSString *imageCode = [item objectForKey:@"avatar"];
-            if( imageCode.Length > 0 ){
+            if( [imageCode isKindOfClass:[NSString class]] && imageCode.length > 0 ){
                 NSData *imageData = [[NSData alloc] initWithBase64EncodedString:imageCode options:NSDataBase64DecodingIgnoreUnknownCharacters];
                 user.image = [UIImage imageWithData:imageData];
             }
@@ -91,7 +87,7 @@
             [users addObject:user];
         }
         if( _qryUserBlock ){
-            _qryUserBlock( code.integerValue, users );
+            _qryUserBlock( code.intValue, users );
         }
     }
     else{

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Option_KeepAliveTime</key>
+	<string>14</string>
+	<key>Last_LoginUser</key>
+	<string></string>
+	<key>Option_AutoLogoutTime</key>
+	<string>30</string>
+	<key>Option_LoginUser</key>
+	<string>YES</string>
+	<key>Option_Port</key>
+	<string>80</string>
+	<key>Option_Port_SSL</key>
+	<string>443</string>
+	<key>Option_SSL</key>
+	<string>FALSE</string>
+	<key>Option_Server</key>
+	<string>222.49.117.9</string>
+	<key>Option_Site</key>
+	<string>iBank</string>
+	<key>cls_sn</key>
+	<string>3A913-2148-681383-1335</string>
+</dict>
+</plist>

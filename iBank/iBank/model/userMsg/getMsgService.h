@@ -7,7 +7,14 @@
 //
 
 #import "wbConn.h"
+#import "MsgObj.h"
+
+typedef void(^GET_MSG_BLOCK) (int code, id data);
 
 @interface getMsgService : wbConn
+
+@property int msgId;
+
+@property (strong) GET_MSG_BLOCK getMsgBlock;
 
 @end

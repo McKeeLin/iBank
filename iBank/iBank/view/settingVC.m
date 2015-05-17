@@ -12,6 +12,8 @@
 #import "indicatorView.h"
 #import "Utility.h"
 #import "aliveHelper.h"
+#import "verifyImageService.h"
+#import "indicatorView.h"
 
 @implementation serverCell
 
@@ -159,17 +161,12 @@
             [cll.autoLogoutButton addTarget:self action:@selector(onTouchAutoLogoutButton:) forControlEvents:UIControlEventTouchUpInside];
             cll.saveAccountButton.selected = [dataHelper helper].autoSaveAccount;
             cll.autoLogoutButton.selected = [dataHelper helper].autoTimeout;
-            int interval = [dataHelper helper].timeoutInterval;
+            _timeoutInterval = [dataHelper helper].timeoutInterval;
             _timeoutIntervalLabel = cll.timeoutIntervalLabel;
             _slider = cll.slider;
             [cll.slider addTarget:self action:@selector(onSliderValueChange:) forControlEvents:UIControlEventValueChanged];
-            [cll.slider setValue:interval];
-            if( [dataHelper helper].autoTimeout ){
-                cll.slider.enabled = YES;
-            }
-            else{
-                cll.slider.enabled = NO;
-            }
+            [cll.slider setValue:_timeoutInterval];
+            [self updatTimeoutIntervalLabel];
             return cll;
         }
     }
@@ -186,12 +183,35 @@
 
 - (void)onTouchTest:(id)sender
 {
-    NSString *host = _serverTextField.text;
-    if( host.length == 0 ){
+    NSString *server = _serverTextField.text;
+    if( server.length == 0 ){
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入服务器地址" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [av show];
         return;
     }
+    NSString *protocol = @"http";
+    NSString *port = [dataHelper helper].port;
+    if( _useSSL ){
+        protocol = @"https";
+        port = [dataHelper helper].sslPort;
+    }
+    NSString *host = [NSString stringWithFormat:@"%@://%@:%@", protocol, server, port];
+    verifyImageService *svr = [[verifyImageService alloc] init];
+    svr.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", host];
+    svr.getImageBlock = ^(UIImage *image, NSString *code, NSString *error){
+        [indicatorView dismissAtView:[UIApplication sharedApplication].keyWindow];
+        NSString *tips;
+        if( !image ){
+            tips = @"未能连接指定服务器，或服务未就绪！";
+        }
+        else{
+            tips = @"服务器可连接，且服务已就绪！";
+        }
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"测试结果" message:tips delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [av show];
+    };
+    [indicatorView showMessage:@"正在测试，请稍候..." atView:[UIApplication sharedApplication].keyWindow];
+    [svr request];
 }
 
 - (void)onTouchSave:(id)sender
@@ -204,6 +224,7 @@
         [dataHelper helper].autoTimeout = _autoTimeout;
         [dataHelper helper].timeoutInterval = _timeoutInterval;
     }
+    [[dataHelper helper] saveSettingToFile];
 }
 
 - (void)onTouchSaveAccountButton:(id)sender
@@ -238,6 +259,11 @@
 {
     UISlider *slider = (UISlider*)sender;
     _timeoutInterval = slider.value;
+    [self updatTimeoutIntervalLabel];
+}
+
+- (void)updatTimeoutIntervalLabel
+{
     NSString *intervalString = [NSString stringWithFormat:@"%d", _timeoutInterval];
     NSString *text = [NSString stringWithFormat:@"%@分钟内无操作自动注销", intervalString];
     NSRange intervalRange = NSMakeRange(0, intervalString.length);

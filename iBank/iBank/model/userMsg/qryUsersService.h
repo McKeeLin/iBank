@@ -7,18 +7,9 @@
 //
 
 #import "wbConn.h"
+#import "MsgObj.h"
 
 typedef void(^QRY_USERS_BLOCK) (int code, id data);
-
-@interface UserObj : NSObject
-
-@property NSString *name;
-
-@property UIImage *image;
-
-@property int userId;
-
-@end
 
 @interface qryUsersService : wbConn
 

@@ -76,6 +76,7 @@
     NSNumber *pageTotal = [NSNumber numberWithInt:-1];
     NSNumber *pageNum = [NSNumber numberWithInt:-1];
     NSNumber *isFavorite = [NSNumber numberWithBool:NO];
+    NSString *org;
     id data;
     if( dict ){
         code = [dict objectForKey:@"result"];
@@ -83,16 +84,17 @@
         pageTotal = [dict objectForKey:@"pgCnt"];
         pageNum = [dict objectForKey:@"pgNo"];
         isFavorite = [dict objectForKey:@"fav"];
+        org = [dict objectForKey:@"org"];
     }
     if( self.qryAcctDetailBlock ){
-        self.qryAcctDetailBlock( code.intValue, pageTotal.intValue, pageNum.intValue, isFavorite.boolValue, data );
+        self.qryAcctDetailBlock( code.intValue, pageTotal.intValue, pageNum.intValue, isFavorite.boolValue, data, org );
     }
 }
 
 - (void)onError:(NSString *)error
 {
     if( self.qryAcctDetailBlock ){
-        self.qryAcctDetailBlock( 99, -1, -1, NO, @"无法连接服务器！" );
+        self.qryAcctDetailBlock( 99, -1, -1, NO, @"无法连接服务器！", nil );
     }
 }
 

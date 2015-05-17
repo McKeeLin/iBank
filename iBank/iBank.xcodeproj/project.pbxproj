@@ -13,9 +13,9 @@
 		086B214D1AF713C000E2EC58 /* monthSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B21481AF713C000E2EC58 /* monthSelectView.m */; };
 		086B214E1AF713C000E2EC58 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B214A1AF713C000E2EC58 /* UIImage+ImageEffects.m */; };
 		086B214F1AF713C000E2EC58 /* yearMonthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B214C1AF713C000E2EC58 /* yearMonthVC.m */; };
+		08F3DA371B04D1FF000B2F86 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F3DA361B04D1FF000B2F86 /* back@2x.png */; };
 		26012DBE1B0474E5008DC8FA /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 26012DBD1B0474E5008DC8FA /* default.png */; };
 		26012DC01B0474FE008DC8FA /* customer_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26012DBF1B0474FE008DC8FA /* customer_logo.jpg */; };
-		08F3DA371B04D1FF000B2F86 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F3DA361B04D1FF000B2F86 /* back@2x.png */; };
 		2612D5B81AF11CA6002B45D9 /* getMyInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5B71AF11CA6002B45D9 /* getMyInfoService.m */; };
 		2612D5BB1AF11D4E002B45D9 /* getAuthListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5BA1AF11D4E002B45D9 /* getAuthListService.m */; };
 		2612D5BE1AF42E92002B45D9 /* loginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2612D5BD1AF42E92002B45D9 /* loginView.m */; };
@@ -69,6 +69,16 @@
 		2678F24A1AED50E1001A0596 /* msyh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2678F2491AED50E1001A0596 /* msyh.ttf */; };
 		2678F24D1AEDC55A001A0596 /* settingNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2678F24B1AEDC55A001A0596 /* settingNormal.png */; };
 		2678F24E1AEDC55A001A0596 /* settingSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 2678F24C1AEDC55A001A0596 /* settingSelected.png */; };
+		26904EC81B07F28B00487C43 /* msgVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 26904EC71B07F28B00487C43 /* msgVC.m */; };
+		26904ECB1B07F55B00487C43 /* MsgObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 26904ECA1B07F55B00487C43 /* MsgObj.m */; };
+		26904ECE1B08140000487C43 /* SendMsgService.m in Sources */ = {isa = PBXBuildFile; fileRef = 26904ECD1B08140000487C43 /* SendMsgService.m */; };
+		26904ED01B08285C00487C43 /* setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26904ECF1B08285C00487C43 /* setting.plist */; };
+		26904ED31B08603500487C43 /* sendMsgVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 26904ED21B08603500487C43 /* sendMsgVC.m */; };
+		26904ED61B086DBD00487C43 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26904ED41B086DBD00487C43 /* check@2x.png */; };
+		26904ED71B086DBD00487C43 /* uncheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26904ED51B086DBD00487C43 /* uncheck@2x.png */; };
+		26904EDA1B08718F00487C43 /* userCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26904ED91B08718F00487C43 /* userCell.m */; };
+		26904EDC1B08F66900487C43 /* userCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26904EDB1B08F66900487C43 /* userCell.xib */; };
+		26904EDF1B09391C00487C43 /* msgListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 26904EDE1B09391C00487C43 /* msgListVC.m */; };
 		26A233391AFB433F000ABDB3 /* detailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A233381AFB433F000ABDB3 /* detailCell.m */; };
 		26A2333B1AFCADA6000ABDB3 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26A2333A1AFCADA6000ABDB3 /* close@2x.png */; };
 		26A2333D1AFCBF9F000ABDB3 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A2333C1AFCBF9F000ABDB3 /* Images-2.xcassets */; };
@@ -151,9 +161,9 @@
 		086B214A1AF713C000E2EC58 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		086B214B1AF713C000E2EC58 /* yearMonthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yearMonthVC.h; sourceTree = "<group>"; };
 		086B214C1AF713C000E2EC58 /* yearMonthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yearMonthVC.m; sourceTree = "<group>"; };
+		08F3DA361B04D1FF000B2F86 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		26012DBD1B0474E5008DC8FA /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		26012DBF1B0474FE008DC8FA /* customer_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = customer_logo.jpg; sourceTree = "<group>"; };
-		08F3DA361B04D1FF000B2F86 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		2612D5B61AF11CA6002B45D9 /* getMyInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getMyInfoService.h; sourceTree = "<group>"; };
 		2612D5B71AF11CA6002B45D9 /* getMyInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getMyInfoService.m; sourceTree = "<group>"; };
 		2612D5B91AF11D4E002B45D9 /* getAuthListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getAuthListService.h; sourceTree = "<group>"; };
@@ -241,6 +251,22 @@
 		2678F2491AED50E1001A0596 /* msyh.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = msyh.ttf; sourceTree = "<group>"; };
 		2678F24B1AEDC55A001A0596 /* settingNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingNormal.png; sourceTree = "<group>"; };
 		2678F24C1AEDC55A001A0596 /* settingSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingSelected.png; sourceTree = "<group>"; };
+		26904EC61B07F28B00487C43 /* msgVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgVC.h; sourceTree = "<group>"; };
+		26904EC71B07F28B00487C43 /* msgVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = msgVC.m; sourceTree = "<group>"; };
+		26904EC91B07F55B00487C43 /* MsgObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgObj.h; sourceTree = "<group>"; };
+		26904ECA1B07F55B00487C43 /* MsgObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgObj.m; sourceTree = "<group>"; };
+		26904ECC1B08140000487C43 /* SendMsgService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMsgService.h; sourceTree = "<group>"; };
+		26904ECD1B08140000487C43 /* SendMsgService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMsgService.m; sourceTree = "<group>"; };
+		26904ECF1B08285C00487C43 /* setting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = setting.plist; sourceTree = "<group>"; };
+		26904ED11B08603500487C43 /* sendMsgVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sendMsgVC.h; sourceTree = "<group>"; };
+		26904ED21B08603500487C43 /* sendMsgVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sendMsgVC.m; sourceTree = "<group>"; };
+		26904ED41B086DBD00487C43 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		26904ED51B086DBD00487C43 /* uncheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheck@2x.png"; sourceTree = "<group>"; };
+		26904ED81B08718F00487C43 /* userCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userCell.h; sourceTree = "<group>"; };
+		26904ED91B08718F00487C43 /* userCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userCell.m; sourceTree = "<group>"; };
+		26904EDB1B08F66900487C43 /* userCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userCell.xib; sourceTree = "<group>"; };
+		26904EDD1B09391C00487C43 /* msgListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgListVC.h; sourceTree = "<group>"; };
+		26904EDE1B09391C00487C43 /* msgListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = msgListVC.m; sourceTree = "<group>"; };
 		26A233371AFB433F000ABDB3 /* detailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailCell.h; sourceTree = "<group>"; };
 		26A233381AFB433F000ABDB3 /* detailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailCell.m; sourceTree = "<group>"; };
 		26A2333A1AFCADA6000ABDB3 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
@@ -348,6 +374,10 @@
 				2627C3181B0060B500969720 /* getMsgService.m */,
 				2627C31A1B007FA800969720 /* qryUsersService.h */,
 				2627C31B1B007FA800969720 /* qryUsersService.m */,
+				26904EC91B07F55B00487C43 /* MsgObj.h */,
+				26904ECA1B07F55B00487C43 /* MsgObj.m */,
+				26904ECC1B08140000487C43 /* SendMsgService.h */,
+				26904ECD1B08140000487C43 /* SendMsgService.m */,
 			);
 			path = userMsg;
 			sourceTree = "<group>";
@@ -391,6 +421,7 @@
 		2664B2131AE2B1CA00FA8054 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				26904ECF1B08285C00487C43 /* setting.plist */,
 				2664B2141AE2B1CA00FA8054 /* Info.plist */,
 				2664B2151AE2B1CA00FA8054 /* main.m */,
 			);
@@ -521,6 +552,15 @@
 				2627C2FA1AFF037800969720 /* baseVC.h */,
 				2627C2FB1AFF037800969720 /* baseVC.m */,
 				26C77C201B018ABD0049B636 /* bankCells.xib */,
+				26904EC61B07F28B00487C43 /* msgVC.h */,
+				26904EC71B07F28B00487C43 /* msgVC.m */,
+				26904ED11B08603500487C43 /* sendMsgVC.h */,
+				26904ED21B08603500487C43 /* sendMsgVC.m */,
+				26904ED81B08718F00487C43 /* userCell.h */,
+				26904ED91B08718F00487C43 /* userCell.m */,
+				26904EDB1B08F66900487C43 /* userCell.xib */,
+				26904EDD1B09391C00487C43 /* msgListVC.h */,
+				26904EDE1B09391C00487C43 /* msgListVC.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -567,6 +607,8 @@
 		26D53EB71AEB491A00A1A33D /* 动态 */ = {
 			isa = PBXGroup;
 			children = (
+				26904ED41B086DBD00487C43 /* check@2x.png */,
+				26904ED51B086DBD00487C43 /* uncheck@2x.png */,
 				26012DBD1B0474E5008DC8FA /* default.png */,
 				2627C3111B0010AF00969720 /* portrait@2x.png */,
 				26D53EB81AEB491A00A1A33D /* 公司-标准状态.png */,
@@ -769,6 +811,7 @@
 				26D53EF31AEB491A00A1A33D /* 动态-标准状态.png in Resources */,
 				26D53EF51AEB491A00A1A33D /* 背景01.png in Resources */,
 				26D53F0F1AEB491A00A1A33D /* 顶部-背景.png in Resources */,
+				26904EDC1B08F66900487C43 /* userCell.xib in Resources */,
 				08F3DA371B04D1FF000B2F86 /* back@2x.png in Resources */,
 				26D53F061AEB491A00A1A33D /* 输入框.png in Resources */,
 				26D53EF21AEB491A00A1A33D /* 关于-经过，选中状态.png in Resources */,
@@ -778,6 +821,7 @@
 				26A2333F1AFCBFC6000ABDB3 /* logo_165x165.png in Resources */,
 				2627C30F1B00008700969720 /* Icon-50.png in Resources */,
 				26D53F0C1AEB491A00A1A33D /* 取消赞.png in Resources */,
+				26904ED01B08285C00487C43 /* setting.plist in Resources */,
 				2627C3031AFF16C600969720 /* Icon-76.png in Resources */,
 				26D53EE31AEB491A00A1A33D /* 刷新认证码-选中状态.png in Resources */,
 				2627C30D1B00008700969720 /* Icon-40.png in Resources */,
@@ -803,6 +847,7 @@
 				26D53EF01AEB491A00A1A33D /* 公司-经过，选中状态.png in Resources */,
 				2612D5C01AF42EC1002B45D9 /* views.xib in Resources */,
 				2627C30C1B00008700969720 /* Icon-29@2x.png in Resources */,
+				26904ED61B086DBD00487C43 /* check@2x.png in Resources */,
 				2678F24A1AED50E1001A0596 /* msyh.ttf in Resources */,
 				26D53EFE1AEB491A00A1A33D /* 背景.png in Resources */,
 				2678F2471AED4EB3001A0596 /* szLogo.png in Resources */,
@@ -822,6 +867,7 @@
 				2627C30E1B00008700969720 /* Icon-40@2x.png in Resources */,
 				26D53EF81AEB491A00A1A33D /* 设置-标准状态.png in Resources */,
 				2627C3011AFF16C600969720 /* Icon-72.png in Resources */,
+				26904ED71B086DBD00487C43 /* uncheck@2x.png in Resources */,
 				26D53EFC1AEB491A00A1A33D /* 表格背景.png in Resources */,
 				26D53EFA1AEB491A00A1A33D /* 银行-标准状态.png in Resources */,
 				2612D5C51AF43E96002B45D9 /* indicatorView.xib in Resources */,
@@ -864,15 +910,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26904ED31B08603500487C43 /* sendMsgVC.m in Sources */,
 				086B214D1AF713C000E2EC58 /* monthSelectView.m in Sources */,
 				2627C2FC1AFF037800969720 /* baseVC.m in Sources */,
 				2664B24B1AE3263100FA8054 /* Utility.m in Sources */,
 				2612D5D41AF55EE9002B45D9 /* homeCell.m in Sources */,
 				2664B2411AE2B65E00FA8054 /* wbConn.m in Sources */,
+				26904ECB1B07F55B00487C43 /* MsgObj.m in Sources */,
 				2612D5D11AF4824D002B45D9 /* qryMyFavoriteService.m in Sources */,
 				2612D5C81AF47DF6002B45D9 /* qryOrgBankBalanceService.m in Sources */,
 				2612D5DA1AF73F77002B45D9 /* detailVC.m in Sources */,
 				26D53EA81AE8A19500A1A33D /* UICKeyChainStore.m in Sources */,
+				26904EC81B07F28B00487C43 /* msgVC.m in Sources */,
 				2664B25A1AE3304400FA8054 /* settingVC.m in Sources */,
 				2627C3161B005FB500969720 /* qryMsgListService.m in Sources */,
 				2612D5C41AF43E96002B45D9 /* indicatorView.m in Sources */,
@@ -882,6 +931,7 @@
 				26AC06EB1AF9CC3300B5A3F0 /* TextFieldEx.m in Sources */,
 				2612D5BB1AF11D4E002B45D9 /* getAuthListService.m in Sources */,
 				26E440031AE4AF0300CDE8A7 /* loginService.m in Sources */,
+				26904ECE1B08140000487C43 /* SendMsgService.m in Sources */,
 				2664B23E1AE2B33500FA8054 /* webService.m in Sources */,
 				086B214F1AF713C000E2EC58 /* yearMonthVC.m in Sources */,
 				2612D5DD1AF744A3002B45D9 /* qryAcctDetailService.m in Sources */,
@@ -902,9 +952,11 @@
 				2612D5BE1AF42E92002B45D9 /* loginView.m in Sources */,
 				2664B2571AE3302D00FA8054 /* bankVC.m in Sources */,
 				2612D5CE1AF47F46002B45D9 /* qryBankOrgAcctService.m in Sources */,
+				26904EDF1B09391C00487C43 /* msgListVC.m in Sources */,
 				2678F2451AED393D001A0596 /* aboutVC.m in Sources */,
 				2612D5B81AF11CA6002B45D9 /* getMyInfoService.m in Sources */,
 				086B214E1AF713C000E2EC58 /* UIImage+ImageEffects.m in Sources */,
+				26904EDA1B08718F00487C43 /* userCell.m in Sources */,
 				2664B2161AE2B1CA00FA8054 /* main.m in Sources */,
 				2664B2541AE3301600FA8054 /* companyVC.m in Sources */,
 				2664B2471AE300FA00FA8054 /* verifyImageService.m in Sources */,

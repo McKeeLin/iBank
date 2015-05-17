@@ -7,28 +7,18 @@
 //
 
 #import "wbConn.h"
+#import "MsgObj.h"
 
 typedef void(^QRY_MSGLIST_BLOCK) (int code, id data);
-
-@interface MsgObj : NSObject
-
-@property int msgId;
-
-@property NSString *sender;
-
-@property NSString *title;
-
-@property NSString *time;
-
-@end
-
 
 
 @interface qryMsgListService : wbConn
 
 @property int type;
 
-@property int accountId;
+@property int count;
+
+@property NSMutableArray *msgs;
 
 @property (strong) QRY_MSGLIST_BLOCK qryMsgListBlock;
 

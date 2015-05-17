@@ -8,7 +8,7 @@
 
 #import "wbConn.h"
 
-typedef void (^QRY_ACCT_DETAIL_BLOCK)(int code, int pageTotal, int pageNum, BOOL isFavorite, id data);
+typedef void (^QRY_ACCT_DETAIL_BLOCK)(int code, int pageTotal, int pageNum, BOOL isFavorite, id data, NSString *org);
 
 @interface qryAcctDetailService : wbConn
 

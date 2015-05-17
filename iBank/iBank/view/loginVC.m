@@ -173,9 +173,9 @@
     [_loginView.codeTextField resignFirstResponder];
     [indicatorView showMessage:@"正在登录，请稍候..." atView:self.view];
     _loginView.loginButton.enabled = NO;
-    _loginSrv.uid = _loginView.accountTextField.text;
+    _loginSrv.uid = _loginView.accountTextField.text.lowercaseString;
     _loginSrv.pcode = _loginView.passwordTextField.text;
-    _loginSrv.vcode = _loginView.codeTextField.text.uppercaseString;
+    _loginSrv.vcode = _loginView.codeTextField.text;
     _loginSrv.qid = _imageSN;
     [_loginSrv request];
 }

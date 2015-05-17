@@ -43,10 +43,6 @@
  */
 
 
-@implementation MsgObj
-
-@end
-
 
 @implementation qryMsgListService
 
@@ -68,7 +64,7 @@
     [body appendString:@"<tns:qryMsgList>\n"];
     [body appendFormat:@"<sid xsi:type=\"xsd:string\">%@</sid>\n",[dataHelper helper].sessionid];
     [body appendFormat:@"<AType xsi:type=\"xsd:integer\">%d</AType>\n",_type];
-    [body appendFormat:@"<ACount xsi:type=\"xsd:integer\">%d</ACount>\n",_accountId];
+    [body appendFormat:@"<ACount xsi:type=\"xsd:integer\">%d</ACount>\n",_count];
     [body appendString:@"</tns:qryMsgList>"];
     self.soapBody = body;
     [super request];
@@ -78,10 +74,9 @@
 {
     NSDictionary *dict = [Utility dictionaryWithJsonString:result];
     NSNumber *code = [dict objectForKey:@"result"];
-    NSMutableArray *msgs;
     if( code.integerValue == 1 ){
         NSArray *items = [dict objectForKey:@"data"];
-        msgs = [[NSMutableArray alloc] initWithCapacity:0];
+        _msgs = [[NSMutableArray alloc] initWithCapacity:0];
         for( NSDictionary *item in items ){
             MsgObj *msg = [[MsgObj alloc] init];
             NSNumber *msgId = [item objectForKey:@"id"];
@@ -89,10 +84,10 @@
             msg.sender = [item objectForKey:@"sender"];
             msg.time = [item objectForKey:@"time"];
             msg.title = [item objectForKey:@"msg"];
-            [msgs addObject:msg];
+            [_msgs addObject:msg];
         }
         if( _qryMsgListBlock ){
-            _qryMsgListBlock( code.intValue, msgs );
+            _qryMsgListBlock( code.intValue, _msgs );
         }
     }
     else{

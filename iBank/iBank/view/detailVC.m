@@ -47,6 +47,14 @@
 
 @property UILabel *pageInfoLabel;
 
+@property IBOutlet UIButton *firstPageButton;
+
+@property IBOutlet UIButton *nextpageButton;
+
+@property IBOutlet UIButton *previousPageButton;
+
+@property IBOutlet UIButton *lastPageButton;
+
 @property NSArray *items;
 
 @property int pageNum;
@@ -97,17 +105,26 @@
     [_yearMonthButton setTitle:[NSString stringWithFormat:@"%@-%@", _year, _month] forState:UIControlStateNormal];
     __weak detailVC *weakSelf = self;
     _qryAcctDetailService = [[qryAcctDetailService alloc] init];
-    _qryAcctDetailService.qryAcctDetailBlock = ^(int code, int pageTotal, int pageNum, BOOL isFavorite, id data){
+    _qryAcctDetailService.qryAcctDetailBlock = ^(int code, int pageTotal, int pageNum, BOOL isFavorite, id data, NSString *org){
         if( weakSelf.iv ){
             [weakSelf.iv dismiss];
         }
         if( code == 1 ){
+            weakSelf.companyLabel.text = org;
             weakSelf.pageInfoLabel.text = [NSString stringWithFormat:@"%d/%d", pageNum, pageTotal];
             weakSelf.pageTotal = pageTotal;
             weakSelf.pageNum = pageNum;
             weakSelf.isFavorite = isFavorite;
             weakSelf.favoriteButton.selected = isFavorite;
             weakSelf.items = (NSArray*)data;
+            if( pageNum > 1 ){
+                weakSelf.previousPageButton.enabled = YES;
+                weakSelf.firstPageButton.enabled = YES;
+            }
+            if( pageNum < pageTotal ){
+                weakSelf.lastPageButton.enabled = YES;
+                weakSelf.nextpageButton.enabled = YES;
+            }
             [weakSelf.tableView reloadData];
         }
         else if( code == -1201 || code == -1202 ){
@@ -284,6 +301,10 @@
 {
     _iv = [indicatorView view];
     [_iv showAtMainWindow];
+    self.firstPageButton.enabled = NO;
+    self.previousPageButton.enabled = NO;
+    self.nextpageButton.enabled = NO;
+    self.lastPageButton.enabled = NO;
     _qryAcctDetailService.pageNum = _pageNum;
     _qryAcctDetailService.accountId = _accountId;
     _qryAcctDetailService.year = _year;

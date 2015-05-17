@@ -10,10 +10,16 @@
 #import "qryOrgBankBalanceService.h"
 #import "qryMyFavoriteService.h"
 #import "getMyInfoService.h"
+#import "qryMsgListService.h"
 #import "Utility.h"
 #import "homeCell.h"
 #import "detailVC.h"
 #import "indicatorView.h"
+#import "dataHelper.h"
+#import "msgVC.h"
+#import "sendMsgVC.h"
+#import "msgListVC.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation homeItem
 @end
@@ -108,6 +114,8 @@
     qryOrgBankBalanceService *_balanceSrv;
     getMyInfoService *_infoSrv;
     qryMyFavoriteService *_favoriteSrv;
+    qryMsgListService *_qryUserMsgListSrv;
+    qryMsgListService *_qrySystemMsgListSrv;
     NSMutableArray *_orgs;
     NSArray *_favoriteAccounts;
 }
@@ -119,6 +127,9 @@
 @property IBOutlet UILabel *userInfoLabel;
 @property IBOutlet UILabel *dayInfoLabel;
 @property IBOutlet UIView *userInfoView;
+@property IBOutlet UIButton *systemMsgButton;
+@property IBOutlet UIImageView *portraitView;
+@property IBOutlet UILabel *userName;
 
 @end
 
@@ -134,6 +145,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _portraitView.layer.masksToBounds = YES;
     _orgs = [[NSMutableArray alloc] initWithCapacity:0];
     __weak homeVC *weakSelf = self;
     _balanceSrv = [[qryOrgBankBalanceService alloc] init];
@@ -185,12 +197,45 @@
         if( code == 1 ){
             NSArray *arr = (NSArray*)data;
             NSDictionary *info = arr.firstObject;
-            weakSelf.userInfoLabel.text = [NSString stringWithFormat:@"您好！%@", [info objectForKey:@"name"]];
+            weakSelf.userName.text = [info objectForKey:@"name"];
+            NSString *user_avatar = [info objectForKey:@"user_avatar"];
+            if( user_avatar ){
+                NSData *imageData = [[NSData alloc] initWithBase64EncodedString:user_avatar options:NSDataBase64DecodingIgnoreUnknownCharacters];
+                UIImage *image = [UIImage imageWithData:imageData];
+                if( image ){
+                    weakSelf.portraitView.image = image;
+                }
+            }
         }
         else{
             ;
         }
     };
+    
+    _qrySystemMsgListSrv = [[qryMsgListService alloc] init];
+    _qrySystemMsgListSrv.type = 1;
+    _qrySystemMsgListSrv.count = 0;
+    _qrySystemMsgListSrv.qryMsgListBlock = ^(int code, id data){
+        if( code == 1 ){
+            NSArray *msgs = (NSArray*)data;
+            MsgObj *msg = msgs.firstObject;
+            [weakSelf.systemMsgButton setTitle:msg.title forState:UIControlStateNormal];
+        }
+        else{
+            ;
+        }
+    };
+    [_qrySystemMsgListSrv request];
+    [dataHelper helper].qrySystemMsgListSrv = _qrySystemMsgListSrv;
+    
+    _qryUserMsgListSrv = [[qryMsgListService alloc] init];
+    _qryUserMsgListSrv.type = 0;
+    _qryUserMsgListSrv.count = 0;
+    _qryUserMsgListSrv.qryMsgListBlock = ^(int code, id data){
+        ;
+    };
+    [_qryUserMsgListSrv request];
+    [dataHelper helper].qryUserMsgListSrv = _qryUserMsgListSrv;
 
     [self loadData];
 }
@@ -242,12 +287,12 @@
         for( homeBank *bank in org.banks ){
             homeItem *rmbItem = [[homeItem alloc] init];
             rmbItem.title = [NSString stringWithFormat:@"%@%@", prefixTag, bank.name];
-            rmbItem.value = [NSString stringWithFormat:@"￥ %.2f", bank.rmb];
+            rmbItem.value = [NSString stringWithFormat:@"￥%@", [Utility moneyFormatString:bank.rmb]];
             [org.items addObject:rmbItem];
             if( bank.dollar > 0 ){
                 homeItem *dollarItem = [[homeItem alloc] init];
                 dollarItem.title = rmbItem.title;
-                dollarItem.value = [NSString stringWithFormat:@"$ %.2f", bank.dollar];
+                dollarItem.value = [NSString stringWithFormat:@"$%@", [Utility moneyFormatString:bank.dollar]];
                 [org.items addObject:dollarItem];
             }
         }
@@ -255,12 +300,12 @@
         if( org.dollar > 0 ){
             homeItem *orgDollarItem = [[homeItem alloc] init];
             orgDollarItem.title = @"";
-            orgDollarItem.value = [NSString stringWithFormat:@"$ %.2f", org.dollar];
+            orgDollarItem.value = [NSString stringWithFormat:@"$%@", [Utility moneyFormatString:org.dollar]];
             [org.items insertObject:orgDollarItem atIndex:0];
         }
         homeItem *orgRmbItem = [[homeItem alloc] init];
         orgRmbItem.title = org.name;
-        orgRmbItem.value = [NSString stringWithFormat:@"￥ %.2f", org.rmb];
+        orgRmbItem.value = [NSString stringWithFormat:@"￥%@", [Utility moneyFormatString:org.rmb]];
         [org.items insertObject:orgRmbItem atIndex:0];
     }
     [_leftTableView reloadData];
@@ -328,9 +373,9 @@
         }
         homeOrg *org = [_orgs objectAtIndex:indexPath.section];
         homeItem *item = [org.items objectAtIndex:indexPath.row];
-        cell.titleLabel.text = [NSString stringWithFormat:@"%@：", item.title];
+        cell.titleLabel.text = item.title.length > 0 ? [NSString stringWithFormat:@"%@：", item.title] : @"";
         cell.valueLabel.text = [NSString stringWithFormat:@"%@", item.value];
-        if( indexPath.row == 0 ){
+        if( indexPath.row == 0 || item.title.length == 0 ){
             cell.titleLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:30];
             cell.valueLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:30];
         }
@@ -354,7 +399,8 @@
         cell.accountButton.tag = indexPath.row;
         [cell.accountButton setTitle:[info objectForKey:@"acct"] forState:UIControlStateNormal];
         [cell.accountButton addTarget:self action:@selector(onTouchAccount:) forControlEvents:UIControlEventTouchUpInside];
-        cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@",[info objectForKey:@"cstr"], [info objectForKey:@"amount"]];
+        NSString *amount = [info objectForKey:@"amount"];
+        cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@",[info objectForKey:@"cstr"], [Utility moneyFormatString:amount.floatValue]];
         return cell;
     }
 }
@@ -368,6 +414,37 @@
     vc.company = [info objectForKey:@"org"];
     vc.account = [info objectForKey:@"acct"];
     vc.accountId = [[info objectForKey:@"aid"] intValue];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)onTouchSystemMsgButton:(id)sender
+{
+    UIButton *button = (UIButton*)sender;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    msgVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"msgVC"];
+    vc.msgs = _qrySystemMsgListSrv.msgs;
+    UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:vc];
+    pop.popoverContentSize = CGSizeMake(600, 600);
+    CGRect frame = CGRectMake((self.view.frame.size.width-pop.popoverContentSize.width)/2, (self.view.frame.size.height-pop.popoverContentSize.height)/2, pop.popoverContentSize.width, 1);
+    [pop presentPopoverFromRect:[self.view convertRect:button.bounds fromView:button] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+}
+
+- (IBAction)onTouchSendMsg:(id)sender
+{
+    sendMsgVC *vc = [sendMsgVC viewController];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)onTouchReadMsg:(id)sender
+{
+    if( _qryUserMsgListSrv.msgs.count == 0 )
+    {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"暂时无用户消息！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [av show];
+    }
+    
+    msgListVC *vc = [msgListVC viewController];
+    vc.msgs = _qryUserMsgListSrv.msgs;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
