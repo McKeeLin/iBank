@@ -51,8 +51,9 @@
     self = [super init];
     if( self )
     {
-        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/user-opt/api?ws=1", [dataHelper helper].host];
+        //self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/user-opt/api?ws=1", [dataHelper helper].host];
         self.soapAction = @"urn:UserOptControllerwsdl/setFavAcct";
+        self.package = @"ibankbiz/user-opt";
     }
     return self;
 }

@@ -8,6 +8,7 @@
 
 #import "loginView.h"
 #import "Utility.h"
+#import "dataHelper.h"
 
 @implementation loginView
 
@@ -41,6 +42,9 @@
         [_accountTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
         [_accountTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
         [self addSubview:_accountTextField];
+        if( [dataHelper helper].savedAccount.length > 0 ){
+            _accountTextField.text = [dataHelper helper].savedAccount;
+        }
         
         UILabel *passwordLabel = [[UILabel alloc] initWithFrame:CGRectMake(77, 89, 50, 30)];
         passwordLabel.backgroundColor = [UIColor clearColor];

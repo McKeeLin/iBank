@@ -49,8 +49,9 @@ http://222.49.117.9/ibankdev/index.php/ibankbiz/user-msg
 {
     self = [super init];
     if( self ){
-        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
+        //self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
         self.soapAction = @"urn:AuthControllerwsdl/CheckNewMsg";
+        self.package = @"ibankbiz/auth";
     }
     return self;
 }

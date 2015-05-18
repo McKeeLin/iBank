@@ -48,8 +48,9 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/auth
 {
     self = [super init];
     if( self ){
-        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
+        //self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
         self.soapAction = @"urn:AuthControllerwsdl/SignOut";
+        self.package = @"ibankbiz/auth";
     }
     return self;
 }

@@ -16,9 +16,10 @@
 {
     self = [super init];
     if( self ){
-        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
+        //self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
         self.soapAction = @"urn:AuthControllerwsdl/reqVerifyMsg";
         self.soapBody = @"<reqVerifyMsg xmlns=\"urn:AuthControllerwsdl\"></reqVerifyMsg>";
+        self.package = @"ibankbiz/auth";
     }
     return self;
 }

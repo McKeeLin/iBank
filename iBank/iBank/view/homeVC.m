@@ -11,6 +11,7 @@
 #import "qryMyFavoriteService.h"
 #import "getMyInfoService.h"
 #import "qryMsgListService.h"
+#import "logoutService.h"
 #import "Utility.h"
 #import "homeCell.h"
 #import "detailVC.h"
@@ -144,7 +145,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [dataHelper helper].homeViewController = self;
     _portraitView.layer.masksToBounds = YES;
     _orgs = [[NSMutableArray alloc] initWithCapacity:0];
     __weak homeVC *weakSelf = self;
@@ -219,13 +220,20 @@
         if( code == 1 ){
             NSArray *msgs = (NSArray*)data;
             MsgObj *msg = msgs.firstObject;
-            [weakSelf.systemMsgButton setTitle:msg.title forState:UIControlStateNormal];
+            if( [msg.time isKindOfClass:[NSString class]] && msg.time.length > 0 ){
+                NSArray *componets = [msg.time componentsSeparatedByString:@" "];
+                NSString *date = componets.firstObject;
+                [weakSelf.systemMsgButton setTitle:[NSString stringWithFormat:@"%@ %@", date, msg.title] forState:UIControlStateNormal];
+            }
+            else{
+                [weakSelf.systemMsgButton setTitle:msg.title forState:UIControlStateNormal];
+            }
         }
         else{
             ;
         }
     };
-    [_qrySystemMsgListSrv request];
+    [_qryUserMsgListSrv request];
     [dataHelper helper].qrySystemMsgListSrv = _qrySystemMsgListSrv;
     
     _qryUserMsgListSrv = [[qryMsgListService alloc] init];
@@ -234,7 +242,7 @@
     _qryUserMsgListSrv.qryMsgListBlock = ^(int code, id data){
         ;
     };
-    [_qryUserMsgListSrv request];
+    [_qrySystemMsgListSrv request];
     [dataHelper helper].qryUserMsgListSrv = _qryUserMsgListSrv;
 
     [self loadData];
@@ -419,6 +427,10 @@
 
 - (IBAction)onTouchSystemMsgButton:(id)sender
 {
+    if( [dataHelper helper].qrySystemMsgListSrv.msgs.count == 0 ){
+        return;
+    }
+    /*
     UIButton *button = (UIButton*)sender;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     msgVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"msgVC"];
@@ -427,6 +439,11 @@
     pop.popoverContentSize = CGSizeMake(600, 600);
     CGRect frame = CGRectMake((self.view.frame.size.width-pop.popoverContentSize.width)/2, (self.view.frame.size.height-pop.popoverContentSize.height)/2, pop.popoverContentSize.width, 1);
     [pop presentPopoverFromRect:[self.view convertRect:button.bounds fromView:button] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    */
+    msgListVC *vc = [msgListVC viewController];
+    vc.msgs = _qrySystemMsgListSrv.msgs;
+    vc.forSystem = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)onTouchSendMsg:(id)sender
@@ -441,11 +458,38 @@
     {
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"暂时无用户消息！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [av show];
+        return;
     }
     
     msgListVC *vc = [msgListVC viewController];
     vc.msgs = _qryUserMsgListSrv.msgs;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)onTouchLogout:(id)sender
+{
+    __weak homeVC *weakSelf = self;
+    logoutService *srv = [[logoutService alloc] init];
+    srv.logoutBlock = ^(NSInteger code, NSString *data){
+        [indicatorView dismissAtView:[UIApplication sharedApplication].keyWindow];
+        if( [dataHelper helper].loginViewController ){
+            [[dataHelper helper].loginViewController prepareLoginAgain];
+        }
+        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+    };
+    [indicatorView showMessage:@"正在注销，请稍候..." atView:[UIApplication sharedApplication].keyWindow];
+    [srv request];
+}
+
+- (void)loadFavorites
+{
+    NSDateComponents *components = [Utility currentDateComponents];
+    NSString *year = [NSString stringWithFormat:@"%ld", components.year];
+    NSString *month = [NSString stringWithFormat:@"%02ld", components.month];
+    [indicatorView showOnlyIndicatorAtView:_rightTableView];
+    _favoriteSrv.year = year;
+    _favoriteSrv.month = month;
+    [_favoriteSrv request];
 }
 
 @end

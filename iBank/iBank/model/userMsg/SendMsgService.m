@@ -54,8 +54,9 @@
 {
     self = [super init];
     if( self ){
-        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/user-msg/api?ws=1", [dataHelper helper].host];
+        //self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/user-msg/api?ws=1", [dataHelper helper].host];
         self.soapAction = @"urn:UserMsgControllerwsdl/sendMsg";
+        self.package = @"ibankbiz/user-msg";
     }
     return self;
 }

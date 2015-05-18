@@ -24,7 +24,7 @@
 @end
 
 
-@interface settingVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface settingVC ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 {
     IBOutlet UITableView *_tableView;
     logoutService *_logoutService;
@@ -38,6 +38,7 @@
     int _timeoutInterval;
 }
 @property indicatorView *indicatorView;
+@property UIAlertView *av;
 @end
 
 @implementation settingVC
@@ -185,10 +186,19 @@
 {
     NSString *server = _serverTextField.text;
     if( server.length == 0 ){
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入服务器地址" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入服务器地址！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [av show];
         return;
     }
+    
+    NSPredicate *ipTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"];
+    NSPredicate *hostTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$"];
+    if( ![ipTest evaluateWithObject:server] && ![hostTest evaluateWithObject:server] ){
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入符合规则的服务器地址！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [av show];
+        return;
+    }
+    
     NSString *protocol = @"http";
     NSString *port = [dataHelper helper].port;
     if( _useSSL ){
@@ -216,15 +226,48 @@
 
 - (void)onTouchSave:(id)sender
 {
-    [dataHelper helper].server = _serverTextField.text;
-    [dataHelper helper].useSSL = _useSSL;
+    NSString *server = _serverTextField.text;
+    if( server.length == 0 ){
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入服务器地址！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [av show];
+        return;
+    }
+    
+    NSPredicate *ipTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$"];
+    NSPredicate *hostTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$"];
+    if( ![ipTest evaluateWithObject:server] && ![hostTest evaluateWithObject:server] ){
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入符合规则的服务器地址！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [av show];
+        return;
+    }
+    
     if( [dataHelper helper].sessionid.length > 0 )
     {
+        NSString *server = [dataHelper helper].server.lowercaseString;
+        BOOL ssl = [dataHelper helper].useSSL;
+        if( ssl != _useSSL || ![server isEqualToString:_serverTextField.text.lowercaseString] )
+        {
+            _av = [[UIAlertView alloc] initWithTitle:@"确定要保存？" message:@"如果保存，服务器相关设备将会改变，需要重新登录！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
+            [_av show];
+        }
+        else{
+            [dataHelper helper].useSSL = _useSSL;
+            [dataHelper helper].server = _serverTextField.text;
+            [dataHelper helper].autoSaveAccount = _autoSaveAccount;
+            [dataHelper helper].autoTimeout = _autoTimeout;
+            [dataHelper helper].timeoutInterval = _timeoutInterval;
+            [[dataHelper helper] saveSettingToFile];
+        }
+        
+    }
+    else{
+        [dataHelper helper].useSSL = _useSSL;
+        [dataHelper helper].server = _serverTextField.text;
         [dataHelper helper].autoSaveAccount = _autoSaveAccount;
         [dataHelper helper].autoTimeout = _autoTimeout;
         [dataHelper helper].timeoutInterval = _timeoutInterval;
+        [[dataHelper helper] saveSettingToFile];
     }
-    [[dataHelper helper] saveSettingToFile];
 }
 
 - (void)onTouchSaveAccountButton:(id)sender
@@ -273,6 +316,18 @@
     [attrText addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"MicrosoftYaHei" size:17] range:textRange];
     [attrText addAttribute:NSForegroundColorAttributeName value:[Utility colorWithRead:251 green:122 blue:58 alpha:1] range:intervalRange];
     _timeoutIntervalLabel.attributedText = attrText;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if( alertView == _av && buttonIndex != _av.cancelButtonIndex ){
+        [dataHelper helper].useSSL = _useSSL;
+        [dataHelper helper].server = _serverTextField.text;
+        [dataHelper helper].autoSaveAccount = _autoSaveAccount;
+        [dataHelper helper].autoTimeout = _autoTimeout;
+        [dataHelper helper].timeoutInterval = _timeoutInterval;
+        [[dataHelper helper] saveSettingToFile];
+    }
 }
 
 @end

@@ -24,8 +24,9 @@
 {
     self = [super init];
     if( self ){
-        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
+        //self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", [dataHelper helper].host];
         self.soapAction = @"urn:AuthControllerwsdl/SignIn";
+        self.package = @"ibankbiz/auth";
         self.ctp = @"2";
         self.os = [dataHelper helper].os;
     }

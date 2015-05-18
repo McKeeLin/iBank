@@ -14,4 +14,6 @@
 
 @property NSArray *msgs;
 
+@property BOOL forSystem;
+
 @end

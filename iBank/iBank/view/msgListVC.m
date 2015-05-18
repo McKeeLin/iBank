@@ -12,6 +12,8 @@
 #import "getMsgService.h"
 #import "dataHelper.h"
 #import "indicatorView.h"
+#import "Utility.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface msgListVC ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -36,6 +38,8 @@
 
 @property IBOutlet UIScrollView *scrollView;
 
+@property IBOutlet UILabel *tableHeaderLabel;
+
 @property MsgObj *selectedMsg;
 
 @property CGPoint originalOffset;
@@ -54,9 +58,18 @@
     [super viewDidLoad];
     _tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onViewTap:)];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.layer.borderColor = [Utility colorWithRead:255 green:227 blue:187 alpha:1].CGColor;
+    _tableView.layer.borderWidth = 1.0;
     _originalOffset = _scrollView.contentOffset;
+    if( _forSystem ){
+        _replayArea.hidden = YES;
+        _titleLabel.text = @"公告";
+        _tableHeaderLabel.text = @"公告列表";
+    }
+    
     if( _msgs.count > 0 ){
         [self getMsgContent:_msgs.firstObject];
+        [_tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     }
     
     [[NSNotificationCenter defaultCenter]
@@ -96,6 +109,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"msgListCell"];
     if( !cell ){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"msgListCell"];
+        UIView *bgView = [[UIView alloc] initWithFrame:cell.bounds];
+        bgView.backgroundColor = [Utility colorWithRead:255 green:227 blue:187 alpha:0.5];
+        cell.selectedBackgroundView = bgView;
     }
     MsgObj *msg = [_msgs objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%ld. %@", indexPath.row+1, msg.title];

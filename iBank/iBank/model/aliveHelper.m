@@ -41,7 +41,7 @@
         __weak aliveHelper *weakSelf = self;
         _keepAliveSrv = [[keepAliveService alloc] init];
         _keepAliveSrv.keepAliveBlock = ^(NSInteger code, NSString *data){
-            if( code == 1 ){
+            if( code == 1 && [data isKindOfClass:[NSString class]] ){
                 // 成功
                 NSString *countString = (NSString*)data;
                 NSArray *counts = [countString componentsSeparatedByString:@","];

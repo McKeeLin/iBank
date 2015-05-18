@@ -170,8 +170,9 @@ http://222.49.117.9/ibankbizdev/index.php/ibankbiz/qry-acct
 {
     self = [super init];
     if( self ){
-        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/qry-acct/api?ws=1", [dataHelper helper].host];
+        //self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/qry-acct/api?ws=1", [dataHelper helper].host];
         self.soapAction = @"urn:QryAcctControllerwsdl/qryOrgBankAcct";
+        self.package = @"ibankbiz/qry-acct";
     }
     return self;
 }

@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "verifyImageService.h"
 #import "loginVC.h"
+#import "homeVC.h"
 #import "qryMsgListService.h"
 #import "MsgObj.h"
 
@@ -61,6 +62,8 @@
 
 @interface dataHelper : NSObject
 
+@property NSString *loginAccount;
+
 @property (nonatomic) NSString *host;
 
 @property NSString *site;
@@ -100,6 +103,8 @@
 @property NSArray *users;
 
 @property (weak)loginVC *loginViewController;
+
+@property (weak) homeVC *homeViewController;
 
 @property qryMsgListService *qrySystemMsgListSrv;
 

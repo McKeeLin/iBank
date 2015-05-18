@@ -7,6 +7,7 @@
 //
 
 #import "wbConn.h"
+#import "dataHelper.h"
 
 @implementation wbConn
 {
@@ -47,6 +48,10 @@
 
 - (void)request
 {
+    if( !self.url || self.url.length == 0 )
+    {
+        self.url = [NSString stringWithFormat:@"%@/%@/%@/api?ws=1", [dataHelper helper].host, [dataHelper helper].site, self.package];
+    }
     NSLog(@"request:%@", self.url);
     NSMutableString *soap = [[NSMutableString alloc] initWithString:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"];
     [soap appendString:@"<soap:Envelope "];
@@ -105,6 +110,46 @@
     [self onError:error.localizedDescription];
 }
 
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
+{
+    NSLog(@"%s", __func__);
+    return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
+}
 
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    NSLog(@"%s", __func__);
+    [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+}
 
+/*
+//使用私有证书验证
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    static CFArrayRef certs;
+    if (!certs) {
+        NSData *certData =[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"srca" ofType:@"cer"]];
+        SecCertificateRef rootcert =SecCertificateCreateWithData(kCFAllocatorDefault,CFBridgingRetain(certData));
+        const void *array[1] = { rootcert };
+        certs = CFArrayCreate(NULL, array, 1, &kCFTypeArrayCallBacks);
+        CFRelease(rootcert);    // for completeness, really does not matter
+    }
+    
+    SecTrustRef trust = [[challenge protectionSpace] serverTrust];
+    int err;
+    SecTrustResultType trustResult = 0;
+    err = SecTrustSetAnchorCertificates(trust, certs);
+    if (err == noErr) {
+        err = SecTrustEvaluate(trust,&trustResult);
+    }
+    CFRelease(trust);
+    BOOL trusted = (err == noErr) && ((trustResult == kSecTrustResultProceed)||(trustResult == kSecTrustResultConfirm) || (trustResult == kSecTrustResultUnspecified));
+    
+    if (trusted) {
+        [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+    }else{
+        [challenge.sender cancelAuthenticationChallenge:challenge];
+    }
+}
+ */
 @end

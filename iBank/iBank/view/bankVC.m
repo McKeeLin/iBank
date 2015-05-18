@@ -176,6 +176,8 @@
 
 @property IBOutlet UIButton *yearMonthButton;
 
+@property IBOutlet UIButton *chooseDateButton;
+
 @property NSArray *banks;
 
 @property indicatorView *iv;
@@ -183,6 +185,8 @@
 @property outerSumaryCell *footerView;
 
 @property outerSumaryCell1 *footerView1;
+
+@property UIPopoverController *pop;
 
 @end
 
@@ -419,15 +423,16 @@
     vc.selectedMonth = _month.integerValue;
     vc.selectedYear = _year.integerValue;
     vc.block = ^(NSInteger year, NSInteger month){
+        [_pop dismissPopoverAnimated:YES];
         _year = [NSString stringWithFormat:@"%ld", year];
         _month = [NSString stringWithFormat:@"%02ld", month];
         [_yearMonthButton setTitle:[NSString stringWithFormat:@"%@-%@", _year,_month] forState:UIControlStateNormal];
         [self loadData];
     };
     vc.isPopOver = YES;
-    UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:vc];
-    pop.popoverContentSize = CGSizeMake(320, 202);
-    [pop presentPopoverFromRect:_yearMonthButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    _pop = [[UIPopoverController alloc] initWithContentViewController:vc];
+    _pop.popoverContentSize = CGSizeMake(320, 202);
+    [_pop presentPopoverFromRect:_chooseDateButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
 

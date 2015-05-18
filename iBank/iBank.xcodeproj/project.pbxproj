@@ -79,6 +79,23 @@
 		26904EDA1B08718F00487C43 /* userCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26904ED91B08718F00487C43 /* userCell.m */; };
 		26904EDC1B08F66900487C43 /* userCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26904EDB1B08F66900487C43 /* userCell.xib */; };
 		26904EDF1B09391C00487C43 /* msgListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 26904EDE1B09391C00487C43 /* msgListVC.m */; };
+		269770FD1B09BFF3003ADD27 /* 背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770EE1B09BFF3003ADD27 /* 背景.png */; };
+		269770FE1B09BFF3003ADD27 /* 点击公告图标-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770EF1B09BFF3003ADD27 /* 点击公告图标-标准状态.png */; };
+		269770FF1B09BFF3003ADD27 /* 点击公告图标-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770F01B09BFF3003ADD27 /* 点击公告图标-选中状态.png */; };
+		269771001B09BFF3003ADD27 /* 分隔线.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770F11B09BFF3003ADD27 /* 分隔线.png */; };
+		269771011B09BFF3003ADD27 /* 默认头像.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770F21B09BFF3003ADD27 /* 默认头像.png */; };
+		269771021B09BFF3003ADD27 /* 日期.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770F31B09BFF3003ADD27 /* 日期.png */; };
+		269771031B09BFF3003ADD27 /* 通告图标-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770F41B09BFF3003ADD27 /* 通告图标-标准状态.png */; };
+		269771041B09BFF3003ADD27 /* 通告图标-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770F51B09BFF3003ADD27 /* 通告图标-选中状态.png */; };
+		269771051B09BFF3003ADD27 /* 消息-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770F61B09BFF3003ADD27 /* 消息-标准状态.png */; };
+		269771061B09BFF3003ADD27 /* 消息-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770F71B09BFF3003ADD27 /* 消息-选中状态.png */; };
+		269771071B09BFF3003ADD27 /* 消息提醒.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770F81B09BFF3003ADD27 /* 消息提醒.png */; };
+		269771081B09BFF3003ADD27 /* 写消息-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770F91B09BFF3003ADD27 /* 写消息-标准状态.png */; };
+		269771091B09BFF3003ADD27 /* 写消息-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770FA1B09BFF3003ADD27 /* 写消息-选中状态.png */; };
+		2697710A1B09BFF3003ADD27 /* 注销-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770FB1B09BFF3003ADD27 /* 注销-标准状态.png */; };
+		2697710B1B09BFF3003ADD27 /* 注销-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 269770FC1B09BFF3003ADD27 /* 注销-选中状态.png */; };
+		2697710E1B09C5C2003ADD27 /* 选择日期-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 2697710C1B09C5C2003ADD27 /* 选择日期-标准状态.png */; };
+		2697710F1B09C5C2003ADD27 /* 选择日期-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 2697710D1B09C5C2003ADD27 /* 选择日期-选中状态.png */; };
 		26A233391AFB433F000ABDB3 /* detailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A233381AFB433F000ABDB3 /* detailCell.m */; };
 		26A2333B1AFCADA6000ABDB3 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26A2333A1AFCADA6000ABDB3 /* close@2x.png */; };
 		26A2333D1AFCBF9F000ABDB3 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26A2333C1AFCBF9F000ABDB3 /* Images-2.xcassets */; };
@@ -267,6 +284,23 @@
 		26904EDB1B08F66900487C43 /* userCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userCell.xib; sourceTree = "<group>"; };
 		26904EDD1B09391C00487C43 /* msgListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgListVC.h; sourceTree = "<group>"; };
 		26904EDE1B09391C00487C43 /* msgListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = msgListVC.m; sourceTree = "<group>"; };
+		269770EE1B09BFF3003ADD27 /* 背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背景.png"; sourceTree = "<group>"; };
+		269770EF1B09BFF3003ADD27 /* 点击公告图标-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点击公告图标-标准状态.png"; sourceTree = "<group>"; };
+		269770F01B09BFF3003ADD27 /* 点击公告图标-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "点击公告图标-选中状态.png"; sourceTree = "<group>"; };
+		269770F11B09BFF3003ADD27 /* 分隔线.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分隔线.png"; sourceTree = "<group>"; };
+		269770F21B09BFF3003ADD27 /* 默认头像.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像.png"; sourceTree = "<group>"; };
+		269770F31B09BFF3003ADD27 /* 日期.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "日期.png"; sourceTree = "<group>"; };
+		269770F41B09BFF3003ADD27 /* 通告图标-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "通告图标-标准状态.png"; sourceTree = "<group>"; };
+		269770F51B09BFF3003ADD27 /* 通告图标-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "通告图标-选中状态.png"; sourceTree = "<group>"; };
+		269770F61B09BFF3003ADD27 /* 消息-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息-标准状态.png"; sourceTree = "<group>"; };
+		269770F71B09BFF3003ADD27 /* 消息-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息-选中状态.png"; sourceTree = "<group>"; };
+		269770F81B09BFF3003ADD27 /* 消息提醒.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息提醒.png"; sourceTree = "<group>"; };
+		269770F91B09BFF3003ADD27 /* 写消息-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "写消息-标准状态.png"; sourceTree = "<group>"; };
+		269770FA1B09BFF3003ADD27 /* 写消息-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "写消息-选中状态.png"; sourceTree = "<group>"; };
+		269770FB1B09BFF3003ADD27 /* 注销-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注销-标准状态.png"; sourceTree = "<group>"; };
+		269770FC1B09BFF3003ADD27 /* 注销-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注销-选中状态.png"; sourceTree = "<group>"; };
+		2697710C1B09C5C2003ADD27 /* 选择日期-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选择日期-标准状态.png"; sourceTree = "<group>"; };
+		2697710D1B09C5C2003ADD27 /* 选择日期-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选择日期-选中状态.png"; sourceTree = "<group>"; };
 		26A233371AFB433F000ABDB3 /* detailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailCell.h; sourceTree = "<group>"; };
 		26A233381AFB433F000ABDB3 /* detailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailCell.m; sourceTree = "<group>"; };
 		26A2333A1AFCADA6000ABDB3 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
@@ -607,6 +641,21 @@
 		26D53EB71AEB491A00A1A33D /* 动态 */ = {
 			isa = PBXGroup;
 			children = (
+				269770EE1B09BFF3003ADD27 /* 背景.png */,
+				269770EF1B09BFF3003ADD27 /* 点击公告图标-标准状态.png */,
+				269770F01B09BFF3003ADD27 /* 点击公告图标-选中状态.png */,
+				269770F11B09BFF3003ADD27 /* 分隔线.png */,
+				269770F21B09BFF3003ADD27 /* 默认头像.png */,
+				269770F31B09BFF3003ADD27 /* 日期.png */,
+				269770F41B09BFF3003ADD27 /* 通告图标-标准状态.png */,
+				269770F51B09BFF3003ADD27 /* 通告图标-选中状态.png */,
+				269770F61B09BFF3003ADD27 /* 消息-标准状态.png */,
+				269770F71B09BFF3003ADD27 /* 消息-选中状态.png */,
+				269770F81B09BFF3003ADD27 /* 消息提醒.png */,
+				269770F91B09BFF3003ADD27 /* 写消息-标准状态.png */,
+				269770FA1B09BFF3003ADD27 /* 写消息-选中状态.png */,
+				269770FB1B09BFF3003ADD27 /* 注销-标准状态.png */,
+				269770FC1B09BFF3003ADD27 /* 注销-选中状态.png */,
 				26904ED41B086DBD00487C43 /* check@2x.png */,
 				26904ED51B086DBD00487C43 /* uncheck@2x.png */,
 				26012DBD1B0474E5008DC8FA /* default.png */,
@@ -676,6 +725,8 @@
 		26D53ED71AEB491A00A1A33D /* 帐户名细 */ = {
 			isa = PBXGroup;
 			children = (
+				2697710C1B09C5C2003ADD27 /* 选择日期-标准状态.png */,
+				2697710D1B09C5C2003ADD27 /* 选择日期-选中状态.png */,
 				08F3DA361B04D1FF000B2F86 /* back@2x.png */,
 				26A2333A1AFCADA6000ABDB3 /* close@2x.png */,
 				26D53ED81AEB491A00A1A33D /* 01.png */,
@@ -803,7 +854,9 @@
 				26A2333B1AFCADA6000ABDB3 /* close@2x.png in Resources */,
 				26D53EFD1AEB491A00A1A33D /* LOGO.png in Resources */,
 				26D53EF71AEB491A00A1A33D /* 背景03.png in Resources */,
+				269771011B09BFF3003ADD27 /* 默认头像.png in Resources */,
 				26D53EE81AEB491A00A1A33D /* 登录框.png in Resources */,
+				269771071B09BFF3003ADD27 /* 消息提醒.png in Resources */,
 				2627C3101B00008700969720 /* Icon-50@2x.png in Resources */,
 				26D53F001AEB491A00A1A33D /* 按钮-选中状态.png in Resources */,
 				26D53EEA1AEB491A00A1A33D /* 认证码背景.png in Resources */,
@@ -827,19 +880,25 @@
 				2627C30D1B00008700969720 /* Icon-40.png in Resources */,
 				26D53EF11AEB491A00A1A33D /* 关于-标准状态.png in Resources */,
 				26D53EE71AEB491A00A1A33D /* 登录按钮-选中状态.png in Resources */,
+				2697710F1B09C5C2003ADD27 /* 选择日期-选中状态.png in Resources */,
 				26A2333D1AFCBF9F000ABDB3 /* Images-2.xcassets in Resources */,
 				2678F24E1AEDC55A001A0596 /* settingSelected.png in Resources */,
+				269770FD1B09BFF3003ADD27 /* 背景.png in Resources */,
 				26D53F051AEB491A00A1A33D /* 设置背景.png in Resources */,
 				26C77C211B018ABD0049B636 /* bankCells.xib in Resources */,
 				2664B21F1AE2B1CA00FA8054 /* Main.storyboard in Resources */,
+				269770FE1B09BFF3003ADD27 /* 点击公告图标-标准状态.png in Resources */,
 				26D53F031AEB491A00A1A33D /* 灰色-没选中.png in Resources */,
 				2664B2241AE2B1CA00FA8054 /* LaunchScreen.xib in Resources */,
+				269771051B09BFF3003ADD27 /* 消息-标准状态.png in Resources */,
+				269771031B09BFF3003ADD27 /* 通告图标-标准状态.png in Resources */,
 				26D53EF91AEB491A00A1A33D /* 设置-经过，选中状态.png in Resources */,
 				26D53EFB1AEB491A00A1A33D /* 银行-经过，选中状态.png in Resources */,
 				2627C3021AFF16C600969720 /* Icon-72@2x.png in Resources */,
 				26012DBE1B0474E5008DC8FA /* default.png in Resources */,
 				2627C30B1B00008700969720 /* Icon-29.png in Resources */,
 				26D53F081AEB491A00A1A33D /* 选中.png in Resources */,
+				2697710A1B09BFF3003ADD27 /* 注销-标准状态.png in Resources */,
 				267800FC1AEF57FB008DE5E8 /* cells.xib in Resources */,
 				2627C3121B0010AF00969720 /* portrait@2x.png in Resources */,
 				26D53F091AEB491A00A1A33D /* 银行-表格背景.png in Resources */,
@@ -852,6 +911,7 @@
 				26D53EFE1AEB491A00A1A33D /* 背景.png in Resources */,
 				2678F2471AED4EB3001A0596 /* szLogo.png in Resources */,
 				26D53EF61AEB491A00A1A33D /* 背景02.png in Resources */,
+				2697710B1B09BFF3003ADD27 /* 注销-选中状态.png in Resources */,
 				26D53EE51AEB491A00A1A33D /* 帮助按钮-选中状态.png in Resources */,
 				26D53EF41AEB491A00A1A33D /* 动态-经过，选中状态.png in Resources */,
 				26D53EEF1AEB491A00A1A33D /* 公司-标准状态.png in Resources */,
@@ -860,6 +920,7 @@
 				26D53F0D1AEB491A00A1A33D /* 明细背景.png in Resources */,
 				26D53EEE1AEB491A00A1A33D /* 输入框02.png in Resources */,
 				26D53F0A1AEB491A00A1A33D /* 01.png in Resources */,
+				269771091B09BFF3003ADD27 /* 写消息-选中状态.png in Resources */,
 				26D53F0B1AEB491A00A1A33D /* 02.png in Resources */,
 				26D53F041AEB491A00A1A33D /* 灰色-选中.png in Resources */,
 				26D53F011AEB491A00A1A33D /* 未选中.png in Resources */,
@@ -867,16 +928,23 @@
 				2627C30E1B00008700969720 /* Icon-40@2x.png in Resources */,
 				26D53EF81AEB491A00A1A33D /* 设置-标准状态.png in Resources */,
 				2627C3011AFF16C600969720 /* Icon-72.png in Resources */,
+				269771081B09BFF3003ADD27 /* 写消息-标准状态.png in Resources */,
+				269770FF1B09BFF3003ADD27 /* 点击公告图标-选中状态.png in Resources */,
 				26904ED71B086DBD00487C43 /* uncheck@2x.png in Resources */,
 				26D53EFC1AEB491A00A1A33D /* 表格背景.png in Resources */,
 				26D53EFA1AEB491A00A1A33D /* 银行-标准状态.png in Resources */,
 				2612D5C51AF43E96002B45D9 /* indicatorView.xib in Resources */,
+				269771001B09BFF3003ADD27 /* 分隔线.png in Resources */,
 				2678F24D1AEDC55A001A0596 /* settingNormal.png in Resources */,
 				26012DC01B0474FE008DC8FA /* customer_logo.jpg in Resources */,
 				26D53EE21AEB491A00A1A33D /* 刷新认证码-标准状态.png in Resources */,
+				269771041B09BFF3003ADD27 /* 通告图标-选中状态.png in Resources */,
 				26D53EE41AEB491A00A1A33D /* 帮助按钮-标准状态.png in Resources */,
+				269771021B09BFF3003ADD27 /* 日期.png in Resources */,
 				26D53F101AEB491A00A1A33D /* loading-背景_01.png in Resources */,
 				26D53F071AEB491A00A1A33D /* 输入框小.png in Resources */,
+				269771061B09BFF3003ADD27 /* 消息-选中状态.png in Resources */,
+				2697710E1B09C5C2003ADD27 /* 选择日期-标准状态.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -76,10 +76,8 @@
     _loginViewFrame = CGRectMake(291, 300, 442, 292);
     _loginView = [[loginView alloc] initWithFrame:_loginViewFrame];
     _loginView.frame = _loginViewFrame;
-    _loginView.accountTextField.text = @"admin";
     _loginView.accountTextField.delegate = self;
     _loginView.accountTextField.returnKeyType = UIReturnKeyNext;
-    _loginView.passwordTextField.text = @"admin";
     _loginView.passwordTextField.delegate = self;
     _loginView.passwordTextField.returnKeyType = UIReturnKeyNext;
     _loginView.codeTextField.delegate = self;
@@ -117,6 +115,11 @@
         if( code == 1 ){
             [dataHelper helper].sessionid = data;
             [[aliveHelper helper] startKeepAlive];
+            if( [dataHelper helper].autoSaveAccount ){
+                [dataHelper helper].loginAccount = weakSelf.loginView.accountTextField.text;
+                [dataHelper helper].savedAccount = weakSelf.loginView.accountTextField.text;
+                [[dataHelper helper] saveSettingToFile];
+            }
             [weakSelf.navigationController pushViewController:[mainVC viewController] animated:YES];
         }
         else if( data.length > 0 ){

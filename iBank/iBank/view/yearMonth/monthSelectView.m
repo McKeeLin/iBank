@@ -188,6 +188,7 @@
     okButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     [okButton setTitle:ok forState:UIControlStateNormal];
     [okButton setTitleColor:blueTextColor forState:UIControlStateNormal];
+    [okButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [okButton addTarget:self action:@selector(onTouchOK:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:okButton];
     
@@ -205,6 +206,7 @@
     clearButton.enabled = NO;
     [clearButton setTitle:clear forState:UIControlStateNormal];
     [clearButton setTitleColor:blueTextColor forState:UIControlStateNormal];
+    [clearButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [clearButton addTarget:self action:@selector(onTouchClear:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:clearButton];
     
@@ -220,6 +222,7 @@
     cancelButton.titleLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:17];
     cancelButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     [cancelButton setTitle:cancel forState:UIControlStateNormal];
+    [cancelButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [cancelButton setTitleColor:blueTextColor forState:UIControlStateNormal];
     [cancelButton addTarget:self action:@selector(onTouchCancel:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:cancelButton];

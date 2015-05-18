@@ -9,7 +9,7 @@
 	<key>Option_AutoLogoutTime</key>
 	<string>30</string>
 	<key>Option_LoginUser</key>
-	<string>YES</string>
+	<string>TRUE</string>
 	<key>Option_Port</key>
 	<string>80</string>
 	<key>Option_Port_SSL</key>
@@ -19,7 +19,7 @@
 	<key>Option_Server</key>
 	<string>222.49.117.9</string>
 	<key>Option_Site</key>
-	<string>iBank</string>
+	<string>ibankbizdev/index.php</string>
 	<key>cls_sn</key>
 	<string>3A913-2148-681383-1335</string>
 </dict>

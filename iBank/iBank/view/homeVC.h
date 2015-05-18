@@ -87,4 +87,6 @@
 
 + (instancetype)viewController;
 
+- (void)loadFavorites;
+
 @end

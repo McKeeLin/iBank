@@ -51,8 +51,9 @@
 {
     self = [super init];
     if( self ){
-        self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/qry-acct/api?ws=1", [dataHelper helper].host];
+        //self.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/qry-acct/api?ws=1", [dataHelper helper].host];
         self.soapAction = @"urn:QryAcctControllerwsdl/qryOrgBankBalance";
+        self.package = @"ibankbiz/qry-acct";
     }
     return self;
 }

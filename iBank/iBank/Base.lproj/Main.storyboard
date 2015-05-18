@@ -38,6 +38,11 @@
             <string>MicrosoftYaHei</string>
             <string>MicrosoftYaHei</string>
             <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -188,8 +193,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5a-1X-FKx" userLabel="rt">
                                 <rect key="frame" x="520" y="15" width="504" height="172"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="QAh-r7-kQL" userLabel="背景">
+                                        <rect key="frame" x="510" y="15" width="504" height="172"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2015年05月02日星期二" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-uW-snC">
-                                        <rect key="frame" x="74" y="128" width="230" height="30"/>
+                                        <rect key="frame" x="62" y="134" width="230" height="30"/>
                                         <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -209,31 +217,44 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pYe-wZ-QZL">
-                                        <rect key="frame" x="31" y="125" width="35" height="35"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="日期.png" translatesAutoresizingMaskIntoConstraints="NO" id="pYe-wZ-QZL">
+                                        <rect key="frame" x="27" y="135" width="27" height="27"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uba-IC-fle">
-                                        <rect key="frame" x="322" y="125" width="35" height="35"/>
-                                        <color key="backgroundColor" red="0.4823529412" green="0.76078431369999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="6">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onTouchReadMsg:" destination="HB9-KG-zgv" eventType="touchUpInside" id="dde-rH-pgI"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28y-jg-nXx">
-                                        <rect key="frame" x="377" y="125" width="35" height="35"/>
-                                        <color key="backgroundColor" red="0.4823529412" green="0.76078431369999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28y-jg-nXx" userLabel="sendmsg">
+                                        <rect key="frame" x="450" y="134" width="27" height="27"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="写消息-标准状态.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="onTouchSendMsg:" destination="HB9-KG-zgv" eventType="touchUpInside" id="dps-q1-KAZ"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkY-yV-79M" userLabel="logout">
+                                        <rect key="frame" x="393" y="23" width="84" height="31"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="注销-选中状态.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTouchLogout:" destination="HB9-KG-zgv" eventType="touchUpInside" id="jq2-Py-qbk"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YPt-rp-utP" userLabel="分隔线">
+                                        <rect key="frame" x="27" y="127" width="450" height="1"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uba-IC-fle" userLabel="readmsg">
+                                        <rect key="frame" x="393" y="134" width="27" height="27"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="消息-标准状态.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTouchReadMsg:" destination="HB9-KG-zgv" eventType="touchUpInside" id="dde-rH-pgI"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="172" id="Jfv-QU-Mfn"/>
                                 </constraints>
@@ -251,39 +272,51 @@
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyn-Z4-HJ9" userLabel="bottom">
+                                        <rect key="frame" x="0.0" y="496" width="504" height="70"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="通告图标-标准状态.png" translatesAutoresizingMaskIntoConstraints="NO" id="s02-4A-cJr">
+                                                <rect key="frame" x="8" y="12" width="51" height="46"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="点击公告图标-标准状态.png" translatesAutoresizingMaskIntoConstraints="NO" id="04y-mX-q68">
+                                                <rect key="frame" x="472" y="23" width="13" height="24"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQH-JJ-xC8">
+                                                <rect key="frame" x="72" y="20" width="392" height="30"/>
+                                                <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="20"/>
+                                                <state key="normal" title="暂无公告">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onTouchSystemMsgButton:" destination="HB9-KG-zgv" eventType="touchUpInside" id="BwI-Uc-TlE"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.4823529411764706" green="0.76078431372549016" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="okx-md-pNM">
-                                        <rect key="frame" x="0.0" y="71" width="504" height="455"/>
+                                        <rect key="frame" x="0.0" y="71" width="504" height="410"/>
                                         <color key="backgroundColor" red="0.4823529411764706" green="0.76078431372549016" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="dataSource" destination="HB9-KG-zgv" id="mXx-lO-MJN"/>
                                             <outlet property="delegate" destination="HB9-KG-zgv" id="jkT-SM-RkS"/>
                                         </connections>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQH-JJ-xC8">
-                                        <rect key="frame" x="225" y="534" width="247" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="247" id="30a-Qr-I7L"/>
-                                        </constraints>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onTouchSystemMsgButton:" destination="HB9-KG-zgv" eventType="touchUpInside" id="BwI-Uc-TlE"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.4823529412" green="0.76078431369999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="okx-md-pNM" firstAttribute="leading" secondItem="vin-LW-p4B" secondAttribute="leading" id="3xD-cl-E08"/>
                                     <constraint firstItem="okx-md-pNM" firstAttribute="top" secondItem="hIQ-LP-Og9" secondAttribute="bottom" id="5aS-ot-cZK"/>
+                                    <constraint firstItem="jyn-Z4-HJ9" firstAttribute="top" secondItem="okx-md-pNM" secondAttribute="bottom" constant="15" id="BFG-mK-RgT"/>
                                     <constraint firstAttribute="trailing" secondItem="hIQ-LP-Og9" secondAttribute="trailing" id="K4Z-va-WqR"/>
+                                    <constraint firstItem="jyn-Z4-HJ9" firstAttribute="leading" secondItem="vin-LW-p4B" secondAttribute="leading" id="MdA-y1-k65"/>
+                                    <constraint firstAttribute="bottom" secondItem="jyn-Z4-HJ9" secondAttribute="bottom" id="PYK-oH-9NW"/>
                                     <constraint firstItem="hIQ-LP-Og9" firstAttribute="top" secondItem="vin-LW-p4B" secondAttribute="top" id="dbP-3y-d3q"/>
-                                    <constraint firstAttribute="trailing" secondItem="AQH-JJ-xC8" secondAttribute="trailing" constant="32" id="e8V-Ph-aXg"/>
                                     <constraint firstAttribute="trailing" secondItem="okx-md-pNM" secondAttribute="trailing" id="fhn-3B-Bt4"/>
-                                    <constraint firstAttribute="bottom" secondItem="AQH-JJ-xC8" secondAttribute="bottom" constant="2" id="h8n-WT-f6k"/>
                                     <constraint firstItem="hIQ-LP-Og9" firstAttribute="leading" secondItem="vin-LW-p4B" secondAttribute="leading" id="jtN-Nm-iUt"/>
-                                    <constraint firstAttribute="bottom" secondItem="okx-md-pNM" secondAttribute="bottom" constant="40" id="lUD-58-NvU"/>
-                                    <constraint firstItem="AQH-JJ-xC8" firstAttribute="top" secondItem="okx-md-pNM" secondAttribute="bottom" constant="8" id="p1h-5Z-nl8"/>
+                                    <constraint firstAttribute="bottom" secondItem="okx-md-pNM" secondAttribute="bottom" constant="85" id="lUD-58-NvU"/>
+                                    <constraint firstAttribute="trailing" secondItem="jyn-Z4-HJ9" secondAttribute="trailing" id="pRU-lk-GgO"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Shk-ji-FF0" userLabel="tl">
@@ -368,7 +401,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDE-Gu-eAj">
                                         <rect key="frame" x="0.0" y="0.0" width="655" height="51"/>
-                                        <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="20"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -382,7 +415,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuM-Za-PWF">
                                         <rect key="frame" x="10" y="110" width="635" height="258"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rx6-BS-cE8" userLabel="replyArea">
@@ -399,7 +432,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hB1-kY-4Rd">
                                                 <rect key="frame" x="1" y="1" width="633" height="126"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geJ-Cn-qhr">
@@ -416,6 +449,10 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NV5-go-TBU" userLabel="topline">
+                                        <rect key="frame" x="10" y="52" width="635" height="1"/>
+                                        <color key="backgroundColor" red="1" green="0.86666666670000003" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
                                 </subviews>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="消息列表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6w-qx-c3x">
@@ -426,7 +463,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SM5-uv-vAH">
-                                <rect key="frame" x="16" y="169" width="320" height="568"/>
+                                <rect key="frame" x="16" y="167" width="320" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yDc-BF-mo9" id="P0k-wS-Mrl"/>
@@ -445,6 +482,7 @@
                         <outlet property="replyButton" destination="geJ-Cn-qhr" id="D3r-sy-p3m"/>
                         <outlet property="replyView" destination="hB1-kY-4Rd" id="gUb-O4-egg"/>
                         <outlet property="scrollView" destination="ZWS-1c-wIs" id="CVh-1r-tfi"/>
+                        <outlet property="tableHeaderLabel" destination="j6w-qx-c3x" id="bD0-hm-C1Z"/>
                         <outlet property="tableView" destination="SM5-uv-vAH" id="Wby-L4-Lgl"/>
                         <outlet property="timeLabel" destination="ffw-wA-4eg" id="Jgv-pn-G8j"/>
                         <outlet property="titleLabel" destination="asE-ZT-YrW" id="YMR-GI-GzU"/>
@@ -558,7 +596,7 @@
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-aQ-mOb">
                                 <rect key="frame" x="326" y="173" width="668" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="消息内容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctW-OH-Dow">
@@ -575,7 +613,7 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsx-Z5-rN6">
                                 <rect key="frame" x="326" y="253" width="668" height="398"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ru-fU-rAF">
@@ -626,18 +664,28 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpB-CC-fTY">
-                                <rect key="frame" x="16" y="30" width="139" height="30"/>
+                                <rect key="frame" x="16" y="30" width="105" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cq6-RX-ltJ"/>
-                                    <constraint firstAttribute="width" constant="139" id="j88-Ij-Awe"/>
+                                    <constraint firstAttribute="width" constant="105" id="j88-Ij-Awe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
                                 <state key="normal" title="2015-05">
                                     <color key="titleColor" red="1" green="0.62745098040000002" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oE-6S-rGT" userLabel="chooseDate">
+                                <rect key="frame" x="120" y="29" width="31" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="KyP-xa-aoG"/>
+                                    <constraint firstAttribute="width" constant="31" id="Oc1-FZ-lpp"/>
+                                </constraints>
+                                <state key="normal" image="选择日期-标准状态.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="onTouchYearMonth:" destination="yYP-gS-Vri" eventType="touchUpInside" id="Gln-CI-fbn"/>
+                                    <action selector="onTouchYearMonth:" destination="yYP-gS-Vri" eventType="touchUpInside" id="Nze-UF-YEE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -645,7 +693,9 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="QiN-yJ-g9w" secondAttribute="bottom" constant="8" id="B2Y-x7-ZAC"/>
                             <constraint firstItem="lpB-CC-fTY" firstAttribute="top" secondItem="6rU-2e-piT" secondAttribute="bottom" constant="10" id="Fvx-O0-4rr"/>
+                            <constraint firstItem="8oE-6S-rGT" firstAttribute="leading" secondItem="SzK-h0-O4h" secondAttribute="leadingMargin" constant="104" id="JMM-bb-HPN"/>
                             <constraint firstItem="QiN-yJ-g9w" firstAttribute="leading" secondItem="SzK-h0-O4h" secondAttribute="leading" constant="16" id="QoI-PG-kdt"/>
+                            <constraint firstItem="8oE-6S-rGT" firstAttribute="top" secondItem="6rU-2e-piT" secondAttribute="bottom" constant="9" id="m6F-Tg-DhU"/>
                             <constraint firstItem="lpB-CC-fTY" firstAttribute="leading" secondItem="SzK-h0-O4h" secondAttribute="leading" constant="16" id="mLZ-CW-lmo"/>
                             <constraint firstItem="QiN-yJ-g9w" firstAttribute="top" secondItem="lpB-CC-fTY" secondAttribute="bottom" constant="10" id="oyu-c0-wxF"/>
                             <constraint firstAttribute="trailing" secondItem="QiN-yJ-g9w" secondAttribute="trailing" constant="16" id="zTb-xa-RQ8"/>
@@ -654,6 +704,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="768"/>
                     <connections>
+                        <outlet property="chooseDateButton" destination="8oE-6S-rGT" id="3ma-sh-SnI"/>
                         <outlet property="tableView" destination="QiN-yJ-g9w" id="JTt-Ye-JVx"/>
                         <outlet property="yearMonthButton" destination="lpB-CC-fTY" id="6bE-Pl-Ad7"/>
                     </connections>
@@ -675,19 +726,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIN-7L-S4G">
-                                <rect key="frame" x="16" y="30" width="139" height="30"/>
+                                <rect key="frame" x="16" y="30" width="105" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4Ug-Ey-qxC"/>
-                                    <constraint firstAttribute="width" constant="139" id="zBB-Ro-FQQ"/>
+                                    <constraint firstAttribute="width" constant="105" id="zBB-Ro-FQQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
                                 <state key="normal" title="2015-05">
                                     <color key="titleColor" red="1" green="0.62745098040000002" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="onTouchYearMonth:" destination="C2c-yL-OgO" eventType="touchUpInside" id="2zO-vh-Nal"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fsp-lm-jHH">
                                 <rect key="frame" x="16" y="70" width="992" height="690"/>
@@ -697,6 +745,19 @@
                                     <outlet property="delegate" destination="C2c-yL-OgO" id="5Vv-Ns-VCs"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAz-gN-i3w" userLabel="chooseDate">
+                                <rect key="frame" x="119" y="29" width="31" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="31" id="hb1-yj-fcE"/>
+                                    <constraint firstAttribute="height" constant="31" id="mUn-hJ-tU3"/>
+                                </constraints>
+                                <state key="normal" image="选择日期-标准状态.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTouchYearMonth:" destination="C2c-yL-OgO" eventType="touchUpInside" id="g78-fk-gp9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -705,12 +766,15 @@
                             <constraint firstItem="Fsp-lm-jHH" firstAttribute="leading" secondItem="srv-OM-1c2" secondAttribute="leading" constant="16" id="Egl-pT-vvg"/>
                             <constraint firstItem="QIN-7L-S4G" firstAttribute="top" secondItem="BM3-sq-v3F" secondAttribute="bottom" constant="10" id="c6G-rk-vfA"/>
                             <constraint firstAttribute="trailing" secondItem="Fsp-lm-jHH" secondAttribute="trailing" constant="16" id="ePD-ns-lGf"/>
+                            <constraint firstItem="SAz-gN-i3w" firstAttribute="leading" secondItem="srv-OM-1c2" secondAttribute="leadingMargin" constant="103" id="gtC-bo-xxF"/>
+                            <constraint firstItem="SAz-gN-i3w" firstAttribute="top" secondItem="BM3-sq-v3F" secondAttribute="bottom" constant="9" id="ovm-vp-W7E"/>
                             <constraint firstItem="KqD-qx-FpN" firstAttribute="top" secondItem="Fsp-lm-jHH" secondAttribute="bottom" constant="8" id="weA-e3-kqN"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="768"/>
                     <connections>
+                        <outlet property="chooseDateButton" destination="SAz-gN-i3w" id="eHp-0K-N4m"/>
                         <outlet property="tableView" destination="Fsp-lm-jHH" id="8pg-TH-0SM"/>
                         <outlet property="yearMonthButton" destination="QIN-7L-S4G" id="Gpg-iK-Deh"/>
                     </connections>
@@ -929,23 +993,29 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qza-b1-y1m">
-                                        <rect key="frame" x="230" y="47" width="139" height="30"/>
-                                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="20"/>
+                                        <rect key="frame" x="850" y="39" width="120" height="30"/>
+                                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="25"/>
                                         <state key="normal" title="2015-05">
                                             <color key="titleColor" red="1" green="0.62745098040000002" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="onTouchYearMonth:" destination="9al-cv-1Eh" eventType="touchUpInside" id="2zx-w1-4I7"/>
-                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdO-J6-2nA">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdO-J6-2nA" userLabel="favorite">
                                         <rect key="frame" x="18" y="40" width="28" height="28"/>
                                         <state key="normal" image="back.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="onTouchClose:" destination="9al-cv-1Eh" eventType="touchUpInside" id="E8F-SC-Yg8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcc-5I-Flz" userLabel="chooseDate">
+                                        <rect key="frame" x="968" y="37" width="31" height="31"/>
+                                        <state key="normal" title="Button" image="选择日期-标准状态.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTouchYearMonth:" destination="9al-cv-1Eh" eventType="touchUpInside" id="sK7-ri-Be7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1058,6 +1128,7 @@
                         <outlet property="_topBarView" destination="YTc-Ay-gEM" id="gZk-2Y-eRw"/>
                         <outlet property="_unitLabel" destination="D6Y-mc-0tr" id="0xz-r1-4QA"/>
                         <outlet property="_yearMonthButton" destination="qza-b1-y1m" id="7k5-sd-Cmu"/>
+                        <outlet property="chooseDateButton" destination="lcc-5I-Flz" id="zzf-cX-b2G"/>
                         <outlet property="firstPageButton" destination="NVz-mX-sD3" id="859-Wu-HWI"/>
                         <outlet property="lastPageButton" destination="r2m-u1-PF5" id="yWx-0g-NUJ"/>
                         <outlet property="nextpageButton" destination="Ive-OD-snk" id="DJh-MN-GWI"/>
@@ -1076,10 +1147,15 @@
         <image name="customer_logo.jpg" width="420" height="170"/>
         <image name="default.png" width="95" height="128"/>
         <image name="settingNormal.png" width="32" height="37"/>
+        <image name="写消息-标准状态.png" width="35" height="29"/>
         <image name="刷新认证码-标准状态.png" width="30" height="30"/>
         <image name="取消赞.png" width="34" height="32"/>
         <image name="帮助按钮-标准状态.png" width="32" height="37"/>
         <image name="按钮-选中状态.png" width="301" height="52"/>
+        <image name="日期.png" width="27" height="27"/>
+        <image name="注销-选中状态.png" width="84" height="31"/>
+        <image name="消息-标准状态.png" width="27" height="27"/>
+        <image name="点击公告图标-标准状态.png" width="13" height="24"/>
         <image name="登录按钮-标准状态.png" width="300" height="48"/>
         <image name="登录框.png" width="442" height="292"/>
         <image name="登录背景.png" width="1024" height="768"/>
@@ -1087,5 +1163,7 @@
         <image name="设置背景.png" width="1024" height="694"/>
         <image name="输入框01.png" width="229" height="31"/>
         <image name="输入框02.png" width="100" height="31"/>
+        <image name="选择日期-标准状态.png" width="31" height="31"/>
+        <image name="通告图标-标准状态.png" width="51" height="46"/>
     </resources>
 </document>

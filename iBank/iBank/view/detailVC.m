@@ -55,6 +55,8 @@
 
 @property IBOutlet UIButton *lastPageButton;
 
+@property IBOutlet UIButton *chooseDateButton;
+
 @property NSArray *items;
 
 @property int pageNum;
@@ -66,6 +68,8 @@
 @property BOOL isFavorite;
 
 @property indicatorView *iv;
+
+@property UIPopoverController *pop;
 
 @end
 
@@ -89,6 +93,10 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    [_firstPageButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    [_previousPageButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    [_nextpageButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    [_lastPageButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [_favoriteButton setImage:[UIImage imageNamed:@"赞"] forState:UIControlStateSelected];
     _companyLabel.text = _company;
     _bankLabel.text = [NSString stringWithFormat:@"%@     %@", _bank, _account];
@@ -142,6 +150,7 @@
         }
         if( code == 1 ){
             weakSelf.favoriteButton.selected = weakSelf.isFavorite;
+            [[dataHelper helper].homeViewController loadFavorites];
         }
         else{
             weakSelf.favoriteButton.selected = !weakSelf.favoriteButton.selected;
@@ -228,15 +237,16 @@
     vc.selectedMonth = _month.integerValue;
     vc.selectedYear = _year.integerValue;
     vc.block = ^(NSInteger year, NSInteger month){
+        [_pop dismissPopoverAnimated:YES];
         _year = [NSString stringWithFormat:@"%ld", year];
         _month = [NSString stringWithFormat:@"%02ld", month];
         [_yearMonthButton setTitle:[NSString stringWithFormat:@"%@-%@", _year,_month] forState:UIControlStateNormal];
         [self loadData];
     };
     vc.isPopOver = YES;
-    UIPopoverController *pop = [[UIPopoverController alloc] initWithContentViewController:vc];
-    pop.popoverContentSize = CGSizeMake(320, 202);
-    [pop presentPopoverFromRect:_yearMonthButton.frame inView:_topBarView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    _pop = [[UIPopoverController alloc] initWithContentViewController:vc];
+    _pop.popoverContentSize = CGSizeMake(320, 202);
+    [_pop presentPopoverFromRect:_chooseDateButton.frame inView:_topBarView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (IBAction)onTouchNextPage:(id)sender

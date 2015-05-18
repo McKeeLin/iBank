@@ -171,7 +171,7 @@
     }
     */
     NSString *str =  [_setting objectForKey:@"Option_SSL"];
-    if( [str isEqualToString:@"YES"] ){
+    if( [str isEqualToString:@"TURE"] ){
         return YES;
     }
     else{
@@ -195,7 +195,7 @@
 //        return NO;
 //    }
     NSString *str =  [_setting objectForKey:@"Option_LoginUser"];
-    if( [str isEqualToString:@"YES"] ){
+    if( [str isEqualToString:@"TRUE"] ){
         return YES;
     }
     else{
@@ -206,7 +206,13 @@
 - (void)setAutoSaveAccount:(BOOL)autoSaveAccount
 {
 //    [UICKeyChainStore setString:[NSString stringWithFormat:@"%d", autoSaveAccount] forKey:@"IBANK_AUTO_SAVE_ACCOUNT" service:SERVICE_NAME];
-    [_setting setObject:autoSaveAccount ? @"YES" : @"FALSE" forKey:@"Option_LoginUser"];
+    [_setting setObject:autoSaveAccount ? @"TRUE" : @"FALSE" forKey:@"Option_LoginUser"];
+    if( !autoSaveAccount ){
+        self.savedAccount = @"";
+    }
+    else{
+        self.savedAccount = self.loginAccount;
+    }
 }
 
 - (BOOL)autoTimeout
@@ -257,6 +263,16 @@
 - (void)setSn:(NSString *)sn
 {
     [_setting setObject:sn forKey:@"cls_sn"];
+}
+
+- (NSString*)site
+{
+    return [_setting objectForKey:@"Option_Site"];
+}
+
+- (void)setSite:(NSString *)site
+{
+    [_setting setObject:site forKey:@"Option_Site"];
 }
 
 - (void)saveSettingToFile

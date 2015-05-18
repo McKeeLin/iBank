@@ -11,6 +11,8 @@
 
 @interface wbConn : NSObject<NSURLConnectionDataDelegate>
 
+@property (nonatomic) NSString *package;
+
 @property (nonatomic) NSString *url;
 
 @property (nonatomic) NSString *soapBody;
