@@ -14,12 +14,15 @@
 #import "cells.h"
 #import "detailVC.h"
 #import "yearMonthVC.h"
+#import "SRRefreshView.h"
 
-@interface companyVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface companyVC ()<UITableViewDataSource,UITableViewDelegate,SRRefreshDelegate>
 {
     qryOrgBankAcctService *_qryOrgBankAcctSrv;
     NSString *_year;
     NSString *_month;
+    SRRefreshView *_refreshView;
+    BOOL _isRefreshing;
 }
 
 @property IBOutlet UITableView *tableView;
@@ -58,6 +61,17 @@
     _footerView = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:7];
     _footerView1 = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:12];
     _tableView.tableFooterView = _footerView;
+    _refreshView = [[SRRefreshView alloc] init];
+    _refreshView.delegate = self;
+    _refreshView.upInset = 20;
+    _refreshView.slimeMissWhenGoingBack = YES;
+    _refreshView.slime.bodyColor = [UIColor grayColor];
+    _refreshView.slime.skinColor = [UIColor grayColor];
+    _refreshView.slime.lineWith = 0;
+    _refreshView.slime.shadowBlur = 2;
+    _refreshView.slime.shadowColor = [UIColor blackColor];
+    [_refreshView addSubview:_refreshView];
+    
     NSDateComponents *componets = [Utility currentDateComponents];
     _year = [NSString stringWithFormat:@"%ld", componets.year];
     _month = [NSString stringWithFormat:@"%02ld", componets.month];
@@ -273,5 +287,33 @@
     [_pop presentPopoverFromRect:_chooseDateButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
+
+#pragma mark - slimeRefresh delegate
+
+- (void)slimeRefreshStartRefresh:(SRRefreshView *)refreshView
+{
+    UIView *maskView = [[UIView alloc] initWithFrame:self.view.bounds];
+    maskView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.1];
+    [self.view addSubview:maskView];
+    _isRefreshing = YES;
+    [self loadData];
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if( !_isRefreshing ){
+        [_refreshView scrollViewDidScroll];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if( !_isRefreshing ){
+        [_refreshView scrollViewDidEndDraging];
+    }
+}
 
 @end

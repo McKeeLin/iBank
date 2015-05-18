@@ -13,6 +13,10 @@
 		086B214D1AF713C000E2EC58 /* monthSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B21481AF713C000E2EC58 /* monthSelectView.m */; };
 		086B214E1AF713C000E2EC58 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B214A1AF713C000E2EC58 /* UIImage+ImageEffects.m */; };
 		086B214F1AF713C000E2EC58 /* yearMonthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 086B214C1AF713C000E2EC58 /* yearMonthVC.m */; };
+		08DEF1B21B098DEB00CA9E83 /* sr_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 08DEF1AB1B098DEB00CA9E83 /* sr_refresh.png */; };
+		08DEF1B31B098DEB00CA9E83 /* sr_refresh@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 08DEF1AC1B098DEB00CA9E83 /* sr_refresh@2X.png */; };
+		08DEF1B41B098DEB00CA9E83 /* SRRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DEF1AF1B098DEB00CA9E83 /* SRRefreshView.m */; };
+		08DEF1B51B098DEB00CA9E83 /* SRSlimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DEF1B11B098DEB00CA9E83 /* SRSlimeView.m */; };
 		08F3DA371B04D1FF000B2F86 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F3DA361B04D1FF000B2F86 /* back@2x.png */; };
 		26012DBE1B0474E5008DC8FA /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 26012DBD1B0474E5008DC8FA /* default.png */; };
 		26012DC01B0474FE008DC8FA /* customer_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26012DBF1B0474FE008DC8FA /* customer_logo.jpg */; };
@@ -178,6 +182,13 @@
 		086B214A1AF713C000E2EC58 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		086B214B1AF713C000E2EC58 /* yearMonthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yearMonthVC.h; sourceTree = "<group>"; };
 		086B214C1AF713C000E2EC58 /* yearMonthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yearMonthVC.m; sourceTree = "<group>"; };
+		08DEF1AB1B098DEB00CA9E83 /* sr_refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sr_refresh.png; sourceTree = "<group>"; };
+		08DEF1AC1B098DEB00CA9E83 /* sr_refresh@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sr_refresh@2X.png"; sourceTree = "<group>"; };
+		08DEF1AD1B098DEB00CA9E83 /* SRDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRDefine.h; sourceTree = "<group>"; };
+		08DEF1AE1B098DEB00CA9E83 /* SRRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRefreshView.h; sourceTree = "<group>"; };
+		08DEF1AF1B098DEB00CA9E83 /* SRRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRefreshView.m; sourceTree = "<group>"; };
+		08DEF1B01B098DEB00CA9E83 /* SRSlimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRSlimeView.h; sourceTree = "<group>"; };
+		08DEF1B11B098DEB00CA9E83 /* SRSlimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRSlimeView.m; sourceTree = "<group>"; };
 		08F3DA361B04D1FF000B2F86 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		26012DBD1B0474E5008DC8FA /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		26012DBF1B0474FE008DC8FA /* customer_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = customer_logo.jpg; sourceTree = "<group>"; };
@@ -399,6 +410,20 @@
 			path = yearMonth;
 			sourceTree = "<group>";
 		};
+		08DEF1AA1B098DEB00CA9E83 /* SlimeRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				08DEF1AB1B098DEB00CA9E83 /* sr_refresh.png */,
+				08DEF1AC1B098DEB00CA9E83 /* sr_refresh@2X.png */,
+				08DEF1AD1B098DEB00CA9E83 /* SRDefine.h */,
+				08DEF1AE1B098DEB00CA9E83 /* SRRefreshView.h */,
+				08DEF1AF1B098DEB00CA9E83 /* SRRefreshView.m */,
+				08DEF1B01B098DEB00CA9E83 /* SRSlimeView.h */,
+				08DEF1B11B098DEB00CA9E83 /* SRSlimeView.m */,
+			);
+			path = SlimeRefresh;
+			sourceTree = "<group>";
+		};
 		2627C3131B005F8C00969720 /* userMsg */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +575,7 @@
 		2664B23B1AE2B2C200FA8054 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				08DEF1AA1B098DEB00CA9E83 /* SlimeRefresh */,
 				086B21461AF713C000E2EC58 /* yearMonth */,
 				2612D5C11AF43E96002B45D9 /* indicatorView.h */,
 				2612D5C21AF43E96002B45D9 /* indicatorView.m */,
@@ -902,9 +928,11 @@
 				267800FC1AEF57FB008DE5E8 /* cells.xib in Resources */,
 				2627C3121B0010AF00969720 /* portrait@2x.png in Resources */,
 				26D53F091AEB491A00A1A33D /* 银行-表格背景.png in Resources */,
+				08DEF1B21B098DEB00CA9E83 /* sr_refresh.png in Resources */,
 				26D53EE91AEB491A00A1A33D /* 登录背景.png in Resources */,
 				26D53EF01AEB491A00A1A33D /* 公司-经过，选中状态.png in Resources */,
 				2612D5C01AF42EC1002B45D9 /* views.xib in Resources */,
+				08DEF1B31B098DEB00CA9E83 /* sr_refresh@2X.png in Resources */,
 				2627C30C1B00008700969720 /* Icon-29@2x.png in Resources */,
 				26904ED61B086DBD00487C43 /* check@2x.png in Resources */,
 				2678F24A1AED50E1001A0596 /* msyh.ttf in Resources */,
@@ -995,10 +1023,12 @@
 				2612D5C41AF43E96002B45D9 /* indicatorView.m in Sources */,
 				2664B2191AE2B1CA00FA8054 /* AppDelegate.m in Sources */,
 				2627C2F91AFE6B6700969720 /* setFavAcctService.m in Sources */,
+				08DEF1B41B098DEB00CA9E83 /* SRRefreshView.m in Sources */,
 				0866E0D61AE5C9F200435CD5 /* keepAliveService.m in Sources */,
 				26AC06EB1AF9CC3300B5A3F0 /* TextFieldEx.m in Sources */,
 				2612D5BB1AF11D4E002B45D9 /* getAuthListService.m in Sources */,
 				26E440031AE4AF0300CDE8A7 /* loginService.m in Sources */,
+				08DEF1B51B098DEB00CA9E83 /* SRSlimeView.m in Sources */,
 				26904ECE1B08140000487C43 /* SendMsgService.m in Sources */,
 				2664B23E1AE2B33500FA8054 /* webService.m in Sources */,
 				086B214F1AF713C000E2EC58 /* yearMonthVC.m in Sources */,

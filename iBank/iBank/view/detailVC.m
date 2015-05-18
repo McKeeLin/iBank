@@ -15,6 +15,7 @@
 #import "yearMonthVC.h"
 #import "setFavAcctService.h"
 
+
 @interface detailVC ()<UITableViewDataSource,UITableViewDelegate>
 {
     qryAcctDetailService *_qryAcctDetailService;
@@ -93,6 +94,7 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    
     [_firstPageButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [_previousPageButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [_nextpageButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
