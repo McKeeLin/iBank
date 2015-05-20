@@ -96,6 +96,8 @@
 
 @property int timeoutInterval; //minutes
 
+@property (nonatomic) UIImage *logo2Img;
+
 @property NSMutableArray *focusAccounts;
 
 @property NSMutableArray *accounts;

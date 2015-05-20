@@ -108,7 +108,7 @@
 
 
 
-@interface homeVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface homeVC ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 {
     IBOutlet UITableView *_leftTableView;
     IBOutlet UITableView *_rightTableView;
@@ -131,7 +131,7 @@
 @property IBOutlet UIButton *systemMsgButton;
 @property IBOutlet UIImageView *portraitView;
 @property IBOutlet UILabel *userName;
-
+@property UIAlertView *logoutAlert;
 @end
 
 @implementation homeVC
@@ -468,17 +468,8 @@
 
 - (IBAction)onTouchLogout:(id)sender
 {
-    __weak homeVC *weakSelf = self;
-    logoutService *srv = [[logoutService alloc] init];
-    srv.logoutBlock = ^(NSInteger code, NSString *data){
-        [indicatorView dismissAtView:[UIApplication sharedApplication].keyWindow];
-        if( [dataHelper helper].loginViewController ){
-            [[dataHelper helper].loginViewController prepareLoginAgain];
-        }
-        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
-    };
-    [indicatorView showMessage:@"正在注销，请稍候..." atView:[UIApplication sharedApplication].keyWindow];
-    [srv request];
+    logoutAlert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定注销当前用户？" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
+    [av show];
 }
 
 - (void)loadFavorites
@@ -491,5 +482,26 @@
     _favoriteSrv.month = month;
     [_favoriteSrv request];
 }
+
+
+#pragma mark- UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if( logoutAlert == alertView && alertView.cancelButtonIndex != buttonIndex ){
+        __weak homeVC *weakSelf = self;
+        logoutService *srv = [[logoutService alloc] init];
+        srv.logoutBlock = ^(NSInteger code, NSString *data){
+            [indicatorView dismissAtView:[UIApplication sharedApplication].keyWindow];
+            if( [dataHelper helper].loginViewController ){
+                [[dataHelper helper].loginViewController prepareLoginAgain];
+            }
+            [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+        };
+        [indicatorView showMessage:@"正在注销，请稍候..." atView:[UIApplication sharedApplication].keyWindow];
+        [srv request];
+    }
+}
+
 
 @end
