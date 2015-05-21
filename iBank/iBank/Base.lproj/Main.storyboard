@@ -100,8 +100,9 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LOGO.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Xb-KC-1mh">
                                         <rect key="frame" x="0.0" y="0.0" width="256" height="129"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="customer_logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="75b-nG-ln8">
+                                    <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="75b-nG-ln8">
                                         <rect key="frame" x="0.0" y="432" width="333" height="85"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ntrualbit iBankBiz 2014 (1.15.05.223)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xD9-Kw-cEw">
                                         <rect key="frame" x="0.0" y="160" width="700" height="39"/>
@@ -145,7 +146,7 @@
                                     <constraint firstAttribute="width" constant="547" id="vwD-XI-UwF"/>
                                 </constraints>
                             </view>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="JfT-h6-o9G">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="JfT-h6-o9G">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                         </subviews>
@@ -161,6 +162,7 @@
                     <connections>
                         <outlet property="_label1" destination="xD9-Kw-cEw" id="49o-Z1-UvZ"/>
                         <outlet property="_label6" destination="EkU-1u-Vhv" id="mNm-f9-qBj"/>
+                        <outlet property="_logo2" destination="75b-nG-ln8" id="HIr-RL-rRo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEH-r4-njE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1144,7 +1146,6 @@
     <resources>
         <image name="LOGO.png" width="256" height="129"/>
         <image name="back.png" width="28" height="28"/>
-        <image name="customer_logo.jpg" width="420" height="170"/>
         <image name="default.png" width="95" height="128"/>
         <image name="settingNormal.png" width="32" height="37"/>
         <image name="写消息-标准状态.png" width="35" height="29"/>

@@ -279,12 +279,11 @@
 - (UIImage*)logo2Img
 {
     NSString *imageName = [_setting objectForKey:@"Option_logo2"];
-    if( imageName ){
-        return [UIImage imageWithContentsOfFile:[_documentsPath stringByAppendingPathComponent:imageName]];
+    UIImage *image = [UIImage imageWithContentsOfFile:[_documentsPath stringByAppendingPathComponent:imageName]];
+    if( !image ){
+        image = [UIImage imageNamed:@"customer_logo.jpg"];
     }
-    else{
-        return nil;
-    }
+    return image;
 }
 
 - (void)saveSettingToFile

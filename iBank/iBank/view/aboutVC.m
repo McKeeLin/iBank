@@ -48,18 +48,23 @@
     NSDictionary* infoDict =[[NSBundle mainBundle] infoDictionary];
     NSString* version =[infoDict objectForKey:@"CFBundleShortVersionString"];
     _label1.text = [NSString stringWithFormat:@"Ntrualbit iBankBiz %ld （%@）", [Utility currentDateComponents].year, version];
-    _logo2.layer.contentsGravity = kCAGravityResizeAspect;
     UIImage *logo2Img = [dataHelper helper].logo2Img;
     if( logo2Img ){
         _logo2.image = logo2Img;
-//        CGRect logo2Frame = _logo2.frame;
-//        logo2Frame.size = logo2Img.size;
-//        _logo2.frame = logo2Frame;
-//        CGRect label6Frame = _label6.frame;
-//        label6Frame.origin.y = _logo2.frame.origin.y + _logo2.frame.size.height + 15;
-//        _label6.frame = label6Frame;
     }
+    _logo2.layer.masksToBounds = YES;
+    _logo2.layer.contentsGravity = kCAGravityResizeAspect;
     _label6.text = [NSString stringWithFormat:@"S/N: %@", [dataHelper helper].sn];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    CGRect logo2Frame = _logo2.frame;
+    CGFloat height = logo2Frame.size.height;
+    CGFloat width = (_logo2.image.size.width / _logo2.image.size.height) * height;
+    logo2Frame.size = CGSizeMake(width, height);
+    _logo2.frame = logo2Frame;
 }
 
 

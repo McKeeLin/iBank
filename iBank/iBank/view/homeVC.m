@@ -468,8 +468,8 @@
 
 - (IBAction)onTouchLogout:(id)sender
 {
-    logoutAlert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定注销当前用户？" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
-    [av show];
+    _logoutAlert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定注销当前用户？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
+    [_logoutAlert show];
 }
 
 - (void)loadFavorites
@@ -488,7 +488,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if( logoutAlert == alertView && alertView.cancelButtonIndex != buttonIndex ){
+    if( _logoutAlert == alertView && alertView.cancelButtonIndex != buttonIndex ){
         __weak homeVC *weakSelf = self;
         logoutService *srv = [[logoutService alloc] init];
         srv.logoutBlock = ^(NSInteger code, NSString *data){
