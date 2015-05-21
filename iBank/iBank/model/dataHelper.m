@@ -25,6 +25,7 @@
 @interface dataHelper ()
 {
     NSString *_settingFilePath;
+    NSString *_documentsPath;
     NSMutableDictionary *_setting;
 }
 
@@ -54,16 +55,16 @@
         self.focusAccounts = [[NSMutableArray alloc] initWithCapacity:0];
         self.accounts = [[NSMutableArray alloc] initWithCapacity:0];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsPath = paths.firstObject;
+        _documentsPath = paths.firstObject;
         NSFileManager *fm = [NSFileManager defaultManager];
         NSError *error;
-        if( ![fm fileExistsAtPath:documentsPath] ){
-            [fm createDirectoryAtPath:documentsPath withIntermediateDirectories:YES attributes:nil error:&error];
+        if( ![fm fileExistsAtPath:_documentsPath] ){
+            [fm createDirectoryAtPath:_documentsPath withIntermediateDirectories:YES attributes:nil error:&error];
             if( error ){
                 NSLog(@"create documentsPath failed:%@", error.localizedDescription);
             }
         }
-        _settingFilePath = [documentsPath stringByAppendingPathComponent:@"setting.plist"];
+        _settingFilePath = [_documentsPath stringByAppendingPathComponent:@"setting.plist"];
         if( ![fm fileExistsAtPath:_settingFilePath] ){
             NSString *originalSettingFile = [[NSBundle mainBundle] pathForResource:@"setting" ofType:@"plist"];
             [fm copyItemAtPath:originalSettingFile toPath:_settingFilePath error:&error];
@@ -273,6 +274,17 @@
 - (void)setSite:(NSString *)site
 {
     [_setting setObject:site forKey:@"Option_Site"];
+}
+
+- (UIImage*)logo2Img
+{
+    NSString *imageName = [_setting objectForKey:@"Option_logo2"];
+    if( imageName ){
+        return [UIImage imageWithContentsOfFile:[_documentsPath stringByAppendingPathComponent:imageName]];
+    }
+    else{
+        return nil;
+    }
 }
 
 - (void)saveSettingToFile

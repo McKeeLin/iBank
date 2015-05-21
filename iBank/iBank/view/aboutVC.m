@@ -9,6 +9,7 @@
 #import "aboutVC.h"
 #import "dataHelper.h"
 #import "Utility.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface aboutVC ()
 {
@@ -18,6 +19,7 @@
     IBOutlet UILabel *_label4;
     IBOutlet UILabel *_label5;
     IBOutlet UILabel *_label6;
+    IBOutlet UIImageView *_logo2;
 }
 
 @end
@@ -46,6 +48,17 @@
     NSDictionary* infoDict =[[NSBundle mainBundle] infoDictionary];
     NSString* version =[infoDict objectForKey:@"CFBundleShortVersionString"];
     _label1.text = [NSString stringWithFormat:@"Ntrualbit iBankBiz %ld （%@）", [Utility currentDateComponents].year, version];
+    _logo2.layer.contentsGravity = kCAGravityResizeAspect;
+    UIImage *logo2Img = [dataHelper helper].logo2Img;
+    if( logo2Img ){
+        _logo2.image = logo2Img;
+//        CGRect logo2Frame = _logo2.frame;
+//        logo2Frame.size = logo2Img.size;
+//        _logo2.frame = logo2Frame;
+//        CGRect label6Frame = _label6.frame;
+//        label6Frame.origin.y = _logo2.frame.origin.y + _logo2.frame.size.height + 15;
+//        _label6.frame = label6Frame;
+    }
     _label6.text = [NSString stringWithFormat:@"S/N: %@", [dataHelper helper].sn];
 }
 
