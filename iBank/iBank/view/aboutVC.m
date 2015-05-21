@@ -41,6 +41,7 @@
     else{
         self.navigationController.navigationBarHidden = NO;
         self.title = @"关于";
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onTouchBack:)];
     }
     NSDictionary* infoDict =[[NSBundle mainBundle] infoDictionary];
     NSString* version =[infoDict objectForKey:@"CFBundleShortVersionString"];
@@ -63,5 +64,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)onTouchBack:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

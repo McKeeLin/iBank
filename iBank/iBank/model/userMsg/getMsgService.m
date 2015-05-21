@@ -85,7 +85,7 @@
         msg.content = [data objectForKey:@"msg"];
         msg.time = [data objectForKey:@"time"];
         msg.sender = [data objectForKey:@"sender"];
-        NSNumber *senderId = [data objectForKey:@"senderId"];
+        NSNumber *senderId = [data objectForKey:@"sid"];
         if( senderId ){
             msg.senderId = senderId.intValue;
         }

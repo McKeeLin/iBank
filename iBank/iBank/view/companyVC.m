@@ -21,8 +21,6 @@
     qryOrgBankAcctService *_qryOrgBankAcctSrv;
     NSString *_year;
     NSString *_month;
-    SRRefreshView *_refreshView;
-    BOOL _isRefreshing;
 }
 
 @property IBOutlet UITableView *tableView;
@@ -40,6 +38,10 @@
 @property outerSumaryCell1 *footerView1;
 
 @property UIPopoverController *pop;
+
+@property SRRefreshView *refreshView;
+
+@property BOOL isRefreshing;
 
 @end
 
@@ -70,7 +72,7 @@
     _refreshView.slime.lineWith = 0;
     _refreshView.slime.shadowBlur = 2;
     _refreshView.slime.shadowColor = [UIColor blackColor];
-    [_refreshView addSubview:_refreshView];
+//    [_tableView addSubview:_refreshView];
     
     NSDateComponents *componets = [Utility currentDateComponents];
     _year = [NSString stringWithFormat:@"%ld", componets.year];
@@ -78,6 +80,10 @@
     _qryOrgBankAcctSrv = [[qryOrgBankAcctService alloc] init];
     _qryOrgBankAcctSrv.qryOrgBankAcctBlock = ^( int code, id data){
         [indicatorView dismissOnlyIndicatorAtView:weakSelf.view];
+        if( weakSelf.isRefreshing ){
+            [weakSelf.refreshView endRefresh];
+            weakSelf.isRefreshing = NO;
+        }
         if( code == 1 ){
             weakSelf.orgs = (NSArray*)data;
             [weakSelf.tableView reloadData];

@@ -59,6 +59,7 @@
     else{
         self.navigationController.navigationBarHidden = NO;
         self.title = @"设置";
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onTouchBack:)];
     }
     
     _indicatorView = [indicatorView view];
@@ -298,6 +299,12 @@
     _useSSL = button.selected;
 }
 
+- (void)onTouchBack:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 - (void)onSliderValueChange:(id)sender
 {
     UISlider *slider = (UISlider*)sender;
@@ -329,5 +336,6 @@
         [[dataHelper helper] saveSettingToFile];
     }
 }
+
 
 @end

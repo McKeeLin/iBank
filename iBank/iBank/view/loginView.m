@@ -73,6 +73,8 @@
         _codeTextField.font = [UIFont fontWithName:@"MicrosoftYaHei" size:14];
         _codeTextField.background = [UIImage imageNamed:@"输入框02"];
         _codeTextField.enabled = YES;
+        [_codeTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+        [_codeTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
         [self addSubview:_codeTextField];
         
         _codeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(238, 139, 87, 30)];
