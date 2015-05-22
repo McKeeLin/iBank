@@ -67,6 +67,8 @@
 		2664B2541AE3301600FA8054 /* companyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2531AE3301600FA8054 /* companyVC.m */; };
 		2664B2571AE3302D00FA8054 /* bankVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2561AE3302D00FA8054 /* bankVC.m */; };
 		2664B25A1AE3304400FA8054 /* settingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2664B2591AE3304400FA8054 /* settingVC.m */; };
+		266C86671B0EEF5100C80954 /* 返回-标准状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 266C86651B0EEF5100C80954 /* 返回-标准状态.png */; };
+		266C86681B0EEF5100C80954 /* 返回-选中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 266C86661B0EEF5100C80954 /* 返回-选中状态.png */; };
 		267800FC1AEF57FB008DE5E8 /* cells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267800FB1AEF57FB008DE5E8 /* cells.xib */; };
 		2678F2451AED393D001A0596 /* aboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678F2441AED393D001A0596 /* aboutVC.m */; };
 		2678F2471AED4EB3001A0596 /* szLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2678F2461AED4EB3001A0596 /* szLogo.png */; };
@@ -272,6 +274,8 @@
 		2664B2561AE3302D00FA8054 /* bankVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bankVC.m; sourceTree = "<group>"; };
 		2664B2581AE3304400FA8054 /* settingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingVC.h; sourceTree = "<group>"; };
 		2664B2591AE3304400FA8054 /* settingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingVC.m; sourceTree = "<group>"; };
+		266C86651B0EEF5100C80954 /* 返回-标准状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回-标准状态.png"; sourceTree = "<group>"; };
+		266C86661B0EEF5100C80954 /* 返回-选中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回-选中状态.png"; sourceTree = "<group>"; };
 		267800FB1AEF57FB008DE5E8 /* cells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cells.xib; sourceTree = "<group>"; };
 		2678F2431AED393D001A0596 /* aboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutVC.h; sourceTree = "<group>"; };
 		2678F2441AED393D001A0596 /* aboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutVC.m; sourceTree = "<group>"; };
@@ -751,6 +755,8 @@
 		26D53ED71AEB491A00A1A33D /* 帐户名细 */ = {
 			isa = PBXGroup;
 			children = (
+				266C86651B0EEF5100C80954 /* 返回-标准状态.png */,
+				266C86661B0EEF5100C80954 /* 返回-选中状态.png */,
 				2697710C1B09C5C2003ADD27 /* 选择日期-标准状态.png */,
 				2697710D1B09C5C2003ADD27 /* 选择日期-选中状态.png */,
 				08F3DA361B04D1FF000B2F86 /* back@2x.png */,
@@ -937,10 +943,12 @@
 				26904ED61B086DBD00487C43 /* check@2x.png in Resources */,
 				2678F24A1AED50E1001A0596 /* msyh.ttf in Resources */,
 				26D53EFE1AEB491A00A1A33D /* 背景.png in Resources */,
+				266C86671B0EEF5100C80954 /* 返回-标准状态.png in Resources */,
 				2678F2471AED4EB3001A0596 /* szLogo.png in Resources */,
 				26D53EF61AEB491A00A1A33D /* 背景02.png in Resources */,
 				2697710B1B09BFF3003ADD27 /* 注销-选中状态.png in Resources */,
 				26D53EE51AEB491A00A1A33D /* 帮助按钮-选中状态.png in Resources */,
+				266C86681B0EEF5100C80954 /* 返回-选中状态.png in Resources */,
 				26D53EF41AEB491A00A1A33D /* 动态-经过，选中状态.png in Resources */,
 				26D53EEF1AEB491A00A1A33D /* 公司-标准状态.png in Resources */,
 				26D53F111AEB491A00A1A33D /* loading-背景_02.png in Resources */,
