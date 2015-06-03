@@ -59,10 +59,10 @@
     _tableView.layer.borderWidth = 1.0;
     if( ![dataHelper helper].users )
     {
-        [indicatorView showMessage:@"" atView:[UIApplication sharedApplication].keyWindow];
+        [indicatorView showMessage:@"" atView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
         qryUsersService *srv = [[qryUsersService alloc] init];
         srv.qryUserBlock = ^(int code, id data){
-            [indicatorView dismissAtView:[UIApplication sharedApplication].keyWindow];
+            [indicatorView dismissAtView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
             if( code == 1 ){
                 [dataHelper helper].users = (NSArray*)data;
                 [_tableView reloadData];

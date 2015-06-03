@@ -212,6 +212,7 @@
     NSDateComponents *componets = [Utility currentDateComponents];
     _year = [NSString stringWithFormat:@"%ld", componets.year];
     _month = [NSString stringWithFormat:@"%02ld", componets.month];
+    [_yearMonthButton setTitle:[NSString stringWithFormat:@"%@-%@", _year, _month] forState:UIControlStateNormal];
     _iv = [[indicatorView alloc] initWithFrame:self.view.bounds];
     _qryBankOrgAcctSrv = [[qryBankOrgAcctService alloc] init];
     _qryBankOrgAcctSrv.qryBankOrgAcctBlock = ^( int code, id data){

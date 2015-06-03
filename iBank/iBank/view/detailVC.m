@@ -221,11 +221,11 @@
     NSString *debit = [item objectForKey:@"debit"];
     cell.dateLabel.text = [item objectForKey:@"date"];
     cell.smodeLabel.text = [item objectForKey:@"smode"];
-    cell.receiptLabel.text = [item objectForKey:@"receipt"];
+    cell.receiptLabel.text = [[item objectForKey:@"receipt"] isKindOfClass:[NSString class]] ? [item objectForKey:@"receipt"] : @"";
     cell.debitLabel.text = [Utility moneyFormatString:debit.floatValue];
     cell.creditLabel.text = [Utility moneyFormatString:credit.floatValue];
-    cell.sumaryLabel.text = [item objectForKey:@"summary"];
-    cell.descLabel.text = [item objectForKey:@"desc"];
+    cell.sumaryLabel.text = [[item objectForKey:@"summary"] isKindOfClass:[NSString class]] ? [item objectForKey:@"summary"] : @"";
+    cell.descLabel.text = [[item objectForKey:@"desc"] isKindOfClass:[NSString class]] ? [item objectForKey:@"desc"] : @"";
     cell.balanceLabel.text = [Utility moneyFormatString:balance.floatValue];
     NSNumber *ln = [item objectForKey:@"ln"];
     cell.numLabel.text = [NSString stringWithFormat:@"%d", ln.intValue + 1 ];

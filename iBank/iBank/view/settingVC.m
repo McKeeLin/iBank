@@ -210,7 +210,7 @@
     verifyImageService *svr = [[verifyImageService alloc] init];
     svr.url = [NSString stringWithFormat:@"%@/ibankbizdev/index.php/ibankbiz/auth/api?ws=1", host];
     svr.getImageBlock = ^(UIImage *image, NSString *code, NSString *error){
-        [indicatorView dismissAtView:[UIApplication sharedApplication].keyWindow];
+        [indicatorView dismissAtView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
         NSString *tips;
         if( !image ){
             tips = @"未能连接指定服务器，或服务未就绪！";
@@ -221,7 +221,8 @@
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"测试结果" message:tips delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [av show];
     };
-    [indicatorView showMessage:@"正在测试，请稍候..." atView:[UIApplication sharedApplication].keyWindow];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [indicatorView showMessage:@"正在测试，请稍候..." atView:window.rootViewController.view];
     [svr request];
 }
 

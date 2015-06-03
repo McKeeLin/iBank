@@ -48,9 +48,10 @@
 {
     self = [super init];
     if( self ){
-        self.dev = [UIDevice currentDevice].name;
-        self.os = [NSString stringWithFormat:@"%@%@", [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
-        self.ip = @"192.168.10.100";
+        _lastTouchTimestamp = 0;
+        _dev = [UIDevice currentDevice].name;
+        _os = [NSString stringWithFormat:@"%@%@", [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
+        _ip = @"192.168.10.100";
         self.sn = @"S/N: 23135-2135-292198-0283";
         self.focusAccounts = [[NSMutableArray alloc] initWithCapacity:0];
         self.accounts = [[NSMutableArray alloc] initWithCapacity:0];

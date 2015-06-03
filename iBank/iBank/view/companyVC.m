@@ -77,6 +77,7 @@
     NSDateComponents *componets = [Utility currentDateComponents];
     _year = [NSString stringWithFormat:@"%ld", componets.year];
     _month = [NSString stringWithFormat:@"%02ld", componets.month];
+    [_yearMonthButton setTitle:[NSString stringWithFormat:@"%@-%@", _year, _month] forState:UIControlStateNormal];
     _qryOrgBankAcctSrv = [[qryOrgBankAcctService alloc] init];
     _qryOrgBankAcctSrv.qryOrgBankAcctBlock = ^( int code, id data){
         [indicatorView dismissOnlyIndicatorAtView:weakSelf.view];
@@ -270,6 +271,7 @@
         vc.company = [item objectForKey:@"org"];
         vc.account = [item objectForKey:@"acct"];
         vc.accountId = [[item objectForKey:@"aid"] intValue];
+        vc.currencyType = [item objectForKey:@"ccode"];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

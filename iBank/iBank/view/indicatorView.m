@@ -77,7 +77,7 @@
 - (void)showAtMainWindow
 {
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    [self showAtView:window];
+    [self showAtView:window.rootViewController.view];
 }
 
 - (void)dismiss

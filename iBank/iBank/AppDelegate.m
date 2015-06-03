@@ -19,7 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    _lastTouchTimestamp = 0;
     [aliveHelper helper].inteval = 180;
     return YES;
 }
@@ -42,7 +41,7 @@
     
     NSTimeInterval timestamp = [NSDate date].timeIntervalSince1970;
     int interval = [dataHelper helper].timeoutInterval * 60;
-    if( timestamp - _lastTouchTimestamp > interval ){
+    if( [dataHelper helper].lastTouchTimestamp > 0 && timestamp - [dataHelper helper].lastTouchTimestamp > interval ){
         if( [dataHelper helper].loginViewController ){
             [[dataHelper helper].loginViewController prepareLoginAgain];
         }
@@ -50,7 +49,7 @@
         [nav popToRootViewControllerAnimated:YES];
     }
     else{
-        _lastTouchTimestamp = timestamp;
+        [dataHelper helper].lastTouchTimestamp = timestamp;
     }
 }
 

@@ -390,6 +390,7 @@
         else{
             cell.titleLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:25];
             cell.valueLabel.font = [UIFont fontWithName:@"Microsoft YaHei" size:25];
+            cell.backgroundColor = [UIColor colorWithWhite:1 alpha:0.1];
         }
         return cell;
     }
@@ -406,6 +407,7 @@
         cell.bankLabel.text = [NSString stringWithFormat:@"%@：", [info objectForKey:@"bank"]];
         cell.accountButton.tag = indexPath.row;
         [cell.accountButton setTitle:[info objectForKey:@"acct"] forState:UIControlStateNormal];
+        [cell.accountButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         [cell.accountButton addTarget:self action:@selector(onTouchAccount:) forControlEvents:UIControlEventTouchUpInside];
         NSString *amount = [info objectForKey:@"amount"];
         cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@",[info objectForKey:@"cstr"], [Utility moneyFormatString:amount.floatValue]];
@@ -422,6 +424,7 @@
     vc.company = [info objectForKey:@"org"];
     vc.account = [info objectForKey:@"acct"];
     vc.accountId = [[info objectForKey:@"aid"] intValue];
+    vc.currencyType = [info objectForKey:@"ccode"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -488,20 +491,31 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if( _logoutAlert == alertView && alertView.cancelButtonIndex != buttonIndex ){
+    if( _logoutAlert == alertView && 1 == buttonIndex ){
         __weak homeVC *weakSelf = self;
         logoutService *srv = [[logoutService alloc] init];
         srv.logoutBlock = ^(NSInteger code, NSString *data){
-            [indicatorView dismissAtView:[UIApplication sharedApplication].keyWindow];
+            [indicatorView dismissAtView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
             if( [dataHelper helper].loginViewController ){
                 [[dataHelper helper].loginViewController prepareLoginAgain];
             }
             [weakSelf.navigationController popToRootViewControllerAnimated:YES];
         };
-        [indicatorView showMessage:@"正在注销，请稍候..." atView:[UIApplication sharedApplication].keyWindow];
+        [indicatorView showMessage:@"正在注销，请稍候..." atView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
         [srv request];
     }
 }
+
+- (void)alertViewCancel:(UIAlertView *)alertView
+{
+    ;
+}
+
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+}
+
 
 
 @end
