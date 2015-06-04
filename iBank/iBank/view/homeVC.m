@@ -21,6 +21,7 @@
 #import "sendMsgVC.h"
 #import "msgListVC.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SRRefreshView.h"
 
 @implementation homeItem
 @end
@@ -108,7 +109,7 @@
 
 
 
-@interface homeVC ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
+@interface homeVC ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate,SRRefreshDelegate>
 {
     IBOutlet UITableView *_leftTableView;
     IBOutlet UITableView *_rightTableView;
@@ -132,6 +133,10 @@
 @property IBOutlet UIImageView *portraitView;
 @property IBOutlet UILabel *userName;
 @property UIAlertView *logoutAlert;
+@property BOOL balanceIsRefreshing;
+@property BOOL favoritesIsRefreshing;
+@property SRRefreshView *balanceRefreshingView;
+@property SRRefreshView *favoritesRefreshingView;
 @end
 
 @implementation homeVC
@@ -145,6 +150,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _balanceRefreshingView = [[SRRefreshView alloc] init];
+    _balanceRefreshingView.delegate = self;
+    _balanceRefreshingView.upInset = 20;
+    _balanceRefreshingView.slimeMissWhenGoingBack = YES;
+    _balanceRefreshingView.slime.bodyColor = [UIColor grayColor];
+    _balanceRefreshingView.slime.skinColor = [UIColor grayColor];
+    _balanceRefreshingView.slime.lineWith = 0;
+    _balanceRefreshingView.slime.shadowBlur = 2;
+    _balanceRefreshingView.slime.shadowColor = [UIColor blackColor];
+    [_leftTableView addSubview:_balanceRefreshingView];
+    
+    _favoritesRefreshingView = [[SRRefreshView alloc] init];
+    _favoritesRefreshingView.delegate = self;
+    _favoritesRefreshingView.upInset = 20;
+    _favoritesRefreshingView.slimeMissWhenGoingBack = YES;
+    _favoritesRefreshingView.slime.bodyColor = [UIColor grayColor];
+    _favoritesRefreshingView.slime.skinColor = [UIColor grayColor];
+    _favoritesRefreshingView.slime.lineWith = 0;
+    _favoritesRefreshingView.slime.shadowBlur = 2;
+    _favoritesRefreshingView.slime.shadowColor = [UIColor blackColor];
+    [_rightTableView addSubview:_favoritesRefreshingView];
+    
     [dataHelper helper].homeViewController = self;
     _portraitView.layer.masksToBounds = YES;
     _orgs = [[NSMutableArray alloc] initWithCapacity:0];
@@ -152,6 +179,10 @@
     _balanceSrv = [[qryOrgBankBalanceService alloc] init];
     _balanceSrv.qryOrgBankBalanceBlock = ^(int code, id data){
         [indicatorView dismissOnlyIndicatorAtView:weakSelf.leftTableView];
+        if( weakSelf.balanceIsRefreshing ){
+            [weakSelf.balanceRefreshingView endRefresh];
+            weakSelf.balanceIsRefreshing = NO;
+        }
         if( code == 1 ){
             [weakSelf.orgs removeAllObjects];
             NSArray *items = (NSArray*)data;
@@ -184,6 +215,10 @@
     _favoriteSrv = [[qryMyFavoriteService alloc] init];
     _favoriteSrv.qryMyFavoriteBlock = ^(int code, id data){
         [indicatorView dismissOnlyIndicatorAtView:weakSelf.rightTableView];
+        if( weakSelf.favoritesIsRefreshing ){
+            [weakSelf.favoritesRefreshingView endRefresh];
+            weakSelf.favoritesIsRefreshing = NO;
+        }
         if( code == 1 ){
             weakSelf.favoriteAccounts = (NSArray*)data;
             [weakSelf.rightTableView reloadData];
@@ -272,6 +307,13 @@
 
 - (void)loadData
 {
+    [self loadBalance];
+    [self loadFavorites];
+    [_infoSrv request];
+}
+
+- (void)loadBalance
+{
     NSDateComponents *components = [Utility currentDateComponents];
     NSString *year = [NSString stringWithFormat:@"%ld", components.year];
     NSString *month = [NSString stringWithFormat:@"%02ld", components.month];
@@ -279,13 +321,17 @@
     _balanceSrv.year = year;
     _balanceSrv.month = month;
     [_balanceSrv request];
-    
+}
+
+- (void)loadFavorites
+{
+    NSDateComponents *components = [Utility currentDateComponents];
+    NSString *year = [NSString stringWithFormat:@"%ld", components.year];
+    NSString *month = [NSString stringWithFormat:@"%02ld", components.month];
     [indicatorView showOnlyIndicatorAtView:_rightTableView];
     _favoriteSrv.year = year;
     _favoriteSrv.month = month;
     [_favoriteSrv request];
-    
-    [_infoSrv request];
 }
 
 - (void)updateLeftTableView
@@ -475,18 +521,6 @@
     [_logoutAlert show];
 }
 
-- (void)loadFavorites
-{
-    NSDateComponents *components = [Utility currentDateComponents];
-    NSString *year = [NSString stringWithFormat:@"%ld", components.year];
-    NSString *month = [NSString stringWithFormat:@"%02ld", components.month];
-    [indicatorView showOnlyIndicatorAtView:_rightTableView];
-    _favoriteSrv.year = year;
-    _favoriteSrv.month = month;
-    [_favoriteSrv request];
-}
-
-
 #pragma mark- UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -516,6 +550,54 @@
 {
 }
 
+
+
+#pragma mark - slimeRefresh delegate
+
+- (void)slimeRefreshStartRefresh:(SRRefreshView *)refreshView
+{
+    if( refreshView == _balanceRefreshingView ){
+        _balanceIsRefreshing = YES;
+        [self loadBalance];
+        [_balanceRefreshingView.activityIndicationView stopAnimating];
+    }
+    else if( refreshView == _favoritesRefreshingView ){
+        _favoritesIsRefreshing = YES;
+        [self loadFavorites];
+        [_favoritesRefreshingView.activityIndicationView stopAnimating];
+    }
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if( scrollView == _leftTableView ){
+        if( !_balanceIsRefreshing ){
+            [_balanceRefreshingView scrollViewDidScroll];
+        }
+    }
+    else{
+        if( !_favoritesIsRefreshing ){
+            [_favoritesRefreshingView scrollViewDidScroll];
+        }
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if( scrollView == _leftTableView ){
+        if( !_balanceIsRefreshing ){
+            [_balanceRefreshingView scrollViewDidEndDraging];
+        }
+    }
+    else{
+        if( !_favoritesIsRefreshing ){
+            [_favoritesRefreshingView scrollViewDidEndDraging];
+        }
+    }
+}
 
 
 @end

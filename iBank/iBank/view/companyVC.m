@@ -72,7 +72,7 @@
     _refreshView.slime.lineWith = 0;
     _refreshView.slime.shadowBlur = 2;
     _refreshView.slime.shadowColor = [UIColor blackColor];
-//    [_tableView addSubview:_refreshView];
+    [_tableView addSubview:_refreshView];
     
     NSDateComponents *componets = [Utility currentDateComponents];
     _year = [NSString stringWithFormat:@"%ld", componets.year];
@@ -80,7 +80,7 @@
     [_yearMonthButton setTitle:[NSString stringWithFormat:@"%@-%@", _year, _month] forState:UIControlStateNormal];
     _qryOrgBankAcctSrv = [[qryOrgBankAcctService alloc] init];
     _qryOrgBankAcctSrv.qryOrgBankAcctBlock = ^( int code, id data){
-        [indicatorView dismissOnlyIndicatorAtView:weakSelf.view];
+        [indicatorView dismissOnlyIndicatorAtView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
         if( weakSelf.isRefreshing ){
             [weakSelf.refreshView endRefresh];
             weakSelf.isRefreshing = NO;
@@ -118,7 +118,7 @@
 
 - (void)loadData
 {
-    [indicatorView showOnlyIndicatorAtView:self.view];
+    [indicatorView showOnlyIndicatorAtView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
     _qryOrgBankAcctSrv.year = _year;
     _qryOrgBankAcctSrv.month = _month;
     [_qryOrgBankAcctSrv request];
@@ -300,11 +300,9 @@
 
 - (void)slimeRefreshStartRefresh:(SRRefreshView *)refreshView
 {
-    UIView *maskView = [[UIView alloc] initWithFrame:self.view.bounds];
-    maskView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.1];
-    [self.view addSubview:maskView];
     _isRefreshing = YES;
     [self loadData];
+    [_refreshView.activityIndicationView stopAnimating];
 }
 
 

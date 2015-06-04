@@ -14,9 +14,10 @@
 #import "indicatorView.h"
 #import "yearMonthVC.h"
 #import "setFavAcctService.h"
+#import "SRRefreshView.h"
 
 
-@interface detailVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface detailVC ()<UITableViewDataSource,UITableViewDelegate,SRRefreshDelegate>
 {
     qryAcctDetailService *_qryAcctDetailService;
     setFavAcctService *_setFavAcctService;
@@ -72,6 +73,10 @@
 
 @property UIPopoverController *pop;
 
+@property SRRefreshView *refreshView;
+
+@property BOOL isRefreshing;
+
 @end
 
 
@@ -94,6 +99,16 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _refreshView = [[SRRefreshView alloc] init];
+    _refreshView.delegate = self;
+    _refreshView.upInset = 20;
+    _refreshView.slimeMissWhenGoingBack = YES;
+    _refreshView.slime.bodyColor = [UIColor grayColor];
+    _refreshView.slime.skinColor = [UIColor grayColor];
+    _refreshView.slime.lineWith = 0;
+    _refreshView.slime.shadowBlur = 2;
+    _refreshView.slime.shadowColor = [UIColor blackColor];
+    [_tableView addSubview:_refreshView];
     
     [_firstPageButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     [_previousPageButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
@@ -118,6 +133,10 @@
     _qryAcctDetailService.qryAcctDetailBlock = ^(int code, int pageTotal, int pageNum, BOOL isFavorite, id data, NSString *org){
         if( weakSelf.iv ){
             [weakSelf.iv dismiss];
+        }
+        if( weakSelf.isRefreshing ){
+            [weakSelf.refreshView endRefresh];
+            weakSelf.isRefreshing = NO;
         }
         if( code == 1 ){
             weakSelf.companyLabel.text = org;
@@ -322,6 +341,34 @@
     _qryAcctDetailService.year = _year;
     _qryAcctDetailService.month = _month;
     [_qryAcctDetailService request];
+}
+
+
+
+#pragma mark - slimeRefresh delegate
+
+- (void)slimeRefreshStartRefresh:(SRRefreshView *)refreshView
+{
+    _isRefreshing = YES;
+    [self loadData];
+    [_refreshView.activityIndicationView stopAnimating];
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if( !_isRefreshing ){
+        [_refreshView scrollViewDidScroll];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if( !_isRefreshing ){
+        [_refreshView scrollViewDidEndDraging];
+    }
 }
 
 @end

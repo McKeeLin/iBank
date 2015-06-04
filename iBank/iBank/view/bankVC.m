@@ -14,6 +14,7 @@
 #import "cells.h"
 #import "detailVC.h"
 #import "yearMonthVC.h"
+#import "SRRefreshView.h"
 
 
 #define BANK_ROW_HEIGHT 47
@@ -165,7 +166,7 @@
 @end
 
 
-@interface bankVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface bankVC ()<UITableViewDataSource,UITableViewDelegate,SRRefreshDelegate>
 {
     qryBankOrgAcctService *_qryBankOrgAcctSrv;
     NSString *_year;
@@ -188,6 +189,10 @@
 
 @property UIPopoverController *pop;
 
+@property SRRefreshView *refreshView;
+
+@property BOOL isRefreshing;
+
 @end
 
 @implementation bankVC
@@ -209,6 +214,17 @@
     _footerView1 = [[[NSBundle mainBundle] loadNibNamed:@"cells" owner:nil options:nil] objectAtIndex:12];
     _tableView.tableFooterView = _footerView;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _refreshView = [[SRRefreshView alloc] init];
+    _refreshView.delegate = self;
+    _refreshView.upInset = 20;
+    _refreshView.slimeMissWhenGoingBack = YES;
+    _refreshView.slime.bodyColor = [UIColor grayColor];
+    _refreshView.slime.skinColor = [UIColor grayColor];
+    _refreshView.slime.lineWith = 0;
+    _refreshView.slime.shadowBlur = 2;
+    _refreshView.slime.shadowColor = [UIColor blackColor];
+    [_tableView addSubview:_refreshView];
+    
     NSDateComponents *componets = [Utility currentDateComponents];
     _year = [NSString stringWithFormat:@"%ld", componets.year];
     _month = [NSString stringWithFormat:@"%02ld", componets.month];
@@ -216,7 +232,11 @@
     _iv = [[indicatorView alloc] initWithFrame:self.view.bounds];
     _qryBankOrgAcctSrv = [[qryBankOrgAcctService alloc] init];
     _qryBankOrgAcctSrv.qryBankOrgAcctBlock = ^( int code, id data){
-        [indicatorView dismissOnlyIndicatorAtView:weakSelf.view];
+        [indicatorView dismissOnlyIndicatorAtView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
+        if( weakSelf.isRefreshing ){
+            [weakSelf.refreshView endRefresh];
+            weakSelf.isRefreshing = NO;
+        }
         if( code == 1 ){
             weakSelf.banks = (NSArray*)data;
             [weakSelf.tableView reloadData];
@@ -250,7 +270,7 @@
 
 - (void)loadData
 {
-    [indicatorView showOnlyIndicatorAtView:self.view];
+    [indicatorView showOnlyIndicatorAtView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
     _qryBankOrgAcctSrv.year = _year;
     _qryBankOrgAcctSrv.month = _month;
     [_iv showAtView:self.view];
@@ -436,5 +456,31 @@
     [_pop presentPopoverFromRect:_chooseDateButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
+
+#pragma mark - slimeRefresh delegate
+
+- (void)slimeRefreshStartRefresh:(SRRefreshView *)refreshView
+{
+    _isRefreshing = YES;
+    [self loadData];
+    [_refreshView.activityIndicationView stopAnimating];
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if( !_isRefreshing ){
+        [_refreshView scrollViewDidScroll];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if( !_isRefreshing ){
+        [_refreshView scrollViewDidEndDraging];
+    }
+}
 
 @end
